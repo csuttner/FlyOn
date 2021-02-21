@@ -1,4 +1,5 @@
 *.csv
-
+Secrets/
 .DS_Store
 xcuserdata/
+MainTrack.xcodeproj/
