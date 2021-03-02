@@ -22,4 +22,10 @@ class CGRectExtensionsTests: XCTestCase {
         XCTAssertEqual(mainBounds.midY, sut.midY)
     }
     
+    func test_insetByPadding() {
+        let mainBounds = UIScreen.main.bounds
+        let sut = mainBounds.inset(by: .mainPadding)
+        
+        XCTAssertEqual(sut, mainBounds.insetBy(dx: .mainPadding, dy: .mainPadding))
+    }
 }

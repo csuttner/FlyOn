@@ -10,31 +10,33 @@ import UIKit
 class LoginView: UIView {
     let emplIdText = UITextView()
     let passwordText = UITextView()
-    let loginButton = UIButton()
     
-    lazy var stack = UIStackView(arrangedSubviews: [
-        emplIdText,
-        passwordText,
-        loginButton
-    ])
+    let loginButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("login", for: .normal)
+        button.sizeToFit()
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = .cornerRadius
+        return button
+    }()
+    
+    lazy var stack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [
+            emplIdText,
+            passwordText,
+            loginButton
+        ])
+        stack.frame = bounds.inset(by: .mainPadding)
+        stack.distribution = .fillEqually
+        stack.spacing = .mainPadding
+        stack.axis = .vertical
+        return stack
+    }()
     
     convenience init(superviewFrame: CGRect) {
         self.init(frame: superviewFrame.squareWidthDivided(by: 1.5))
         backgroundColor = .systemGray
-        layer.cornerRadius = 8
-        
-        setupStack()
-        
-        loginButton.setTitle("login", for: .normal)
-        loginButton.sizeToFit()
-        loginButton.backgroundColor = .systemBlue
-        
-    }
-    
-    func setupStack() {
+        layer.cornerRadius = .cornerRadius
         addSubview(stack)
-        stack.frame = bounds.insetBy(dx: .mainPadding, dy: .mainPadding)
-        stack.axis = .vertical
-        stack.alignment = .center
     }
 }

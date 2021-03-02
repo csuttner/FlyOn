@@ -14,4 +14,8 @@ extension CGRect {
         let heightDelta = (height - width) / 2 + widthDelta
         return insetBy(dx: widthDelta, dy: heightDelta)
     }
+    
+    func inset(by padding: CGFloat) -> CGRect {
+        return insetBy(dx: padding, dy: padding)
+    }
 }
