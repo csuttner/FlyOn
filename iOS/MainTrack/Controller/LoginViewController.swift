@@ -8,11 +8,12 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    let loginView = LoginView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.addSubview(loginView)
     }
-
 }
+
 

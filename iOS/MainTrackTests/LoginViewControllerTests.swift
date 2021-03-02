@@ -11,8 +11,23 @@ import XCTest
 
 class LoginViewControllerTests: XCTestCase {
     
-    func test_sut_loadsProgrammatically() {
-        XCTAssertNotNil(sutFactory())
+    func test_views_loadProgrammatically() {
+        let sut = sutFactory()
+        
+        XCTAssertNotNil(sut)
+        XCTAssertNotNil(sut.loginView)
+    }
+
+    func test_loginView_isAddedToView() {
+        let sut = sutFactory()
+        let loginView = sut.loginView
+        
+        XCTAssertTrue(sut.view.subviews.contains(loginView))
+    }
+    
+    func test_loginStack_isCenteredInView() {
+//        let sut = sutFactory()
+//        let loginStack = 
     }
     
     func sutFactory() -> LoginViewController {
