@@ -8,11 +8,12 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-    let loginView = LoginView()
+    lazy var loginView = LoginView(superviewFrame: view.frame)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(loginView)
+        view.backgroundColor = .systemBackground
     }
 }
 

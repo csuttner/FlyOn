@@ -12,25 +12,32 @@ import XCTest
 class LoginViewControllerTests: XCTestCase {
     
     func test_views_loadProgrammatically() {
-        let sut = sutFactory()
+        let sut = makeSut()
         
         XCTAssertNotNil(sut)
         XCTAssertNotNil(sut.loginView)
     }
 
     func test_loginView_isAddedToView() {
-        let sut = sutFactory()
+        let sut = makeSut()
         let loginView = sut.loginView
         
         XCTAssertTrue(sut.view.subviews.contains(loginView))
     }
     
-    func test_loginStack_isCenteredInView() {
-//        let sut = sutFactory()
-//        let loginStack = 
+    func test_loginView_isCenteredInView() {
+        let sut = makeSut()
+        let loginView = sut.loginView
+        
+        XCTAssertEqual(sut.view.frame.midX, loginView.frame.midX)
+        XCTAssertEqual(sut.view.frame.midY, loginView.frame.midY)
     }
     
-    func sutFactory() -> LoginViewController {
+    func test_viewBackground_isSystemBackground() {
+        XCTAssertEqual(makeSut().view.backgroundColor, .systemBackground)
+    }
+    
+    func makeSut() -> LoginViewController {
         let sut = LoginViewController()
         _ = sut.view
         return sut

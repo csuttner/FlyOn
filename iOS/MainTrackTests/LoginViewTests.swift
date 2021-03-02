@@ -24,6 +24,21 @@ class LoginViewTests: XCTestCase {
         XCTAssertTrue(sut.subviews.contains(stack))
     }
     
+    func test_stack_frameEqualToBoundsInsetByPadding() {
+        let sut = makeSut()
+        let stack = sut.stack
+        
+        XCTAssertEqual(stack.frame, sut.bounds.insetBy(dx: .mainPadding, dy: .mainPadding))
+    }
+    
+    func test_stack_axisIsVertical() {
+        XCTAssertEqual(makeSut().stack.axis, .vertical)
+    }
+    
+    func test_stack_alignmentIsCenter() {
+        
+    }
+    
     func test_subviews_addedToStack() {
         let sut = makeSut()
         let stack = sut.stack
@@ -32,9 +47,28 @@ class LoginViewTests: XCTestCase {
         XCTAssertTrue(stack.arrangedSubviews.contains(subviews))
     }
     
-    func test_frame_isSetAppropriately() {
-        let sut = makeSut()
+    func test_loginButton_textIsLogin() {
+        let title = "login"
+        let loginButton = makeSut().loginButton
+        
+        XCTAssertEqual(loginButton.titleLabel!.text, title)
     }
+    
+    func test_loginButton_frameSizeEqualsIntrinsicContentSize() {
+        XCTAssertEqual(makeSut().loginButton.frame.size, makeSut().loginButton.intrinsicContentSize)
+    }
+    
+    func test_loginButton_backgroundColorIsSystemBlue() {
+        XCTAssertEqual(makeSut().loginButton.backgroundColor?.accessibilityName, UIColor.systemBlue.accessibilityName)
+    }
+    
+    func test_formatsCorrectly() {
+        XCTAssertEqual(makeSut().backgroundColor?.accessibilityName, UIColor.systemGray.accessibilityName)
+        XCTAssertEqual(makeSut().layer.cornerRadius, 8)
+    }
+    
+
+    
     
     func makeSut() -> LoginView {
         let sut = LoginView(superviewFrame: testFrame)
