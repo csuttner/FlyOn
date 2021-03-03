@@ -14,6 +14,17 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(loginView)
         view.backgroundColor = .systemBackground
+        
+        loginView.loginButton.addTarget(self, action: #selector(onLoginButtonTapped), for: .touchUpInside)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    @objc func onLoginButtonTapped() {
+        navigationController?.pushViewController(DefectTableViewController(), animated: true)
     }
 }
 
