@@ -13,6 +13,7 @@
 		F378DB4D25F68157002042D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F378DB4B25F68157002042D1 /* Main.storyboard */; };
 		F378DB4F25F6815A002042D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F378DB4E25F6815A002042D1 /* Assets.xcassets */; };
 		F378DB5225F6815A002042D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F378DB5025F6815A002042D1 /* LaunchScreen.storyboard */; };
+		F3E586F225F68D5400FB5D63 /* DefectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E586F125F68D5400FB5D63 /* DefectTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		F378DB4E25F6815A002042D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F378DB5125F6815A002042D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F378DB5325F6815A002042D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3E586F125F68D5400FB5D63 /* DefectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				F378DB4525F68157002042D1 /* AppDelegate.swift */,
 				F378DB4725F68157002042D1 /* SceneDelegate.swift */,
 				F378DB4925F68157002042D1 /* ViewController.swift */,
+				F3E586F125F68D5400FB5D63 /* DefectTableViewController.swift */,
 				F378DB4B25F68157002042D1 /* Main.storyboard */,
 				F378DB4E25F6815A002042D1 /* Assets.xcassets */,
 				F378DB5025F6815A002042D1 /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3E586F225F68D5400FB5D63 /* DefectTableViewController.swift in Sources */,
 				F378DB4A25F68157002042D1 /* ViewController.swift in Sources */,
 				F378DB4625F68157002042D1 /* AppDelegate.swift in Sources */,
 				F378DB4825F68157002042D1 /* SceneDelegate.swift in Sources */,
