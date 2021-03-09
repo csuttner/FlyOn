@@ -18,10 +18,18 @@ struct Defect {
     let ata4: String? = nil
 }
 
+class TableViewCell: UITableViewCell {
+    var defect: Defect! {
+        didSet{
+            textLabel!.text = defect.description
+        }
+    }
+}
+
 class DefectTableViewController: UITableViewController {
     
     let defects = [
-        Defect(id: UUID(), description: "defect 1"),
+        Defect(id: UUID(), description: "The soap dispenser in lavitory 4 is completely broken and needs replacing"),
         Defect(id: UUID(), description: "defect 2"),
         Defect(id: UUID(), description: "defect 3"),
         Defect(id: UUID(), description: "defect 4"),
@@ -38,6 +46,16 @@ class DefectTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(TableViewCell.self, forCellReuseIdentifier: "ID")
     }
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return defects.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ID") as! TableViewCell
+        cell.defect = defects[indexPath.row]
+        return cell
+    }
 }
