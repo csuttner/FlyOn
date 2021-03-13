@@ -18,8 +18,8 @@ class DetailSearchBar: UISearchBar {
             left: leftAnchor,
             bottom: bottomAnchor,
             right: rightAnchor,
-            paddingLeft: .halfPadding,
-            paddingRight: .halfPadding
+            paddingLeft: .padding,
+            paddingRight: .padding
         )
         anchor(
             height: searchTextField.intrinsicContentSize.height

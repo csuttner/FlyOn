@@ -13,8 +13,19 @@ class SignupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemGray6
+        setupSubviews()
         addTapGesture()
         addSubmitButtonAction()
+    }
+    
+    private func setupSubviews() {
+        view.addSubview(signUpView)
+        signUpView.anchor(
+            centerX: view.centerXAnchor,
+            centerY: view.centerYAnchor,
+            width: .loginViewWidth
+        )
     }
     
     private func addTapGesture() {

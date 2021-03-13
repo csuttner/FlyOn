@@ -11,21 +11,19 @@ protocol UpdatableTableDelegate {
     func updateTable()
 }
 
-class EditDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UpdatableTableDelegate {
+class EditDetailViewController: UITableViewController, UpdatableTableDelegate {
     
     var defect: Defect?
     
-    let tableView = UITableView()
+    var detailMode: DetailMode! {
+        didSet {
+            updateToolBarItems()
+            updateTitle()
+        }
+    }
     
-    let submitButton: UIButton = {
-        let button = UIButton()
-        button.layer.cornerRadius = 8
-        button.setTitle("   Submit   ", for: .normal)
-        button.titleLabel?.font = .preferredFont(forTextStyle: .title2)
-        button.tintColor = .white
-        button.backgroundColor = .systemGreen
-        return button
-    }()
+    lazy var submitButton = ActionButton(title: "Submit", color: .systemGreen, target: self, action: #selector(onSubmitButtonTapped))
+    lazy var editButton = ActionButton(title: "Edit", color: .systemBlue, target: self, action: #selector(onEditButtonTapped))
     
     let headers = [
         "Details",
@@ -39,47 +37,60 @@ class EditDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         "Ata Subchapter"
     ]
     
-    convenience init(defect: Defect) {
+    convenience init(defect: Defect?, mode: DetailMode) {
         self.init(nibName: nil, bundle: nil)
         self.defect = defect
+        self.detailMode = mode
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = defect == nil ? "New Defect" : "Edit \(defect!.id)"
+        configureView()
+        configureTableView()
+        addGestureRecognizers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateToolBarItems()
+    }
+    
+    func updateToolBarItems() {
+        let button = detailMode == .edit ? submitButton : editButton
+        setToolbarItems([
+            UIBarButtonItem(systemItem: .flexibleSpace),
+            UIBarButtonItem(customView: button),
+            UIBarButtonItem(systemItem: .flexibleSpace)
+        ], animated: true)
+    }
+    
+    func configureView() {
+        updateTitle()
         view.backgroundColor = .systemGray6
+    }
+    
+    func updateTitle() {
+        if let defect = defect {
+            title = detailMode == .edit ? "Edit \(defect.id)" : "Defect \(defect.id)"
+        } else {
+            title = "New Defect"
+        }
+    }
+    
+    func configureTableView() {
         tableView.backgroundColor = .systemGray6
         tableView.dataSource = self
         tableView.delegate = self
         tableView.allowsSelection = false
-        tableView.register(EditDetailCell.self, forCellReuseIdentifier: "EditDetail")
-        tableView.register(EditDescriptionCell.self, forCellReuseIdentifier: "EditDescription")
         tableView.tableFooterView = UIView(frame: .zero)
-        
+    }
+    
+    func addGestureRecognizers() {
         let tappedNavbar = UITapGestureRecognizer()
-        let tappedTable = UITapGestureRecognizer()
+        let tappedView = UITapGestureRecognizer()
         tappedNavbar.addTarget(self, action: #selector(onTap))
-        tappedTable.addTarget(self, action: #selector(onTap))
+        tappedView.addTarget(self, action: #selector(onTap))
         navigationController?.navigationBar.addGestureRecognizer(tappedNavbar)
-        view.addGestureRecognizer(tappedTable)
-        
-        submitButton.addTarget(self, action: #selector(onSubmitButtonTapped), for: .touchUpInside)
-        
-        view.addSubview(submitButton)
-        submitButton.anchor(
-            bottom: view.safeAreaLayoutGuide.bottomAnchor,
-            centerX: view.centerXAnchor,
-            paddingBottom: .padding
-        )
-        
-        view.addSubview(tableView)
-        tableView.anchor(
-            top: view.safeAreaLayoutGuide.topAnchor,
-            left: view.leftAnchor,
-            bottom: submitButton.topAnchor,
-            right: view.rightAnchor,
-            paddingBottom: .padding
-        )
+        view.addGestureRecognizer(tappedView)
     }
     
     @objc func onTap() {
@@ -99,47 +110,54 @@ class EditDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let submitAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default) { (nil) in
-            self.navigationController?.popViewController(animated: true)
+            self.detailMode = .view
+            self.tableView.reloadData()
         }
         
         submitAlert.addAction(okAction)
         present(submitAlert, animated: true)
     }
     
+    @objc func onEditButtonTapped() {
+        detailMode = .edit
+        tableView.reloadData()
+    }
     
     func updateTable() {
         tableView.beginUpdates()
         tableView.endUpdates()
     }
+
+}
+
+// UITableViewDataSource
+extension EditDetailViewController {
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "EditDetail") as! EditDetailCell
-            cell.defect = defect
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "EditDescription") as! EditDescriptionCell
-            cell.defect = defect
-            cell.tableDelegate = self
-            return cell
-        }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return headers.count
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+}
+
+// UITableViewDelegate
+extension EditDetailViewController {
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return SectionHeaderView(title: headers[section])
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let label = UILabel()
         label.text = "lol"
         return label.intrinsicContentSize.height + .halfPadding * 2
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return headers.count
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return SectionHeaderView(title: headers[section])
-    }
 }

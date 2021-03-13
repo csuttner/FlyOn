@@ -7,42 +7,26 @@
 
 import UIKit
 
-class DefectViewController: UIViewController {
+class DefectViewController: UITableViewController {
     
     let db = DefectDatabase()
-    let tableView = UITableView()
-    let newDefectButton = ActionButton(title: "   New Defect   ", color: .systemGreen)
+    lazy var newDefectButton = ActionButton(title: "New Defect", color: .systemGreen, target: self, action: #selector(onNewDefectButtonTapped))
+    lazy var profileItem = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle"), style: .plain, target: self, action: #selector(onProfileButtonTapped))
 
     override func viewDidLoad() {
         super.viewDidLoad()
         formatView()
-        setupSubviews()
         configureTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         configureNavigationController()
-        addNewDefectButtonAction()
+        addToolBarItems()
     }
     
     private func formatView() {
         title = "Defects"
         view.backgroundColor = .systemGray6
-    }
-    
-    private func setupSubviews() {
-        view.addSubview(newDefectButton)
-        newDefectButton.anchor(
-            bottom: view.safeAreaLayoutGuide.bottomAnchor,
-            centerX: view.centerXAnchor,
-            paddingBottom: .padding
-        )
-        
-        view.addSubview(tableView)
-        tableView.anchor(
-            top: view.safeAreaLayoutGuide.topAnchor,
-            left: view.leftAnchor,
-            bottom: newDefectButton.topAnchor,
-            right: view.rightAnchor,
-            paddingBottom: .padding
-        )
     }
     
     private func configureTableView() {
@@ -53,32 +37,43 @@ class DefectViewController: UIViewController {
     }
     
     private func configureNavigationController() {
+        navigationItem.hidesBackButton = true
+        navigationItem.rightBarButtonItem = profileItem
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.isHidden = false
-        navigationItem.hidesBackButton = true
+        navigationController?.isToolbarHidden = false
     }
     
-    private func addNewDefectButtonAction() {
-        newDefectButton.addTarget(self, action: #selector(onNewDefectButtonTapped), for: .touchUpInside)
+    private func addToolBarItems() {
+        toolbarItems = [
+            UIBarButtonItem(systemItem: .flexibleSpace),
+            UIBarButtonItem(customView: newDefectButton),
+            UIBarButtonItem(systemItem: .flexibleSpace)
+        ]
     }
     
     @objc func onNewDefectButtonTapped() {
-        navigationController?.pushViewController(ViewDetailViewController(), animated: true)
+        navigationController?.pushViewController(DetailViewController(defect: nil, mode: .edit), animated: true)
+    }
+    
+    @objc func onProfileButtonTapped() {
+        navigationController?.popViewController(animated: true)
     }
 
 }
 
-extension DefectViewController: UITableViewDataSource {
+// UITableViewDataSource
+extension DefectViewController {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return db.sections.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return db.sections[section].defects.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ID") as! DefectCell
         cell.defect = db.sections[indexPath.section].defects[indexPath.row]
         return cell
@@ -86,21 +81,16 @@ extension DefectViewController: UITableViewDataSource {
     
 }
 
-extension DefectViewController: UITableViewDelegate {
+// UITableViewDelegate
+extension DefectViewController {
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return SectionHeaderView(title: db.sections[section].title)
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let label = UILabel()
-        label.text = "lol"
-        return label.intrinsicContentSize.height + .halfPadding * 2
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let defect = db.sections[indexPath.section].defects[indexPath.row]
-        navigationController!.pushViewController(ViewDetailViewController(defect: defect), animated: true)
+        navigationController!.pushViewController(DetailViewController(defect: defect, mode: .view), animated: true)
     }
     
 }

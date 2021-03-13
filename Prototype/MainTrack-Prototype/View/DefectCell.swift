@@ -71,7 +71,6 @@ class DefectCell: UITableViewCell {
     }
     
     func setupSubviews() {
-        
         chevron.anchor(
             right: contentView.rightAnchor,
             centerY: contentView.centerYAnchor,
@@ -105,8 +104,6 @@ class DefectCell: UITableViewCell {
             paddingBottom: .halfPadding,
             paddingRight: .halfPadding
         )
-        
-        
     }
     
 }

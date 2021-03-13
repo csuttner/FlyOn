@@ -22,6 +22,19 @@ extension UIView {
         )
     }
     
+    func pin(to guide: UILayoutGuide, padding: CGFloat? = 0) {
+        anchor(
+            top: guide.topAnchor,
+            left: guide.leftAnchor,
+            bottom: guide.bottomAnchor,
+            right: guide.rightAnchor,
+            paddingTop: padding,
+            paddingLeft: padding,
+            paddingBottom: padding,
+            paddingRight: padding
+        )
+    }
+    
     func anchor(top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, centerX: NSLayoutXAxisAnchor? = nil, centerY: NSLayoutYAxisAnchor? = nil, paddingTop: CGFloat? = 0, paddingLeft: CGFloat? = 0, paddingBottom: CGFloat? = 0, paddingRight: CGFloat? = 0, width: CGFloat? = nil, height: CGFloat? = nil) {
         
         translatesAutoresizingMaskIntoConstraints = false

@@ -8,9 +8,15 @@
 import UIKit
 
 class ActionButton: UIButton {
+    
+    convenience init(title: String, color: UIColor, target: Any?, action: Selector) {
+        self.init(title: title, color: color)
+        addTarget(target, action: action, for: .touchUpInside)
+    }
+    
     convenience init(title: String, color: UIColor) {
         self.init()
-        setTitle(title, for: .normal)
+        setTitle("   \(title)   ", for: .normal)
         backgroundColor = color
         format()
     }

@@ -65,7 +65,7 @@ class ViewDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @objc func onEditDefectTapped() {
-        navigationController?.pushViewController(EditDetailViewController(defect: defect), animated: true)
+//        navigationController?.pushViewController(EditDetailViewController(defect: defect), animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

@@ -15,18 +15,14 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
-        configureNavigationController()
+        view.backgroundColor = .systemGray6
         setupSubviews()
         addButtonTargets()
     }
-    
-    private func configureView() {
-        view.backgroundColor = .systemGray6
-    }
-    
-    private func configureNavigationController() {
+
+    override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
     }
     
     private func setupSubviews() {
@@ -48,7 +44,7 @@ class LoginViewController: UIViewController {
     }
     
     @objc func onSignUpButtonTapped() {
-
+        navigationController?.pushViewController(SignupViewController(), animated: true)
     }
     
 }
