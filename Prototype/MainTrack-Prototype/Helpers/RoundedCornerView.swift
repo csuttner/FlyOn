@@ -9,9 +9,10 @@ import UIKit
 
 class RoundedCornerView: UIView {
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        layer.cornerRadius = 8
+    convenience init() {
+        self.init(frame: .zero)
+        layer.cornerRadius = .cornerRadius
+        backgroundColor = .systemGray6
     }
     
 }

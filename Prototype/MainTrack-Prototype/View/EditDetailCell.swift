@@ -7,27 +7,6 @@
 
 import UIKit
 
-class SearchBar: UISearchBar {
-    
-    convenience init(placeholder: String) {
-        self.init()
-        self.placeholder = placeholder
-        searchBarStyle = .minimal
-        searchTextField.anchor(
-            top: topAnchor,
-            left: leftAnchor,
-            bottom: bottomAnchor,
-            right: rightAnchor,
-            paddingLeft: .halfPadding,
-            paddingRight: .halfPadding
-        )
-        anchor(
-            height: searchTextField.intrinsicContentSize.height
-        )
-    }
-    
-}
-
 class EditDetailCell: UITableViewCell {
     
     var defect: Defect? {
@@ -41,10 +20,10 @@ class EditDetailCell: UITableViewCell {
         }
     }
     
-    let stationSearch = SearchBar(placeholder: "Station")
-    let aircraftSearch = SearchBar(placeholder: "Aircraft")
-    let chapterSearch = SearchBar(placeholder: "Ata Chapter")
-    let subchapterSearch = SearchBar(placeholder: "Ata Subchapter")
+    let stationSearch = DetailSearchBar(placeholder: "Station")
+    let aircraftSearch = DetailSearchBar(placeholder: "Aircraft")
+    let chapterSearch = DetailSearchBar(placeholder: "Ata Chapter")
+    let subchapterSearch = DetailSearchBar(placeholder: "Ata Subchapter")
     
     lazy var stack: UIStackView = {
         let stack = UIStackView()

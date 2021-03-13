@@ -24,14 +24,20 @@
 		F34A75CF25F93D59000F2DF8 /* DefectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */; };
 		F34A75DA25F94B4E000F2DF8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */; };
 		F34A75E425F94F7D000F2DF8 /* RoundedCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75E325F94F7D000F2DF8 /* RoundedCornerView.swift */; };
-		F34A75E725F95100000F2DF8 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75E625F95100000F2DF8 /* MainButton.swift */; };
+		F34A75E725F95100000F2DF8 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75E625F95100000F2DF8 /* ActionButton.swift */; };
 		F34A75EB25F956F0000F2DF8 /* EditDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75EA25F956F0000F2DF8 /* EditDetailViewController.swift */; };
 		F378DB4625F68157002042D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F378DB4525F68157002042D1 /* AppDelegate.swift */; };
 		F378DB4D25F68157002042D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F378DB4B25F68157002042D1 /* Main.storyboard */; };
 		F378DB4F25F6815A002042D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F378DB4E25F6815A002042D1 /* Assets.xcassets */; };
 		F378DB5225F6815A002042D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F378DB5025F6815A002042D1 /* LaunchScreen.storyboard */; };
-		F388E54225F9ABBC008131F1 /* SignupFailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388E54125F9ABBC008131F1 /* SignupFailedViewController.swift */; };
+		F380276625FC91CE00B5FFD2 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380276525FC91CE00B5FFD2 /* UserModel.swift */; };
+		F380276B25FC97A700B5FFD2 /* DetailSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380276A25FC97A700B5FFD2 /* DetailSearchBar.swift */; };
+		F380276E25FC97FA00B5FFD2 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380276D25FC97FA00B5FFD2 /* SignUpView.swift */; };
 		F389721325F8071700F66ADC /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389721225F8071700F66ADC /* DateExtensions.swift */; };
+		F3EC40ED25FC7D92004A9A5D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40EC25FC7D92004A9A5D /* LoginView.swift */; };
+		F3EC40F125FC8233004A9A5D /* StackViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */; };
+		F3EC40F425FC8B18004A9A5D /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */; };
+		F3EC40F925FC8CB1004A9A5D /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F825FC8CB1004A9A5D /* PlaceholderTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +58,7 @@
 		F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectViewController.swift; sourceTree = "<group>"; };
 		F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F34A75E325F94F7D000F2DF8 /* RoundedCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerView.swift; sourceTree = "<group>"; };
-		F34A75E625F95100000F2DF8 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
+		F34A75E625F95100000F2DF8 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		F34A75EA25F956F0000F2DF8 /* EditDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailViewController.swift; sourceTree = "<group>"; };
 		F378DB4225F68157002042D1 /* MainTrack-Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MainTrack-Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F378DB4525F68157002042D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,8 +66,14 @@
 		F378DB4E25F6815A002042D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F378DB5125F6815A002042D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F378DB5325F6815A002042D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F388E54125F9ABBC008131F1 /* SignupFailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupFailedViewController.swift; sourceTree = "<group>"; };
+		F380276525FC91CE00B5FFD2 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		F380276A25FC97A700B5FFD2 /* DetailSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSearchBar.swift; sourceTree = "<group>"; };
+		F380276D25FC97FA00B5FFD2 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		F389721225F8071700F66ADC /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		F3EC40EC25FC7D92004A9A5D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewExtensions.swift; sourceTree = "<group>"; };
+		F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
+		F3EC40F825FC8CB1004A9A5D /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,30 +87,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F312089F25F980FF0068C8FC /* View */ = {
-			isa = PBXGroup;
-			children = (
-				F312089725F97DF80068C8FC /* ViewDetailViewController.swift */,
-				F31208A125F981230068C8FC /* ViewDetailCell.swift */,
-				F31208A425F9812B0068C8FC /* ViewDescriptionCell.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		F31208A025F981090068C8FC /* Edit */ = {
-			isa = PBXGroup;
-			children = (
-				F34A75EA25F956F0000F2DF8 /* EditDetailViewController.swift */,
-				F312088725F9617B0068C8FC /* EditDetailCell.swift */,
-				F312089025F969700068C8FC /* EditDescriptionCell.swift */,
-			);
-			path = Edit;
-			sourceTree = "<group>";
-		};
 		F34A75D225F94B0A000F2DF8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				F346655325F73438004340B7 /* DefectModel.swift */,
+				F380276525FC91CE00B5FFD2 /* UserModel.swift */,
 				F346655F25F73990004340B7 /* DefectDatabase.swift */,
 			);
 			path = Model;
@@ -108,6 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				F346652925F71758004340B7 /* ViewExtensions.swift */,
+				F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */,
+				F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */,
 				F389721225F8071700F66ADC /* DateExtensions.swift */,
 				F3063CD625F86A4A00278A02 /* GGFloatExtensions.swift */,
 				F312088D25F9636D0068C8FC /* UUIDExtensions.swift */,
@@ -119,30 +114,15 @@
 		F34A75D525F94B1E000F2DF8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F34A75D825F94B3D000F2DF8 /* Login */,
-				F34A75D625F94B36000F2DF8 /* Defects */,
-				F34A75ED25F9571D000F2DF8 /* Detail */,
+				F3EC40EC25FC7D92004A9A5D /* LoginView.swift */,
+				F380276D25FC97FA00B5FFD2 /* SignUpView.swift */,
+				F346655625F73457004340B7 /* DefectCell.swift */,
+				F312088725F9617B0068C8FC /* EditDetailCell.swift */,
+				F312089025F969700068C8FC /* EditDescriptionCell.swift */,
+				F31208A125F981230068C8FC /* ViewDetailCell.swift */,
+				F31208A425F9812B0068C8FC /* ViewDescriptionCell.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		F34A75D625F94B36000F2DF8 /* Defects */ = {
-			isa = PBXGroup;
-			children = (
-				F346655625F73457004340B7 /* DefectCell.swift */,
-				F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */,
-			);
-			path = Defects;
-			sourceTree = "<group>";
-		};
-		F34A75D825F94B3D000F2DF8 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */,
-				F388E54125F9ABBC008131F1 /* SignupFailedViewController.swift */,
-				F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */,
-			);
-			path = Login;
 			sourceTree = "<group>";
 		};
 		F34A75E225F94F6F000F2DF8 /* Helpers */ = {
@@ -150,18 +130,11 @@
 			children = (
 				F346655C25F73849004340B7 /* SectionHeaderView.swift */,
 				F34A75E325F94F7D000F2DF8 /* RoundedCornerView.swift */,
-				F34A75E625F95100000F2DF8 /* MainButton.swift */,
+				F34A75E625F95100000F2DF8 /* ActionButton.swift */,
+				F3EC40F825FC8CB1004A9A5D /* PlaceholderTextView.swift */,
+				F380276A25FC97A700B5FFD2 /* DetailSearchBar.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		F34A75ED25F9571D000F2DF8 /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				F31208A025F981090068C8FC /* Edit */,
-				F312089F25F980FF0068C8FC /* View */,
-			);
-			path = Detail;
 			sourceTree = "<group>";
 		};
 		F378DB3925F68157002042D1 = {
@@ -186,6 +159,7 @@
 				F378DB4525F68157002042D1 /* AppDelegate.swift */,
 				F34A75D225F94B0A000F2DF8 /* Model */,
 				F34A75D525F94B1E000F2DF8 /* View */,
+				F3EC40E825FC7BEB004A9A5D /* Controller */,
 				F34A75E225F94F6F000F2DF8 /* Helpers */,
 				F34A75D425F94B16000F2DF8 /* Extensions */,
 				F378DB4B25F68157002042D1 /* Main.storyboard */,
@@ -194,6 +168,18 @@
 				F378DB5325F6815A002042D1 /* Info.plist */,
 			);
 			path = "MainTrack-Prototype";
+			sourceTree = "<group>";
+		};
+		F3EC40E825FC7BEB004A9A5D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */,
+				F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */,
+				F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */,
+				F34A75EA25F956F0000F2DF8 /* EditDetailViewController.swift */,
+				F312089725F97DF80068C8FC /* ViewDetailViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,21 +256,27 @@
 				F346655725F73457004340B7 /* DefectCell.swift in Sources */,
 				F30F0DA425F9AD1F00A4E664 /* SignupViewController.swift in Sources */,
 				F34A75EB25F956F0000F2DF8 /* EditDetailViewController.swift in Sources */,
+				F3EC40F425FC8B18004A9A5D /* TextFieldExtensions.swift in Sources */,
+				F3EC40ED25FC7D92004A9A5D /* LoginView.swift in Sources */,
 				F312089425F976D70068C8FC /* NotificationExtensions.swift in Sources */,
-				F34A75E725F95100000F2DF8 /* MainButton.swift in Sources */,
+				F34A75E725F95100000F2DF8 /* ActionButton.swift in Sources */,
 				F312089125F969700068C8FC /* EditDescriptionCell.swift in Sources */,
 				F346655D25F73849004340B7 /* SectionHeaderView.swift in Sources */,
 				F31208A525F9812B0068C8FC /* ViewDescriptionCell.swift in Sources */,
+				F3EC40F925FC8CB1004A9A5D /* PlaceholderTextView.swift in Sources */,
+				F380276B25FC97A700B5FFD2 /* DetailSearchBar.swift in Sources */,
 				F378DB4625F68157002042D1 /* AppDelegate.swift in Sources */,
 				F34A75E425F94F7D000F2DF8 /* RoundedCornerView.swift in Sources */,
 				F312089825F97DF80068C8FC /* ViewDetailViewController.swift in Sources */,
+				F3EC40F125FC8233004A9A5D /* StackViewExtensions.swift in Sources */,
+				F380276625FC91CE00B5FFD2 /* UserModel.swift in Sources */,
 				F346655425F73438004340B7 /* DefectModel.swift in Sources */,
 				F389721325F8071700F66ADC /* DateExtensions.swift in Sources */,
 				F3063CD725F86A4A00278A02 /* GGFloatExtensions.swift in Sources */,
 				F346652A25F71758004340B7 /* ViewExtensions.swift in Sources */,
 				F34A75DA25F94B4E000F2DF8 /* LoginViewController.swift in Sources */,
-				F388E54225F9ABBC008131F1 /* SignupFailedViewController.swift in Sources */,
 				F312088825F9617B0068C8FC /* EditDetailCell.swift in Sources */,
+				F380276E25FC97FA00B5FFD2 /* SignUpView.swift in Sources */,
 				F346656025F73990004340B7 /* DefectDatabase.swift in Sources */,
 				F312088E25F9636D0068C8FC /* UUIDExtensions.swift in Sources */,
 				F31208A225F981230068C8FC /* ViewDetailCell.swift in Sources */,
