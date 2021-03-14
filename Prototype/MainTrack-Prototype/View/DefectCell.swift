@@ -8,6 +8,7 @@
 import UIKit
 
 class DefectCell: UITableViewCell {
+    
     var defect: Defect! {
         didSet{
             configureViews()

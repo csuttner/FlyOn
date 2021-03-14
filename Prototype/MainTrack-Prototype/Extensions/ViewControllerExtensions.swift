@@ -9,6 +9,10 @@ import UIKit
 
 extension UIViewController {
     
+    func addObserver(action: Selector, name: NSNotification.Name) {
+        NotificationCenter.default.addObserver(self, selector: action, name: name, object: nil)
+    }
+    
     func presentBasicAlert(title: String, message: String? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default)

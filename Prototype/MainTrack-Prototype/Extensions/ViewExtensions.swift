@@ -13,7 +13,20 @@ extension UIView {
         NotificationCenter.default.addObserver(self, selector: action, name: name, object: nil)
     }
     
-    func pin(to view: UIView, padding: CGFloat? = 0) {
+    func pin(to view: UIView, horizPadding: CGFloat = 0, vertPadding: CGFloat = 0) {
+        anchor(
+            top: view.topAnchor,
+            left: view.leftAnchor,
+            bottom: view.bottomAnchor,
+            right: view.rightAnchor,
+            paddingTop: horizPadding,
+            paddingLeft: vertPadding,
+            paddingBottom: horizPadding,
+            paddingRight: vertPadding
+        )
+    }
+    
+    func pin(to view: UIView, padding: CGFloat = 0) {
         anchor(
             top: view.topAnchor,
             left: view.leftAnchor,

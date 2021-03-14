@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum Role {
+    case technician
+    case analyst
+}
+
 struct User: Codable {
     let id: UUID
     let email: String

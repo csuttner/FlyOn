@@ -9,36 +9,28 @@ import UIKit
 
 class DetailCell: UITableViewCell {
     
-    private var defect: Defect?
+    private let controller = DefectController.shared
     public var searchBar: DetailSearchBar!
     private let label = UILabel()
-    
-    private var mode: DetailMode! {
-        didSet {
-            setupForMode()
-        }
-    }
 
     struct Detail {
         let name: String
         let value: String?
     }
     
-    lazy var detailDict: [DefectDetail: Detail] = [
-        .sta : Detail(name: "Station", value: defect?.sta),
-        .ac : Detail(name: "Aircraft", value: defect?.ac),
-        .ata4 : Detail(name: "Ata Subchapter", value: defect?.ata4)
+    lazy var detailDict: [DefectAttribute: Detail] = [
+        .sta : Detail(name: "Station", value: controller.defect?.sta),
+        .ac : Detail(name: "Aircraft", value: controller.defect?.ac),
+        .ata4 : Detail(name: "Ata Subchapter", value: controller.defect?.ata4)
     ]
     
     var detail: Detail!
     
-    convenience init(defect: Defect?, detail: DefectDetail, mode: DetailMode) {
+    convenience init(attribute: DefectAttribute) {
         self.init(style: .default, reuseIdentifier: "ID")
-        self.defect = defect
-        self.mode = mode
-        searchBar = DetailSearchBar(placeholder: detailDict[detail]!.name)
-        searchBar.text = detailDict[detail]!.value
-        label.text = detailDict[detail]!.value
+        searchBar = DetailSearchBar(placeholder: detailDict[attribute]!.name)
+        searchBar.text = detailDict[attribute]!.value
+        label.text = detailDict[attribute]!.value
         addObserver(action: #selector(onChangeMode), name: .changeMode)
         addObserver(action: #selector(onDismissKeyboard), name: .dismissKeyboard)
         setupForMode()
@@ -49,15 +41,12 @@ class DetailCell: UITableViewCell {
     }
     
     @objc func onChangeMode() {
-        if mode == .view {
-            mode = .edit
-        } else {
-            mode = .view
-        }
+        setupForMode()
+        NotificationCenter.default.post(name: .updateTable, object: nil)
     }
     
     private func setupForMode() {
-        if mode == .view {
+        if controller.mode == .view {
             setReadView()
         } else {
             setEditView()
@@ -67,31 +56,13 @@ class DetailCell: UITableViewCell {
     private func setReadView() {
         searchBar.removeFromSuperview()
         contentView.addSubview(label)
-        label.anchor(
-            top: contentView.topAnchor,
-            left: contentView.leftAnchor,
-            bottom: contentView.bottomAnchor,
-            right: contentView.rightAnchor,
-            paddingTop: .halfPadding,
-            paddingLeft: .padding,
-            paddingBottom: .halfPadding,
-            paddingRight: .padding
-        )
+        label.pin(to: contentView, horizPadding: .halfPadding, vertPadding: .padding)
     }
     
     private func setEditView() {
         label.removeFromSuperview()
         contentView.addSubview(searchBar)
-        searchBar.anchor(
-            top: contentView.topAnchor,
-            left: contentView.leftAnchor,
-            bottom: contentView.bottomAnchor,
-            right: contentView.rightAnchor,
-            paddingTop: .halfPadding,
-            paddingLeft: .padding,
-            paddingBottom: .halfPadding,
-            paddingRight: .padding
-        )
+        searchBar.pin(to: contentView, horizPadding: .halfPadding, vertPadding: .padding)
     }
     
 }

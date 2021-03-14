@@ -10,4 +10,5 @@ import Foundation
 extension Notification.Name {
     static let changeMode = NSNotification.Name("changeMode")
     static let dismissKeyboard = NSNotification.Name("dismissKeyboard")
+    static let updateTable = NSNotification.Name("updateTable")
 }

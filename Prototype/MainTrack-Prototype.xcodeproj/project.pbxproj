@@ -10,6 +10,7 @@
 		F3063CD725F86A4A00278A02 /* GGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3063CD625F86A4A00278A02 /* GGFloatExtensions.swift */; };
 		F30F0DA425F9AD1F00A4E664 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */; };
 		F312088E25F9636D0068C8FC /* UUIDExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F312088D25F9636D0068C8FC /* UUIDExtensions.swift */; };
+		F327289B25FE6046003AE3C5 /* DefectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327289A25FE6046003AE3C5 /* DefectController.swift */; };
 		F346652A25F71758004340B7 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346652925F71758004340B7 /* ViewExtensions.swift */; };
 		F346655425F73438004340B7 /* DefectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655325F73438004340B7 /* DefectModel.swift */; };
 		F346655725F73457004340B7 /* DefectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655625F73457004340B7 /* DefectCell.swift */; };
@@ -40,7 +41,7 @@
 		F398682E25FDAD7000DF52FD /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398682D25FDAD7000DF52FD /* DescriptionCell.swift */; };
 		F398683125FDADD800DF52FD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683025FDADD800DF52FD /* DetailViewController.swift */; };
 		F398683525FDB8FE00DF52FD /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683425FDB8FE00DF52FD /* NotificationExtensions.swift */; };
-		F398683B25FDD4BF00DF52FD /* DetailCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683A25FDD4BF00DF52FD /* DetailCollection.swift */; };
+		F398683B25FDD4BF00DF52FD /* DetailViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683A25FDD4BF00DF52FD /* DetailViews.swift */; };
 		F398683E25FDD6EC00DF52FD /* ViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683D25FDD6EC00DF52FD /* ViewContainer.swift */; };
 		F398684225FDDB9800DF52FD /* StartupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398684125FDDB9800DF52FD /* StartupManager.swift */; };
 		F398684C25FDE15500DF52FD /* defects.json in Resources */ = {isa = PBXBuildFile; fileRef = F398684B25FDE15500DF52FD /* defects.json */; };
@@ -54,6 +55,7 @@
 		F3063CD625F86A4A00278A02 /* GGFloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGFloatExtensions.swift; sourceTree = "<group>"; };
 		F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		F312088D25F9636D0068C8FC /* UUIDExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUIDExtensions.swift; sourceTree = "<group>"; };
+		F327289A25FE6046003AE3C5 /* DefectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectController.swift; sourceTree = "<group>"; };
 		F346652925F71758004340B7 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		F346655325F73438004340B7 /* DefectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectModel.swift; sourceTree = "<group>"; };
 		F346655625F73457004340B7 /* DefectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectCell.swift; sourceTree = "<group>"; };
@@ -86,7 +88,7 @@
 		F398682D25FDAD7000DF52FD /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		F398683025FDADD800DF52FD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F398683425FDB8FE00DF52FD /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
-		F398683A25FDD4BF00DF52FD /* DetailCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollection.swift; sourceTree = "<group>"; };
+		F398683A25FDD4BF00DF52FD /* DetailViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViews.swift; sourceTree = "<group>"; };
 		F398683D25FDD6EC00DF52FD /* ViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewContainer.swift; sourceTree = "<group>"; };
 		F398684125FDDB9800DF52FD /* StartupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupManager.swift; sourceTree = "<group>"; };
 		F398684B25FDE15500DF52FD /* defects.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = defects.json; sourceTree = "<group>"; };
@@ -107,6 +109,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F327289825FE6008003AE3C5 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F327289A25FE6046003AE3C5 /* DefectController.swift */,
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
 		F34A75D225F94B0A000F2DF8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,7 +156,7 @@
 				F346655625F73457004340B7 /* DefectCell.swift */,
 				F398682A25FDAD6300DF52FD /* DetailCell.swift */,
 				F398682D25FDAD7000DF52FD /* DescriptionCell.swift */,
-				F398683A25FDD4BF00DF52FD /* DetailCollection.swift */,
+				F398683A25FDD4BF00DF52FD /* DetailViews.swift */,
 				F34A75E225F94F6F000F2DF8 /* Helpers */,
 			);
 			path = View;
@@ -187,8 +197,9 @@
 				F398684725FDDC0E00DF52FD /* Main */,
 				F398684625FDDBB300DF52FD /* Service */,
 				F34A75D225F94B0A000F2DF8 /* Model */,
-				F34A75D525F94B1E000F2DF8 /* View */,
+				F327289825FE6008003AE3C5 /* Model Controller */,
 				F3EC40E825FC7BEB004A9A5D /* View Controller */,
+				F34A75D525F94B1E000F2DF8 /* View */,
 				F34A75D425F94B16000F2DF8 /* Extensions */,
 				F378DB4E25F6815A002042D1 /* Assets.xcassets */,
 				F378DB5025F6815A002042D1 /* LaunchScreen.storyboard */,
@@ -317,7 +328,7 @@
 				F30F0DA425F9AD1F00A4E664 /* SignupViewController.swift in Sources */,
 				F398680A25FD8A0600DF52FD /* Errors.swift in Sources */,
 				F3EC40F425FC8B18004A9A5D /* TextFieldExtensions.swift in Sources */,
-				F398683B25FDD4BF00DF52FD /* DetailCollection.swift in Sources */,
+				F398683B25FDD4BF00DF52FD /* DetailViews.swift in Sources */,
 				F3EC40ED25FC7D92004A9A5D /* LoginView.swift in Sources */,
 				F398683125FDADD800DF52FD /* DetailViewController.swift in Sources */,
 				F398680725FD803300DF52FD /* ApiClient.swift in Sources */,
@@ -333,6 +344,7 @@
 				F3EC40F125FC8233004A9A5D /* StackViewExtensions.swift in Sources */,
 				F39867FE25FD6BBB00DF52FD /* MultilineLabel.swift in Sources */,
 				F380276625FC91CE00B5FFD2 /* UserModel.swift in Sources */,
+				F327289B25FE6046003AE3C5 /* DefectController.swift in Sources */,
 				F346655425F73438004340B7 /* DefectModel.swift in Sources */,
 				F398682B25FDAD6300DF52FD /* DetailCell.swift in Sources */,
 				F389721325F8071700F66ADC /* DateExtensions.swift in Sources */,

@@ -9,7 +9,8 @@ import UIKit
 
 class DefectViewController: UITableViewController {
     
-    let repository = Repository.instance
+    let repository = Repository.shared
+    let controller = DefectController.shared
     lazy var newDefectButton = ActionButton(title: "New Defect", color: .systemGreen, target: self, action: #selector(onNewDefectButtonTapped))
     lazy var profileItem = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle"), style: .plain, target: self, action: #selector(onProfileButtonTapped))
 
@@ -53,7 +54,9 @@ class DefectViewController: UITableViewController {
     }
     
     @objc func onNewDefectButtonTapped() {
-        navigationController?.pushViewController(DetailViewController(defect: nil, mode: .edit), animated: true)
+        controller.defect = nil
+        controller.mode = .edit
+        navigationController?.pushViewController(DetailViewController(), animated: true)
     }
     
     @objc func onProfileButtonTapped() {
@@ -61,6 +64,8 @@ class DefectViewController: UITableViewController {
     }
 
 }
+
+// MARK: - Table View
 
 // UITableViewDataSource
 extension DefectViewController {
@@ -89,8 +94,9 @@ extension DefectViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let defect = repository.sections[indexPath.section].defects[indexPath.row]
-        navigationController!.pushViewController(DetailViewController(defect: defect, mode: .view), animated: true)
+        controller.defect = repository.sections[indexPath.section].defects[indexPath.row]
+        controller.mode = .view
+        navigationController!.pushViewController(DetailViewController(), animated: true)
     }
     
 }

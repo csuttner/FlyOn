@@ -7,15 +7,12 @@
 
 import UIKit
 
-class DetailCollection {
+class DetailViews {
     
-    public var defect: Defect?
-    public var mode: DetailMode!
-    
-    private lazy var staCell = DetailCell(defect: defect, detail: .sta, mode: mode)
-    private lazy var acCell = DetailCell(defect: defect, detail: .ac, mode: mode)
-    private lazy var ataCell = DetailCell(defect: defect, detail: .ata4, mode: mode)
-    private lazy var descCell = DescriptionCell(defect: defect, mode: mode)
+    private lazy var staCell = DetailCell(attribute: .sta)
+    private lazy var acCell = DetailCell(attribute: .ac)
+    private lazy var ataCell = DetailCell(attribute: .ata4)
+    private lazy var descCell = DescriptionCell()
     
     struct Section {
         let title: String
@@ -32,11 +29,6 @@ class DetailCollection {
             descCell
         ])
     ]
-    
-    init(defect: Defect?, mode: DetailMode) {
-        self.defect = defect
-        self.mode = mode
-    }
     
     public func getNewDefectFromInput() throws -> Defect {
         guard let sta = staCell.searchBar.text, !sta.isEmpty,

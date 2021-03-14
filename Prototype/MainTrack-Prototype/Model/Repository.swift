@@ -17,7 +17,7 @@ class Repository {
     var chapters: [Chapter]!
     var sections = [DefectSection]()
     
-    static let instance = Repository()
+    static let shared = Repository()
     
     private init() {
         loadStations()

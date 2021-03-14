@@ -9,28 +9,28 @@ import UIKit
 
 class DescriptionCell: UITableViewCell {
     
-    private var defect: Defect?
+    private let controller = DefectController.shared
     public let textView = PlaceholderTextView(placeholder: "Description of defect")
     private let label = MultilineLabel()
     
-    private var mode: DetailMode! {
-        didSet {
-            setupForMode()
-        }
+    convenience init() {
+        self.init(style: .default, reuseIdentifier: "ID")
+        configureText()
+        addObservers()
+        setupForMode()
     }
     
-    convenience init(defect: Defect?, mode: DetailMode) {
-        self.init(style: .default, reuseIdentifier: "ID")
-        self.defect = defect
-        self.mode = mode
-        if let defect = defect {
+    private func configureText() {
+        if let defect = controller.defect {
             textView.text = defect.description
             textView.textColor = .black
             label.text = defect.description
         }
+    }
+    
+    private func addObservers() {
         addObserver(action: #selector(onChangeMode), name: .changeMode)
         addObserver(action: #selector(onDismissKeyboard), name: .dismissKeyboard)
-        setupForMode()
     }
     
     @objc func onDismissKeyboard() {
@@ -38,15 +38,12 @@ class DescriptionCell: UITableViewCell {
     }
     
     @objc func onChangeMode() {
-        if mode == .view {
-            mode = .edit
-        } else {
-            mode = .view
-        }
+        setupForMode()
+        NotificationCenter.default.post(name: .updateTable, object: nil)
     }
     
     private func setupForMode() {
-        if mode == .view {
+        if controller.mode == .view {
             setReadView()
         } else {
             setEditView()
@@ -56,30 +53,12 @@ class DescriptionCell: UITableViewCell {
     private func setReadView() {
         textView.removeFromSuperview()
         contentView.addSubview(label)
-        label.anchor(
-            top: contentView.topAnchor,
-            left: contentView.leftAnchor,
-            bottom: contentView.bottomAnchor,
-            right: contentView.rightAnchor,
-            paddingTop: .halfPadding,
-            paddingLeft: .padding,
-            paddingBottom: .halfPadding,
-            paddingRight: .padding
-        )
+        label.pin(to: contentView, horizPadding: .halfPadding, vertPadding: .padding)
     }
     
     private func setEditView() {
         label.removeFromSuperview()
         contentView.addSubview(textView)
-        textView.anchor(
-            top: contentView.topAnchor,
-            left: contentView.leftAnchor,
-            bottom: contentView.bottomAnchor,
-            right: contentView.rightAnchor,
-            paddingTop: .halfPadding,
-            paddingLeft: .padding,
-            paddingBottom: .halfPadding,
-            paddingRight: .padding
-        )
+        textView.pin(to: contentView, horizPadding: .halfPadding, vertPadding: .padding)
     }
 }

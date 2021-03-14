@@ -46,4 +46,8 @@ class PlaceholderTextView: UITextView, UITextViewDelegate {
         }
     }
     
+    func textViewDidChange(_ textView: UITextView) {
+        NotificationCenter.default.post(name: .updateTable, object: nil)
+    }
+    
 }

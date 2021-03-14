@@ -12,7 +12,7 @@ enum DetailMode {
     case edit
 }
 
-enum DefectDetail: CaseIterable {
+enum DefectAttribute: CaseIterable {
     case sta
     case ac
     case ata4
