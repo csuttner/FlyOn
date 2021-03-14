@@ -14,7 +14,7 @@
 		F346655425F73438004340B7 /* DefectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655325F73438004340B7 /* DefectModel.swift */; };
 		F346655725F73457004340B7 /* DefectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655625F73457004340B7 /* DefectCell.swift */; };
 		F346655D25F73849004340B7 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655C25F73849004340B7 /* SectionHeaderView.swift */; };
-		F346656025F73990004340B7 /* DefectDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655F25F73990004340B7 /* DefectDatabase.swift */; };
+		F346656025F73990004340B7 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655F25F73990004340B7 /* Repository.swift */; };
 		F34A75CF25F93D59000F2DF8 /* DefectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */; };
 		F34A75DA25F94B4E000F2DF8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */; };
 		F34A75E725F95100000F2DF8 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75E625F95100000F2DF8 /* ActionButton.swift */; };
@@ -42,6 +42,8 @@
 		F398683525FDB8FE00DF52FD /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683425FDB8FE00DF52FD /* NotificationExtensions.swift */; };
 		F398683B25FDD4BF00DF52FD /* DetailCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683A25FDD4BF00DF52FD /* DetailCollection.swift */; };
 		F398683E25FDD6EC00DF52FD /* ViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683D25FDD6EC00DF52FD /* ViewContainer.swift */; };
+		F398684225FDDB9800DF52FD /* StartupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398684125FDDB9800DF52FD /* StartupManager.swift */; };
+		F398684C25FDE15500DF52FD /* defects.json in Resources */ = {isa = PBXBuildFile; fileRef = F398684B25FDE15500DF52FD /* defects.json */; };
 		F3EC40ED25FC7D92004A9A5D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40EC25FC7D92004A9A5D /* LoginView.swift */; };
 		F3EC40F125FC8233004A9A5D /* StackViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */; };
 		F3EC40F425FC8B18004A9A5D /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */; };
@@ -56,7 +58,7 @@
 		F346655325F73438004340B7 /* DefectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectModel.swift; sourceTree = "<group>"; };
 		F346655625F73457004340B7 /* DefectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectCell.swift; sourceTree = "<group>"; };
 		F346655C25F73849004340B7 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
-		F346655F25F73990004340B7 /* DefectDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectDatabase.swift; sourceTree = "<group>"; };
+		F346655F25F73990004340B7 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectViewController.swift; sourceTree = "<group>"; };
 		F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F34A75E625F95100000F2DF8 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
@@ -86,6 +88,8 @@
 		F398683425FDB8FE00DF52FD /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		F398683A25FDD4BF00DF52FD /* DetailCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollection.swift; sourceTree = "<group>"; };
 		F398683D25FDD6EC00DF52FD /* ViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewContainer.swift; sourceTree = "<group>"; };
+		F398684125FDDB9800DF52FD /* StartupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupManager.swift; sourceTree = "<group>"; };
+		F398684B25FDE15500DF52FD /* defects.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = defects.json; sourceTree = "<group>"; };
 		F3EC40EC25FC7D92004A9A5D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewExtensions.swift; sourceTree = "<group>"; };
 		F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
@@ -106,12 +110,12 @@
 		F34A75D225F94B0A000F2DF8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F346655F25F73990004340B7 /* Repository.swift */,
 				F380276525FC91CE00B5FFD2 /* UserModel.swift */,
 				F398682625FDA1D800DF52FD /* StationModel.swift */,
 				F398682325FDA18E00DF52FD /* AircraftModel.swift */,
 				F398682025FDA13D00DF52FD /* AtaModel.swift */,
 				F346655325F73438004340B7 /* DefectModel.swift */,
-				F346655F25F73990004340B7 /* DefectDatabase.swift */,
 				F398680C25FD8A3A00DF52FD /* Enumerations.swift */,
 				F398680925FD8A0600DF52FD /* Errors.swift */,
 				F398681625FD9D6400DF52FD /* Data */,
@@ -180,11 +184,11 @@
 		F378DB4425F68157002042D1 /* MainTrack-Prototype */ = {
 			isa = PBXGroup;
 			children = (
-				F378DB4525F68157002042D1 /* AppDelegate.swift */,
+				F398684725FDDC0E00DF52FD /* Main */,
+				F398684625FDDBB300DF52FD /* Service */,
 				F34A75D225F94B0A000F2DF8 /* Model */,
 				F34A75D525F94B1E000F2DF8 /* View */,
-				F3EC40E825FC7BEB004A9A5D /* Controller */,
-				F398680525FD802100DF52FD /* Service */,
+				F3EC40E825FC7BEB004A9A5D /* View Controller */,
 				F34A75D425F94B16000F2DF8 /* Extensions */,
 				F378DB4E25F6815A002042D1 /* Assets.xcassets */,
 				F378DB5025F6815A002042D1 /* LaunchScreen.storyboard */,
@@ -193,7 +197,18 @@
 			path = "MainTrack-Prototype";
 			sourceTree = "<group>";
 		};
-		F398680525FD802100DF52FD /* Service */ = {
+		F398681625FD9D6400DF52FD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F398681725FD9DE200DF52FD /* sta.json */,
+				F398681A25FD9DF300DF52FD /* ac.json */,
+				F398681D25FD9E0200DF52FD /* ata.json */,
+				F398684B25FDE15500DF52FD /* defects.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F398684625FDDBB300DF52FD /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				F398680625FD803300DF52FD /* ApiClient.swift */,
@@ -201,17 +216,16 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		F398681625FD9D6400DF52FD /* Data */ = {
+		F398684725FDDC0E00DF52FD /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				F398681725FD9DE200DF52FD /* sta.json */,
-				F398681A25FD9DF300DF52FD /* ac.json */,
-				F398681D25FD9E0200DF52FD /* ata.json */,
+				F378DB4525F68157002042D1 /* AppDelegate.swift */,
+				F398684125FDDB9800DF52FD /* StartupManager.swift */,
 			);
-			path = Data;
+			path = Main;
 			sourceTree = "<group>";
 		};
-		F3EC40E825FC7BEB004A9A5D /* Controller */ = {
+		F3EC40E825FC7BEB004A9A5D /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */,
@@ -219,7 +233,7 @@
 				F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */,
 				F398683025FDADD800DF52FD /* DetailViewController.swift */,
 			);
-			path = Controller;
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +297,7 @@
 				F378DB4F25F6815A002042D1 /* Assets.xcassets in Resources */,
 				F398681825FD9DE200DF52FD /* sta.json in Resources */,
 				F398681E25FD9E0200DF52FD /* ata.json in Resources */,
+				F398684C25FDE15500DF52FD /* defects.json in Resources */,
 				F398681B25FD9DF300DF52FD /* ac.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F398684225FDDB9800DF52FD /* StartupManager.swift in Sources */,
 				F398682725FDA1D800DF52FD /* StationModel.swift in Sources */,
 				F34A75CF25F93D59000F2DF8 /* DefectViewController.swift in Sources */,
 				F398682E25FDAD7000DF52FD /* DescriptionCell.swift in Sources */,
@@ -326,7 +342,7 @@
 				F34A75DA25F94B4E000F2DF8 /* LoginViewController.swift in Sources */,
 				F398681325FD8F2A00DF52FD /* ViewControllerExtensions.swift in Sources */,
 				F380276E25FC97FA00B5FFD2 /* SignUpView.swift in Sources */,
-				F346656025F73990004340B7 /* DefectDatabase.swift in Sources */,
+				F346656025F73990004340B7 /* Repository.swift in Sources */,
 				F312088E25F9636D0068C8FC /* UUIDExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,7 +9,7 @@ import UIKit
 
 class DefectViewController: UITableViewController {
     
-    let db = DefectDatabase()
+    let repository = Repository.instance
     lazy var newDefectButton = ActionButton(title: "New Defect", color: .systemGreen, target: self, action: #selector(onNewDefectButtonTapped))
     lazy var profileItem = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle"), style: .plain, target: self, action: #selector(onProfileButtonTapped))
 
@@ -66,16 +66,16 @@ class DefectViewController: UITableViewController {
 extension DefectViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return db.sections.count
+        return repository.sections.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return db.sections[section].defects.count
+        return repository.sections[section].defects.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ID") as! DefectCell
-        cell.defect = db.sections[indexPath.section].defects[indexPath.row]
+        cell.defect = repository.sections[indexPath.section].defects[indexPath.row]
         return cell
     }
     
@@ -85,11 +85,11 @@ extension DefectViewController {
 extension DefectViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return SectionHeaderView(title: db.sections[section].title)
+        return SectionHeaderView(title: repository.sections[section].title)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let defect = db.sections[indexPath.section].defects[indexPath.row]
+        let defect = repository.sections[indexPath.section].defects[indexPath.row]
         navigationController!.pushViewController(DetailViewController(defect: defect, mode: .view), animated: true)
     }
     
