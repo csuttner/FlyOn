@@ -9,6 +9,10 @@ import UIKit
 
 extension UIView {
     
+    func addObserver(action: Selector, name: NSNotification.Name) {
+        NotificationCenter.default.addObserver(self, selector: action, name: name, object: nil)
+    }
+    
     func pin(to view: UIView, padding: CGFloat? = 0) {
         anchor(
             top: view.topAnchor,
@@ -63,6 +67,7 @@ extension UIView {
         if let centerX = centerX {
             centerXAnchor.constraint(equalTo: centerX).isActive = true
         }
+        
         if let centerY = centerY {
             centerYAnchor.constraint(equalTo: centerY).isActive = true
         }

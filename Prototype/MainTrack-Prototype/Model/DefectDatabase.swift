@@ -8,6 +8,7 @@
 import Foundation
 
 class DefectDatabase {
+    
     var sections = [DefectSection]()
     
     let dateAdding: (Double) -> Date = { days in

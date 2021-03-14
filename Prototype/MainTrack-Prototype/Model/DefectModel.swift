@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DefectSection {
+class DefectSection: Codable {
     let title: String
     var defects: [Defect]
     
@@ -17,15 +17,26 @@ class DefectSection {
     }
 }
 
-class Defect {
+class Defect: Codable {
     let id: String
     let defectDate: Date
-    let resolvedDate: Date? = nil
+    var resolvedDate: Date?
     var resolved: Bool
-    let description: String
-    let ac: String
-    let sta: String
-    let ata4: String
+    var description: String
+    var ac: String
+    var sta: String
+    var ata4: String
+    
+    init(_ sta: String, _ ac: String, _ ata4: String, _ description: String) {
+        self.id = UUID.shortString()
+        self.defectDate = Date()
+        self.resolvedDate = nil
+        self.resolved = false
+        self.description = description
+        self.ac = ac
+        self.sta = sta
+        self.ata4 = ata4
+    }
     
     init(description: String, date: Date, ac: String, sta: String, ata4: String, resolved: Bool) {
         self.id = UUID.shortString()

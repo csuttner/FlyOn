@@ -13,14 +13,7 @@ class DetailSearchBar: UISearchBar {
         self.init()
         self.placeholder = placeholder
         searchBarStyle = .minimal
-        searchTextField.anchor(
-            top: topAnchor,
-            left: leftAnchor,
-            bottom: bottomAnchor,
-            right: rightAnchor,
-            paddingLeft: .padding,
-            paddingRight: .padding
-        )
+        searchTextField.pin(to: self)
         anchor(
             height: searchTextField.intrinsicContentSize.height
         )

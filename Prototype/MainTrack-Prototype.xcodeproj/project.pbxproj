@@ -10,8 +10,6 @@
 		F3063CD725F86A4A00278A02 /* GGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3063CD625F86A4A00278A02 /* GGFloatExtensions.swift */; };
 		F30F0DA425F9AD1F00A4E664 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */; };
 		F312088E25F9636D0068C8FC /* UUIDExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F312088D25F9636D0068C8FC /* UUIDExtensions.swift */; };
-		F312089425F976D70068C8FC /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F312089325F976D70068C8FC /* NotificationExtensions.swift */; };
-		F312089825F97DF80068C8FC /* ViewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F312089725F97DF80068C8FC /* ViewDetailViewController.swift */; };
 		F346652A25F71758004340B7 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346652925F71758004340B7 /* ViewExtensions.swift */; };
 		F346655425F73438004340B7 /* DefectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655325F73438004340B7 /* DefectModel.swift */; };
 		F346655725F73457004340B7 /* DefectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655625F73457004340B7 /* DefectCell.swift */; };
@@ -19,21 +17,31 @@
 		F346656025F73990004340B7 /* DefectDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655F25F73990004340B7 /* DefectDatabase.swift */; };
 		F34A75CF25F93D59000F2DF8 /* DefectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */; };
 		F34A75DA25F94B4E000F2DF8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */; };
-		F34A75E425F94F7D000F2DF8 /* RoundedCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75E325F94F7D000F2DF8 /* RoundedCornerView.swift */; };
 		F34A75E725F95100000F2DF8 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75E625F95100000F2DF8 /* ActionButton.swift */; };
-		F34A75EB25F956F0000F2DF8 /* EditDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75EA25F956F0000F2DF8 /* EditDetailViewController.swift */; };
 		F378DB4625F68157002042D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F378DB4525F68157002042D1 /* AppDelegate.swift */; };
-		F378DB4D25F68157002042D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F378DB4B25F68157002042D1 /* Main.storyboard */; };
 		F378DB4F25F6815A002042D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F378DB4E25F6815A002042D1 /* Assets.xcassets */; };
 		F378DB5225F6815A002042D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F378DB5025F6815A002042D1 /* LaunchScreen.storyboard */; };
 		F380276625FC91CE00B5FFD2 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380276525FC91CE00B5FFD2 /* UserModel.swift */; };
 		F380276B25FC97A700B5FFD2 /* DetailSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380276A25FC97A700B5FFD2 /* DetailSearchBar.swift */; };
 		F380276E25FC97FA00B5FFD2 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380276D25FC97FA00B5FFD2 /* SignUpView.swift */; };
 		F389721325F8071700F66ADC /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389721225F8071700F66ADC /* DateExtensions.swift */; };
-		F3CADF0225FD399800B4EBD9 /* EditDefectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CADF0125FD399800B4EBD9 /* EditDefectView.swift */; };
-		F3CADF0525FD39B500B4EBD9 /* ReadDefectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CADF0425FD39B500B4EBD9 /* ReadDefectView.swift */; };
-		F3CADF0825FD3A6B00B4EBD9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CADF0725FD3A6B00B4EBD9 /* DetailViewController.swift */; };
-		F3CADF0E25FD540D00B4EBD9 /* ViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CADF0D25FD540D00B4EBD9 /* ViewContainer.swift */; };
+		F39867FE25FD6BBB00DF52FD /* MultilineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39867FD25FD6BBB00DF52FD /* MultilineLabel.swift */; };
+		F398680725FD803300DF52FD /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398680625FD803300DF52FD /* ApiClient.swift */; };
+		F398680A25FD8A0600DF52FD /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398680925FD8A0600DF52FD /* Errors.swift */; };
+		F398680D25FD8A3A00DF52FD /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398680C25FD8A3A00DF52FD /* Enumerations.swift */; };
+		F398681325FD8F2A00DF52FD /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398681225FD8F2A00DF52FD /* ViewControllerExtensions.swift */; };
+		F398681825FD9DE200DF52FD /* sta.json in Resources */ = {isa = PBXBuildFile; fileRef = F398681725FD9DE200DF52FD /* sta.json */; };
+		F398681B25FD9DF300DF52FD /* ac.json in Resources */ = {isa = PBXBuildFile; fileRef = F398681A25FD9DF300DF52FD /* ac.json */; };
+		F398681E25FD9E0200DF52FD /* ata.json in Resources */ = {isa = PBXBuildFile; fileRef = F398681D25FD9E0200DF52FD /* ata.json */; };
+		F398682125FDA13D00DF52FD /* AtaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398682025FDA13D00DF52FD /* AtaModel.swift */; };
+		F398682425FDA18E00DF52FD /* AircraftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398682325FDA18E00DF52FD /* AircraftModel.swift */; };
+		F398682725FDA1D800DF52FD /* StationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398682625FDA1D800DF52FD /* StationModel.swift */; };
+		F398682B25FDAD6300DF52FD /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398682A25FDAD6300DF52FD /* DetailCell.swift */; };
+		F398682E25FDAD7000DF52FD /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398682D25FDAD7000DF52FD /* DescriptionCell.swift */; };
+		F398683125FDADD800DF52FD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683025FDADD800DF52FD /* DetailViewController.swift */; };
+		F398683525FDB8FE00DF52FD /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683425FDB8FE00DF52FD /* NotificationExtensions.swift */; };
+		F398683B25FDD4BF00DF52FD /* DetailCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683A25FDD4BF00DF52FD /* DetailCollection.swift */; };
+		F398683E25FDD6EC00DF52FD /* ViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683D25FDD6EC00DF52FD /* ViewContainer.swift */; };
 		F3EC40ED25FC7D92004A9A5D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40EC25FC7D92004A9A5D /* LoginView.swift */; };
 		F3EC40F125FC8233004A9A5D /* StackViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */; };
 		F3EC40F425FC8B18004A9A5D /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */; };
@@ -44,8 +52,6 @@
 		F3063CD625F86A4A00278A02 /* GGFloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGFloatExtensions.swift; sourceTree = "<group>"; };
 		F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		F312088D25F9636D0068C8FC /* UUIDExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUIDExtensions.swift; sourceTree = "<group>"; };
-		F312089325F976D70068C8FC /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
-		F312089725F97DF80068C8FC /* ViewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDetailViewController.swift; sourceTree = "<group>"; };
 		F346652925F71758004340B7 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		F346655325F73438004340B7 /* DefectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectModel.swift; sourceTree = "<group>"; };
 		F346655625F73457004340B7 /* DefectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectCell.swift; sourceTree = "<group>"; };
@@ -53,12 +59,9 @@
 		F346655F25F73990004340B7 /* DefectDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectDatabase.swift; sourceTree = "<group>"; };
 		F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectViewController.swift; sourceTree = "<group>"; };
 		F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		F34A75E325F94F7D000F2DF8 /* RoundedCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerView.swift; sourceTree = "<group>"; };
 		F34A75E625F95100000F2DF8 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
-		F34A75EA25F956F0000F2DF8 /* EditDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailViewController.swift; sourceTree = "<group>"; };
 		F378DB4225F68157002042D1 /* MainTrack-Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MainTrack-Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F378DB4525F68157002042D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F378DB4C25F68157002042D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F378DB4E25F6815A002042D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F378DB5125F6815A002042D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F378DB5325F6815A002042D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,10 +69,23 @@
 		F380276A25FC97A700B5FFD2 /* DetailSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSearchBar.swift; sourceTree = "<group>"; };
 		F380276D25FC97FA00B5FFD2 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		F389721225F8071700F66ADC /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
-		F3CADF0125FD399800B4EBD9 /* EditDefectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDefectView.swift; sourceTree = "<group>"; };
-		F3CADF0425FD39B500B4EBD9 /* ReadDefectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadDefectView.swift; sourceTree = "<group>"; };
-		F3CADF0725FD3A6B00B4EBD9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		F3CADF0D25FD540D00B4EBD9 /* ViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewContainer.swift; sourceTree = "<group>"; };
+		F39867FD25FD6BBB00DF52FD /* MultilineLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineLabel.swift; sourceTree = "<group>"; };
+		F398680625FD803300DF52FD /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		F398680925FD8A0600DF52FD /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		F398680C25FD8A3A00DF52FD /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
+		F398681225FD8F2A00DF52FD /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
+		F398681725FD9DE200DF52FD /* sta.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sta.json; sourceTree = "<group>"; };
+		F398681A25FD9DF300DF52FD /* ac.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ac.json; sourceTree = "<group>"; };
+		F398681D25FD9E0200DF52FD /* ata.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ata.json; sourceTree = "<group>"; };
+		F398682025FDA13D00DF52FD /* AtaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtaModel.swift; sourceTree = "<group>"; };
+		F398682325FDA18E00DF52FD /* AircraftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftModel.swift; sourceTree = "<group>"; };
+		F398682625FDA1D800DF52FD /* StationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationModel.swift; sourceTree = "<group>"; };
+		F398682A25FDAD6300DF52FD /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		F398682D25FDAD7000DF52FD /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
+		F398683025FDADD800DF52FD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F398683425FDB8FE00DF52FD /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
+		F398683A25FDD4BF00DF52FD /* DetailCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollection.swift; sourceTree = "<group>"; };
+		F398683D25FDD6EC00DF52FD /* ViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewContainer.swift; sourceTree = "<group>"; };
 		F3EC40EC25FC7D92004A9A5D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewExtensions.swift; sourceTree = "<group>"; };
 		F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
@@ -90,9 +106,15 @@
 		F34A75D225F94B0A000F2DF8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F346655325F73438004340B7 /* DefectModel.swift */,
 				F380276525FC91CE00B5FFD2 /* UserModel.swift */,
+				F398682625FDA1D800DF52FD /* StationModel.swift */,
+				F398682325FDA18E00DF52FD /* AircraftModel.swift */,
+				F398682025FDA13D00DF52FD /* AtaModel.swift */,
+				F346655325F73438004340B7 /* DefectModel.swift */,
 				F346655F25F73990004340B7 /* DefectDatabase.swift */,
+				F398680C25FD8A3A00DF52FD /* Enumerations.swift */,
+				F398680925FD8A0600DF52FD /* Errors.swift */,
+				F398681625FD9D6400DF52FD /* Data */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -101,12 +123,13 @@
 			isa = PBXGroup;
 			children = (
 				F346652925F71758004340B7 /* ViewExtensions.swift */,
+				F398683425FDB8FE00DF52FD /* NotificationExtensions.swift */,
 				F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */,
 				F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */,
 				F389721225F8071700F66ADC /* DateExtensions.swift */,
 				F3063CD625F86A4A00278A02 /* GGFloatExtensions.swift */,
 				F312088D25F9636D0068C8FC /* UUIDExtensions.swift */,
-				F312089325F976D70068C8FC /* NotificationExtensions.swift */,
+				F398681225FD8F2A00DF52FD /* ViewControllerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -117,8 +140,9 @@
 				F3EC40EC25FC7D92004A9A5D /* LoginView.swift */,
 				F380276D25FC97FA00B5FFD2 /* SignUpView.swift */,
 				F346655625F73457004340B7 /* DefectCell.swift */,
-				F3CADF0425FD39B500B4EBD9 /* ReadDefectView.swift */,
-				F3CADF0125FD399800B4EBD9 /* EditDefectView.swift */,
+				F398682A25FDAD6300DF52FD /* DetailCell.swift */,
+				F398682D25FDAD7000DF52FD /* DescriptionCell.swift */,
+				F398683A25FDD4BF00DF52FD /* DetailCollection.swift */,
 				F34A75E225F94F6F000F2DF8 /* Helpers */,
 			);
 			path = View;
@@ -127,12 +151,12 @@
 		F34A75E225F94F6F000F2DF8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F398683D25FDD6EC00DF52FD /* ViewContainer.swift */,
 				F346655C25F73849004340B7 /* SectionHeaderView.swift */,
-				F3CADF0D25FD540D00B4EBD9 /* ViewContainer.swift */,
-				F34A75E325F94F7D000F2DF8 /* RoundedCornerView.swift */,
 				F34A75E625F95100000F2DF8 /* ActionButton.swift */,
 				F3EC40F825FC8CB1004A9A5D /* PlaceholderTextView.swift */,
 				F380276A25FC97A700B5FFD2 /* DetailSearchBar.swift */,
+				F39867FD25FD6BBB00DF52FD /* MultilineLabel.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -160,13 +184,31 @@
 				F34A75D225F94B0A000F2DF8 /* Model */,
 				F34A75D525F94B1E000F2DF8 /* View */,
 				F3EC40E825FC7BEB004A9A5D /* Controller */,
+				F398680525FD802100DF52FD /* Service */,
 				F34A75D425F94B16000F2DF8 /* Extensions */,
-				F378DB4B25F68157002042D1 /* Main.storyboard */,
 				F378DB4E25F6815A002042D1 /* Assets.xcassets */,
 				F378DB5025F6815A002042D1 /* LaunchScreen.storyboard */,
 				F378DB5325F6815A002042D1 /* Info.plist */,
 			);
 			path = "MainTrack-Prototype";
+			sourceTree = "<group>";
+		};
+		F398680525FD802100DF52FD /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F398680625FD803300DF52FD /* ApiClient.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F398681625FD9D6400DF52FD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F398681725FD9DE200DF52FD /* sta.json */,
+				F398681A25FD9DF300DF52FD /* ac.json */,
+				F398681D25FD9E0200DF52FD /* ata.json */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		F3EC40E825FC7BEB004A9A5D /* Controller */ = {
@@ -175,9 +217,7 @@
 				F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */,
 				F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */,
 				F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */,
-				F3CADF0725FD3A6B00B4EBD9 /* DetailViewController.swift */,
-				F34A75EA25F956F0000F2DF8 /* EditDetailViewController.swift */,
-				F312089725F97DF80068C8FC /* ViewDetailViewController.swift */,
+				F398683025FDADD800DF52FD /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -241,7 +281,9 @@
 			files = (
 				F378DB5225F6815A002042D1 /* LaunchScreen.storyboard in Resources */,
 				F378DB4F25F6815A002042D1 /* Assets.xcassets in Resources */,
-				F378DB4D25F68157002042D1 /* Main.storyboard in Resources */,
+				F398681825FD9DE200DF52FD /* sta.json in Resources */,
+				F398681E25FD9E0200DF52FD /* ata.json in Resources */,
+				F398681B25FD9DF300DF52FD /* ac.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,31 +294,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F398682725FDA1D800DF52FD /* StationModel.swift in Sources */,
 				F34A75CF25F93D59000F2DF8 /* DefectViewController.swift in Sources */,
+				F398682E25FDAD7000DF52FD /* DescriptionCell.swift in Sources */,
 				F346655725F73457004340B7 /* DefectCell.swift in Sources */,
 				F30F0DA425F9AD1F00A4E664 /* SignupViewController.swift in Sources */,
-				F34A75EB25F956F0000F2DF8 /* EditDetailViewController.swift in Sources */,
+				F398680A25FD8A0600DF52FD /* Errors.swift in Sources */,
 				F3EC40F425FC8B18004A9A5D /* TextFieldExtensions.swift in Sources */,
+				F398683B25FDD4BF00DF52FD /* DetailCollection.swift in Sources */,
 				F3EC40ED25FC7D92004A9A5D /* LoginView.swift in Sources */,
-				F312089425F976D70068C8FC /* NotificationExtensions.swift in Sources */,
+				F398683125FDADD800DF52FD /* DetailViewController.swift in Sources */,
+				F398680725FD803300DF52FD /* ApiClient.swift in Sources */,
+				F398683525FDB8FE00DF52FD /* NotificationExtensions.swift in Sources */,
+				F398683E25FDD6EC00DF52FD /* ViewContainer.swift in Sources */,
 				F34A75E725F95100000F2DF8 /* ActionButton.swift in Sources */,
 				F346655D25F73849004340B7 /* SectionHeaderView.swift in Sources */,
 				F3EC40F925FC8CB1004A9A5D /* PlaceholderTextView.swift in Sources */,
+				F398682425FDA18E00DF52FD /* AircraftModel.swift in Sources */,
 				F380276B25FC97A700B5FFD2 /* DetailSearchBar.swift in Sources */,
 				F378DB4625F68157002042D1 /* AppDelegate.swift in Sources */,
-				F3CADF0225FD399800B4EBD9 /* EditDefectView.swift in Sources */,
-				F3CADF0525FD39B500B4EBD9 /* ReadDefectView.swift in Sources */,
-				F34A75E425F94F7D000F2DF8 /* RoundedCornerView.swift in Sources */,
-				F312089825F97DF80068C8FC /* ViewDetailViewController.swift in Sources */,
-				F3CADF0E25FD540D00B4EBD9 /* ViewContainer.swift in Sources */,
+				F398682125FDA13D00DF52FD /* AtaModel.swift in Sources */,
 				F3EC40F125FC8233004A9A5D /* StackViewExtensions.swift in Sources */,
-				F3CADF0825FD3A6B00B4EBD9 /* DetailViewController.swift in Sources */,
+				F39867FE25FD6BBB00DF52FD /* MultilineLabel.swift in Sources */,
 				F380276625FC91CE00B5FFD2 /* UserModel.swift in Sources */,
 				F346655425F73438004340B7 /* DefectModel.swift in Sources */,
+				F398682B25FDAD6300DF52FD /* DetailCell.swift in Sources */,
 				F389721325F8071700F66ADC /* DateExtensions.swift in Sources */,
+				F398680D25FD8A3A00DF52FD /* Enumerations.swift in Sources */,
 				F3063CD725F86A4A00278A02 /* GGFloatExtensions.swift in Sources */,
 				F346652A25F71758004340B7 /* ViewExtensions.swift in Sources */,
 				F34A75DA25F94B4E000F2DF8 /* LoginViewController.swift in Sources */,
+				F398681325FD8F2A00DF52FD /* ViewControllerExtensions.swift in Sources */,
 				F380276E25FC97FA00B5FFD2 /* SignUpView.swift in Sources */,
 				F346656025F73990004340B7 /* DefectDatabase.swift in Sources */,
 				F312088E25F9636D0068C8FC /* UUIDExtensions.swift in Sources */,
@@ -286,14 +334,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F378DB4B25F68157002042D1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F378DB4C25F68157002042D1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F378DB5025F6815A002042D1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

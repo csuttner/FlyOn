@@ -9,7 +9,7 @@ import UIKit
 
 class LoginView: UIView {
     
-    public let employeeIdText = PlaceholderTextView(placeholder: "Employee ID")
+    public let emailText = PlaceholderTextView(placeholder: "Email")
     public let passwordText = PlaceholderTextView(placeholder: "Password")
     
     public lazy var loginButton = ActionButton(title: "Login", color: .systemBlue)
@@ -17,7 +17,7 @@ class LoginView: UIView {
     
     private lazy var stack = UIStackView(
         arrangedSubviews: [
-            employeeIdText,
+            emailText,
             passwordText,
             loginButton,
             signUpButton

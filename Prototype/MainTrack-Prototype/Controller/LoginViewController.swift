@@ -11,7 +11,7 @@ class LoginViewController: UIViewController {
     
     private let loginView = LoginView()
     
-    private var userModel: UserModel!
+    private var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
-        tabBarController?.tabBar.isHidden = true
+        navigationController?.isToolbarHidden = true
     }
     
     private func setupSubviews() {

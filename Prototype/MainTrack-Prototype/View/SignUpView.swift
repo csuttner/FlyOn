@@ -9,7 +9,6 @@ import UIKit
 
 class SignUpView: UIView {
     
-    let employeeIdText = PlaceholderTextView(placeholder: "Employee ID")
     let emailText = PlaceholderTextView(placeholder: "Email")
     let firstNameText = PlaceholderTextView(placeholder: "First Name")
     let lastNameText = PlaceholderTextView(placeholder: "Last Name")
@@ -17,16 +16,17 @@ class SignUpView: UIView {
     let reenterPasswordText = PlaceholderTextView(placeholder: "Re-enter Password")
     
     let submitButton = ActionButton(title: "Submit", color: .systemGreen)
+    let cancelButton = ActionButton(title: "Cancel", color: .systemGray)
     
     lazy var stack = UIStackView(
         arrangedSubviews: [
-            employeeIdText,
             emailText,
             firstNameText,
             lastNameText,
             passwordText,
             reenterPasswordText,
-            submitButton
+            submitButton,
+            cancelButton
         ]
     ).withAttributes(spacing: .padding)
     

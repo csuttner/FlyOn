@@ -16,7 +16,7 @@ class SignupViewController: UIViewController {
         view.backgroundColor = .systemGray6
         setupSubviews()
         addTapGesture()
-        addSubmitButtonAction()
+        addButtonActions()
     }
     
     private func setupSubviews() {
@@ -38,11 +38,41 @@ class SignupViewController: UIViewController {
         signUpView.dismissKeyboard()
     }
     
-    private func addSubmitButtonAction() {
+    private func addButtonActions() {
         signUpView.submitButton.addTarget(self, action: #selector(onSubmitButtonTapped), for: .touchUpInside)
+        signUpView.cancelButton.addTarget(self, action: #selector(onCancelButtonTapped), for: .touchUpInside)
+    }
+    
+    private func addNewUser() throws {
+        
+    }
+    
+    private func getNewUserFromInput() throws -> User {
+        guard let email = signUpView.emailText.text, !email.isEmpty,
+              let firstName = signUpView.firstNameText.text, !firstName.isEmpty,
+              let lastName = signUpView.lastNameText.text, !lastName.isEmpty,
+              let password = signUpView.passwordText.text, !password.isEmpty,
+              let reenterPassword = signUpView.reenterPasswordText.text, !reenterPassword.isEmpty
+        else {
+            throw ValidationError.missingData
+        }
+        
+        guard password == reenterPassword else { throw ValidationError.passwordMismatch }
+        
+        return User(email, firstName, lastName, password)
     }
     
     @objc func onSubmitButtonTapped() {
-        
+        do {
+            let user = try getNewUserFromInput()
+            try ApiClient.shared.post(user)
+            presentReturningAlert(title: "Success!", message: "You'll be redirected to sign in")
+        } catch let error {
+            presentBasicAlert(title: "Error signing up", message: error.localizedDescription)
+        }
+    }
+    
+    @objc func onCancelButtonTapped() {
+        navigationController?.popViewController(animated: true)
     }
 }
