@@ -31,7 +31,8 @@ class DefectCell: UITableViewCell {
     }()
     
     let chevron: UIImageView = {
-        let image = UIImage(systemName: "chevron.right")
+        let configuration = UIImage.SymbolConfiguration(weight: .bold)
+        let image = UIImage(systemName: "chevron.right", withConfiguration: configuration)
         let imageView = UIImageView(image: image)
         imageView.tintColor = .systemGray4
         return imageView
@@ -75,7 +76,9 @@ class DefectCell: UITableViewCell {
         chevron.anchor(
             right: contentView.rightAnchor,
             centerY: contentView.centerYAnchor,
-            paddingRight: .padding
+            paddingRight: .padding,
+            width: 11,
+            height: 17
         )
         
         imageView!.anchor(

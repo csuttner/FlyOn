@@ -7,11 +7,17 @@
 
 import UIKit
 
-class DescriptionCell: UITableViewCell {
+class DescriptionCell: ScrollableCell {
     
     private let controller = DefectController.shared
-    public let textView = PlaceholderTextView(placeholder: "Description of defect")
+    public let textView = DescriptionTextView(placeholder: "Description of defect")
     private let label = MultilineLabel()
+    
+    override var scrollDelegate: CellScrollDelegate! {
+        didSet {
+            textView.scrollDelegate = scrollDelegate
+        }
+    }
     
     convenience init() {
         self.init(style: .default, reuseIdentifier: "ID")
@@ -39,6 +45,7 @@ class DescriptionCell: UITableViewCell {
     
     @objc func onChangeMode() {
         setupForMode()
+        configureText()
         NotificationCenter.default.post(name: .updateTable, object: nil)
     }
     

@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A843E3E69135E96FDC39CF02 /* libPods-MainTrack-Prototype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 545837CB9681DFE0557F7511 /* libPods-MainTrack-Prototype.a */; };
 		F3063CD725F86A4A00278A02 /* GGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3063CD625F86A4A00278A02 /* GGFloatExtensions.swift */; };
 		F30F0DA425F9AD1F00A4E664 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */; };
 		F312088E25F9636D0068C8FC /* UUIDExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F312088D25F9636D0068C8FC /* UUIDExtensions.swift */; };
 		F327289B25FE6046003AE3C5 /* DefectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327289A25FE6046003AE3C5 /* DefectController.swift */; };
+		F33476B725FE7E0800E08D45 /* CellScrollDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33476B625FE7E0800E08D45 /* CellScrollDelegate.swift */; };
+		F33476BA25FE7FDA00E08D45 /* ScrollableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33476B925FE7FDA00E08D45 /* ScrollableCell.swift */; };
 		F346652A25F71758004340B7 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346652925F71758004340B7 /* ViewExtensions.swift */; };
 		F346655425F73438004340B7 /* DefectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655325F73438004340B7 /* DefectModel.swift */; };
 		F346655725F73457004340B7 /* DefectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655625F73457004340B7 /* DefectCell.swift */; };
@@ -49,13 +52,20 @@
 		F3EC40F125FC8233004A9A5D /* StackViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */; };
 		F3EC40F425FC8B18004A9A5D /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */; };
 		F3EC40F925FC8CB1004A9A5D /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F825FC8CB1004A9A5D /* PlaceholderTextView.swift */; };
+		F3FE59E125FE8CAA00C9574E /* SpacerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FE59E025FE8CAA00C9574E /* SpacerCell.swift */; };
+		F3FE59E525FEACCE00C9574E /* DescriptionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FE59E425FEACCE00C9574E /* DescriptionTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		545837CB9681DFE0557F7511 /* libPods-MainTrack-Prototype.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MainTrack-Prototype.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		837C3CC37AD6693EA29BD974 /* Pods-MainTrack-Prototype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MainTrack-Prototype.debug.xcconfig"; path = "Target Support Files/Pods-MainTrack-Prototype/Pods-MainTrack-Prototype.debug.xcconfig"; sourceTree = "<group>"; };
+		CA422C31468F2F294113E515 /* Pods-MainTrack-Prototype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MainTrack-Prototype.release.xcconfig"; path = "Target Support Files/Pods-MainTrack-Prototype/Pods-MainTrack-Prototype.release.xcconfig"; sourceTree = "<group>"; };
 		F3063CD625F86A4A00278A02 /* GGFloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGFloatExtensions.swift; sourceTree = "<group>"; };
 		F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		F312088D25F9636D0068C8FC /* UUIDExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUIDExtensions.swift; sourceTree = "<group>"; };
 		F327289A25FE6046003AE3C5 /* DefectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectController.swift; sourceTree = "<group>"; };
+		F33476B625FE7E0800E08D45 /* CellScrollDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellScrollDelegate.swift; sourceTree = "<group>"; };
+		F33476B925FE7FDA00E08D45 /* ScrollableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableCell.swift; sourceTree = "<group>"; };
 		F346652925F71758004340B7 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		F346655325F73438004340B7 /* DefectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectModel.swift; sourceTree = "<group>"; };
 		F346655625F73457004340B7 /* DefectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectCell.swift; sourceTree = "<group>"; };
@@ -96,6 +106,8 @@
 		F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewExtensions.swift; sourceTree = "<group>"; };
 		F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
 		F3EC40F825FC8CB1004A9A5D /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
+		F3FE59E025FE8CAA00C9574E /* SpacerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerCell.swift; sourceTree = "<group>"; };
+		F3FE59E425FEACCE00C9574E /* DescriptionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,18 +115,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A843E3E69135E96FDC39CF02 /* libPods-MainTrack-Prototype.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C7BD21F3F44F7BAD25EC581D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				545837CB9681DFE0557F7511 /* libPods-MainTrack-Prototype.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D946644883FBA83A6B9729D3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				837C3CC37AD6693EA29BD974 /* Pods-MainTrack-Prototype.debug.xcconfig */,
+				CA422C31468F2F294113E515 /* Pods-MainTrack-Prototype.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F327289825FE6008003AE3C5 /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
 				F327289A25FE6046003AE3C5 /* DefectController.swift */,
 			);
 			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		F33476BC25FE836700E08D45 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F33476B625FE7E0800E08D45 /* CellScrollDelegate.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		F34A75D225F94B0A000F2DF8 /* Model */ = {
@@ -166,9 +205,12 @@
 			isa = PBXGroup;
 			children = (
 				F398683D25FDD6EC00DF52FD /* ViewContainer.swift */,
+				F33476B925FE7FDA00E08D45 /* ScrollableCell.swift */,
+				F3FE59E025FE8CAA00C9574E /* SpacerCell.swift */,
 				F346655C25F73849004340B7 /* SectionHeaderView.swift */,
 				F34A75E625F95100000F2DF8 /* ActionButton.swift */,
 				F3EC40F825FC8CB1004A9A5D /* PlaceholderTextView.swift */,
+				F3FE59E425FEACCE00C9574E /* DescriptionTextView.swift */,
 				F380276A25FC97A700B5FFD2 /* DetailSearchBar.swift */,
 				F39867FD25FD6BBB00DF52FD /* MultilineLabel.swift */,
 			);
@@ -180,6 +222,8 @@
 			children = (
 				F378DB4425F68157002042D1 /* MainTrack-Prototype */,
 				F378DB4325F68157002042D1 /* Products */,
+				D946644883FBA83A6B9729D3 /* Pods */,
+				C7BD21F3F44F7BAD25EC581D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -243,6 +287,7 @@
 				F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */,
 				F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */,
 				F398683025FDADD800DF52FD /* DetailViewController.swift */,
+				F33476BC25FE836700E08D45 /* Helpers */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -254,9 +299,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F378DB5625F6815A002042D1 /* Build configuration list for PBXNativeTarget "MainTrack-Prototype" */;
 			buildPhases = (
+				E4686A8629581FC064C64DAD /* [CP] Check Pods Manifest.lock */,
 				F378DB3E25F68157002042D1 /* Sources */,
 				F378DB3F25F68157002042D1 /* Frameworks */,
 				F378DB4025F68157002042D1 /* Resources */,
+				FD3AFBBBDC780EA60D3C845F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -315,6 +362,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E4686A8629581FC064C64DAD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MainTrack-Prototype-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD3AFBBBDC780EA60D3C845F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MainTrack-Prototype/Pods-MainTrack-Prototype-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MainTrack-Prototype/Pods-MainTrack-Prototype-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MainTrack-Prototype/Pods-MainTrack-Prototype-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F378DB3E25F68157002042D1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -324,6 +413,7 @@
 				F398682725FDA1D800DF52FD /* StationModel.swift in Sources */,
 				F34A75CF25F93D59000F2DF8 /* DefectViewController.swift in Sources */,
 				F398682E25FDAD7000DF52FD /* DescriptionCell.swift in Sources */,
+				F33476BA25FE7FDA00E08D45 /* ScrollableCell.swift in Sources */,
 				F346655725F73457004340B7 /* DefectCell.swift in Sources */,
 				F30F0DA425F9AD1F00A4E664 /* SignupViewController.swift in Sources */,
 				F398680A25FD8A0600DF52FD /* Errors.swift in Sources */,
@@ -351,7 +441,10 @@
 				F398680D25FD8A3A00DF52FD /* Enumerations.swift in Sources */,
 				F3063CD725F86A4A00278A02 /* GGFloatExtensions.swift in Sources */,
 				F346652A25F71758004340B7 /* ViewExtensions.swift in Sources */,
+				F3FE59E525FEACCE00C9574E /* DescriptionTextView.swift in Sources */,
+				F3FE59E125FE8CAA00C9574E /* SpacerCell.swift in Sources */,
 				F34A75DA25F94B4E000F2DF8 /* LoginViewController.swift in Sources */,
+				F33476B725FE7E0800E08D45 /* CellScrollDelegate.swift in Sources */,
 				F398681325FD8F2A00DF52FD /* ViewControllerExtensions.swift in Sources */,
 				F380276E25FC97FA00B5FFD2 /* SignUpView.swift in Sources */,
 				F346656025F73990004340B7 /* Repository.swift in Sources */,
@@ -491,6 +584,7 @@
 		};
 		F378DB5725F6815A002042D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 837C3CC37AD6693EA29BD974 /* Pods-MainTrack-Prototype.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -510,6 +604,7 @@
 		};
 		F378DB5825F6815A002042D1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA422C31468F2F294113E515 /* Pods-MainTrack-Prototype.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

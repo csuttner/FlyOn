@@ -18,13 +18,13 @@ class PlaceholderTextView: UITextView, UITextViewDelegate {
         format()
     }
     
-    func configure() {
+    private func configure() {
         text = placeholder
         delegate = self
         isScrollEnabled = false
     }
     
-    func format() {
+    private func format() {
         textColor = .lightGray
         layer.cornerRadius = .cornerRadius
         layer.borderWidth = 1

@@ -13,10 +13,11 @@ class DetailViews {
     private lazy var acCell = DetailCell(attribute: .ac)
     private lazy var ataCell = DetailCell(attribute: .ata4)
     private lazy var descCell = DescriptionCell()
+    public lazy var spacerCell = SpacerCell()
     
     struct Section {
         let title: String
-        let cells: [UITableViewCell]
+        let cells: [ScrollableCell]
     }
     
     lazy var sections = [
@@ -27,7 +28,8 @@ class DetailViews {
         ]),
         Section(title: "Description", cells: [
             descCell
-        ])
+        ]),
+        Section(title: "", cells: [spacerCell])
     ]
     
     public func getNewDefectFromInput() throws -> Defect {

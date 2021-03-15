@@ -23,6 +23,7 @@ class DefectViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationController()
         addToolBarItems()
+        tableView.reloadData()
     }
     
     private func formatView() {

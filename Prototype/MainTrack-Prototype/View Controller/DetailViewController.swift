@@ -9,6 +9,7 @@ import UIKit
 
 class DetailViewController: UITableViewController {
     
+    private let repository = Repository.shared
     private let controller = DefectController.shared
     
     let detailViews = DetailViews()
@@ -24,6 +25,10 @@ class DetailViewController: UITableViewController {
         addGestureRecognizers()
         addObservers()
         onChangeMode()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.largeTitleDisplayMode = .never
     }
     
     private func addObservers() {
@@ -50,7 +55,6 @@ class DetailViewController: UITableViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.allowsSelection = false
-        tableView.tableFooterView = UIView(frame: .zero)
         tableView.separatorStyle = .none
     }
     
@@ -108,6 +112,7 @@ class DetailViewController: UITableViewController {
         do {
             controller.defect = try detailViews.getNewDefectFromInput()
             try ApiClient.shared.post(controller.defect!)
+            repository.addDefect(controller.defect!)
             presentBasicAlert(title: "Defect \(controller.defect!.id) created")
             controller.mode = .view
         } catch {
@@ -128,7 +133,7 @@ class DetailViewController: UITableViewController {
     
 }
 
-// MARK:- Table View
+// MARK: - Table View
 
 // UITableViewDataSource
 extension DetailViewController {
@@ -151,7 +156,19 @@ extension DetailViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return detailViews.sections[indexPath.section].cells[indexPath.row]
+        let cell = detailViews.sections[indexPath.section].cells[indexPath.row]
+        cell.scrollDelegate = self
+        return cell
+    }
+    
+}
+
+extension DetailViewController: CellScrollDelegate {
+    
+    func scrollTo(indexPath: IndexPath) {
+        DispatchQueue.main.async {
+            self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        }
     }
     
 }
