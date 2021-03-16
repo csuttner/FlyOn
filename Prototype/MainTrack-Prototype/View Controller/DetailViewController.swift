@@ -115,7 +115,7 @@ class DetailViewController: UITableViewController {
         do {
             controller.defect = try detailViews.getNewDefectFromInput()
             try ApiClient.shared.post(controller.defect!)
-            repository.addDefect(controller.defect!)
+            repository.addDefectToSections(controller.defect!)
             presentBasicAlert(title: "Defect \(controller.defect!.id) created")
             controller.mode = .view
         } catch {

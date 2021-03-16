@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A843E3E69135E96FDC39CF02 /* libPods-MainTrack-Prototype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 545837CB9681DFE0557F7511 /* libPods-MainTrack-Prototype.a */; };
+		06AFA78735AC8AFABD4BFF1C /* Pods_MainTrack_Prototype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9317499AFDFBDD45E9A6C88A /* Pods_MainTrack_Prototype.framework */; };
 		F3063CD725F86A4A00278A02 /* GGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3063CD625F86A4A00278A02 /* GGFloatExtensions.swift */; };
 		F30962BB2600483300C72B1C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F30962BA2600483300C72B1C /* GoogleService-Info.plist */; };
 		F30F0DA425F9AD1F00A4E664 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */; };
 		F327289B25FE6046003AE3C5 /* DefectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327289A25FE6046003AE3C5 /* DefectController.swift */; };
+		F32C30B526012AE6008E4DC4 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C30B426012AE6008E4DC4 /* StringExtensions.swift */; };
 		F33476B725FE7E0800E08D45 /* CellScrollDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33476B625FE7E0800E08D45 /* CellScrollDelegate.swift */; };
 		F33476BA25FE7FDA00E08D45 /* ScrollableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33476B925FE7FDA00E08D45 /* ScrollableCell.swift */; };
 		F346652A25F71758004340B7 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346652925F71758004340B7 /* ViewExtensions.swift */; };
@@ -57,13 +58,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		545837CB9681DFE0557F7511 /* libPods-MainTrack-Prototype.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MainTrack-Prototype.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		837C3CC37AD6693EA29BD974 /* Pods-MainTrack-Prototype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MainTrack-Prototype.debug.xcconfig"; path = "Target Support Files/Pods-MainTrack-Prototype/Pods-MainTrack-Prototype.debug.xcconfig"; sourceTree = "<group>"; };
+		9317499AFDFBDD45E9A6C88A /* Pods_MainTrack_Prototype.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MainTrack_Prototype.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA422C31468F2F294113E515 /* Pods-MainTrack-Prototype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MainTrack-Prototype.release.xcconfig"; path = "Target Support Files/Pods-MainTrack-Prototype/Pods-MainTrack-Prototype.release.xcconfig"; sourceTree = "<group>"; };
 		F3063CD625F86A4A00278A02 /* GGFloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGFloatExtensions.swift; sourceTree = "<group>"; };
 		F30962BA2600483300C72B1C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		F327289A25FE6046003AE3C5 /* DefectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectController.swift; sourceTree = "<group>"; };
+		F32C30B426012AE6008E4DC4 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		F33476B625FE7E0800E08D45 /* CellScrollDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellScrollDelegate.swift; sourceTree = "<group>"; };
 		F33476B925FE7FDA00E08D45 /* ScrollableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableCell.swift; sourceTree = "<group>"; };
 		F346652925F71758004340B7 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
@@ -115,7 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A843E3E69135E96FDC39CF02 /* libPods-MainTrack-Prototype.a in Frameworks */,
+				06AFA78735AC8AFABD4BFF1C /* Pods_MainTrack_Prototype.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +127,7 @@
 		C7BD21F3F44F7BAD25EC581D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				545837CB9681DFE0557F7511 /* libPods-MainTrack-Prototype.a */,
+				9317499AFDFBDD45E9A6C88A /* Pods_MainTrack_Prototype.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -179,6 +181,7 @@
 				F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */,
 				F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */,
 				F389721225F8071700F66ADC /* DateExtensions.swift */,
+				F32C30B426012AE6008E4DC4 /* StringExtensions.swift */,
 				F350B1C225FEE90A0041C09E /* UUIDExtensions.swift */,
 				F3063CD625F86A4A00278A02 /* GGFloatExtensions.swift */,
 				F398681225FD8F2A00DF52FD /* ViewControllerExtensions.swift */,
@@ -302,7 +305,7 @@
 				F378DB3E25F68157002042D1 /* Sources */,
 				F378DB3F25F68157002042D1 /* Frameworks */,
 				F378DB4025F68157002042D1 /* Resources */,
-				FD3AFBBBDC780EA60D3C845F /* [CP] Copy Pods Resources */,
+				32F19ABD22D128E52294A421 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -363,6 +366,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		32F19ABD22D128E52294A421 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MainTrack-Prototype/Pods-MainTrack-Prototype-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MainTrack-Prototype/Pods-MainTrack-Prototype-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MainTrack-Prototype/Pods-MainTrack-Prototype-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E4686A8629581FC064C64DAD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -383,23 +403,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FD3AFBBBDC780EA60D3C845F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MainTrack-Prototype/Pods-MainTrack-Prototype-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MainTrack-Prototype/Pods-MainTrack-Prototype-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MainTrack-Prototype/Pods-MainTrack-Prototype-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -441,6 +444,7 @@
 				F398680D25FD8A3A00DF52FD /* Enumerations.swift in Sources */,
 				F3063CD725F86A4A00278A02 /* GGFloatExtensions.swift in Sources */,
 				F346652A25F71758004340B7 /* ViewExtensions.swift in Sources */,
+				F32C30B526012AE6008E4DC4 /* StringExtensions.swift in Sources */,
 				F3FE59E525FEACCE00C9574E /* DescriptionTextView.swift in Sources */,
 				F3FE59E125FE8CAA00C9574E /* SpacerCell.swift in Sources */,
 				F34A75DA25F94B4E000F2DF8 /* LoginViewController.swift in Sources */,
@@ -594,7 +598,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "skite.MainTrack-Prototype";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.skite.MainTrack-Prototype";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -614,7 +618,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "skite.MainTrack-Prototype";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.skite.MainTrack-Prototype";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

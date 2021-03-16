@@ -49,17 +49,18 @@ class SignupViewController: UIViewController {
     
     private func getNewUserFromInput() throws -> User {
         guard let email = signUpView.emailText.text, !email.isEmpty,
-              let firstName = signUpView.firstNameText.text, !firstName.isEmpty,
-              let lastName = signUpView.lastNameText.text, !lastName.isEmpty,
               let password = signUpView.passwordText.text, !password.isEmpty,
-              let reenterPassword = signUpView.reenterPasswordText.text, !reenterPassword.isEmpty
+              let reenterPassword = signUpView.reenterPasswordText.text, !reenterPassword.isEmpty,
+              let roleString = signUpView.roleText.text, !roleString.isEmpty
         else {
             throw ValidationError.missingData
         }
         
         guard password == reenterPassword else { throw ValidationError.passwordMismatch }
         
-        return User(email, firstName, lastName, password)
+        guard let role = Role(rawValue: roleString) else { throw ValidationError.roleNotFound }
+        
+        return User(email, password, role)
     }
     
     @objc func onSubmitButtonTapped() {

@@ -15,7 +15,9 @@ class Repository {
     var chapters: [Chapter]!
     var sections = [DefectSection]()
     
-    static let shared = Repository()
+    public static let shared = Repository()
+    
+    private let apiClient = ApiClient.shared
     
     public lazy var attributeDataDict: [DefectAttribute : [Any]] = [
         .sta : stations,
@@ -27,8 +29,6 @@ class Repository {
         loadStations()
         loadAircraft()
         loadChapters()
-        loadDefects()
-        organizeDefectsToSections()
     }
     
     private func loadStations() {
@@ -52,27 +52,29 @@ class Repository {
         chapters = try! JSONDecoder().decode([Chapter].self, from: jsonData)
     }
     
-    private func loadDefects() {
-        let path = Bundle.main.path(forResource: "defects", ofType: "json")
-        let jsonString = try! String(contentsOfFile: path!, encoding: .utf8)
-        let jsonData: Data = jsonString.data(using: .utf8)!
-        defects = try! JSONDecoder().decode([Defect].self, from: jsonData)
+    public func loadDefects(completion: @escaping() -> Void) {
+        apiClient.getAllDefects { (defects) in
+            self.sections = []
+            self.defects = defects
+            self.organizeDefectsToSections()
+            completion()
+        }
     }
     
     private func organizeDefectsToSections() {
         for defect in defects {
-            addDefect(defect)
+            addDefectToSections(defect)
         }
     }
     
-    public func addDefect(_ defect: Defect) {
-        if let index = sections.firstIndex(where: { $0.title == defect.defectDate.headerStyle() }) {
+    public func addDefectToSections(_ defect: Defect) {
+        if let index = sections.firstIndex(where: { $0.title == defect.defectDate.getDate()!.headerStyle() }) {
             sections[index].defects.append(defect)
             sections[index].defects.sort { (a, b) -> Bool in
-                return a.defectDate >= b.defectDate
+                return a.defectDate.getDate()! >= b.defectDate.getDate()!
             }
         } else {
-            sections.append(DefectSection(date: defect.defectDate, defects: [defect]))
+            sections.append(DefectSection(date: defect.defectDate.getDate()!, defects: [defect]))
         }
         sections.sort { (a, b) -> Bool in
             a.date >= b.date

@@ -7,23 +7,21 @@
 
 import Foundation
 
-enum Role {
+enum Role: String, Codable {
     case technician
     case analyst
 }
 
 struct User: Codable {
-    let id: UUID
+    let id: String
     let email: String
-    let firstName: String
-    let lastName: String
     let password: String
+    let role: Role
     
-    init(_ email: String, _ firstName: String, _ lastName: String, _ password: String) {
-        self.id = UUID()
+    init(_ email: String, _ password: String, _ role: Role) {
+        self.id = UUID.shortString()
         self.email = email
-        self.firstName = firstName
-        self.lastName = lastName
         self.password = password
+        self.role = role
     }
 }

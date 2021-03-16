@@ -23,7 +23,9 @@ class DefectViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationController()
         addToolBarItems()
-        tableView.reloadData()
+        repository.loadDefects {
+            self.tableView.reloadData()
+        }
     }
     
     private func formatView() {
@@ -36,6 +38,7 @@ class DefectViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .systemGray6
+        tableView.tableFooterView = UIView(frame: .zero)
     }
     
     private func configureNavigationController() {
