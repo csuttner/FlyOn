@@ -3,14 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		A843E3E69135E96FDC39CF02 /* libPods-MainTrack-Prototype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 545837CB9681DFE0557F7511 /* libPods-MainTrack-Prototype.a */; };
 		F3063CD725F86A4A00278A02 /* GGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3063CD625F86A4A00278A02 /* GGFloatExtensions.swift */; };
+		F30962BB2600483300C72B1C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F30962BA2600483300C72B1C /* GoogleService-Info.plist */; };
 		F30F0DA425F9AD1F00A4E664 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */; };
-		F312088E25F9636D0068C8FC /* UUIDExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F312088D25F9636D0068C8FC /* UUIDExtensions.swift */; };
 		F327289B25FE6046003AE3C5 /* DefectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327289A25FE6046003AE3C5 /* DefectController.swift */; };
 		F33476B725FE7E0800E08D45 /* CellScrollDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33476B625FE7E0800E08D45 /* CellScrollDelegate.swift */; };
 		F33476BA25FE7FDA00E08D45 /* ScrollableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33476B925FE7FDA00E08D45 /* ScrollableCell.swift */; };
@@ -22,6 +22,7 @@
 		F34A75CF25F93D59000F2DF8 /* DefectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */; };
 		F34A75DA25F94B4E000F2DF8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */; };
 		F34A75E725F95100000F2DF8 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75E625F95100000F2DF8 /* ActionButton.swift */; };
+		F350B1C325FEE90A0041C09E /* UUIDExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350B1C225FEE90A0041C09E /* UUIDExtensions.swift */; };
 		F378DB4625F68157002042D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F378DB4525F68157002042D1 /* AppDelegate.swift */; };
 		F378DB4F25F6815A002042D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F378DB4E25F6815A002042D1 /* Assets.xcassets */; };
 		F378DB5225F6815A002042D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F378DB5025F6815A002042D1 /* LaunchScreen.storyboard */; };
@@ -46,7 +47,6 @@
 		F398683525FDB8FE00DF52FD /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683425FDB8FE00DF52FD /* NotificationExtensions.swift */; };
 		F398683B25FDD4BF00DF52FD /* DetailViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683A25FDD4BF00DF52FD /* DetailViews.swift */; };
 		F398683E25FDD6EC00DF52FD /* ViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683D25FDD6EC00DF52FD /* ViewContainer.swift */; };
-		F398684225FDDB9800DF52FD /* StartupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398684125FDDB9800DF52FD /* StartupManager.swift */; };
 		F398684C25FDE15500DF52FD /* defects.json in Resources */ = {isa = PBXBuildFile; fileRef = F398684B25FDE15500DF52FD /* defects.json */; };
 		F3EC40ED25FC7D92004A9A5D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40EC25FC7D92004A9A5D /* LoginView.swift */; };
 		F3EC40F125FC8233004A9A5D /* StackViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */; };
@@ -61,8 +61,8 @@
 		837C3CC37AD6693EA29BD974 /* Pods-MainTrack-Prototype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MainTrack-Prototype.debug.xcconfig"; path = "Target Support Files/Pods-MainTrack-Prototype/Pods-MainTrack-Prototype.debug.xcconfig"; sourceTree = "<group>"; };
 		CA422C31468F2F294113E515 /* Pods-MainTrack-Prototype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MainTrack-Prototype.release.xcconfig"; path = "Target Support Files/Pods-MainTrack-Prototype/Pods-MainTrack-Prototype.release.xcconfig"; sourceTree = "<group>"; };
 		F3063CD625F86A4A00278A02 /* GGFloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGFloatExtensions.swift; sourceTree = "<group>"; };
+		F30962BA2600483300C72B1C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		F312088D25F9636D0068C8FC /* UUIDExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUIDExtensions.swift; sourceTree = "<group>"; };
 		F327289A25FE6046003AE3C5 /* DefectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectController.swift; sourceTree = "<group>"; };
 		F33476B625FE7E0800E08D45 /* CellScrollDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellScrollDelegate.swift; sourceTree = "<group>"; };
 		F33476B925FE7FDA00E08D45 /* ScrollableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableCell.swift; sourceTree = "<group>"; };
@@ -74,6 +74,7 @@
 		F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectViewController.swift; sourceTree = "<group>"; };
 		F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F34A75E625F95100000F2DF8 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		F350B1C225FEE90A0041C09E /* UUIDExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUIDExtensions.swift; sourceTree = "<group>"; };
 		F378DB4225F68157002042D1 /* MainTrack-Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MainTrack-Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F378DB4525F68157002042D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F378DB4E25F6815A002042D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,7 +101,6 @@
 		F398683425FDB8FE00DF52FD /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		F398683A25FDD4BF00DF52FD /* DetailViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViews.swift; sourceTree = "<group>"; };
 		F398683D25FDD6EC00DF52FD /* ViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewContainer.swift; sourceTree = "<group>"; };
-		F398684125FDDB9800DF52FD /* StartupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupManager.swift; sourceTree = "<group>"; };
 		F398684B25FDE15500DF52FD /* defects.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = defects.json; sourceTree = "<group>"; };
 		F3EC40EC25FC7D92004A9A5D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewExtensions.swift; sourceTree = "<group>"; };
@@ -136,7 +136,6 @@
 				837C3CC37AD6693EA29BD974 /* Pods-MainTrack-Prototype.debug.xcconfig */,
 				CA422C31468F2F294113E515 /* Pods-MainTrack-Prototype.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -180,8 +179,8 @@
 				F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */,
 				F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */,
 				F389721225F8071700F66ADC /* DateExtensions.swift */,
+				F350B1C225FEE90A0041C09E /* UUIDExtensions.swift */,
 				F3063CD625F86A4A00278A02 /* GGFloatExtensions.swift */,
-				F312088D25F9636D0068C8FC /* UUIDExtensions.swift */,
 				F398681225FD8F2A00DF52FD /* ViewControllerExtensions.swift */,
 			);
 			path = Extensions;
@@ -247,6 +246,7 @@
 				F34A75D425F94B16000F2DF8 /* Extensions */,
 				F378DB4E25F6815A002042D1 /* Assets.xcassets */,
 				F378DB5025F6815A002042D1 /* LaunchScreen.storyboard */,
+				F30962BA2600483300C72B1C /* GoogleService-Info.plist */,
 				F378DB5325F6815A002042D1 /* Info.plist */,
 			);
 			path = "MainTrack-Prototype";
@@ -275,7 +275,6 @@
 			isa = PBXGroup;
 			children = (
 				F378DB4525F68157002042D1 /* AppDelegate.swift */,
-				F398684125FDDB9800DF52FD /* StartupManager.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -357,6 +356,7 @@
 				F398681E25FD9E0200DF52FD /* ata.json in Resources */,
 				F398684C25FDE15500DF52FD /* defects.json in Resources */,
 				F398681B25FD9DF300DF52FD /* ac.json in Resources */,
+				F30962BB2600483300C72B1C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,9 +409,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F398684225FDDB9800DF52FD /* StartupManager.swift in Sources */,
 				F398682725FDA1D800DF52FD /* StationModel.swift in Sources */,
 				F34A75CF25F93D59000F2DF8 /* DefectViewController.swift in Sources */,
+				F350B1C325FEE90A0041C09E /* UUIDExtensions.swift in Sources */,
 				F398682E25FDAD7000DF52FD /* DescriptionCell.swift in Sources */,
 				F33476BA25FE7FDA00E08D45 /* ScrollableCell.swift in Sources */,
 				F346655725F73457004340B7 /* DefectCell.swift in Sources */,
@@ -448,7 +448,6 @@
 				F398681325FD8F2A00DF52FD /* ViewControllerExtensions.swift in Sources */,
 				F380276E25FC97FA00B5FFD2 /* SignUpView.swift in Sources */,
 				F346656025F73990004340B7 /* Repository.swift in Sources */,
-				F312088E25F9636D0068C8FC /* UUIDExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

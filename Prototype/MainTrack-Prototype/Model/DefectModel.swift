@@ -9,10 +9,12 @@ import Foundation
 
 class DefectSection: Codable {
     let title: String
+    let date: Date
     var defects: [Defect]
     
     init(date: Date, defects: [Defect]) {
         self.title = date.headerStyle()
+        self.date = date
         self.defects = defects
     }
 }

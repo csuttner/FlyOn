@@ -94,13 +94,16 @@ class DetailViewController: UITableViewController {
     
     @objc func onEditButtonTapped() {
         controller.mode = .edit
+        scrollTo(indexPath: IndexPath(row: 0, section: 0))
     }
     
     @objc func onCancelButtonTapped() {
         controller.mode = .view
+        scrollTo(indexPath: IndexPath(row: 0, section: 0))
     }
     
     @objc func onSubmitButtonTapped() {
+        scrollTo(indexPath: IndexPath(row: 0, section: 0))
         if controller.defect == nil {
             createDefect()
         } else {
