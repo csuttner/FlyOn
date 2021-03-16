@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 class ApiClient {
     
@@ -16,6 +17,9 @@ class ApiClient {
     // MARK: - Defect Methods
     public func post(_ defect: Defect) throws {
         print("posting defect to server...\nid: \(defect.id)\nsta: \(defect.sta)\nac: \(defect.ac)\nata: \(defect.ata4)\ndesc: \(defect.description)")
+        
+        
+        
     }
     
     public func put(_ defect: Defect) throws {
