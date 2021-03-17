@@ -11,6 +11,7 @@ class DefectViewController: UITableViewController {
     
     let repository = Repository.shared
     let controller = DefectController.shared
+    
     lazy var newDefectButton = ActionButton(title: "New Defect", color: .systemGreen, target: self, action: #selector(onNewDefectButtonTapped))
     lazy var profileItem = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle"), style: .plain, target: self, action: #selector(onProfileButtonTapped))
 
@@ -23,8 +24,14 @@ class DefectViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationController()
         addToolBarItems()
-        repository.loadDefects {
-            self.tableView.reloadData()
+        loadDefectsForRole()
+    }
+    
+    private func loadDefectsForRole() {
+        if userData.role == .analyst {
+            repository.loadAllDefects { self.tableView.reloadData() }
+        } else {
+            repository.loadDefects(for: userData.email) { self.tableView.reloadData() }
         }
     }
     
@@ -46,7 +53,12 @@ class DefectViewController: UITableViewController {
         navigationItem.rightBarButtonItem = profileItem
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.isHidden = false
-        navigationController?.isToolbarHidden = false
+        
+        if userData.role == .analyst {
+            navigationController?.isToolbarHidden = true
+        } else {
+            navigationController?.isToolbarHidden = false
+        }
     }
     
     private func addToolBarItems() {

@@ -6,18 +6,19 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
     private let loginView = LoginView()
-    
-    private var user: User!
+    private let apiClient = ApiClient.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray6
         setupSubviews()
         addButtonTargets()
+        addGestureRecognizers()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -39,12 +40,54 @@ class LoginViewController: UIViewController {
         loginView.signUpButton.addTarget(self, action: #selector(onSignUpButtonTapped), for: .touchUpInside)
     }
     
+    private func addGestureRecognizers() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTap))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func onTap() {
+        loginView.dismissKeyboard()
+    }
+    
     @objc func onLoginButtonTapped() {
-        navigationController?.pushViewController(DefectViewController(), animated: true)
+        do {
+            let (email, password) = try getEmailPasswordFromInput()
+            signIn(email: email, password: password)
+        } catch let error {
+            print("Error logging in: \(error)")
+        }
     }
     
     @objc func onSignUpButtonTapped() {
         navigationController?.pushViewController(SignupViewController(), animated: true)
+    }
+    
+    func getEmailPasswordFromInput() throws -> (String, String) {
+        guard let email = loginView.emailText.text, !email.isEmpty,
+              let password = loginView.passwordText.text, !password.isEmpty
+        else {
+            throw ValidationError.missingData
+        }
+        return (email, password)
+    }
+    
+    func signIn(email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                self.presentBasicAlert(title: "Login failed")
+            } else {
+                self.didSignIn(with: email)
+            }
+        }
+    }
+    
+    func didSignIn(with email: String) {
+        print("\(email) login successful")
+        self.apiClient.getUserData(from: email) { data in
+            userData = data
+            self.navigationController?.pushViewController(DefectViewController(), animated: true)
+        }
     }
     
 }

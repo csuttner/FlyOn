@@ -11,6 +11,7 @@ class DetailViewController: UITableViewController {
     
     private let repository = Repository.shared
     private let controller = DefectController.shared
+    private let apiClient = ApiClient.shared
     
     let detailViews = DetailViews()
     
@@ -29,6 +30,7 @@ class DetailViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.largeTitleDisplayMode = .never
+        navigationController?.isToolbarHidden = false
     }
     
     private func addObservers() {
@@ -79,8 +81,8 @@ class DetailViewController: UITableViewController {
     }
     
     @objc func onUpdateTable() {
-        tableView.beginUpdates()
-        tableView.endUpdates()
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
     }
     
     @objc func onChangeMode() {
@@ -114,7 +116,7 @@ class DetailViewController: UITableViewController {
     private func createDefect() {
         do {
             controller.defect = try detailViews.getNewDefectFromInput()
-            try ApiClient.shared.post(controller.defect!)
+            apiClient.post(controller.defect!)
             repository.addDefectToSections(controller.defect!)
             presentBasicAlert(title: "Defect \(controller.defect!.id) created")
             controller.mode = .view
@@ -126,7 +128,7 @@ class DetailViewController: UITableViewController {
     private func updateDefect() {
         do {
             try detailViews.updateDefectFromInput(controller.defect!)
-            try ApiClient.shared.put(controller.defect!)
+            apiClient.put(controller.defect!)
             presentBasicAlert(title: "Defect \(controller.defect!.id) updated")
             controller.mode = .view
         } catch {

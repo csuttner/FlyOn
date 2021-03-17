@@ -52,8 +52,17 @@ class Repository {
         chapters = try! JSONDecoder().decode([Chapter].self, from: jsonData)
     }
     
-    public func loadDefects(completion: @escaping() -> Void) {
+    public func loadAllDefects(completion: @escaping() -> Void) {
         apiClient.getAllDefects { (defects) in
+            self.sections = []
+            self.defects = defects
+            self.organizeDefectsToSections()
+            completion()
+        }
+    }
+    
+    public func loadDefects(for email: String, completion: @escaping() -> Void) {
+        apiClient.getDefects(for: email) { (defects) in
             self.sections = []
             self.defects = defects
             self.organizeDefectsToSections()
@@ -70,15 +79,11 @@ class Repository {
     public func addDefectToSections(_ defect: Defect) {
         if let index = sections.firstIndex(where: { $0.title == defect.defectDate.getDate()!.headerStyle() }) {
             sections[index].defects.append(defect)
-            sections[index].defects.sort { (a, b) -> Bool in
-                return a.defectDate.getDate()! >= b.defectDate.getDate()!
-            }
+            sections[index].defects.sort { $0.defectDate.getDate()! >= $1.defectDate.getDate()! }
         } else {
             sections.append(DefectSection(date: defect.defectDate.getDate()!, defects: [defect]))
         }
-        sections.sort { (a, b) -> Bool in
-            a.date >= b.date
-        }
+        sections.sort { $0.date.getDate()! >= $1.date.getDate()! }
     }
 
     public func matches(for attribute: DefectAttribute, _ searchText: String) -> [String] {

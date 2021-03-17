@@ -11,5 +11,5 @@ extension CGFloat{
     static let padding: CGFloat = 16
     static let halfPadding = padding / 2
     static let cornerRadius: CGFloat = 8
-    static let loginViewWidth: CGFloat = 200
+    static let loginViewWidth: CGFloat = 250
 }

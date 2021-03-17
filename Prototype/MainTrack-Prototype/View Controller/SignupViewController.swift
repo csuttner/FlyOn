@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignupViewController: UIViewController {
     
     let signUpView = SignUpView()
+    let apiClient = ApiClient.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,11 +45,7 @@ class SignupViewController: UIViewController {
         signUpView.cancelButton.addTarget(self, action: #selector(onCancelButtonTapped), for: .touchUpInside)
     }
     
-    private func addNewUser() throws {
-        
-    }
-    
-    private func getNewUserFromInput() throws -> User {
+    private func getUserDataFromInput() throws -> UserData {
         guard let email = signUpView.emailText.text, !email.isEmpty,
               let password = signUpView.passwordText.text, !password.isEmpty,
               let reenterPassword = signUpView.reenterPasswordText.text, !reenterPassword.isEmpty,
@@ -60,16 +58,37 @@ class SignupViewController: UIViewController {
         
         guard let role = Role(rawValue: roleString) else { throw ValidationError.roleNotFound }
         
-        return User(email, password, role)
+        return UserData(email, password, role)
     }
     
     @objc func onSubmitButtonTapped() {
         do {
-            let user = try getNewUserFromInput()
-            try ApiClient.shared.post(user)
-            presentReturningAlert(title: "Success!", message: "You'll be redirected to sign in")
+            let newUserData = try getUserDataFromInput()
+            tryAdding(newUser: newUserData)
         } catch let error {
             presentBasicAlert(title: "Error signing up", message: error.localizedDescription)
+        }
+    }
+    
+    func tryAdding(newUser: UserData) {
+        apiClient.checkUserExists(with: newUser.email) { userExists in
+            if userExists {
+                self.presentBasicAlert(title: "An account already exists for \(newUser.email)")
+            } else {
+                self.createNewUser(newUser: newUser)
+            }
+        }
+    }
+    
+    func createNewUser(newUser: UserData) {
+        Auth.auth().createUser(withEmail: newUser.email, password: newUser.password) { (result, error) in
+            if error != nil {
+                print("Error adding new user \(newUser.email)")
+            } else {
+                print("Added user \(newUser.email)")
+                self.apiClient.post(newUser)
+                self.presentReturningAlert(title: "Success!", message: "You'll be redirected to sign in")
+            }
         }
     }
     

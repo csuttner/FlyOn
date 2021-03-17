@@ -40,4 +40,9 @@ class LoginView: UIView {
         backgroundColor = .systemBackground
     }
 
+    public func dismissKeyboard() {
+        emailText.resignFirstResponder()
+        passwordText.resignFirstResponder()
+    }
+    
 }
