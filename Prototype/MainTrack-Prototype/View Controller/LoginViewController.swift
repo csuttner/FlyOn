@@ -17,8 +17,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemGray6
         setupSubviews()
+        addTapGesture()
         addButtonTargets()
-        addGestureRecognizers()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -35,14 +35,14 @@ class LoginViewController: UIViewController {
         )
     }
     
+    private func addTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTap))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
     private func addButtonTargets() {
         loginView.loginButton.addTarget(self, action: #selector(onLoginButtonTapped), for: .touchUpInside)
         loginView.signUpButton.addTarget(self, action: #selector(onSignUpButtonTapped), for: .touchUpInside)
-    }
-    
-    private func addGestureRecognizers() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTap))
-        view.addGestureRecognizer(tapGesture)
     }
     
     @objc func onTap() {

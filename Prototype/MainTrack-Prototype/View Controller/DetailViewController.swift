@@ -18,6 +18,8 @@ class DetailViewController: UITableViewController {
     lazy var editButton = ActionButton(title: "Edit", color: .systemBlue, target: self, action: #selector(onEditButtonTapped))
     lazy var cancelButton = ActionButton(title: "Cancel", color: .systemGray, target: self, action: #selector(onCancelButtonTapped))
     lazy var submitButton = ActionButton(title: "Submit", color: .systemGreen, target: self, action: #selector(onSubmitButtonTapped))
+    lazy var resolveButton = ActionButton(title: "Close", color: .systemGreen, target: self, action: #selector(onResolveButtonTapped))
+    lazy var archiveButton = ActionButton(title: "Archive", color: .systemGray, target: self, action: #selector(onArchiveButtonTapped))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,18 +35,6 @@ class DetailViewController: UITableViewController {
         navigationController?.isToolbarHidden = false
     }
     
-    private func addObservers() {
-        addObserver(action: #selector(onChangeMode), name: .changeMode)
-        addObserver(action: #selector(onUpdateTable), name: .updateTable)
-    }
-    
-    private func addGestureRecognizers() {
-        let navBarTap = UITapGestureRecognizer(target: self, action: #selector(onTap))
-        let viewTap = UITapGestureRecognizer(target: self, action: #selector(onTap))
-        navigationController?.navigationBar.addGestureRecognizer(navBarTap)
-        view.addGestureRecognizer(viewTap)
-    }
-
     private func configureTitle() {
         if let defect = controller.defect {
             title = controller.mode == .edit ? "Edit \(defect.id)" : "Defect \(defect.id)"
@@ -53,6 +43,23 @@ class DetailViewController: UITableViewController {
         }
     }
     
+    private func addGestureRecognizers() {
+        let navBarTap = UITapGestureRecognizer(target: self, action: #selector(onTap))
+        let viewTap = UITapGestureRecognizer(target: self, action: #selector(onTap))
+        navigationController?.navigationBar.addGestureRecognizer(navBarTap)
+        view.addGestureRecognizer(viewTap)
+    }
+    
+    private func addObservers() {
+        addObserver(action: #selector(onChangeMode), name: .changeMode)
+        addObserver(action: #selector(onUpdateTable), name: .updateTable)
+    }
+    
+}
+
+// MARK: - Table View
+extension DetailViewController {
+    
     private func configureTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -60,25 +67,39 @@ class DetailViewController: UITableViewController {
         tableView.separatorStyle = .none
     }
     
-    private func configureToolbarItems() {
-        let toolbarItems: [UIBarButtonItem]
-        if controller.mode == .edit {
-            toolbarItems = [
-                UIBarButtonItem(systemItem: .flexibleSpace),
-                UIBarButtonItem(customView: cancelButton),
-                UIBarButtonItem(systemItem: .flexibleSpace),
-                UIBarButtonItem(customView: submitButton),
-                UIBarButtonItem(systemItem: .flexibleSpace)
-            ]
-        } else {
-            toolbarItems = [
-                UIBarButtonItem(systemItem: .flexibleSpace),
-                UIBarButtonItem(customView: editButton),
-                UIBarButtonItem(systemItem: .flexibleSpace)
-            ]
-        }
-        setToolbarItems(toolbarItems, animated: true)
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return detailViews.sections.count
     }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return detailViews.sections[section].cells.count
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return SectionHeaderView(title: detailViews.sections[section].title)
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = detailViews.sections[indexPath.section].cells[indexPath.row]
+        cell.scrollDelegate = self
+        return cell
+    }
+    
+}
+
+// MARK: Scrolling Behavior
+extension DetailViewController: CellScrollDelegate {
+    
+    func scrollTo(indexPath: IndexPath) {
+        DispatchQueue.main.async {
+            self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        }
+    }
+    
+}
+
+// MARK: - Selectors
+extension DetailViewController {
     
     @objc func onUpdateTable() {
         self.tableView.beginUpdates()
@@ -104,6 +125,16 @@ class DetailViewController: UITableViewController {
         scrollTo(indexPath: IndexPath(row: 0, section: 0))
     }
     
+    @objc func onResolveButtonTapped() {
+        controller.defect?.resolved = true
+        updateDefect()
+        configureToolbarItems()
+    }
+    
+    @objc func onArchiveButtonTapped() {
+        archiveDefect()
+    }
+    
     @objc func onSubmitButtonTapped() {
         scrollTo(indexPath: IndexPath(row: 0, section: 0))
         if controller.defect == nil {
@@ -112,6 +143,11 @@ class DetailViewController: UITableViewController {
             updateDefect()
         }
     }
+    
+}
+
+// MARK: Record Modification
+extension DetailViewController {
     
     private func createDefect() {
         do {
@@ -136,43 +172,37 @@ class DetailViewController: UITableViewController {
         }
     }
     
+    private func archiveDefect() {
+        apiClient.archive(controller.defect!)
+        presentReturningAlert(title: "Defect \(controller.defect!.id) archived")
+    }
+    
 }
 
-// MARK: - Table View
-
-// UITableViewDataSource
+// MARK: Toolbar Configuration
 extension DetailViewController {
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return detailViews.sections.count
+    private func configureToolbarItems() {
+        if userData.role == .analyst {
+            setToolbarItems(getAnalystToolbarItems(), animated: true)
+        } else {
+            setToolbarItems(getTechnicianToolbarItems(), animated: true)
+        }
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return detailViews.sections[section].cells.count
+    private func getAnalystToolbarItems() -> [UIBarButtonItem] {
+        if controller.defect!.resolved {
+            return getSpacedButtonItems(with: [archiveButton])
+        } else {
+            return getSpacedButtonItems(with: [resolveButton])
+        }
     }
     
-}
-
-// UITableViewDelegate
-extension DetailViewController {
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return SectionHeaderView(title: detailViews.sections[section].title)
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = detailViews.sections[indexPath.section].cells[indexPath.row]
-        cell.scrollDelegate = self
-        return cell
-    }
-    
-}
-
-extension DetailViewController: CellScrollDelegate {
-    
-    func scrollTo(indexPath: IndexPath) {
-        DispatchQueue.main.async {
-            self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+    private func getTechnicianToolbarItems() -> [UIBarButtonItem] {
+        if controller.mode == .edit {
+            return getSpacedButtonItems(with: [cancelButton, submitButton])
+        } else {
+            return getSpacedButtonItems(with: [editButton])
         }
     }
     

@@ -12,7 +12,9 @@ import CodableFirebase
 class ApiClient {
     
     public static let shared = ApiClient()
+    
     private let firestoreDefects = Firestore.firestore().collection("Defects")
+    private let firestoreArchive = Firestore.firestore().collection("Archive")
     private let firestoreUserData = Firestore.firestore().collection("UserData")
     
     private init() {}
@@ -65,6 +67,15 @@ class ApiClient {
     public func delete(_ defect: Defect) {
         print("deleting defect id \(defect.id) on Firebase...")
         firestoreDefects.document(defect.id).delete()
+    }
+    
+    //MARK: - Archive Methods
+    
+    public func archive(_ defect: Defect) {
+        print("adding defect id \(defect.id) to archive on Firebase...")
+        let data = try! FirestoreEncoder().encode(defect)
+        firestoreArchive.document(defect.id).setData(data)
+        delete(defect)
     }
     
     // MARK: - User Methods

@@ -86,6 +86,10 @@ class Repository {
         sections.sort { $0.date.getDate()! >= $1.date.getDate()! }
     }
 
+    public func clearDefects() {
+        sections = []
+    }
+    
     public func matches(for attribute: DefectAttribute, _ searchText: String) -> [String] {
         let strings = stringRepresentations(for: attribute)
         return strings.compactMap {

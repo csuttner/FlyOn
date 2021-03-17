@@ -18,7 +18,7 @@ class SignupViewController: UIViewController {
         view.backgroundColor = .systemGray6
         setupSubviews()
         addTapGesture()
-        addButtonActions()
+        addButtonTargets()
     }
     
     private func setupSubviews() {
@@ -31,18 +31,30 @@ class SignupViewController: UIViewController {
     }
     
     private func addTapGesture() {
-        let tapGesture = UITapGestureRecognizer()
-        tapGesture.addTarget(self, action: #selector(onTap))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTap))
         view.addGestureRecognizer(tapGesture)
+    }
+    
+    private func addButtonTargets() {
+        signUpView.submitButton.addTarget(self, action: #selector(onSubmitButtonTapped), for: .touchUpInside)
+        signUpView.cancelButton.addTarget(self, action: #selector(onCancelButtonTapped), for: .touchUpInside)
     }
     
     @objc func onTap() {
         signUpView.dismissKeyboard()
     }
     
-    private func addButtonActions() {
-        signUpView.submitButton.addTarget(self, action: #selector(onSubmitButtonTapped), for: .touchUpInside)
-        signUpView.cancelButton.addTarget(self, action: #selector(onCancelButtonTapped), for: .touchUpInside)
+    @objc func onSubmitButtonTapped() {
+        do {
+            let newUserData = try getUserDataFromInput()
+            tryAdding(newUserData)
+        } catch let error {
+            presentBasicAlert(title: "Error signing up", message: error.localizedDescription)
+        }
+    }
+    
+    @objc func onCancelButtonTapped() {
+        navigationController?.popViewController(animated: true)
     }
     
     private func getUserDataFromInput() throws -> UserData {
@@ -61,26 +73,17 @@ class SignupViewController: UIViewController {
         return UserData(email, password, role)
     }
     
-    @objc func onSubmitButtonTapped() {
-        do {
-            let newUserData = try getUserDataFromInput()
-            tryAdding(newUser: newUserData)
-        } catch let error {
-            presentBasicAlert(title: "Error signing up", message: error.localizedDescription)
-        }
-    }
-    
-    func tryAdding(newUser: UserData) {
+    private func tryAdding(_ newUser: UserData) {
         apiClient.checkUserExists(with: newUser.email) { userExists in
             if userExists {
                 self.presentBasicAlert(title: "An account already exists for \(newUser.email)")
             } else {
-                self.createNewUser(newUser: newUser)
+                self.create(newUser)
             }
         }
     }
     
-    func createNewUser(newUser: UserData) {
+    private func create(_ newUser: UserData) {
         Auth.auth().createUser(withEmail: newUser.email, password: newUser.password) { (result, error) in
             if error != nil {
                 print("Error adding new user \(newUser.email)")
@@ -92,7 +95,4 @@ class SignupViewController: UIViewController {
         }
     }
     
-    @objc func onCancelButtonTapped() {
-        navigationController?.popViewController(animated: true)
-    }
 }

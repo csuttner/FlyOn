@@ -17,13 +17,13 @@ class DefectViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        formatView()
+        title = "Defects"
+        view.backgroundColor = .systemGray6
         configureTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationController()
-        addToolBarItems()
         loadDefectsForRole()
     }
     
@@ -33,19 +33,6 @@ class DefectViewController: UITableViewController {
         } else {
             repository.loadDefects(for: userData.email) { self.tableView.reloadData() }
         }
-    }
-    
-    private func formatView() {
-        title = "Defects"
-        view.backgroundColor = .systemGray6
-    }
-    
-    private func configureTableView() {
-        tableView.register(DefectCell.self, forCellReuseIdentifier: "ID")
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.backgroundColor = .systemGray6
-        tableView.tableFooterView = UIView(frame: .zero)
     }
     
     private func configureNavigationController() {
@@ -58,15 +45,8 @@ class DefectViewController: UITableViewController {
             navigationController?.isToolbarHidden = true
         } else {
             navigationController?.isToolbarHidden = false
+            setToolbarItems(getSpacedButtonItems(with: [newDefectButton]), animated: true)
         }
-    }
-    
-    private func addToolBarItems() {
-        toolbarItems = [
-            UIBarButtonItem(systemItem: .flexibleSpace),
-            UIBarButtonItem(customView: newDefectButton),
-            UIBarButtonItem(systemItem: .flexibleSpace)
-        ]
     }
     
     @objc func onNewDefectButtonTapped() {
@@ -77,14 +57,21 @@ class DefectViewController: UITableViewController {
     
     @objc func onProfileButtonTapped() {
         navigationController?.popViewController(animated: true)
+        repository.clearDefects()
     }
 
 }
 
 // MARK: - Table View
-
-// UITableViewDataSource
 extension DefectViewController {
+    
+    private func configureTableView() {
+        tableView.register(DefectCell.self, forCellReuseIdentifier: "ID")
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = .systemGray6
+        tableView.tableFooterView = UIView(frame: .zero)
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return repository.sections.count
@@ -99,11 +86,6 @@ extension DefectViewController {
         cell.defect = repository.sections[indexPath.section].defects[indexPath.row]
         return cell
     }
-    
-}
-
-// UITableViewDelegate
-extension DefectViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return SectionHeaderView(title: repository.sections[section].title)
