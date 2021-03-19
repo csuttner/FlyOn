@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		06AFA78735AC8AFABD4BFF1C /* Pods_MainTrack_Prototype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9317499AFDFBDD45E9A6C88A /* Pods_MainTrack_Prototype.framework */; };
 		F3063CD725F86A4A00278A02 /* GGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3063CD625F86A4A00278A02 /* GGFloatExtensions.swift */; };
-		F30962BB2600483300C72B1C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F30962BA2600483300C72B1C /* GoogleService-Info.plist */; };
 		F30F0DA425F9AD1F00A4E664 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */; };
 		F327289B25FE6046003AE3C5 /* DefectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327289A25FE6046003AE3C5 /* DefectController.swift */; };
 		F32C30B526012AE6008E4DC4 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C30B426012AE6008E4DC4 /* StringExtensions.swift */; };
@@ -61,7 +60,6 @@
 		9317499AFDFBDD45E9A6C88A /* Pods_MainTrack_Prototype.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MainTrack_Prototype.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA422C31468F2F294113E515 /* Pods-MainTrack-Prototype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MainTrack-Prototype.release.xcconfig"; path = "Target Support Files/Pods-MainTrack-Prototype/Pods-MainTrack-Prototype.release.xcconfig"; sourceTree = "<group>"; };
 		F3063CD625F86A4A00278A02 /* GGFloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGFloatExtensions.swift; sourceTree = "<group>"; };
-		F30962BA2600483300C72B1C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		F327289A25FE6046003AE3C5 /* DefectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectController.swift; sourceTree = "<group>"; };
 		F32C30B426012AE6008E4DC4 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -247,7 +245,6 @@
 				F34A75D425F94B16000F2DF8 /* Extensions */,
 				F378DB4E25F6815A002042D1 /* Assets.xcassets */,
 				F378DB5025F6815A002042D1 /* LaunchScreen.storyboard */,
-				F30962BA2600483300C72B1C /* GoogleService-Info.plist */,
 				F378DB5325F6815A002042D1 /* Info.plist */,
 			);
 			path = "MainTrack-Prototype";
@@ -355,7 +352,6 @@
 				F398681825FD9DE200DF52FD /* sta.json in Resources */,
 				F398681E25FD9E0200DF52FD /* ata.json in Resources */,
 				F398681B25FD9DF300DF52FD /* ac.json in Resources */,
-				F30962BB2600483300C72B1C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
