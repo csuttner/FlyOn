@@ -84,17 +84,31 @@ class DetailCell: ScrollableCell {
     }
     
     @objc func onChangeMode() {
-        setupForMode()
-        configureText()
-        NotificationCenter.default.post(name: .updateTable, object: nil)
+        DispatchQueue.main.async {
+            self.setupForMode()
+            self.configureText()
+            NotificationCenter.default.post(name: .updateTable, object: nil)
+        }
+//        setupForMode()
+//        configureText()
+//        NotificationCenter.default.post(name: .updateTable, object: nil)
     }
     
     private func setupForMode() {
+        
         if controller.mode == .view {
             setReadView()
         } else {
             setEditView()
         }
+        
+//        DispatchQueue.main.async {
+//            if self.controller.mode == .view {
+//                self.setReadView()
+//            } else {
+//                self.setEditView()
+//            }
+//        }
     }
     
     private func setReadView() {

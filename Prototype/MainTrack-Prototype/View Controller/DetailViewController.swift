@@ -65,6 +65,8 @@ extension DetailViewController {
         tableView.delegate = self
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 40
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
