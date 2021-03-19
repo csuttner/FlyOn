@@ -1,0 +1,12 @@
+target 'MainTrack-Prototype' do
+  
+  use_frameworks!
+  
+  pod 'DropDown'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Firestore'
+  pod 'CodableFirebase'
+
+end

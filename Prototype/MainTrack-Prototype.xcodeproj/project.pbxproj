@@ -14,6 +14,7 @@
 		F32C30B526012AE6008E4DC4 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C30B426012AE6008E4DC4 /* StringExtensions.swift */; };
 		F33476B725FE7E0800E08D45 /* CellScrollDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33476B625FE7E0800E08D45 /* CellScrollDelegate.swift */; };
 		F33476BA25FE7FDA00E08D45 /* ScrollableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33476B925FE7FDA00E08D45 /* ScrollableCell.swift */; };
+		F34586CD26054C2D00845A56 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F34586CC26054C2C00845A56 /* GoogleService-Info.plist */; };
 		F346652A25F71758004340B7 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346652925F71758004340B7 /* ViewExtensions.swift */; };
 		F346655425F73438004340B7 /* DefectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655325F73438004340B7 /* DefectModel.swift */; };
 		F346655725F73457004340B7 /* DefectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655625F73457004340B7 /* DefectCell.swift */; };
@@ -65,6 +66,7 @@
 		F32C30B426012AE6008E4DC4 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		F33476B625FE7E0800E08D45 /* CellScrollDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellScrollDelegate.swift; sourceTree = "<group>"; };
 		F33476B925FE7FDA00E08D45 /* ScrollableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableCell.swift; sourceTree = "<group>"; };
+		F34586CC26054C2C00845A56 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F346652925F71758004340B7 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		F346655325F73438004340B7 /* DefectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectModel.swift; sourceTree = "<group>"; };
 		F346655625F73457004340B7 /* DefectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectCell.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				F378DB4E25F6815A002042D1 /* Assets.xcassets */,
 				F378DB5025F6815A002042D1 /* LaunchScreen.storyboard */,
 				F378DB5325F6815A002042D1 /* Info.plist */,
+				F34586CC26054C2C00845A56 /* GoogleService-Info.plist */,
 			);
 			path = "MainTrack-Prototype";
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				F398681825FD9DE200DF52FD /* sta.json in Resources */,
 				F398681E25FD9E0200DF52FD /* ata.json in Resources */,
 				F398681B25FD9DF300DF52FD /* ac.json in Resources */,
+				F34586CD26054C2D00845A56 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
