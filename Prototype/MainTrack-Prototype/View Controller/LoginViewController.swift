@@ -62,7 +62,7 @@ class LoginViewController: UIViewController {
         navigationController?.pushViewController(SignupViewController(), animated: true)
     }
     
-    func getEmailPasswordFromInput() throws -> (String, String) {
+    private func getEmailPasswordFromInput() throws -> (String, String) {
         guard let email = loginView.emailText.text, !email.isEmpty,
               let password = loginView.passwordText.text, !password.isEmpty
         else {
@@ -71,7 +71,7 @@ class LoginViewController: UIViewController {
         return (email, password)
     }
     
-    func signIn(email: String, password: String) {
+    private func signIn(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 print(error.localizedDescription)
@@ -82,7 +82,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func didSignIn(with email: String) {
+    private func didSignIn(with email: String) {
         print("\(email) login successful")
         self.apiClient.getUserData(from: email) { data in
             userData = data
