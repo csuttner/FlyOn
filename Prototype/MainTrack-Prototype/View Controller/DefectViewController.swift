@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class DefectViewController: UITableViewController {
     
@@ -56,8 +57,13 @@ class DefectViewController: UITableViewController {
     }
     
     @objc func onProfileButtonTapped() {
-        navigationController?.popViewController(animated: true)
-        repository.clearDefects()
+        do {
+            try Auth.auth().signOut()
+            navigationController?.popViewController(animated: true)
+            repository.clearDefects()
+        } catch let error {
+            presentBasicAlert(title: "Error signing out", message: error.localizedDescription)
+        }
     }
 
 }

@@ -9,6 +9,7 @@ import Foundation
 
 protocol CellScrollDelegate {
     func scrollTo(indexPath: IndexPath)
+    func removeSpace()
 }
 
 protocol Scrollable {

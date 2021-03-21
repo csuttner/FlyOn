@@ -12,6 +12,7 @@ class SignupViewController: UIViewController {
     
     let signUpView = SignUpView()
     let apiClient = ApiClient.shared
+    let loadingView = LoadingView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,7 @@ class SignupViewController: UIViewController {
     @objc func onSubmitButtonTapped() {
         do {
             let newUserData = try getUserDataFromInput()
+            loadingView.show(in: view)
             tryAdding(newUserData)
         } catch let error {
             presentBasicAlert(title: "Error signing up", message: error.localizedDescription)
@@ -61,14 +63,14 @@ class SignupViewController: UIViewController {
         guard let email = signUpView.emailText.text, !email.isEmpty,
               let password = signUpView.passwordText.text, !password.isEmpty,
               let reenterPassword = signUpView.reenterPasswordText.text, !reenterPassword.isEmpty,
-              let roleString = signUpView.roleText.text, !roleString.isEmpty
+              let roleString = signUpView.roleButton.currentTitle, !roleString.isEmpty
         else {
             throw ValidationError.missingData
         }
         
         guard password == reenterPassword else { throw ValidationError.passwordMismatch }
         
-        guard let role = Role(rawValue: roleString) else { throw ValidationError.roleNotFound }
+        guard let role = Role.init(rawValue: roleString.lowercased()) else { throw ValidationError.roleNotFound }
         
         return UserData(email, password, role)
     }
@@ -76,7 +78,8 @@ class SignupViewController: UIViewController {
     private func tryAdding(_ newUser: UserData) {
         apiClient.checkUserExists(with: newUser.email) { userExists in
             if userExists {
-                self.presentBasicAlert(title: "An account already exists for \(newUser.email)")
+                self.loadingView.remove()
+                self.presentBasicAlert(title: "Error signing up", message: "An account already exists for \(newUser.email)")
             } else {
                 self.create(newUser)
             }
@@ -84,11 +87,11 @@ class SignupViewController: UIViewController {
     }
     
     private func create(_ newUser: UserData) {
-        Auth.auth().createUser(withEmail: newUser.email, password: newUser.password) { (result, error) in
-            if error != nil {
-                print("Error adding new user \(newUser.email)")
+        Auth.auth().createUser(withEmail: newUser.email, password: newUser.password) { _, error in
+            self.loadingView.remove()
+            if let error = error {
+                self.presentBasicAlert(title: "Error signing up", message: error.localizedDescription)
             } else {
-                print("Added user \(newUser.email)")
                 self.apiClient.post(newUser)
                 self.presentReturningAlert(title: "Success!", message: "You'll be redirected to sign in")
             }

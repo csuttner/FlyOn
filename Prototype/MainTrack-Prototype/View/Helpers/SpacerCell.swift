@@ -9,13 +9,23 @@ import UIKit
 
 class SpacerCell: ScrollableCell {
     
-    let spacerView = UIView()
+    private let label = MultilineLabel()
     
     convenience init() {
         self.init(style: .default, reuseIdentifier: "ID")
         backgroundColor = .systemGray6
-        contentView.addSubview(spacerView)
-        spacerView.pin(to: contentView)
-        spacerView.anchor(height: 1000)
+        contentView.addSubview(label)
+        label.pin(to: contentView)
     }
+    
+    func addSpace() {
+        label.text = String(repeating: "\n", count: 55)
+        NotificationCenter.default.post(name: .updateTable, object: nil)
+    }
+    
+    func removeSpace() {
+        label.text = nil
+        NotificationCenter.default.post(name: .updateTable, object: nil)
+    }
+    
 }

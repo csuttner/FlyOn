@@ -9,7 +9,7 @@ import Foundation
 
 var userData: UserData!
 
-enum Role: String, Codable {
+enum Role: String, Codable, CaseIterable {
     case technician
     case analyst
 }

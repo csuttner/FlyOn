@@ -11,6 +11,7 @@ import FirebaseAuth
 class LoginViewController: UIViewController {
     
     private let loginView = LoginView()
+    private let loadingView = LoadingView()
     private let apiClient = ApiClient.shared
     
     override func viewDidLoad() {
@@ -19,6 +20,9 @@ class LoginViewController: UIViewController {
         setupSubviews()
         addTapGesture()
         addButtonTargets()
+        
+        loginView.emailText.text = "csuttner@gmail.com"
+        loginView.passwordText.text = "K1t3b0ard"
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -52,9 +56,10 @@ class LoginViewController: UIViewController {
     @objc func onLoginButtonTapped() {
         do {
             let (email, password) = try getEmailPasswordFromInput()
+            loadingView.show(in: view)
             signIn(email: email, password: password)
         } catch let error {
-            print("Error logging in: \(error)")
+            presentBasicAlert(title: "Login Failed", message: error.localizedDescription)
         }
     }
     
@@ -74,8 +79,8 @@ class LoginViewController: UIViewController {
     private func signIn(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
-                print(error.localizedDescription)
-                self.presentBasicAlert(title: "Login failed")
+                self.loadingView.remove()
+                self.presentBasicAlert(title: "Login failed", message: error.localizedDescription)
             } else {
                 self.didSignIn(with: email)
             }
@@ -83,9 +88,9 @@ class LoginViewController: UIViewController {
     }
     
     private func didSignIn(with email: String) {
-        print("\(email) login successful")
-        self.apiClient.getUserData(from: email) { data in
+        apiClient.getUserData(from: email) { data in
             userData = data
+            self.loadingView.remove()
             self.navigationController?.pushViewController(DefectViewController(), animated: true)
         }
     }

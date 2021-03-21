@@ -35,6 +35,7 @@ class DetailViewController: UITableViewController {
         navigationController?.isToolbarHidden = false
     }
     
+    
     private func configureTitle() {
         if let defect = controller.defect {
             title = controller.mode == .edit ? "Edit \(defect.id)" : "Defect \(defect.id)"
@@ -65,8 +66,6 @@ extension DetailViewController {
         tableView.delegate = self
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 40
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -94,8 +93,13 @@ extension DetailViewController: CellScrollDelegate {
     
     func scrollTo(indexPath: IndexPath) {
         DispatchQueue.main.async {
+            self.detailViews.spacerCell.addSpace()
             self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         }
+    }
+    
+    func removeSpace() {
+        detailViews.spacerCell.removeSpace()
     }
     
 }
@@ -119,12 +123,10 @@ extension DetailViewController {
     
     @objc func onEditButtonTapped() {
         controller.mode = .edit
-        scrollTo(indexPath: IndexPath(row: 0, section: 0))
     }
     
     @objc func onCancelButtonTapped() {
         controller.mode = .view
-        scrollTo(indexPath: IndexPath(row: 0, section: 0))
     }
     
     @objc func onResolveButtonTapped() {
