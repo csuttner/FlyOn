@@ -19,7 +19,7 @@ class SpacerCell: ScrollableCell {
     }
     
     func addSpace() {
-        label.text = String(repeating: "\n", count: 55)
+        label.text = String(repeating: "\n", count: 30)
         NotificationCenter.default.post(name: .updateTable, object: nil)
     }
     

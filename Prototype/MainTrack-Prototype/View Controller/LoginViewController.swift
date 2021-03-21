@@ -20,14 +20,12 @@ class LoginViewController: UIViewController {
         setupSubviews()
         addTapGesture()
         addButtonTargets()
-        
-        loginView.emailText.text = "csuttner@gmail.com"
-        loginView.passwordText.text = "K1t3b0ard"
     }
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
         navigationController?.isToolbarHidden = true
+        setTextWithUserData()
     }
     
     private func setupSubviews() {
@@ -47,6 +45,15 @@ class LoginViewController: UIViewController {
     private func addButtonTargets() {
         loginView.loginButton.addTarget(self, action: #selector(onLoginButtonTapped), for: .touchUpInside)
         loginView.signUpButton.addTarget(self, action: #selector(onSignUpButtonTapped), for: .touchUpInside)
+    }
+    
+    private func setTextWithUserData() {
+        if let userData = userData {
+            loginView.emailText.text = userData.email
+            loginView.passwordText.text = userData.password
+            loginView.emailText.textColor = .black
+            loginView.passwordText.textColor = .black
+        }
     }
     
     @objc func onTap() {
