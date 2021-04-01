@@ -61,8 +61,8 @@ class SignupViewController: UIViewController {
     
     private func getUserDataFromInput() throws -> UserData {
         guard let email = signUpView.emailText.text, !email.isEmpty,
-              let password = signUpView.passwordText.text, !password.isEmpty,
-              let reenterPassword = signUpView.reenterPasswordText.text, !reenterPassword.isEmpty,
+              let password = signUpView.passwordText.originalText, !password.isEmpty,
+              let reenterPassword = signUpView.reenterPasswordText.originalText, !reenterPassword.isEmpty,
               let roleString = signUpView.roleButton.currentTitle, !roleString.isEmpty
         else {
             throw ValidationError.missingData

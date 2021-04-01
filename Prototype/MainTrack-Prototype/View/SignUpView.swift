@@ -11,12 +11,10 @@ import DropDown
 class SignUpView: UIView {
     
     let emailText = PlaceholderTextView(placeholder: "Email")
-    let passwordText = PlaceholderTextView(placeholder: "Password")
-    let reenterPasswordText = PlaceholderTextView(placeholder: "Re-enter Password")
-//    let roleText = PlaceholderTextView(placeholder: "Role")
+    let passwordText = SecureTextView(placeholder: "Password")
+    let reenterPasswordText = SecureTextView(placeholder: "Re-enter Password")
     
     let roleAnchor = UIView()
-    
     let dropDown = DropDown()
     
     let roleButton = ActionButton(title: "Choose Role", color: .systemBlue, target: self, action: #selector(onChooseRoleTapped))

@@ -50,7 +50,7 @@ class LoginViewController: UIViewController {
     private func setTextWithUserData() {
         if let userData = userData {
             loginView.emailText.text = userData.email
-            loginView.passwordText.text = userData.password
+            loginView.passwordText.originalText = userData.password
             loginView.emailText.textColor = .black
             loginView.passwordText.textColor = .black
         }
@@ -76,7 +76,7 @@ class LoginViewController: UIViewController {
     
     private func getEmailPasswordFromInput() throws -> (String, String) {
         guard let email = loginView.emailText.text, !email.isEmpty,
-              let password = loginView.passwordText.text, !password.isEmpty
+              let password = loginView.passwordText.originalText, !password.isEmpty
         else {
             throw ValidationError.missingData
         }
