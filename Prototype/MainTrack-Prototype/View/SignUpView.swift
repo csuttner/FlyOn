@@ -10,9 +10,9 @@ import DropDown
 
 class SignUpView: UIView {
     
-    let emailText = PlaceholderTextView(placeholder: "Email")
-    let passwordText = SecureTextView(placeholder: "Password")
-    let reenterPasswordText = SecureTextView(placeholder: "Re-enter Password")
+    let emailText = PlaceholderTextField(placeholder: "Email")
+    let passwordText = PlaceholderTextField(placeholder: "Password", isSecureTextEntry: true)
+    let reenterPasswordText = PlaceholderTextField(placeholder: "Re-enter Password", isSecureTextEntry: true)
     
     let roleAnchor = UIView()
     let dropDown = DropDown()

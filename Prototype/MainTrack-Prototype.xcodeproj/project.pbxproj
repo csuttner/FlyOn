@@ -32,6 +32,7 @@
 		F380276625FC91CE00B5FFD2 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380276525FC91CE00B5FFD2 /* UserModel.swift */; };
 		F380276B25FC97A700B5FFD2 /* DetailSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380276A25FC97A700B5FFD2 /* DetailSearchBar.swift */; };
 		F380276E25FC97FA00B5FFD2 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380276D25FC97FA00B5FFD2 /* SignUpView.swift */; };
+		F3804FD92617EA600097F190 /* PlaceholderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3804FD82617EA600097F190 /* PlaceholderTextField.swift */; };
 		F389721325F8071700F66ADC /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389721225F8071700F66ADC /* DateExtensions.swift */; };
 		F39867FE25FD6BBB00DF52FD /* MultilineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39867FD25FD6BBB00DF52FD /* MultilineLabel.swift */; };
 		F398680725FD803300DF52FD /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398680625FD803300DF52FD /* ApiClient.swift */; };
@@ -50,7 +51,6 @@
 		F398683525FDB8FE00DF52FD /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683425FDB8FE00DF52FD /* NotificationExtensions.swift */; };
 		F398683B25FDD4BF00DF52FD /* DetailViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683A25FDD4BF00DF52FD /* DetailViews.swift */; };
 		F398683E25FDD6EC00DF52FD /* ViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683D25FDD6EC00DF52FD /* ViewContainer.swift */; };
-		F3A6CEFA26150FE0001A2E29 /* SecureTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A6CEF926150FE0001A2E29 /* SecureTextView.swift */; };
 		F3EC40ED25FC7D92004A9A5D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40EC25FC7D92004A9A5D /* LoginView.swift */; };
 		F3EC40F125FC8233004A9A5D /* StackViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */; };
 		F3EC40F425FC8B18004A9A5D /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */; };
@@ -89,6 +89,7 @@
 		F380276525FC91CE00B5FFD2 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		F380276A25FC97A700B5FFD2 /* DetailSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSearchBar.swift; sourceTree = "<group>"; };
 		F380276D25FC97FA00B5FFD2 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		F3804FD82617EA600097F190 /* PlaceholderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextField.swift; sourceTree = "<group>"; };
 		F389721225F8071700F66ADC /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		F39867FD25FD6BBB00DF52FD /* MultilineLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineLabel.swift; sourceTree = "<group>"; };
 		F398680625FD803300DF52FD /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
@@ -107,7 +108,6 @@
 		F398683425FDB8FE00DF52FD /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		F398683A25FDD4BF00DF52FD /* DetailViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViews.swift; sourceTree = "<group>"; };
 		F398683D25FDD6EC00DF52FD /* ViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewContainer.swift; sourceTree = "<group>"; };
-		F3A6CEF926150FE0001A2E29 /* SecureTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureTextView.swift; sourceTree = "<group>"; };
 		F3EC40EC25FC7D92004A9A5D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewExtensions.swift; sourceTree = "<group>"; };
 		F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 			children = (
 				F398683D25FDD6EC00DF52FD /* ViewContainer.swift */,
 				F3EC40F825FC8CB1004A9A5D /* PlaceholderTextView.swift */,
-				F3A6CEF926150FE0001A2E29 /* SecureTextView.swift */,
+				F3804FD82617EA600097F190 /* PlaceholderTextField.swift */,
 				F34A75E625F95100000F2DF8 /* ActionButton.swift */,
 				F34E51C6260596A1000B4E36 /* RolePicker.swift */,
 				F34E51C226058893000B4E36 /* LoadingView.swift */,
@@ -434,6 +434,7 @@
 				F398683E25FDD6EC00DF52FD /* ViewContainer.swift in Sources */,
 				F34A75E725F95100000F2DF8 /* ActionButton.swift in Sources */,
 				F346655D25F73849004340B7 /* SectionHeaderView.swift in Sources */,
+				F3804FD92617EA600097F190 /* PlaceholderTextField.swift in Sources */,
 				F3EC40F925FC8CB1004A9A5D /* PlaceholderTextView.swift in Sources */,
 				F398682425FDA18E00DF52FD /* AircraftModel.swift in Sources */,
 				F380276B25FC97A700B5FFD2 /* DetailSearchBar.swift in Sources */,
@@ -446,7 +447,6 @@
 				F346655425F73438004340B7 /* DefectModel.swift in Sources */,
 				F34E51C7260596A1000B4E36 /* RolePicker.swift in Sources */,
 				F398682B25FDAD6300DF52FD /* DetailCell.swift in Sources */,
-				F3A6CEFA26150FE0001A2E29 /* SecureTextView.swift in Sources */,
 				F389721325F8071700F66ADC /* DateExtensions.swift in Sources */,
 				F398680D25FD8A3A00DF52FD /* Enumerations.swift in Sources */,
 				F3063CD725F86A4A00278A02 /* GGFloatExtensions.swift in Sources */,

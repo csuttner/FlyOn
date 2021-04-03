@@ -9,8 +9,8 @@ import UIKit
 
 class LoginView: UIView {
     
-    public let emailText = PlaceholderTextView(placeholder: "Email")
-    public let passwordText = SecureTextView(placeholder: "Password")
+    public let emailText = PlaceholderTextField(placeholder: "Email", isSecureTextEntry: false)
+    public let passwordText = PlaceholderTextField(placeholder: "Password", isSecureTextEntry: true)
     
     public lazy var loginButton = ActionButton(title: "Login", color: .systemBlue)
     public lazy var signUpButton = ActionButton(title: "Sign Up", color: .systemGreen)
