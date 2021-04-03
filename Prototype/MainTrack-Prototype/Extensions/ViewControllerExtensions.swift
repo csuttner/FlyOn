@@ -29,4 +29,13 @@ extension UIViewController {
         present(alert, animated: true)
     }
     
+    func getSpacedButtonItems(with customViews: [UIView]) -> [UIBarButtonItem] {
+        var buttonItems = [UIBarButtonItem(systemItem: .flexibleSpace)]
+        for view in customViews {
+            buttonItems.append(UIBarButtonItem(customView: view))
+            buttonItems.append(UIBarButtonItem(systemItem: .flexibleSpace))
+        }
+        return buttonItems
+    }
+    
 }

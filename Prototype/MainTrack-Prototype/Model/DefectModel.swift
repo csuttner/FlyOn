@@ -6,21 +6,25 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 class DefectSection: Codable {
     let title: String
+    let date: String
     var defects: [Defect]
     
     init(date: Date, defects: [Defect]) {
         self.title = date.headerStyle()
+        self.date = date.getString()
         self.defects = defects
     }
 }
 
 class Defect: Codable {
     let id: String
-    let defectDate: Date
-    var resolvedDate: Date?
+    let email: String
+    let defectDate: String
+    var resolvedDate: String?
     var resolved: Bool
     var description: String
     var ac: String
@@ -29,19 +33,10 @@ class Defect: Codable {
     
     init(_ sta: String, _ ac: String, _ ata4: String, _ description: String) {
         self.id = UUID.shortString()
-        self.defectDate = Date()
+        self.email = userData!.email
+        self.defectDate = Date().getString()
         self.resolvedDate = nil
         self.resolved = false
-        self.description = description
-        self.ac = ac
-        self.sta = sta
-        self.ata4 = ata4
-    }
-    
-    init(description: String, date: Date, ac: String, sta: String, ata4: String, resolved: Bool) {
-        self.id = UUID.shortString()
-        self.defectDate = date
-        self.resolved = resolved
         self.description = description
         self.ac = ac
         self.sta = sta
@@ -51,4 +46,6 @@ class Defect: Codable {
     func resolve() {
         self.resolved = true
     }
+    
+    
 }

@@ -15,4 +15,11 @@ extension Date {
         let dayString = String(formatter.string(from: self).dropLast(6))
         return dayString
     }
+    
+    func getString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
+        let stringDate = formatter.string(from: self)
+        return stringDate
+    }
 }

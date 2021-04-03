@@ -30,6 +30,8 @@ class PlaceholderTextView: UITextView, UITextViewDelegate {
         layer.borderWidth = 1
         layer.borderColor = UIColor.systemGray6.cgColor
         font = UIFont.preferredFont(forTextStyle: .body)
+        autocapitalizationType = .none
+        autocorrectionType = .no
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

@@ -40,7 +40,7 @@ class DefectCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .white
+        backgroundColor = .systemBackground
         addSubviews()
         setupSubviews()
         selectionStyle = .none
@@ -61,7 +61,7 @@ class DefectCell: UITableViewCell {
     }
     
     func configureViews() {
-        headingLabel.text = "\(defect.sta) - \(defect.ac) - \(defect.ata4) - \(defect.id)"
+        headingLabel.text = "\(defect.sta) - \(defect.ac) - \(defect.ata4.prefix(4)) - \(defect.id)"
         defectDescriptionLabel.text = defect.description
         setCompletedIndicator()
     }

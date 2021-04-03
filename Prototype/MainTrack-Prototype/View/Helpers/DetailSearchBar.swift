@@ -8,15 +8,9 @@
 import UIKit
 
 class DetailSearchBar: UISearchBar {
-    
     convenience init(placeholder: String) {
         self.init()
         self.placeholder = placeholder
         searchBarStyle = .minimal
-        searchTextField.pin(to: self)
-        anchor(
-            height: searchTextField.intrinsicContentSize.height
-        )
     }
-    
 }

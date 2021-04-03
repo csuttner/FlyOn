@@ -6,25 +6,29 @@
 //
 
 import UIKit
+import DropDown
 
 class SignUpView: UIView {
     
     let emailText = PlaceholderTextView(placeholder: "Email")
-    let firstNameText = PlaceholderTextView(placeholder: "First Name")
-    let lastNameText = PlaceholderTextView(placeholder: "Last Name")
-    let passwordText = PlaceholderTextView(placeholder: "Password")
-    let reenterPasswordText = PlaceholderTextView(placeholder: "Re-enter Password")
+    let passwordText = SecureTextView(placeholder: "Password")
+    let reenterPasswordText = SecureTextView(placeholder: "Re-enter Password")
     
+    let roleAnchor = UIView()
+    let dropDown = DropDown()
+    
+    let roleButton = ActionButton(title: "Choose Role", color: .systemBlue, target: self, action: #selector(onChooseRoleTapped))
     let submitButton = ActionButton(title: "Submit", color: .systemGreen)
     let cancelButton = ActionButton(title: "Cancel", color: .systemGray)
+    
+    lazy var roleStack = UIStackView(arrangedSubviews: [roleButton, roleAnchor]).withAttributes(axis: .vertical)
     
     lazy var stack = UIStackView(
         arrangedSubviews: [
             emailText,
-            firstNameText,
-            lastNameText,
             passwordText,
             reenterPasswordText,
+            roleStack,
             submitButton,
             cancelButton
         ]
@@ -32,6 +36,8 @@ class SignUpView: UIView {
     
     convenience init() {
         self.init(frame: .zero)
+        dropDown.dataSource = Role.allCases.map { $0.rawValue.capitalized }
+        dropDown.anchorView = roleAnchor
         setupSubviews()
         format()
     }
@@ -52,4 +58,10 @@ class SignUpView: UIView {
         }
     }
     
+    @objc func onChooseRoleTapped() {
+        dropDown.show()
+        dropDown.selectionAction = { _, item in
+            self.roleButton.setTitle(item, for: .normal)
+        }
+    }
 }

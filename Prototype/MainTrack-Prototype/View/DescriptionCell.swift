@@ -32,6 +32,8 @@ class DescriptionCell: ScrollableCell {
             textView.textColor = .black
             label.text = defect.description
         }
+        textView.autocapitalizationType = .none
+        textView.autocorrectionType = .yes
     }
     
     private func addObservers() {

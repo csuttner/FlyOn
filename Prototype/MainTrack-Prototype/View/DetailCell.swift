@@ -47,7 +47,7 @@ class DetailCell: ScrollableCell {
     
     private func setupDropDown() {
         dropDown.anchorView = anchorView
-        dropDown.selectionAction = { index, item in
+        dropDown.selectionAction = { _, item in
             self.searchBar.text = item
         }
     }
@@ -84,12 +84,14 @@ class DetailCell: ScrollableCell {
     }
     
     @objc func onChangeMode() {
-        setupForMode()
-        configureText()
-        NotificationCenter.default.post(name: .updateTable, object: nil)
+        DispatchQueue.main.async {
+            self.setupForMode()
+            self.configureText()
+            NotificationCenter.default.post(name: .updateTable, object: nil)
+        }
     }
     
-    private func setupForMode() {
+    private func setupForMode() {        
         if controller.mode == .view {
             setReadView()
         } else {
@@ -106,11 +108,12 @@ class DetailCell: ScrollableCell {
     private func setEditView() {
         label.removeFromSuperview()
         contentView.addSubview(searchBar)
-        searchBar.pin(to: contentView, horizPadding: .halfPadding, vertPadding: .padding)
+        searchBar.pin(to: contentView, vertPadding: .halfPadding)
     }
     
 }
 
+// MARK: - Search Bar Delegate
 extension DetailCell: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -121,5 +124,9 @@ extension DetailCell: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         dropDown.dataSource = reposistory.matches(for: attribute, searchText)
         dropDown.show()
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        scrollDelegate.removeSpace()
     }
 }

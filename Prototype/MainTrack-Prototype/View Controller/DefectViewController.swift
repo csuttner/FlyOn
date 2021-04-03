@@ -6,36 +6,34 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class DefectViewController: UITableViewController {
     
     let repository = Repository.shared
     let controller = DefectController.shared
+    
     lazy var newDefectButton = ActionButton(title: "New Defect", color: .systemGreen, target: self, action: #selector(onNewDefectButtonTapped))
     lazy var profileItem = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle"), style: .plain, target: self, action: #selector(onProfileButtonTapped))
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        formatView()
+        title = "Defects"
+        view.backgroundColor = .systemGray6
         configureTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationController()
-        addToolBarItems()
-        tableView.reloadData()
+        loadDefectsForRole()
     }
     
-    private func formatView() {
-        title = "Defects"
-        view.backgroundColor = .systemGray6
-    }
-    
-    private func configureTableView() {
-        tableView.register(DefectCell.self, forCellReuseIdentifier: "ID")
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.backgroundColor = .systemGray6
+    private func loadDefectsForRole() {
+        if userData.role == .analyst {
+            repository.loadAllDefects { self.tableView.reloadData() }
+        } else {
+            repository.loadDefects(for: userData.email) { self.tableView.reloadData() }
+        }
     }
     
     private func configureNavigationController() {
@@ -43,15 +41,13 @@ class DefectViewController: UITableViewController {
         navigationItem.rightBarButtonItem = profileItem
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.isHidden = false
-        navigationController?.isToolbarHidden = false
-    }
-    
-    private func addToolBarItems() {
-        toolbarItems = [
-            UIBarButtonItem(systemItem: .flexibleSpace),
-            UIBarButtonItem(customView: newDefectButton),
-            UIBarButtonItem(systemItem: .flexibleSpace)
-        ]
+        
+        if userData.role == .analyst {
+            navigationController?.isToolbarHidden = true
+        } else {
+            navigationController?.isToolbarHidden = false
+            setToolbarItems(getSpacedButtonItems(with: [newDefectButton]), animated: true)
+        }
     }
     
     @objc func onNewDefectButtonTapped() {
@@ -61,15 +57,27 @@ class DefectViewController: UITableViewController {
     }
     
     @objc func onProfileButtonTapped() {
-        navigationController?.popViewController(animated: true)
+        do {
+            try Auth.auth().signOut()
+            navigationController?.popViewController(animated: true)
+            repository.clearDefects()
+        } catch let error {
+            presentBasicAlert(title: "Error signing out", message: error.localizedDescription)
+        }
     }
 
 }
 
 // MARK: - Table View
-
-// UITableViewDataSource
 extension DefectViewController {
+    
+    private func configureTableView() {
+        tableView.register(DefectCell.self, forCellReuseIdentifier: "ID")
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = .systemGray6
+        tableView.tableFooterView = UIView(frame: .zero)
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return repository.sections.count
@@ -84,11 +92,6 @@ extension DefectViewController {
         cell.defect = repository.sections[indexPath.section].defects[indexPath.row]
         return cell
     }
-    
-}
-
-// UITableViewDelegate
-extension DefectViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return SectionHeaderView(title: repository.sections[section].title)

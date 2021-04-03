@@ -9,15 +9,15 @@ import Foundation
 
 class Repository {
     
-    private let decoder = JSONDecoder()
-    
     var defects: [Defect]!
     var stations: [Station]!
     var aircraft: [Aircraft]!
     var chapters: [Chapter]!
     var sections = [DefectSection]()
     
-    static let shared = Repository()
+    public static let shared = Repository()
+    
+    private let apiClient = ApiClient.shared
     
     public lazy var attributeDataDict: [DefectAttribute : [Any]] = [
         .sta : stations,
@@ -29,52 +29,67 @@ class Repository {
         loadStations()
         loadAircraft()
         loadChapters()
-        loadDefects()
-        organizeDefectsToSections()
     }
     
     private func loadStations() {
         let path = Bundle.main.path(forResource: "sta", ofType: "json")
         let jsonString = try! String(contentsOfFile: path!, encoding: .utf8)
         let jsonData: Data = jsonString.data(using: .utf8)!
-        stations = try! decoder.decode([Station].self, from: jsonData)
+        stations = try! JSONDecoder().decode([Station].self, from: jsonData)
     }
     
     private func loadAircraft() {
         let path = Bundle.main.path(forResource: "ac", ofType: "json")
         let jsonString = try! String(contentsOfFile: path!, encoding: .utf8)
         let jsonData: Data = jsonString.data(using: .utf8)!
-        aircraft = try! decoder.decode([Aircraft].self, from: jsonData)
+        aircraft = try! JSONDecoder().decode([Aircraft].self, from: jsonData)
     }
     
     private func loadChapters() {
         let path = Bundle.main.path(forResource: "ata", ofType: "json")
         let jsonString = try! String(contentsOfFile: path!, encoding: .utf8)
         let jsonData: Data = jsonString.data(using: .utf8)!
-        chapters = try! decoder.decode([Chapter].self, from: jsonData)
+        chapters = try! JSONDecoder().decode([Chapter].self, from: jsonData)
     }
     
-    private func loadDefects() {
-        let path = Bundle.main.path(forResource: "defects", ofType: "json")
-        let jsonString = try! String(contentsOfFile: path!, encoding: .utf8)
-        let jsonData: Data = jsonString.data(using: .utf8)!
-        defects = try! decoder.decode([Defect].self, from: jsonData)
+    public func loadAllDefects(completion: @escaping() -> Void) {
+        apiClient.getAllDefects { (defects) in
+            self.sections = []
+            self.defects = defects
+            self.organizeDefectsToSections()
+            completion()
+        }
+    }
+    
+    public func loadDefects(for email: String, completion: @escaping() -> Void) {
+        apiClient.getDefects(for: email) { (defects) in
+            self.sections = []
+            self.defects = defects
+            self.organizeDefectsToSections()
+            completion()
+        }
     }
     
     private func organizeDefectsToSections() {
         for defect in defects {
-            addDefect(defect)
+            addDefectToSections(defect)
         }
     }
     
-    public func addDefect(_ defect: Defect) {
-        if let index = sections.firstIndex(where: { $0.title == defect.defectDate.headerStyle() }) {
+    public func addDefectToSections(_ defect: Defect) {
+        if let index = sections.firstIndex(where: { $0.title == defect.defectDate.getDate()!.headerStyle() }) {
             sections[index].defects.append(defect)
+            sections[index].defects.sort { $0.defectDate.getDate()! >= $1.defectDate.getDate()! }
         } else {
-            sections.append(DefectSection(date: defect.defectDate, defects: [defect]))
+            sections.append(DefectSection(date: defect.defectDate.getDate()!, defects: [defect]))
         }
+        sections.sort { $0.date.getDate()! >= $1.date.getDate()! }
     }
 
+    public func clearDefects() {
+        sections = []
+    }
+    
     public func matches(for attribute: DefectAttribute, _ searchText: String) -> [String] {
         let strings = stringRepresentations(for: attribute)
         return strings.compactMap {
@@ -98,5 +113,5 @@ class Repository {
         }
         return strings
     }
-
+    
 }
