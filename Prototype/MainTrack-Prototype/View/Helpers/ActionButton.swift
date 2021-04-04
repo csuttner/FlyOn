@@ -7,6 +7,16 @@
 
 import UIKit
 
+@IBDesignable
+class RoundedButton: UIButton {
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = .cornerRadius
+    }
+    
+}
+
 class ActionButton: UIButton {
     
     convenience init(title: String, color: UIColor, target: Any?, action: Selector) {
@@ -18,12 +28,14 @@ class ActionButton: UIButton {
         self.init()
         setTitle("   \(title)   ", for: .normal)
         backgroundColor = color
-        format()
     }
     
-    func format() {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
         titleLabel?.font = .preferredFont(forTextStyle: .title2)
         tintColor = .white
         layer.cornerRadius = .cornerRadius
     }
+    
 }

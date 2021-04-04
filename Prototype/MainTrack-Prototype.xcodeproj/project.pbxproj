@@ -51,7 +51,8 @@
 		F398683525FDB8FE00DF52FD /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683425FDB8FE00DF52FD /* NotificationExtensions.swift */; };
 		F398683B25FDD4BF00DF52FD /* DetailViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683A25FDD4BF00DF52FD /* DetailViews.swift */; };
 		F398683E25FDD6EC00DF52FD /* ViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683D25FDD6EC00DF52FD /* ViewContainer.swift */; };
-		F3EC40ED25FC7D92004A9A5D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40EC25FC7D92004A9A5D /* LoginView.swift */; };
+		F3E86EC2261A5E1C0089CC8B /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3E86EC1261A5E1C0089CC8B /* LoginViewController.xib */; };
+		F3EC40ED25FC7D92004A9A5D /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40EC25FC7D92004A9A5D /* RoundedView.swift */; };
 		F3EC40F125FC8233004A9A5D /* StackViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */; };
 		F3EC40F425FC8B18004A9A5D /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */; };
 		F3EC40F925FC8CB1004A9A5D /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F825FC8CB1004A9A5D /* PlaceholderTextView.swift */; };
@@ -108,7 +109,8 @@
 		F398683425FDB8FE00DF52FD /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		F398683A25FDD4BF00DF52FD /* DetailViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViews.swift; sourceTree = "<group>"; };
 		F398683D25FDD6EC00DF52FD /* ViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewContainer.swift; sourceTree = "<group>"; };
-		F3EC40EC25FC7D92004A9A5D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		F3E86EC1261A5E1C0089CC8B /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		F3EC40EC25FC7D92004A9A5D /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewExtensions.swift; sourceTree = "<group>"; };
 		F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
 		F3EC40F825FC8CB1004A9A5D /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
@@ -196,7 +198,7 @@
 		F34A75D525F94B1E000F2DF8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F3EC40EC25FC7D92004A9A5D /* LoginView.swift */,
+				F3EC40EC25FC7D92004A9A5D /* RoundedView.swift */,
 				F380276D25FC97FA00B5FFD2 /* SignUpView.swift */,
 				F346655625F73457004340B7 /* DefectCell.swift */,
 				F398682A25FDAD6300DF52FD /* DetailCell.swift */,
@@ -292,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */,
+				F3E86EC1261A5E1C0089CC8B /* LoginViewController.xib */,
 				F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */,
 				F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */,
 				F398683025FDADD800DF52FD /* DetailViewController.swift */,
@@ -359,6 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3E86EC2261A5E1C0089CC8B /* LoginViewController.xib in Resources */,
 				F378DB5225F6815A002042D1 /* LaunchScreen.storyboard in Resources */,
 				F378DB4F25F6815A002042D1 /* Assets.xcassets in Resources */,
 				F398681825FD9DE200DF52FD /* sta.json in Resources */,
@@ -427,7 +431,7 @@
 				F398680A25FD8A0600DF52FD /* Errors.swift in Sources */,
 				F3EC40F425FC8B18004A9A5D /* TextFieldExtensions.swift in Sources */,
 				F398683B25FDD4BF00DF52FD /* DetailViews.swift in Sources */,
-				F3EC40ED25FC7D92004A9A5D /* LoginView.swift in Sources */,
+				F3EC40ED25FC7D92004A9A5D /* RoundedView.swift in Sources */,
 				F398683125FDADD800DF52FD /* DetailViewController.swift in Sources */,
 				F398680725FD803300DF52FD /* ApiClient.swift in Sources */,
 				F398683525FDB8FE00DF52FD /* NotificationExtensions.swift in Sources */,
@@ -600,7 +604,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = DFVB576FM8;
 				INFOPLIST_FILE = "MainTrack-Prototype/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -622,7 +626,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = DFVB576FM8;
 				INFOPLIST_FILE = "MainTrack-Prototype/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
