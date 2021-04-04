@@ -72,7 +72,7 @@ class DefectViewController: UITableViewController {
 extension DefectViewController {
     
     private func configureTableView() {
-        tableView.register(DefectCell.self, forCellReuseIdentifier: "ID")
+        tableView.register(DefectCell.self)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .systemGray6
@@ -88,7 +88,7 @@ extension DefectViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ID") as! DefectCell
+        let cell = tableView.dequeueReusableCell(DefectCell.self)!
         cell.defect = repository.sections[indexPath.section].defects[indexPath.row]
         return cell
     }
