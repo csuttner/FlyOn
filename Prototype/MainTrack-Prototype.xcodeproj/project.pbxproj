@@ -52,6 +52,7 @@
 		F398683B25FDD4BF00DF52FD /* DetailViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683A25FDD4BF00DF52FD /* DetailViews.swift */; };
 		F398683E25FDD6EC00DF52FD /* ViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683D25FDD6EC00DF52FD /* ViewContainer.swift */; };
 		F3E86EC2261A5E1C0089CC8B /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3E86EC1261A5E1C0089CC8B /* LoginViewController.xib */; };
+		F3E86EC7261A65D00089CC8B /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3E86EC6261A65D00089CC8B /* SignupViewController.xib */; };
 		F3EC40ED25FC7D92004A9A5D /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40EC25FC7D92004A9A5D /* RoundedView.swift */; };
 		F3EC40F125FC8233004A9A5D /* StackViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */; };
 		F3EC40F425FC8B18004A9A5D /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */; };
@@ -110,6 +111,7 @@
 		F398683A25FDD4BF00DF52FD /* DetailViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViews.swift; sourceTree = "<group>"; };
 		F398683D25FDD6EC00DF52FD /* ViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewContainer.swift; sourceTree = "<group>"; };
 		F3E86EC1261A5E1C0089CC8B /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		F3E86EC6261A65D00089CC8B /* SignupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
 		F3EC40EC25FC7D92004A9A5D /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewExtensions.swift; sourceTree = "<group>"; };
 		F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */,
 				F3E86EC1261A5E1C0089CC8B /* LoginViewController.xib */,
 				F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */,
+				F3E86EC6261A65D00089CC8B /* SignupViewController.xib */,
 				F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */,
 				F398683025FDADD800DF52FD /* DetailViewController.swift */,
 				F33476BC25FE836700E08D45 /* Helpers */,
@@ -368,6 +371,7 @@
 				F398681825FD9DE200DF52FD /* sta.json in Resources */,
 				F398681E25FD9E0200DF52FD /* ata.json in Resources */,
 				F398681B25FD9DF300DF52FD /* ac.json in Resources */,
+				F3E86EC7261A65D00089CC8B /* SignupViewController.xib in Resources */,
 				F34586CD26054C2D00845A56 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

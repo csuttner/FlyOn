@@ -7,45 +7,39 @@
 
 import UIKit
 import FirebaseAuth
+import DropDown
 
 class SignupViewController: UIViewController {
+    @IBOutlet weak var emailText: UITextField!
+    @IBOutlet weak var passwordText: UITextField!
+    @IBOutlet weak var reEnterPasswordText: UITextField!
+    @IBOutlet weak var roleButton: RoundedButton!
+    @IBOutlet weak var anchorView: UIView!
     
-    let signUpView = SignUpView()
     let apiClient = ApiClient.shared
     let loadingView = LoadingView()
+    let dropDown = DropDown()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray6
-        setupSubviews()
-        addTapGesture()
-        addButtonTargets()
+        dropDown.dataSource = Role.allCases.map { $0.rawValue.capitalized }
+        dropDown.anchorView = anchorView
     }
     
-    private func setupSubviews() {
-        view.addSubview(signUpView)
-        signUpView.anchor(
-            centerX: view.centerXAnchor,
-            centerY: view.centerYAnchor,
-            width: .loginViewWidth
-        )
+    @IBAction func onViewTapped(_ sender: Any) {
+        emailText.resignFirstResponder()
+        passwordText.resignFirstResponder()
+        reEnterPasswordText.resignFirstResponder()
     }
     
-    private func addTapGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTap))
-        view.addGestureRecognizer(tapGesture)
+    @IBAction func onChooseRoleTapped(_ sender: Any) {
+        dropDown.show()
+        dropDown.selectionAction = { _, item in
+            self.roleButton.setTitle(item, for: .normal)
+        }
     }
     
-    private func addButtonTargets() {
-        signUpView.submitButton.addTarget(self, action: #selector(onSubmitButtonTapped), for: .touchUpInside)
-        signUpView.cancelButton.addTarget(self, action: #selector(onCancelButtonTapped), for: .touchUpInside)
-    }
-    
-    @objc func onTap() {
-        signUpView.dismissKeyboard()
-    }
-    
-    @objc func onSubmitButtonTapped() {
+    @IBAction func onSubmitButtonTapped(_ sender: Any) {
         do {
             let newUserData = try getUserDataFromInput()
             loadingView.show(in: view)
@@ -55,20 +49,20 @@ class SignupViewController: UIViewController {
         }
     }
     
-    @objc func onCancelButtonTapped() {
+    @IBAction func onCancelButtonTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     
     private func getUserDataFromInput() throws -> UserData {
-        guard let email = signUpView.emailText.text, !email.isEmpty,
-              let password = signUpView.passwordText.text, !password.isEmpty,
-              let reenterPassword = signUpView.reenterPasswordText.text, !reenterPassword.isEmpty,
-              let roleString = signUpView.roleButton.currentTitle, !roleString.isEmpty
+        guard let email = emailText.text, !email.isEmpty,
+              let password = passwordText.text, !password.isEmpty,
+              let reEnterPassword = reEnterPasswordText.text, !reEnterPassword.isEmpty,
+              let roleString = roleButton.currentTitle, !roleString.isEmpty
         else {
             throw ValidationError.missingData
         }
         
-        guard password == reenterPassword else { throw ValidationError.passwordMismatch }
+        guard password == reEnterPassword else { throw ValidationError.passwordMismatch }
         
         guard let role = Role.init(rawValue: roleString.lowercased()) else { throw ValidationError.roleNotFound }
         
@@ -97,5 +91,4 @@ class SignupViewController: UIViewController {
             }
         }
     }
-    
 }
