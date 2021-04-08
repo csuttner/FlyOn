@@ -1,5 +1,5 @@
 //
-//  DefectViewController.swift
+//  OldDefectViewController.swift
 //  MainTrack-Prototype
 //
 //  Created by Clay Suttner on 3/10/21.
@@ -8,7 +8,8 @@
 import UIKit
 import FirebaseAuth
 
-class DefectViewController: UITableViewController {
+class OldDefectViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var tableView: UITableView!
     
     let repository = Repository.shared
     let controller = DefectController.shared
@@ -19,7 +20,6 @@ class DefectViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Defects"
-        view.backgroundColor = .systemGray6
         configureTableView()
     }
     
@@ -66,41 +66,34 @@ class DefectViewController: UITableViewController {
         }
     }
 
-}
-
-// MARK: - Table View
-extension DefectViewController {
+    // MARK: - Table View
     
     private func configureTableView() {
         tableView.register(DefectCell.self)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.backgroundColor = .systemGray6
         tableView.tableFooterView = UIView(frame: .zero)
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return repository.sections.count
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repository.sections[section].defects.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(DefectCell.self)!
         cell.defect = repository.sections[indexPath.section].defects[indexPath.row]
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return SectionHeaderView(title: repository.sections[section].title)
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return SectionHeader(title: repository.sections[section].title)
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         controller.defect = repository.sections[indexPath.section].defects[indexPath.row]
         controller.mode = .view
         navigationController!.pushViewController(DetailViewController(), animated: true)
     }
-    
 }

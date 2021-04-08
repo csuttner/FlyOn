@@ -9,9 +9,9 @@ import UIKit
 
 class DetailViews {
     
-    private lazy var staCell = DetailCell(attribute: .sta)
-    private lazy var acCell = DetailCell(attribute: .ac)
-    private lazy var ataCell = DetailCell(attribute: .ata4)
+    private lazy var staCell = DetailCellOld(attribute: .sta)
+    private lazy var acCell = DetailCellOld(attribute: .ac)
+    private lazy var ataCell = DetailCellOld(attribute: .ata4)
     private lazy var descCell = DescriptionCell()
     public lazy var spacerCell = SpacerCell()
     

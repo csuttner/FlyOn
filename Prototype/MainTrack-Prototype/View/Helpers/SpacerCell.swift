@@ -8,7 +8,6 @@
 import UIKit
 
 class SpacerCell: ScrollableCell {
-    
     private let label = MultilineLabel()
     
     convenience init() {
@@ -27,5 +26,4 @@ class SpacerCell: ScrollableCell {
         label.text = nil
         NotificationCenter.default.post(name: .updateTable, object: nil)
     }
-    
 }
