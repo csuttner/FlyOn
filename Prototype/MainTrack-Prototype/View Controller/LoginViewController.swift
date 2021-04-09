@@ -9,18 +9,11 @@ import UIKit
 import FirebaseAuth
 
 class LoginViewController: UIViewController {
+    @IBOutlet weak var emailText: UITextField!
+    @IBOutlet weak var passwordText: UITextField!
     
-    private let loginView = LoginView()
     private let loadingView = LoadingView()
     private let apiClient = ApiClient.shared
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemGray6
-        setupSubviews()
-        addTapGesture()
-        addButtonTargets()
-    }
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
@@ -28,38 +21,20 @@ class LoginViewController: UIViewController {
         setTextWithUserData()
     }
     
-    private func setupSubviews() {
-        view.addSubview(loginView)
-        loginView.anchor(
-            centerX: view.centerXAnchor,
-            centerY: view.centerYAnchor,
-            width: .loginViewWidth
-        )
-    }
-    
-    private func addTapGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTap))
-        view.addGestureRecognizer(tapGesture)
-    }
-    
-    private func addButtonTargets() {
-        loginView.loginButton.addTarget(self, action: #selector(onLoginButtonTapped), for: .touchUpInside)
-        loginView.signUpButton.addTarget(self, action: #selector(onSignUpButtonTapped), for: .touchUpInside)
-    }
-    
     private func setTextWithUserData() {
         if let userData = userData {
-            loginView.emailText.text = userData.email
-            loginView.passwordText.text = userData.password
-            loginView.emailText.textColor = .black
+            emailText.text = userData.email
+            passwordText.text = userData.password
+            emailText.textColor = .black
         }
     }
     
-    @objc func onTap() {
-        loginView.dismissKeyboard()
+    @IBAction func onViewTapped(_ sender: Any) {
+        emailText.resignFirstResponder()
+        passwordText.resignFirstResponder()
     }
     
-    @objc func onLoginButtonTapped() {
+    @IBAction func onLoginButtonTapped(_ sender: Any) {
         do {
             let (email, password) = try getEmailPasswordFromInput()
             loadingView.show(in: view)
@@ -69,13 +44,13 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @objc func onSignUpButtonTapped() {
+    @IBAction func onSignUpButtonTapped(_ sender: Any) {
         navigationController?.pushViewController(SignupViewController(), animated: true)
     }
     
     private func getEmailPasswordFromInput() throws -> (String, String) {
-        guard let email = loginView.emailText.text, !email.isEmpty,
-              let password = loginView.passwordText.text, !password.isEmpty
+        guard let email = emailText.text, !email.isEmpty,
+              let password = passwordText.text, !password.isEmpty
         else {
             throw ValidationError.missingData
         }
@@ -97,8 +72,7 @@ class LoginViewController: UIViewController {
         apiClient.getUserData(from: email) { data in
             userData = data
             self.loadingView.remove()
-            self.navigationController?.pushViewController(DefectViewController(), animated: true)
+            self.navigationController?.pushViewController(OldDefectViewController(), animated: true)
         }
     }
-    
 }

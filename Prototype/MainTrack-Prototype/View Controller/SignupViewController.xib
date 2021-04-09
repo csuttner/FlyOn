@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignupViewController" customModule="MainTrack_Prototype" customModuleProvider="target">
+            <connections>
+                <outlet property="anchorView" destination="dYz-3j-Dc1" id="NgU-Fk-B5V"/>
+                <outlet property="emailText" destination="1oC-xj-5H7" id="elt-BC-gBt"/>
+                <outlet property="passwordText" destination="wQF-B3-cuE" id="4Ex-ij-vmU"/>
+                <outlet property="reEnterPasswordText" destination="YMR-Gr-Zsd" id="JeU-fe-Yvk"/>
+                <outlet property="roleButton" destination="fAk-Bs-fwA" id="bet-5Q-n6C"/>
+                <outlet property="view" destination="iN0-l3-epB" id="dfL-rQ-m1C"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EsV-SX-ooG" customClass="RoundedView" customModule="MainTrack_Prototype" customModuleProvider="target">
+                    <rect key="frame" x="87" y="275" width="240" height="346"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="L7U-3J-UMv">
+                            <rect key="frame" x="16" y="16" width="208" height="314"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1oC-xj-5H7">
+                                    <rect key="frame" x="0.0" y="0.0" width="208" height="39"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wQF-B3-cuE">
+                                    <rect key="frame" x="0.0" y="55" width="208" height="39"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YMR-Gr-Zsd">
+                                    <rect key="frame" x="0.0" y="110" width="208" height="39"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                </textField>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QUk-hv-VXp">
+                                    <rect key="frame" x="0.0" y="165" width="208" height="39"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fAk-Bs-fwA" customClass="RoundedButton" customModule="MainTrack_Prototype" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="208" height="39"/>
+                                            <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                            <state key="normal" title="Choose Role">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="onChooseRoleTapped:" destination="-1" eventType="touchUpInside" id="qey-mS-0PA"/>
+                                            </connections>
+                                        </button>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dYz-3j-Dc1" userLabel="Anchor View">
+                                            <rect key="frame" x="0.0" y="39" width="208" height="0.0"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" id="1rC-q1-rnf"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgF-p6-eJq" customClass="RoundedButton" customModule="MainTrack_Prototype" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="220" width="208" height="39"/>
+                                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                    <state key="normal" title="Submit">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onSubmitButtonTapped:" destination="-1" eventType="touchUpInside" id="X8A-U6-K2i"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Grv-pz-NgY" customClass="RoundedButton" customModule="MainTrack_Prototype" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="275" width="208" height="39"/>
+                                    <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                    <state key="normal" title="Cancel">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onCancelButtonTapped:" destination="-1" eventType="touchUpInside" id="ea0-xE-Sul"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="L7U-3J-UMv" secondAttribute="bottom" constant="16" id="5Sh-9o-ERb"/>
+                        <constraint firstAttribute="width" constant="240" id="Gyt-yV-RNU"/>
+                        <constraint firstItem="L7U-3J-UMv" firstAttribute="top" secondItem="EsV-SX-ooG" secondAttribute="top" constant="16" id="LCK-Jh-ESJ"/>
+                        <constraint firstAttribute="trailing" secondItem="L7U-3J-UMv" secondAttribute="trailing" constant="16" id="Rg5-QP-I7m"/>
+                        <constraint firstItem="L7U-3J-UMv" firstAttribute="leading" secondItem="EsV-SX-ooG" secondAttribute="leading" constant="16" id="h1p-uG-RI8"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemGray6Color"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="EsV-SX-ooG" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="8jp-Cg-iVh"/>
+                <constraint firstItem="EsV-SX-ooG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dHH-zj-2Ib"/>
+            </constraints>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="WWR-kh-956" appends="YES" id="dh7-lD-1uW"/>
+            </connections>
+            <point key="canvasLocation" x="34.782608695652179" y="79.6875"/>
+        </view>
+        <tapGestureRecognizer id="WWR-kh-956">
+            <connections>
+                <action selector="onViewTapped:" destination="-1" id="0Ax-YW-DGB"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <designables>
+        <designable name="CgF-p6-eJq">
+            <size key="intrinsicContentSize" width="68" height="39"/>
+        </designable>
+        <designable name="Grv-pz-NgY">
+            <size key="intrinsicContentSize" width="67" height="39"/>
+        </designable>
+        <designable name="fAk-Bs-fwA">
+            <size key="intrinsicContentSize" width="121" height="39"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

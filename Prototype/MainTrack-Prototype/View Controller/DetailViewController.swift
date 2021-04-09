@@ -77,7 +77,7 @@ extension DetailViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return SectionHeaderView(title: detailViews.sections[section].title)
+        return SectionHeader(title: detailViews.sections[section].title)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

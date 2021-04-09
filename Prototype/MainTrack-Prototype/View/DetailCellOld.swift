@@ -1,5 +1,5 @@
 //
-//  DetailCell.swift
+//  DetailCellOld.swift
 //  MainTrack-Prototype
 //
 //  Created by Clay Suttner on 3/13/21.
@@ -8,8 +8,20 @@
 import UIKit
 import DropDown
 
-class DetailCell: ScrollableCell {
-    
+protocol CellScrollDelegate {
+    func scrollTo(indexPath: IndexPath)
+    func removeSpace()
+}
+
+protocol Scrollable {
+    var scrollDelegate: CellScrollDelegate! { get set }
+}
+
+class ScrollableCell: UITableViewCell, Scrollable {
+    var scrollDelegate: CellScrollDelegate!
+}
+
+class DetailCellOld: ScrollableCell {
     private let reposistory = Repository.shared
     private let controller = DefectController.shared
     
@@ -114,7 +126,7 @@ class DetailCell: ScrollableCell {
 }
 
 // MARK: - Search Bar Delegate
-extension DetailCell: UISearchBarDelegate {
+extension DetailCellOld: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         let row = DefectAttribute.allCases.firstIndex(of: attribute)!
