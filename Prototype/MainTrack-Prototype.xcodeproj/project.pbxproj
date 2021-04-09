@@ -46,6 +46,7 @@
 		F398683525FDB8FE00DF52FD /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683425FDB8FE00DF52FD /* NotificationExtensions.swift */; };
 		F398683B25FDD4BF00DF52FD /* DetailViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683A25FDD4BF00DF52FD /* DetailViews.swift */; };
 		F398683E25FDD6EC00DF52FD /* ViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683D25FDD6EC00DF52FD /* ViewContainer.swift */; };
+		F3B0F35926201768005E4BDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3B0F35826201768005E4BDA /* Main.storyboard */; };
 		F3E86EC2261A5E1C0089CC8B /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3E86EC1261A5E1C0089CC8B /* LoginViewController.xib */; };
 		F3E86EC7261A65D00089CC8B /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3E86EC6261A65D00089CC8B /* SignupViewController.xib */; };
 		F3E86ED4261A7DDD0089CC8B /* DefectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E86ED2261A7DDD0089CC8B /* DefectCell.swift */; };
@@ -104,6 +105,7 @@
 		F398683425FDB8FE00DF52FD /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		F398683A25FDD4BF00DF52FD /* DetailViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViews.swift; sourceTree = "<group>"; };
 		F398683D25FDD6EC00DF52FD /* ViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewContainer.swift; sourceTree = "<group>"; };
+		F3B0F35826201768005E4BDA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F3E86EC1261A5E1C0089CC8B /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		F3E86EC6261A65D00089CC8B /* SignupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
 		F3E86ED2261A7DDD0089CC8B /* DefectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectCell.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 		F3EC40E825FC7BEB004A9A5D /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F3B0F35826201768005E4BDA /* Main.storyboard */,
 				F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */,
 				F3E86EC1261A5E1C0089CC8B /* LoginViewController.xib */,
 				F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */,
@@ -359,6 +362,7 @@
 				F378DB5225F6815A002042D1 /* LaunchScreen.storyboard in Resources */,
 				F378DB4F25F6815A002042D1 /* Assets.xcassets in Resources */,
 				F3E86ED5261A7DDD0089CC8B /* DefectCell.xib in Resources */,
+				F3B0F35926201768005E4BDA /* Main.storyboard in Resources */,
 				F398681825FD9DE200DF52FD /* sta.json in Resources */,
 				F398681E25FD9E0200DF52FD /* ata.json in Resources */,
 				F398681B25FD9DF300DF52FD /* ac.json in Resources */,
