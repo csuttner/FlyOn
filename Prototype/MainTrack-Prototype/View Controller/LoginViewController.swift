@@ -34,20 +34,28 @@ class LoginViewController: UIViewController {
         passwordText.resignFirstResponder()
     }
     
+    
     @IBAction func onLoginButtonTapped(_ sender: Any) {
         do {
             let (email, password) = try getEmailPasswordFromInput()
             loadingView.show(in: view)
-            signIn(email: email, password: password)
+            Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+                if let error = error {
+                    self.loadingView.remove()
+                    self.presentBasicAlert(title: "Login failed", message: error.localizedDescription)
+                } else {
+                    self.apiClient.getUserData(from: email) { data in
+                        userData = data
+                        self.loadingView.remove()
+                        self.performSegue(withIdentifier: "LoginSegue", sender: self)
+                    }
+                }
+            }
         } catch let error {
             presentBasicAlert(title: "Login Failed", message: error.localizedDescription)
         }
     }
-    
-    @IBAction func onSignUpButtonTapped(_ sender: Any) {
-        navigationController?.pushViewController(SignupViewController(), animated: true)
-    }
-    
+
     private func getEmailPasswordFromInput() throws -> (String, String) {
         guard let email = emailText.text, !email.isEmpty,
               let password = passwordText.text, !password.isEmpty
@@ -55,24 +63,5 @@ class LoginViewController: UIViewController {
             throw ValidationError.missingData
         }
         return (email, password)
-    }
-    
-    private func signIn(email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-            if let error = error {
-                self.loadingView.remove()
-                self.presentBasicAlert(title: "Login failed", message: error.localizedDescription)
-            } else {
-                self.didSignIn(with: email)
-            }
-        }
-    }
-    
-    private func didSignIn(with email: String) {
-        apiClient.getUserData(from: email) { data in
-            userData = data
-            self.loadingView.remove()
-            self.navigationController?.pushViewController(DefectViewController(), animated: true)
-        }
     }
 }

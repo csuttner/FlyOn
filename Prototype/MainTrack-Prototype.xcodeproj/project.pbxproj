@@ -48,7 +48,6 @@
 		F398683E25FDD6EC00DF52FD /* ViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683D25FDD6EC00DF52FD /* ViewContainer.swift */; };
 		F3B0F35926201768005E4BDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3B0F35826201768005E4BDA /* Main.storyboard */; };
 		F3E86ED4261A7DDD0089CC8B /* DefectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E86ED2261A7DDD0089CC8B /* DefectCell.swift */; };
-		F3E86ED5261A7DDD0089CC8B /* DefectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3E86ED3261A7DDD0089CC8B /* DefectCell.xib */; };
 		F3E86EDA261A823A0089CC8B /* TableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E86ED9261A823A0089CC8B /* TableViewExtensions.swift */; };
 		F3EC40ED25FC7D92004A9A5D /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40EC25FC7D92004A9A5D /* RoundedView.swift */; };
 		F3EC40F125FC8233004A9A5D /* StackViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */; };
@@ -104,7 +103,6 @@
 		F398683D25FDD6EC00DF52FD /* ViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewContainer.swift; sourceTree = "<group>"; };
 		F3B0F35826201768005E4BDA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F3E86ED2261A7DDD0089CC8B /* DefectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectCell.swift; sourceTree = "<group>"; };
-		F3E86ED3261A7DDD0089CC8B /* DefectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefectCell.xib; sourceTree = "<group>"; };
 		F3E86ED9261A823A0089CC8B /* TableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtensions.swift; sourceTree = "<group>"; };
 		F3EC40EC25FC7D92004A9A5D /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewExtensions.swift; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 			children = (
 				F3EC40EC25FC7D92004A9A5D /* RoundedView.swift */,
 				F3E86ED2261A7DDD0089CC8B /* DefectCell.swift */,
-				F3E86ED3261A7DDD0089CC8B /* DefectCell.xib */,
 				F398682A25FDAD6300DF52FD /* DetailCellOld.swift */,
 				F398682D25FDAD7000DF52FD /* DescriptionCell.swift */,
 				F398683A25FDD4BF00DF52FD /* DetailViews.swift */,
@@ -238,6 +235,7 @@
 			children = (
 				F378DB4E25F6815A002042D1 /* Assets.xcassets */,
 				F378DB5025F6815A002042D1 /* LaunchScreen.storyboard */,
+				F3B0F35826201768005E4BDA /* Main.storyboard */,
 				F378DB5325F6815A002042D1 /* Info.plist */,
 				F34586CC26054C2C00845A56 /* GoogleService-Info.plist */,
 				F398684725FDDC0E00DF52FD /* Main */,
@@ -280,7 +278,6 @@
 		F3EC40E825FC7BEB004A9A5D /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F3B0F35826201768005E4BDA /* Main.storyboard */,
 				F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */,
 				F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */,
 				F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */,
@@ -350,7 +347,6 @@
 			files = (
 				F378DB5225F6815A002042D1 /* LaunchScreen.storyboard in Resources */,
 				F378DB4F25F6815A002042D1 /* Assets.xcassets in Resources */,
-				F3E86ED5261A7DDD0089CC8B /* DefectCell.xib in Resources */,
 				F3B0F35926201768005E4BDA /* Main.storyboard in Resources */,
 				F398681825FD9DE200DF52FD /* sta.json in Resources */,
 				F398681E25FD9E0200DF52FD /* ata.json in Resources */,

@@ -32,26 +32,26 @@
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpA-ld-PVg" customClass="RoundedButton" customModule="MainTrack_Prototype" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="110" width="208" height="39"/>
-                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                <state key="normal" title="Sign Up">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <segue destination="dwE-Ii-oS5" kind="show" identifier="SignUpSegue" id="YNA-MD-j1h"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FN-Ar-qzn" customClass="RoundedButton" customModule="MainTrack_Prototype" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="165" width="208" height="39"/>
+                                                <rect key="frame" x="0.0" y="110" width="208" height="39"/>
                                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <state key="normal" title="Login">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="0Ku-nh-NJN" kind="show" identifier="LoginSegue" id="FGc-qR-SHw"/>
+                                                    <action selector="onLoginButtonTapped:" destination="CMQ-tV-B1e" eventType="touchUpInside" id="CgI-3z-9tU"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpA-ld-PVg" customClass="RoundedButton" customModule="MainTrack_Prototype" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="165" width="208" height="39"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                <state key="normal" title="Sign Up">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="dwE-Ii-oS5" kind="show" identifier="SignUpSegue" destinationCreationSelector="signUpSegue:" id="YNA-MD-j1h"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -69,14 +69,28 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xoM-7T-4GX"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="WOj-rn-jCv" firstAttribute="centerY" secondItem="YSc-vW-oFd" secondAttribute="centerY" id="LmZ-pX-e1x"/>
                             <constraint firstItem="WOj-rn-jCv" firstAttribute="centerX" secondItem="YSc-vW-oFd" secondAttribute="centerX" id="ooh-yH-lSE"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Btb-C6-9A0" appends="YES" id="6Hr-IJ-HnR"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="SdD-yq-1Ng"/>
+                    <connections>
+                        <outlet property="emailText" destination="YDT-bu-Zr9" id="taj-Uz-NBd"/>
+                        <outlet property="passwordText" destination="Wkv-ZY-trc" id="At0-Uy-CAV"/>
+                        <segue destination="0Ku-nh-NJN" kind="show" identifier="LoginSegue" id="7Y6-c5-yuU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YSu-CW-C4a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Btb-C6-9A0">
+                    <connections>
+                        <action selector="onViewTapped:" destination="CMQ-tV-B1e" id="kdK-GA-qOl"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="944.92753623188412" y="2.6785714285714284"/>
         </scene>
@@ -140,6 +154,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="completedIndicator" destination="3aI-XN-uLE" id="kiu-i5-Nkp"/>
+                                    <outlet property="descriptionLabel" destination="1ZN-OP-L2d" id="Z9N-Sp-tWA"/>
+                                    <outlet property="headingLabel" destination="ncG-DI-GEC" id="Oau-Ug-jL0"/>
                                     <segue destination="Ogj-jN-5jx" kind="show" identifier="DefectDetailSegue" id="jGC-0H-Nkx"/>
                                 </connections>
                             </tableViewCell>
@@ -156,9 +173,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="profileItem" destination="hyn-Je-Zdc" id="zpK-29-ZQx"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kzw-ny-S6C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -168,20 +182,40 @@
         <scene sceneID="L0L-QL-2wr">
             <objects>
                 <tableViewController id="Ogj-jN-5jx" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TuD-xh-WRI">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TuD-xh-WRI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XjU-xa-ohx">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XjU-xa-ohx" id="IiP-Lh-SQY">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                        <sections>
+                            <tableViewSection id="rPr-Y1-JQr">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XjU-xa-ohx">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XjU-xa-ohx" id="IiP-Lh-SQY">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="oHT-38-98W">
+                                        <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oHT-38-98W" id="S7Q-aW-Ui6">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailCell" id="iFo-dj-M9v">
+                                        <rect key="frame" x="0.0" y="115" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iFo-dj-M9v" id="gOd-W7-Hwq">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
                         <connections>
                             <outlet property="dataSource" destination="Ogj-jN-5jx" id="gNd-I4-EdE"/>
                             <outlet property="delegate" destination="Ogj-jN-5jx" id="2eh-PZ-W6J"/>
