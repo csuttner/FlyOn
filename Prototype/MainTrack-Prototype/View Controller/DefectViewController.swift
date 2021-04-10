@@ -8,14 +8,11 @@
 import UIKit
 import FirebaseAuth
 
-class OldDefectViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    @IBOutlet weak var tableView: UITableView!
-    
+class DefectViewController: UITableViewController {
     let repository = Repository.shared
     let controller = DefectController.shared
     
     lazy var newDefectButton = ActionButton(title: "New Defect", color: .systemGreen, target: self, action: #selector(onNewDefectButtonTapped))
-    lazy var profileItem = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle"), style: .plain, target: self, action: #selector(onProfileButtonTapped))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +35,6 @@ class OldDefectViewController: UIViewController, UITableViewDataSource, UITableV
     
     private func configureNavigationController() {
         navigationItem.hidesBackButton = true
-        navigationItem.rightBarButtonItem = profileItem
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.isHidden = false
         
@@ -56,7 +52,7 @@ class OldDefectViewController: UIViewController, UITableViewDataSource, UITableV
         navigationController?.pushViewController(DetailViewController(), animated: true)
     }
     
-    @objc func onProfileButtonTapped() {
+    @IBAction func onProfileButtonTapped(_ sender: Any) {
         do {
             try Auth.auth().signOut()
             navigationController?.popViewController(animated: true)
@@ -73,25 +69,25 @@ class OldDefectViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.tableFooterView = UIView(frame: .zero)
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return repository.sections.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repository.sections[section].defects.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(DefectCell.self)!
         cell.defect = repository.sections[indexPath.section].defects[indexPath.row]
         return cell
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return SectionHeader(title: repository.sections[section].title)
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         controller.defect = repository.sections[indexPath.section].defects[indexPath.row]
         controller.mode = .view
         navigationController!.pushViewController(DetailViewController(), animated: true)

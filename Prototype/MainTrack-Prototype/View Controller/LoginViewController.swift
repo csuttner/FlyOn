@@ -72,7 +72,7 @@ class LoginViewController: UIViewController {
         apiClient.getUserData(from: email) { data in
             userData = data
             self.loadingView.remove()
-            self.navigationController?.pushViewController(OldDefectViewController(), animated: true)
+            self.navigationController?.pushViewController(DefectViewController(), animated: true)
         }
     }
 }

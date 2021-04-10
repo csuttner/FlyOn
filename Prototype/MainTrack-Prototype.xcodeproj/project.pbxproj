@@ -17,7 +17,7 @@
 		F346655425F73438004340B7 /* DefectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655325F73438004340B7 /* DefectModel.swift */; };
 		F346655D25F73849004340B7 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655C25F73849004340B7 /* SectionHeader.swift */; };
 		F346656025F73990004340B7 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655F25F73990004340B7 /* Repository.swift */; };
-		F34A75CF25F93D59000F2DF8 /* OldDefectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75CE25F93D59000F2DF8 /* OldDefectViewController.swift */; };
+		F34A75CF25F93D59000F2DF8 /* DefectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */; };
 		F34A75DA25F94B4E000F2DF8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */; };
 		F34A75E725F95100000F2DF8 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75E625F95100000F2DF8 /* ActionButton.swift */; };
 		F34E51C326058893000B4E36 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34E51C226058893000B4E36 /* LoadingView.swift */; };
@@ -47,12 +47,9 @@
 		F398683B25FDD4BF00DF52FD /* DetailViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683A25FDD4BF00DF52FD /* DetailViews.swift */; };
 		F398683E25FDD6EC00DF52FD /* ViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683D25FDD6EC00DF52FD /* ViewContainer.swift */; };
 		F3B0F35926201768005E4BDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3B0F35826201768005E4BDA /* Main.storyboard */; };
-		F3E86EC2261A5E1C0089CC8B /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3E86EC1261A5E1C0089CC8B /* LoginViewController.xib */; };
-		F3E86EC7261A65D00089CC8B /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3E86EC6261A65D00089CC8B /* SignupViewController.xib */; };
 		F3E86ED4261A7DDD0089CC8B /* DefectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E86ED2261A7DDD0089CC8B /* DefectCell.swift */; };
 		F3E86ED5261A7DDD0089CC8B /* DefectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3E86ED3261A7DDD0089CC8B /* DefectCell.xib */; };
 		F3E86EDA261A823A0089CC8B /* TableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E86ED9261A823A0089CC8B /* TableViewExtensions.swift */; };
-		F3E86EE2261A8A600089CC8B /* OldDefectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3E86EE1261A8A600089CC8B /* OldDefectViewController.xib */; };
 		F3EC40ED25FC7D92004A9A5D /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40EC25FC7D92004A9A5D /* RoundedView.swift */; };
 		F3EC40F125FC8233004A9A5D /* StackViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */; };
 		F3EC40F425FC8B18004A9A5D /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */; };
@@ -74,7 +71,7 @@
 		F346655325F73438004340B7 /* DefectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectModel.swift; sourceTree = "<group>"; };
 		F346655C25F73849004340B7 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		F346655F25F73990004340B7 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		F34A75CE25F93D59000F2DF8 /* OldDefectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldDefectViewController.swift; sourceTree = "<group>"; };
+		F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectViewController.swift; sourceTree = "<group>"; };
 		F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F34A75E625F95100000F2DF8 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		F34E51C226058893000B4E36 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -106,12 +103,9 @@
 		F398683A25FDD4BF00DF52FD /* DetailViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViews.swift; sourceTree = "<group>"; };
 		F398683D25FDD6EC00DF52FD /* ViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewContainer.swift; sourceTree = "<group>"; };
 		F3B0F35826201768005E4BDA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		F3E86EC1261A5E1C0089CC8B /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		F3E86EC6261A65D00089CC8B /* SignupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
 		F3E86ED2261A7DDD0089CC8B /* DefectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectCell.swift; sourceTree = "<group>"; };
 		F3E86ED3261A7DDD0089CC8B /* DefectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefectCell.xib; sourceTree = "<group>"; };
 		F3E86ED9261A823A0089CC8B /* TableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtensions.swift; sourceTree = "<group>"; };
-		F3E86EE1261A8A600089CC8B /* OldDefectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OldDefectViewController.xib; sourceTree = "<group>"; };
 		F3EC40EC25FC7D92004A9A5D /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewExtensions.swift; sourceTree = "<group>"; };
 		F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
@@ -288,11 +282,8 @@
 			children = (
 				F3B0F35826201768005E4BDA /* Main.storyboard */,
 				F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */,
-				F3E86EC1261A5E1C0089CC8B /* LoginViewController.xib */,
 				F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */,
-				F3E86EC6261A65D00089CC8B /* SignupViewController.xib */,
-				F34A75CE25F93D59000F2DF8 /* OldDefectViewController.swift */,
-				F3E86EE1261A8A600089CC8B /* OldDefectViewController.xib */,
+				F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */,
 				F398683025FDADD800DF52FD /* DetailViewController.swift */,
 			);
 			path = "View Controller";
@@ -357,8 +348,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3E86EC2261A5E1C0089CC8B /* LoginViewController.xib in Resources */,
-				F3E86EE2261A8A600089CC8B /* OldDefectViewController.xib in Resources */,
 				F378DB5225F6815A002042D1 /* LaunchScreen.storyboard in Resources */,
 				F378DB4F25F6815A002042D1 /* Assets.xcassets in Resources */,
 				F3E86ED5261A7DDD0089CC8B /* DefectCell.xib in Resources */,
@@ -366,7 +355,6 @@
 				F398681825FD9DE200DF52FD /* sta.json in Resources */,
 				F398681E25FD9E0200DF52FD /* ata.json in Resources */,
 				F398681B25FD9DF300DF52FD /* ac.json in Resources */,
-				F3E86EC7261A65D00089CC8B /* SignupViewController.xib in Resources */,
 				F34586CD26054C2D00845A56 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,7 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F398682725FDA1D800DF52FD /* StationModel.swift in Sources */,
-				F34A75CF25F93D59000F2DF8 /* OldDefectViewController.swift in Sources */,
+				F34A75CF25F93D59000F2DF8 /* DefectViewController.swift in Sources */,
 				F350B1C325FEE90A0041C09E /* UUIDExtensions.swift in Sources */,
 				F398682E25FDAD7000DF52FD /* DescriptionCell.swift in Sources */,
 				F30F0DA425F9AD1F00A4E664 /* SignupViewController.swift in Sources */,
