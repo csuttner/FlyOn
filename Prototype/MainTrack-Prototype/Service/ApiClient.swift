@@ -10,14 +10,16 @@ import Firebase
 import CodableFirebase
 
 class ApiClient {
-    
     public static let shared = ApiClient()
+    private let firestore: Firestore
+    private lazy var firestoreDefects = firestore.collection("Defects")
+    private lazy var firestoreArchive = firestore.collection("Archive")
+    private lazy var firestoreUserData = firestore.collection("UserData")
     
-    private let firestoreDefects = Firestore.firestore().collection("Defects")
-    private let firestoreArchive = Firestore.firestore().collection("Archive")
-    private let firestoreUserData = Firestore.firestore().collection("UserData")
-    
-    private init() {}
+    private init() {
+        FirebaseApp.configure()
+        firestore = Firestore.firestore()
+    }
     
     // MARK: - Defect Methods
 

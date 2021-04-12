@@ -66,6 +66,7 @@ extension DetailViewController {
         tableView.delegate = self
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
+        tableView.register(SectionHeader.nib, forCellReuseIdentifier: SectionHeader.reuseIdentifier)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -77,7 +78,9 @@ extension DetailViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return SectionHeader(title: detailViews.sections[section].title)
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeader") as! SectionHeader
+        header.textLabel?.text = detailViews.sections[section].title
+        return header
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

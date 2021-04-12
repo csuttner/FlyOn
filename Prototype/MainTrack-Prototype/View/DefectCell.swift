@@ -2,7 +2,7 @@
 //  DefectCell.swift
 //  MainTrack-Prototype
 //
-//  Created by Clay Suttner on 4/4/21.
+//  Created by Clay Suttner on 4/11/21.
 //
 
 import UIKit
@@ -33,4 +33,5 @@ class DefectCell: UITableViewCell {
             completedIndicator.tintColor = .systemRed
         }
     }
+    
 }
