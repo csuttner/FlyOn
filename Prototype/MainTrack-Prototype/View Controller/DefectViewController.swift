@@ -65,7 +65,7 @@ class DefectViewController: UITableViewController {
     // MARK: - Table View
     
     private func configureTableView() {
-        tableView.register(DefectCell.self)
+        tableView.register(DefectCellOld.self, forCellReuseIdentifier: "DefectCell")
         tableView.tableFooterView = UIView(frame: .zero)
     }
     
@@ -78,7 +78,7 @@ class DefectViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(DefectCell.self)!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DefectCell") as! DefectCellOld
         cell.defect = repository.sections[indexPath.section].defects[indexPath.row]
         return cell
     }

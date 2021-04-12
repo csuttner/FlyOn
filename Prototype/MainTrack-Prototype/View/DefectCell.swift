@@ -2,12 +2,12 @@
 //  DefectCell.swift
 //  MainTrack-Prototype
 //
-//  Created by Clay Suttner on 4/4/21.
+//  Created by Clay Suttner on 4/10/21.
 //
 
 import UIKit
 
-class DefectCell: UITableViewCell {
+class DefectCellOld: UITableViewCell {
     @IBOutlet weak var completedIndicator: UIImageView!
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!

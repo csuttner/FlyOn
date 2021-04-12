@@ -103,7 +103,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DefectCell" rowHeight="73" id="XR4-d8-2aW" customClass="DefectCell" customModule="MainTrack_Prototype" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DefectCell" rowHeight="73" id="XR4-d8-2aW" customClass="DefectCellOld" customModule="MainTrack_Prototype" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="73"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XR4-d8-2aW" id="fZD-2l-4Au">
@@ -154,13 +154,14 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="completedIndicator" destination="3aI-XN-uLE" id="kiu-i5-Nkp"/>
-                                    <outlet property="descriptionLabel" destination="1ZN-OP-L2d" id="Z9N-Sp-tWA"/>
-                                    <outlet property="headingLabel" destination="ncG-DI-GEC" id="Oau-Ug-jL0"/>
+                                    <outlet property="completedIndicator" destination="3aI-XN-uLE" id="j9O-fm-ncH"/>
+                                    <outlet property="descriptionLabel" destination="1ZN-OP-L2d" id="1rL-1s-bIM"/>
+                                    <outlet property="headingLabel" destination="ncG-DI-GEC" id="B2X-kL-O32"/>
                                     <segue destination="Ogj-jN-5jx" kind="show" identifier="DefectDetailSegue" id="jGC-0H-Nkx"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="0Ku-nh-NJN" id="hBX-pT-NHC"/>
                             <outlet property="delegate" destination="0Ku-nh-NJN" id="ukE-4o-7Tr"/>
@@ -178,10 +179,10 @@
             </objects>
             <point key="canvasLocation" x="1844.9275362318842" y="2.6785714285714284"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="L0L-QL-2wr">
             <objects>
-                <tableViewController id="Ogj-jN-5jx" sceneMemberID="viewController">
+                <tableViewController id="Ogj-jN-5jx" customClass="DetailViewController" customModule="MainTrack_Prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TuD-xh-WRI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -225,7 +226,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WXA-t6-B5p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2741" y="3"/>
+            <point key="canvasLocation" x="2732" y="3"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JGW-vB-Bbe">

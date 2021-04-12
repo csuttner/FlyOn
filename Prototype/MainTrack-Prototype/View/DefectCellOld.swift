@@ -1,8 +1,8 @@
 //
-//  DetailCellOld.swift
+//  DefectCellOld.swift
 //  MainTrack-Prototype
 //
-//  Created by Clay Suttner on 3/13/21.
+//  Created by Clay Suttner on 4/11/21.
 //
 
 import UIKit
@@ -103,7 +103,7 @@ class DetailCellOld: ScrollableCell {
         }
     }
     
-    private func setupForMode() {        
+    private func setupForMode() {
         if controller.mode == .view {
             setReadView()
         } else {
