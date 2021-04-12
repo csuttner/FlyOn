@@ -2,12 +2,12 @@
 //  DefectCell.swift
 //  MainTrack-Prototype
 //
-//  Created by Clay Suttner on 4/10/21.
+//  Created by Clay Suttner on 4/11/21.
 //
 
 import UIKit
 
-class DefectCellOld: UITableViewCell {
+class DefectCell: UITableViewCell {
     @IBOutlet weak var completedIndicator: UIImageView!
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -33,4 +33,5 @@ class DefectCellOld: UITableViewCell {
             completedIndicator.tintColor = .systemRed
         }
     }
+    
 }

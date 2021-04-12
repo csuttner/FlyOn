@@ -16,7 +16,6 @@ class DefectViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Defects"
         configureTableView()
     }
     
@@ -65,7 +64,8 @@ class DefectViewController: UITableViewController {
     // MARK: - Table View
     
     private func configureTableView() {
-        tableView.register(DefectCellOld.self, forCellReuseIdentifier: "DefectCell")
+        tableView.register(DefectCell.self)
+        tableView.register(SectionHeader.nib, forHeaderFooterViewReuseIdentifier: SectionHeader.reuseIdentifier)
         tableView.tableFooterView = UIView(frame: .zero)
     }
     
@@ -78,18 +78,20 @@ class DefectViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DefectCell") as! DefectCellOld
+        let cell = tableView.dequeueReusableCell(DefectCell.self)!
         cell.defect = repository.sections[indexPath.section].defects[indexPath.row]
         return cell
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return SectionHeader(title: repository.sections[section].title)
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeader.reuseIdentifier) as! SectionHeader
+        header.textLabel?.text = repository.sections[section].title
+        return header
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         controller.defect = repository.sections[indexPath.section].defects[indexPath.row]
         controller.mode = .view
-        navigationController!.pushViewController(DetailViewController(), animated: true)
+        performSegue(withIdentifier: "ShowDetailSegue", sender: self)
     }
 }

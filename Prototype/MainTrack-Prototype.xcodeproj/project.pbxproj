@@ -10,13 +10,11 @@
 		06AFA78735AC8AFABD4BFF1C /* Pods_MainTrack_Prototype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9317499AFDFBDD45E9A6C88A /* Pods_MainTrack_Prototype.framework */; };
 		F3063CD725F86A4A00278A02 /* GGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3063CD625F86A4A00278A02 /* GGFloatExtensions.swift */; };
 		F30F0DA425F9AD1F00A4E664 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */; };
-		F31FFAF62622200C00303268 /* DefectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FFAF52622200C00303268 /* DefectCell.swift */; };
 		F327289B25FE6046003AE3C5 /* DefectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327289A25FE6046003AE3C5 /* DefectController.swift */; };
 		F32C30B526012AE6008E4DC4 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C30B426012AE6008E4DC4 /* StringExtensions.swift */; };
 		F34586CD26054C2D00845A56 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F34586CC26054C2C00845A56 /* GoogleService-Info.plist */; };
 		F346652A25F71758004340B7 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346652925F71758004340B7 /* ViewExtensions.swift */; };
 		F346655425F73438004340B7 /* DefectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655325F73438004340B7 /* DefectModel.swift */; };
-		F346655D25F73849004340B7 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655C25F73849004340B7 /* SectionHeader.swift */; };
 		F346656025F73990004340B7 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655F25F73990004340B7 /* Repository.swift */; };
 		F34A75CF25F93D59000F2DF8 /* DefectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */; };
 		F34A75DA25F94B4E000F2DF8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */; };
@@ -24,8 +22,12 @@
 		F34E51C326058893000B4E36 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34E51C226058893000B4E36 /* LoadingView.swift */; };
 		F34E51C7260596A1000B4E36 /* RolePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34E51C6260596A1000B4E36 /* RolePicker.swift */; };
 		F350B1C325FEE90A0041C09E /* UUIDExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350B1C225FEE90A0041C09E /* UUIDExtensions.swift */; };
-		F3663F112623EA3100386237 /* DefectCellOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3663F102623EA3100386237 /* DefectCellOld.swift */; };
+		F3663F112623EA3100386237 /* DetailCellOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3663F102623EA3100386237 /* DetailCellOld.swift */; };
 		F3663F212623F0DA00386237 /* TableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3663F202623F0DA00386237 /* TableViewExtensions.swift */; };
+		F3663F262623F1B800386237 /* DefectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3663F242623F1B800386237 /* DefectCell.swift */; };
+		F3663F272623F1B800386237 /* DefectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3663F252623F1B800386237 /* DefectCell.xib */; };
+		F3663F2B2623F77D00386237 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3663F2A2623F77D00386237 /* SectionHeader.swift */; };
+		F3663F2E2623F7BC00386237 /* SectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3663F2D2623F7BC00386237 /* SectionHeader.xib */; };
 		F378DB4625F68157002042D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F378DB4525F68157002042D1 /* AppDelegate.swift */; };
 		F378DB4F25F6815A002042D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F378DB4E25F6815A002042D1 /* Assets.xcassets */; };
 		F378DB5225F6815A002042D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F378DB5025F6815A002042D1 /* LaunchScreen.storyboard */; };
@@ -63,13 +65,11 @@
 		CA422C31468F2F294113E515 /* Pods-MainTrack-Prototype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MainTrack-Prototype.release.xcconfig"; path = "Target Support Files/Pods-MainTrack-Prototype/Pods-MainTrack-Prototype.release.xcconfig"; sourceTree = "<group>"; };
 		F3063CD625F86A4A00278A02 /* GGFloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGFloatExtensions.swift; sourceTree = "<group>"; };
 		F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		F31FFAF52622200C00303268 /* DefectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectCell.swift; sourceTree = "<group>"; };
 		F327289A25FE6046003AE3C5 /* DefectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectController.swift; sourceTree = "<group>"; };
 		F32C30B426012AE6008E4DC4 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		F34586CC26054C2C00845A56 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F346652925F71758004340B7 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		F346655325F73438004340B7 /* DefectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectModel.swift; sourceTree = "<group>"; };
-		F346655C25F73849004340B7 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		F346655F25F73990004340B7 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectViewController.swift; sourceTree = "<group>"; };
 		F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -77,8 +77,12 @@
 		F34E51C226058893000B4E36 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		F34E51C6260596A1000B4E36 /* RolePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolePicker.swift; sourceTree = "<group>"; };
 		F350B1C225FEE90A0041C09E /* UUIDExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUIDExtensions.swift; sourceTree = "<group>"; };
-		F3663F102623EA3100386237 /* DefectCellOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectCellOld.swift; sourceTree = "<group>"; };
+		F3663F102623EA3100386237 /* DetailCellOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCellOld.swift; sourceTree = "<group>"; };
 		F3663F202623F0DA00386237 /* TableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtensions.swift; sourceTree = "<group>"; };
+		F3663F242623F1B800386237 /* DefectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectCell.swift; sourceTree = "<group>"; };
+		F3663F252623F1B800386237 /* DefectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefectCell.xib; sourceTree = "<group>"; };
+		F3663F2A2623F77D00386237 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		F3663F2D2623F7BC00386237 /* SectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeader.xib; sourceTree = "<group>"; };
 		F378DB4225F68157002042D1 /* MainTrack-Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MainTrack-Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F378DB4525F68157002042D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F378DB4E25F6815A002042D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -186,9 +190,12 @@
 			isa = PBXGroup;
 			children = (
 				F3EC40EC25FC7D92004A9A5D /* RoundedView.swift */,
-				F31FFAF52622200C00303268 /* DefectCell.swift */,
 				F398682D25FDAD7000DF52FD /* DescriptionCell.swift */,
-				F3663F102623EA3100386237 /* DefectCellOld.swift */,
+				F3663F242623F1B800386237 /* DefectCell.swift */,
+				F3663F252623F1B800386237 /* DefectCell.xib */,
+				F3663F2A2623F77D00386237 /* SectionHeader.swift */,
+				F3663F2D2623F7BC00386237 /* SectionHeader.xib */,
+				F3663F102623EA3100386237 /* DetailCellOld.swift */,
 				F398683A25FDD4BF00DF52FD /* DetailViews.swift */,
 				F34A75E225F94F6F000F2DF8 /* Helpers */,
 			);
@@ -204,7 +211,6 @@
 				F34E51C6260596A1000B4E36 /* RolePicker.swift */,
 				F34E51C226058893000B4E36 /* LoadingView.swift */,
 				F3FE59E025FE8CAA00C9574E /* SpacerCell.swift */,
-				F346655C25F73849004340B7 /* SectionHeader.swift */,
 				F380276A25FC97A700B5FFD2 /* DetailSearchBar.swift */,
 				F3FE59E425FEACCE00C9574E /* DescriptionTextView.swift */,
 				F39867FD25FD6BBB00DF52FD /* MultilineLabel.swift */,
@@ -347,8 +353,10 @@
 			files = (
 				F378DB5225F6815A002042D1 /* LaunchScreen.storyboard in Resources */,
 				F378DB4F25F6815A002042D1 /* Assets.xcassets in Resources */,
+				F3663F272623F1B800386237 /* DefectCell.xib in Resources */,
 				F3B0F35926201768005E4BDA /* Main.storyboard in Resources */,
 				F398681825FD9DE200DF52FD /* sta.json in Resources */,
+				F3663F2E2623F7BC00386237 /* SectionHeader.xib in Resources */,
 				F398681E25FD9E0200DF52FD /* ata.json in Resources */,
 				F398681B25FD9DF300DF52FD /* ac.json in Resources */,
 				F34586CD26054C2D00845A56 /* GoogleService-Info.plist in Resources */,
@@ -416,9 +424,9 @@
 				F398683125FDADD800DF52FD /* DetailViewController.swift in Sources */,
 				F398680725FD803300DF52FD /* ApiClient.swift in Sources */,
 				F398683525FDB8FE00DF52FD /* NotificationExtensions.swift in Sources */,
+				F3663F2B2623F77D00386237 /* SectionHeader.swift in Sources */,
 				F398683E25FDD6EC00DF52FD /* ViewContainer.swift in Sources */,
 				F34A75E725F95100000F2DF8 /* ActionButton.swift in Sources */,
-				F346655D25F73849004340B7 /* SectionHeader.swift in Sources */,
 				F3EC40F925FC8CB1004A9A5D /* PlaceholderTextView.swift in Sources */,
 				F398682425FDA18E00DF52FD /* AircraftModel.swift in Sources */,
 				F380276B25FC97A700B5FFD2 /* DetailSearchBar.swift in Sources */,
@@ -426,7 +434,7 @@
 				F398682125FDA13D00DF52FD /* AtaModel.swift in Sources */,
 				F3EC40F125FC8233004A9A5D /* StackViewExtensions.swift in Sources */,
 				F39867FE25FD6BBB00DF52FD /* MultilineLabel.swift in Sources */,
-				F31FFAF62622200C00303268 /* DefectCell.swift in Sources */,
+				F3663F262623F1B800386237 /* DefectCell.swift in Sources */,
 				F380276625FC91CE00B5FFD2 /* UserModel.swift in Sources */,
 				F327289B25FE6046003AE3C5 /* DefectController.swift in Sources */,
 				F346655425F73438004340B7 /* DefectModel.swift in Sources */,
@@ -437,7 +445,7 @@
 				F346652A25F71758004340B7 /* ViewExtensions.swift in Sources */,
 				F3663F212623F0DA00386237 /* TableViewExtensions.swift in Sources */,
 				F32C30B526012AE6008E4DC4 /* StringExtensions.swift in Sources */,
-				F3663F112623EA3100386237 /* DefectCellOld.swift in Sources */,
+				F3663F112623EA3100386237 /* DetailCellOld.swift in Sources */,
 				F3FE59E525FEACCE00C9574E /* DescriptionTextView.swift in Sources */,
 				F34E51C326058893000B4E36 /* LoadingView.swift in Sources */,
 				F3FE59E125FE8CAA00C9574E /* SpacerCell.swift in Sources */,

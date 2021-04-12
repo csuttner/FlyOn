@@ -94,73 +94,14 @@
             </objects>
             <point key="canvasLocation" x="944.92753623188412" y="2.6785714285714284"/>
         </scene>
-        <!--Defect View Controller-->
+        <!--Defects-->
         <scene sceneID="4Bz-9I-d9C">
             <objects>
-                <tableViewController id="0Ku-nh-NJN" customClass="DefectViewController" customModule="MainTrack_Prototype" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yr8-vj-Ltr">
+                <tableViewController title="Defects" id="0Ku-nh-NJN" customClass="DefectViewController" customModule="MainTrack_Prototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" id="yr8-vj-Ltr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DefectCell" rowHeight="73" id="XR4-d8-2aW" customClass="DefectCellOld" customModule="MainTrack_Prototype" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="73"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XR4-d8-2aW" id="fZD-2l-4Au">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="73"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncG-DI-GEC">
-                                            <rect key="frame" x="58" y="8" width="337" height="20.5"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3aI-XN-uLE">
-                                            <rect key="frame" x="16" y="23.5" width="26" height="26"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="26" id="nJ4-g8-bZw"/>
-                                                <constraint firstAttribute="width" constant="26" id="naQ-3v-XGS"/>
-                                            </constraints>
-                                        </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ldZ-32-fKS">
-                                            <rect key="frame" x="395" y="29" width="11" height="14.5"/>
-                                            <color key="tintColor" systemColor="systemGray4Color"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="11" id="4MU-eR-Y07"/>
-                                                <constraint firstAttribute="height" constant="17" id="Et4-Ny-QkJ"/>
-                                            </constraints>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ZN-OP-L2d">
-                                            <rect key="frame" x="58" y="36.5" width="329" height="28.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" systemColor="systemGrayColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="1ZN-OP-L2d" secondAttribute="bottom" constant="8" id="3Dy-Qo-Mem"/>
-                                        <constraint firstItem="ncG-DI-GEC" firstAttribute="leading" secondItem="3aI-XN-uLE" secondAttribute="trailing" constant="16" id="4lH-q9-edR"/>
-                                        <constraint firstItem="1ZN-OP-L2d" firstAttribute="top" secondItem="ncG-DI-GEC" secondAttribute="bottom" constant="8" id="I0Y-uA-JZp"/>
-                                        <constraint firstItem="ldZ-32-fKS" firstAttribute="leading" secondItem="ncG-DI-GEC" secondAttribute="trailing" id="N7u-SR-n1g"/>
-                                        <constraint firstItem="ldZ-32-fKS" firstAttribute="centerY" secondItem="fZD-2l-4Au" secondAttribute="centerY" id="Qd8-zS-fQE"/>
-                                        <constraint firstItem="3aI-XN-uLE" firstAttribute="leading" secondItem="fZD-2l-4Au" secondAttribute="leading" constant="16" id="Rak-cb-xj9"/>
-                                        <constraint firstItem="ncG-DI-GEC" firstAttribute="top" secondItem="fZD-2l-4Au" secondAttribute="top" constant="8" id="fOt-EN-HCh"/>
-                                        <constraint firstItem="1ZN-OP-L2d" firstAttribute="leading" secondItem="3aI-XN-uLE" secondAttribute="trailing" constant="16" id="gXQ-RK-7K9"/>
-                                        <constraint firstItem="3aI-XN-uLE" firstAttribute="centerY" secondItem="fZD-2l-4Au" secondAttribute="centerY" id="mqP-7G-B77"/>
-                                        <constraint firstAttribute="trailing" secondItem="ldZ-32-fKS" secondAttribute="trailing" constant="8" id="qfF-a4-EEg"/>
-                                        <constraint firstItem="ldZ-32-fKS" firstAttribute="leading" secondItem="1ZN-OP-L2d" secondAttribute="trailing" constant="8" id="sjS-dh-CZ9"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="completedIndicator" destination="3aI-XN-uLE" id="j9O-fm-ncH"/>
-                                    <outlet property="descriptionLabel" destination="1ZN-OP-L2d" id="1rL-1s-bIM"/>
-                                    <outlet property="headingLabel" destination="ncG-DI-GEC" id="B2X-kL-O32"/>
-                                    <segue destination="Ogj-jN-5jx" kind="show" identifier="DefectDetailSegue" id="jGC-0H-Nkx"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <sections/>
                         <connections>
                             <outlet property="dataSource" destination="0Ku-nh-NJN" id="hBX-pT-NHC"/>
@@ -174,6 +115,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="Ogj-jN-5jx" kind="show" identifier="ShowDetailSegue" id="tey-Zd-Gz8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kzw-ny-S6C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -187,6 +131,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="sectionIndexBackgroundColor" systemColor="systemGray6Color"/>
                         <sections>
                             <tableViewSection id="rPr-Y1-JQr">
                                 <cells>
@@ -360,16 +305,12 @@
         </designable>
     </designables>
     <resources>
-        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
