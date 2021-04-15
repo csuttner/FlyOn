@@ -9,7 +9,7 @@ import UIKit
 
 class PlaceholderTextView: UITextView, UITextViewDelegate {
     
-    var placeholder: String!
+    @objc var placeholder: String!
     
     convenience init(placeholder: String) {
         self.init()

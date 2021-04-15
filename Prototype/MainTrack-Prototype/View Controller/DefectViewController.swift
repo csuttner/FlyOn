@@ -10,7 +10,7 @@ import FirebaseAuth
 
 class DefectViewController: UITableViewController {
     let repository = Repository.shared
-    let controller = DefectController.shared
+//    let controller = DefectController.shared
     
     lazy var newDefectButton = ActionButton(title: "New Defect", color: .systemGreen, target: self, action: #selector(onNewDefectButtonTapped))
 
@@ -46,9 +46,8 @@ class DefectViewController: UITableViewController {
     }
     
     @objc func onNewDefectButtonTapped() {
-        controller.defect = nil
-        controller.mode = .edit
-        navigationController?.pushViewController(DetailViewController(), animated: true)
+        let detailViewController = DetailViewController(defect: nil, mode: .edit)
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
     
     @IBAction func onProfileButtonTapped(_ sender: Any) {
@@ -90,8 +89,16 @@ class DefectViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        controller.defect = repository.sections[indexPath.section].defects[indexPath.row]
-        controller.mode = .view
         performSegue(withIdentifier: "ShowDetailSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetailSegue" {
+            let indexPath = tableView.indexPathForSelectedRow!
+            let defect = repository.sections[indexPath.section].defects[indexPath.row]
+            let detailViewController = segue.destination as! DetailViewController
+            detailViewController.defect = defect
+            detailViewController.mode = .edit
+        }
     }
 }
