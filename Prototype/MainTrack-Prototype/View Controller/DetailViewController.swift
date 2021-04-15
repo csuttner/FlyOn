@@ -8,18 +8,61 @@
 import UIKit
 
 class DetailViewController: UITableViewController {
+    @IBOutlet weak var stationLabel: UILabel!
+    @IBOutlet weak var aircraftLabel: UILabel!
+    @IBOutlet weak var subchapterLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBOutlet weak var stationSearch: UISearchBar!
+    @IBOutlet weak var aircraftSearch: UISearchBar!
+    @IBOutlet weak var subchapterSearch: UISearchBar!
+    @IBOutlet weak var descriptionText: PlaceholderTextView!
+    
+    @IBOutlet weak var spacerCell: SpacerCell!
+    
+    private lazy var readViews: [UIView] = [
+        stationLabel,
+        aircraftLabel,
+        subchapterLabel,
+        descriptionLabel
+    ]
+    
+    private lazy var editViews: [UIView] = [
+        stationSearch,
+        aircraftSearch,
+        subchapterSearch,
+        descriptionText
+    ]
+
+    private let headers = ["Details", "Description", ""]
     
     private let repository = Repository.shared
-    private let controller = DefectController.shared
+//    private let controller = DefectController.shared
     private let apiClient = ApiClient.shared
     
-    let detailViews = DetailViews()
+    var defect: Defect?
+    var mode: Mode!
+    
+//    let detailViews = DetailViews()
     
     lazy var editButton = ActionButton(title: "Edit", color: .systemBlue, target: self, action: #selector(onEditButtonTapped))
     lazy var cancelButton = ActionButton(title: "Cancel", color: .systemGray, target: self, action: #selector(onCancelButtonTapped))
     lazy var submitButton = ActionButton(title: "Submit", color: .systemGreen, target: self, action: #selector(onSubmitButtonTapped))
     lazy var resolveButton = ActionButton(title: "Close", color: .systemGreen, target: self, action: #selector(onResolveButtonTapped))
     lazy var archiveButton = ActionButton(title: "Archive", color: .systemGray, target: self, action: #selector(onArchiveButtonTapped))
+    
+    public enum Mode {
+        case edit
+        case read
+    }
+    
+    convenience init(defect: Defect?, mode: DetailViewController.Mode) {
+        self.init(style: .grouped)
+        self.defect = defect
+        self.mode = mode
+        
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +80,8 @@ class DetailViewController: UITableViewController {
     
     
     private func configureTitle() {
-        if let defect = controller.defect {
-            title = controller.mode == .edit ? "Edit \(defect.id)" : "Defect \(defect.id)"
+        if let defect = defect {
+            title = mode == .edit ? "Edit \(defect.id)" : "Defect \(defect.id)"
         } else {
             title = "New Defect"
         }
@@ -56,38 +99,55 @@ class DetailViewController: UITableViewController {
         addObserver(action: #selector(onUpdateTable), name: .updateTable)
     }
     
+    private func setupForMode() {
+        if mode == .edit {
+            toggleViews(viewsToHide: readViews, viewsToShow: editViews)
+        } else {
+            toggleViews(viewsToHide: editViews, viewsToShow: readViews)
+        }
+    }
+    
+    private func toggleViews(viewsToHide: [UIView], viewsToShow: [UIView]) {
+        for view in viewsToHide {
+            view.isHidden = true
+        }
+        
+        for view in viewsToShow {
+            view.isHidden = false
+        }
+    }
 }
 
 // MARK: - Table View
 extension DetailViewController {
     
     private func configureTableView() {
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.allowsSelection = false
-        tableView.separatorStyle = .none
+//        tableView.dataSource = self
+//        tableView.delegate = self
+//        tableView.allowsSelection = false
+//        tableView.separatorStyle = .none
         tableView.register(SectionHeader.nib, forCellReuseIdentifier: SectionHeader.reuseIdentifier)
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return detailViews.sections.count
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        return detailViews.sections.count
+//    }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return detailViews.sections[section].cells.count
-    }
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return detailViews.sections[section].cells.count
+//    }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeader") as! SectionHeader
-        header.textLabel?.text = detailViews.sections[section].title
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeader.reuseIdentifier) as? SectionHeader
+        header?.textLabel?.text = headers[section]
         return header
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = detailViews.sections[indexPath.section].cells[indexPath.row]
-        cell.scrollDelegate = self
-        return cell
-    }
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = detailViews.sections[indexPath.section].cells[indexPath.row]
+//        cell.scrollDelegate = self
+//        return cell
+//    }
     
 }
 
@@ -96,13 +156,13 @@ extension DetailViewController: CellScrollDelegate {
     
     func scrollTo(indexPath: IndexPath) {
         DispatchQueue.main.async {
-            self.detailViews.spacerCell.addSpace()
+            self.spacerCell.addSpace()
             self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         }
     }
     
     func removeSpace() {
-        detailViews.spacerCell.removeSpace()
+        spacerCell.removeSpace()
     }
     
 }
@@ -118,6 +178,7 @@ extension DetailViewController {
     @objc func onChangeMode() {
         configureTitle()
         configureToolbarItems()
+        setupForMode()
     }
     
     @objc func onTap() {
@@ -125,15 +186,15 @@ extension DetailViewController {
     }
     
     @objc func onEditButtonTapped() {
-        controller.mode = .edit
+        mode = .edit
     }
     
     @objc func onCancelButtonTapped() {
-        controller.mode = .view
+        mode = .read
     }
     
     @objc func onResolveButtonTapped() {
-        controller.defect?.resolved = true
+        defect?.resolved = true
         updateDefect()
         configureToolbarItems()
     }
@@ -144,7 +205,7 @@ extension DetailViewController {
     
     @objc func onSubmitButtonTapped() {
         scrollTo(indexPath: IndexPath(row: 0, section: 0))
-        if controller.defect == nil {
+        if defect == nil {
             createDefect()
         } else {
             updateDefect()
@@ -156,13 +217,38 @@ extension DetailViewController {
 // MARK: Record Modification
 extension DetailViewController {
     
+    public func getNewDefectFromInput() throws -> Defect {
+        guard let sta = stationSearch.text, !sta.isEmpty,
+              let ac = aircraftSearch.text, !ac.isEmpty,
+              let ata4 = subchapterSearch.text, !ata4.isEmpty,
+              let description = descriptionText.text, !description.isEmpty
+        else {
+            throw ValidationError.missingData
+        }
+        return Defect(sta, ac, ata4, description)
+    }
+    
+    public func updateDefectFromInput(_ defect: Defect) throws {
+        guard let sta = stationSearch.text, !sta.isEmpty,
+              let ac = aircraftSearch.text, !ac.isEmpty,
+              let ata4 = subchapterSearch.text, !ata4.isEmpty,
+              let description = descriptionText.text, !description.isEmpty
+        else {
+            throw ValidationError.missingData
+        }
+        defect.sta = sta
+        defect.ac = ac
+        defect.ata4 = ata4
+        defect.description = description
+    }
+    
     private func createDefect() {
         do {
-            controller.defect = try detailViews.getNewDefectFromInput()
-            apiClient.post(controller.defect!)
-            repository.addDefectToSections(controller.defect!)
-            presentBasicAlert(title: "Defect \(controller.defect!.id) created")
-            controller.mode = .view
+            defect = try getNewDefectFromInput()
+            apiClient.post(defect!)
+            repository.addDefectToSections(defect!)
+            presentBasicAlert(title: "Defect \(defect!.id) created")
+            mode = .read
         } catch {
             presentBasicAlert(title: "Error creating defect")
         }
@@ -170,18 +256,18 @@ extension DetailViewController {
     
     private func updateDefect() {
         do {
-            try detailViews.updateDefectFromInput(controller.defect!)
-            apiClient.put(controller.defect!)
-            presentBasicAlert(title: "Defect \(controller.defect!.id) updated")
-            controller.mode = .view
+            try updateDefectFromInput(defect!)
+            apiClient.put(defect!)
+            presentBasicAlert(title: "Defect \(defect!.id) updated")
+            mode = .read
         } catch {
             presentBasicAlert(title: "Error updating defect")
         }
     }
     
     private func archiveDefect() {
-        apiClient.archive(controller.defect!)
-        presentReturningAlert(title: "Defect \(controller.defect!.id) archived")
+        apiClient.archive(defect!)
+        presentReturningAlert(title: "Defect \(defect!.id) archived")
     }
     
 }
@@ -198,7 +284,7 @@ extension DetailViewController {
     }
     
     private func getAnalystToolbarItems() -> [UIBarButtonItem] {
-        if controller.defect!.resolved {
+        if defect!.resolved {
             return getSpacedButtonItems(with: [archiveButton])
         } else {
             return getSpacedButtonItems(with: [resolveButton])
@@ -206,7 +292,7 @@ extension DetailViewController {
     }
     
     private func getTechnicianToolbarItems() -> [UIBarButtonItem] {
-        if controller.mode == .edit {
+        if mode == .edit {
             return getSpacedButtonItems(with: [cancelButton, submitButton])
         } else {
             return getSpacedButtonItems(with: [editButton])

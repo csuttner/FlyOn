@@ -49,7 +49,6 @@
 		F398683125FDADD800DF52FD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683025FDADD800DF52FD /* DetailViewController.swift */; };
 		F398683525FDB8FE00DF52FD /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683425FDB8FE00DF52FD /* NotificationExtensions.swift */; };
 		F398683B25FDD4BF00DF52FD /* DetailViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683A25FDD4BF00DF52FD /* DetailViews.swift */; };
-		F398683E25FDD6EC00DF52FD /* ViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398683D25FDD6EC00DF52FD /* ViewContainer.swift */; };
 		F3B0F35926201768005E4BDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3B0F35826201768005E4BDA /* Main.storyboard */; };
 		F3EC40ED25FC7D92004A9A5D /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40EC25FC7D92004A9A5D /* RoundedView.swift */; };
 		F3EC40F125FC8233004A9A5D /* StackViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */; };
@@ -106,7 +105,6 @@
 		F398683025FDADD800DF52FD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F398683425FDB8FE00DF52FD /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		F398683A25FDD4BF00DF52FD /* DetailViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViews.swift; sourceTree = "<group>"; };
-		F398683D25FDD6EC00DF52FD /* ViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewContainer.swift; sourceTree = "<group>"; };
 		F3B0F35826201768005E4BDA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F3EC40EC25FC7D92004A9A5D /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewExtensions.swift; sourceTree = "<group>"; };
@@ -205,7 +203,6 @@
 		F34A75E225F94F6F000F2DF8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				F398683D25FDD6EC00DF52FD /* ViewContainer.swift */,
 				F3EC40F825FC8CB1004A9A5D /* PlaceholderTextView.swift */,
 				F34A75E625F95100000F2DF8 /* ActionButton.swift */,
 				F34E51C6260596A1000B4E36 /* RolePicker.swift */,
@@ -425,7 +422,6 @@
 				F398680725FD803300DF52FD /* ApiClient.swift in Sources */,
 				F398683525FDB8FE00DF52FD /* NotificationExtensions.swift in Sources */,
 				F3663F2B2623F77D00386237 /* SectionHeader.swift in Sources */,
-				F398683E25FDD6EC00DF52FD /* ViewContainer.swift in Sources */,
 				F34A75E725F95100000F2DF8 /* ActionButton.swift in Sources */,
 				F3EC40F925FC8CB1004A9A5D /* PlaceholderTextView.swift in Sources */,
 				F398682425FDA18E00DF52FD /* AircraftModel.swift in Sources */,
