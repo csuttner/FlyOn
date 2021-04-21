@@ -7,7 +7,10 @@
 
 import UIKit
 
-class DetailViewController: UITableViewController {
+class DetailViewController: UIViewController {
+    @IBOutlet weak var openCloseLabel: UILabel!
+    @IBOutlet weak var dateTimeLabel: UILabel!
+
     @IBOutlet weak var stationLabel: UILabel!
     @IBOutlet weak var aircraftLabel: UILabel!
     @IBOutlet weak var subchapterLabel: UILabel!
@@ -17,8 +20,6 @@ class DetailViewController: UITableViewController {
     @IBOutlet weak var aircraftSearch: UISearchBar!
     @IBOutlet weak var subchapterSearch: UISearchBar!
     @IBOutlet weak var descriptionText: PlaceholderTextView!
-    
-    @IBOutlet weak var spacerCell: SpacerCell!
     
     private lazy var readViews: [UIView] = [
         stationLabel,
@@ -33,17 +34,12 @@ class DetailViewController: UITableViewController {
         subchapterSearch,
         descriptionText
     ]
-
-    private let headers = ["Details", "Description", ""]
     
     private let repository = Repository.shared
-//    private let controller = DefectController.shared
     private let apiClient = ApiClient.shared
     
     var defect: Defect?
     var mode: Mode!
-    
-//    let detailViews = DetailViews()
     
     lazy var editButton = ActionButton(title: "Edit", color: .systemBlue, target: self, action: #selector(onEditButtonTapped))
     lazy var cancelButton = ActionButton(title: "Cancel", color: .systemGray, target: self, action: #selector(onCancelButtonTapped))
@@ -54,14 +50,6 @@ class DetailViewController: UITableViewController {
     public enum Mode {
         case edit
         case read
-    }
-    
-    convenience init(defect: Defect?, mode: DetailViewController.Mode) {
-        self.init(style: .grouped)
-        self.defect = defect
-        self.mode = mode
-        
-        
     }
     
     override func viewDidLoad() {
@@ -118,62 +106,9 @@ class DetailViewController: UITableViewController {
     }
 }
 
-// MARK: - Table View
-extension DetailViewController {
-    
-    private func configureTableView() {
-//        tableView.dataSource = self
-//        tableView.delegate = self
-//        tableView.allowsSelection = false
-//        tableView.separatorStyle = .none
-        tableView.register(SectionHeader.nib, forCellReuseIdentifier: SectionHeader.reuseIdentifier)
-    }
-    
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        return detailViews.sections.count
-//    }
-    
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return detailViews.sections[section].cells.count
-//    }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeader.reuseIdentifier) as? SectionHeader
-        header?.textLabel?.text = headers[section]
-        return header
-    }
-    
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = detailViews.sections[indexPath.section].cells[indexPath.row]
-//        cell.scrollDelegate = self
-//        return cell
-//    }
-    
-}
-
-// MARK: Scrolling Behavior
-extension DetailViewController: CellScrollDelegate {
-    
-    func scrollTo(indexPath: IndexPath) {
-        DispatchQueue.main.async {
-            self.spacerCell.addSpace()
-            self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-        }
-    }
-    
-    func removeSpace() {
-        spacerCell.removeSpace()
-    }
-    
-}
 
 // MARK: - Selectors
 extension DetailViewController {
-    
-    @objc func onUpdateTable() {
-        self.tableView.beginUpdates()
-        self.tableView.endUpdates()
-    }
     
     @objc func onChangeMode() {
         configureTitle()

@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class DefectViewController: UITableViewController {
+class FeedViewController: UITableViewController {
     let repository = Repository.shared
 //    let controller = DefectController.shared
     

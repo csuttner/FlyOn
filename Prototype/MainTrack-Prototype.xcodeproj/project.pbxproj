@@ -16,11 +16,10 @@
 		F346652A25F71758004340B7 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346652925F71758004340B7 /* ViewExtensions.swift */; };
 		F346655425F73438004340B7 /* DefectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655325F73438004340B7 /* DefectModel.swift */; };
 		F346656025F73990004340B7 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F346655F25F73990004340B7 /* Repository.swift */; };
-		F34A75CF25F93D59000F2DF8 /* DefectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */; };
+		F34A75CF25F93D59000F2DF8 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75CE25F93D59000F2DF8 /* FeedViewController.swift */; };
 		F34A75DA25F94B4E000F2DF8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */; };
 		F34A75E725F95100000F2DF8 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A75E625F95100000F2DF8 /* ActionButton.swift */; };
 		F34E51C326058893000B4E36 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34E51C226058893000B4E36 /* LoadingView.swift */; };
-		F34E51C7260596A1000B4E36 /* RolePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34E51C6260596A1000B4E36 /* RolePicker.swift */; };
 		F350B1C325FEE90A0041C09E /* UUIDExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350B1C225FEE90A0041C09E /* UUIDExtensions.swift */; };
 		F3663F112623EA3100386237 /* DetailCellOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3663F102623EA3100386237 /* DetailCellOld.swift */; };
 		F3663F212623F0DA00386237 /* TableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3663F202623F0DA00386237 /* TableViewExtensions.swift */; };
@@ -54,7 +53,6 @@
 		F3EC40F125FC8233004A9A5D /* StackViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */; };
 		F3EC40F425FC8B18004A9A5D /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */; };
 		F3EC40F925FC8CB1004A9A5D /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F825FC8CB1004A9A5D /* PlaceholderTextView.swift */; };
-		F3FE59E125FE8CAA00C9574E /* SpacerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FE59E025FE8CAA00C9574E /* SpacerCell.swift */; };
 		F3FE59E525FEACCE00C9574E /* DescriptionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FE59E425FEACCE00C9574E /* DescriptionTextView.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,11 +68,10 @@
 		F346652925F71758004340B7 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		F346655325F73438004340B7 /* DefectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectModel.swift; sourceTree = "<group>"; };
 		F346655F25F73990004340B7 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectViewController.swift; sourceTree = "<group>"; };
+		F34A75CE25F93D59000F2DF8 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F34A75E625F95100000F2DF8 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		F34E51C226058893000B4E36 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		F34E51C6260596A1000B4E36 /* RolePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolePicker.swift; sourceTree = "<group>"; };
 		F350B1C225FEE90A0041C09E /* UUIDExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUIDExtensions.swift; sourceTree = "<group>"; };
 		F3663F102623EA3100386237 /* DetailCellOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCellOld.swift; sourceTree = "<group>"; };
 		F3663F202623F0DA00386237 /* TableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtensions.swift; sourceTree = "<group>"; };
@@ -110,7 +107,6 @@
 		F3EC40F025FC8233004A9A5D /* StackViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewExtensions.swift; sourceTree = "<group>"; };
 		F3EC40F325FC8B18004A9A5D /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
 		F3EC40F825FC8CB1004A9A5D /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
-		F3FE59E025FE8CAA00C9574E /* SpacerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerCell.swift; sourceTree = "<group>"; };
 		F3FE59E425FEACCE00C9574E /* DescriptionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,9 +201,7 @@
 			children = (
 				F3EC40F825FC8CB1004A9A5D /* PlaceholderTextView.swift */,
 				F34A75E625F95100000F2DF8 /* ActionButton.swift */,
-				F34E51C6260596A1000B4E36 /* RolePicker.swift */,
 				F34E51C226058893000B4E36 /* LoadingView.swift */,
-				F3FE59E025FE8CAA00C9574E /* SpacerCell.swift */,
 				F380276A25FC97A700B5FFD2 /* DetailSearchBar.swift */,
 				F3FE59E425FEACCE00C9574E /* DescriptionTextView.swift */,
 				F39867FD25FD6BBB00DF52FD /* MultilineLabel.swift */,
@@ -283,7 +277,7 @@
 			children = (
 				F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */,
 				F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */,
-				F34A75CE25F93D59000F2DF8 /* DefectViewController.swift */,
+				F34A75CE25F93D59000F2DF8 /* FeedViewController.swift */,
 				F398683025FDADD800DF52FD /* DetailViewController.swift */,
 			);
 			path = "View Controller";
@@ -410,7 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F398682725FDA1D800DF52FD /* StationModel.swift in Sources */,
-				F34A75CF25F93D59000F2DF8 /* DefectViewController.swift in Sources */,
+				F34A75CF25F93D59000F2DF8 /* FeedViewController.swift in Sources */,
 				F350B1C325FEE90A0041C09E /* UUIDExtensions.swift in Sources */,
 				F398682E25FDAD7000DF52FD /* DescriptionCell.swift in Sources */,
 				F30F0DA425F9AD1F00A4E664 /* SignupViewController.swift in Sources */,
@@ -434,7 +428,6 @@
 				F380276625FC91CE00B5FFD2 /* UserModel.swift in Sources */,
 				F327289B25FE6046003AE3C5 /* DefectController.swift in Sources */,
 				F346655425F73438004340B7 /* DefectModel.swift in Sources */,
-				F34E51C7260596A1000B4E36 /* RolePicker.swift in Sources */,
 				F389721325F8071700F66ADC /* DateExtensions.swift in Sources */,
 				F398680D25FD8A3A00DF52FD /* Enumerations.swift in Sources */,
 				F3063CD725F86A4A00278A02 /* GGFloatExtensions.swift in Sources */,
@@ -444,7 +437,6 @@
 				F3663F112623EA3100386237 /* DetailCellOld.swift in Sources */,
 				F3FE59E525FEACCE00C9574E /* DescriptionTextView.swift in Sources */,
 				F34E51C326058893000B4E36 /* LoadingView.swift in Sources */,
-				F3FE59E125FE8CAA00C9574E /* SpacerCell.swift in Sources */,
 				F34A75DA25F94B4E000F2DF8 /* LoginViewController.swift in Sources */,
 				F398681325FD8F2A00DF52FD /* ViewControllerExtensions.swift in Sources */,
 				F346656025F73990004340B7 /* Repository.swift in Sources */,
