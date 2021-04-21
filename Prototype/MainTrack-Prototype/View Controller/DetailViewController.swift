@@ -19,7 +19,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var stationSearch: UISearchBar!
     @IBOutlet weak var aircraftSearch: UISearchBar!
     @IBOutlet weak var subchapterSearch: UISearchBar!
-    @IBOutlet weak var descriptionText: PlaceholderTextView!
+    @IBOutlet weak var descriptionText: DescriptionTextView!
     
     @IBOutlet weak var stationAnchor: UIView!
     @IBOutlet weak var aircraftAnchor: UIView!

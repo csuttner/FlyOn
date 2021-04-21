@@ -330,36 +330,36 @@
                                         <rect key="frame" x="0.0" y="178" width="414" height="260"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="s4u-qA-bcU" userLabel="Search Stack">
-                                                <rect key="frame" x="8" y="8" width="398" height="203"/>
+                                                <rect key="frame" x="8" y="8" width="398" height="198"/>
                                                 <subviews>
                                                     <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Station" translatesAutoresizingMaskIntoConstraints="NO" id="kLK-nN-qiJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="398" height="56"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </searchBar>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eae-0B-hST">
-                                                        <rect key="frame" x="0.0" y="63" width="398" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="62" width="398" height="0.0"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" id="wQg-7p-zfM"/>
                                                         </constraints>
                                                     </view>
                                                     <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Aircraft" translatesAutoresizingMaskIntoConstraints="NO" id="fAC-j1-evQ">
-                                                        <rect key="frame" x="0.0" y="70" width="398" height="56"/>
+                                                        <rect key="frame" x="0.0" y="68" width="398" height="56"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </searchBar>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3gJ-O6-fIB">
-                                                        <rect key="frame" x="0.0" y="133" width="398" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="130" width="398" height="0.0"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" id="GOe-Ju-Qch"/>
                                                         </constraints>
                                                     </view>
                                                     <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="ATA Subchapter" translatesAutoresizingMaskIntoConstraints="NO" id="BU5-FN-mRH">
-                                                        <rect key="frame" x="0.0" y="140" width="398" height="56"/>
+                                                        <rect key="frame" x="0.0" y="136" width="398" height="56"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </searchBar>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKA-8b-c9z">
-                                                        <rect key="frame" x="0.0" y="203" width="398" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="198" width="398" height="0.0"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" id="Goq-oE-Kd2"/>
@@ -367,15 +367,12 @@
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ej1-et-EL9" customClass="PlaceholderTextView" customModule="MainTrack_Prototype" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="219" width="382" height="33"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ej1-et-EL9" customClass="DescriptionTextView" customModule="MainTrack_Prototype" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="214" width="382" height="38"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Description"/>
-                                                </userDefinedRuntimeAttributes>
                                             </textView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -449,9 +446,6 @@
         </designable>
         <designable name="dNG-BK-XyJ">
             <size key="intrinsicContentSize" width="67" height="39"/>
-        </designable>
-        <designable name="ej1-et-EL9">
-            <size key="intrinsicContentSize" width="10" height="33"/>
         </designable>
         <designable name="zpA-ld-PVg">
             <size key="intrinsicContentSize" width="76" height="39"/>
