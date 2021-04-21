@@ -19,6 +19,12 @@ class Repository {
     
     private let apiClient = ApiClient.shared
     
+    public enum DefectAttribute {
+        case sta
+        case ac
+        case ata4
+    }
+    
     public lazy var attributeDataDict: [DefectAttribute : [Any]] = [
         .sta : stations,
         .ac : aircraft,

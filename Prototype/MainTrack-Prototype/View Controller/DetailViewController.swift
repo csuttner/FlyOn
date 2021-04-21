@@ -43,17 +43,10 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray6
         addGestureRecognizers()
         addObservers()
         onChangeMode()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationItem.largeTitleDisplayMode = .never
-        navigationController?.isToolbarHidden = false
-    }
-    
     
     private func configureTitle() {
         if let defect = defect {
@@ -197,14 +190,14 @@ extension DetailViewController {
 extension DetailViewController {
     
     private func configureToolbarItems() {
-        if userData.role == .analyst {
-            setToolbarItems(getAnalystToolbarItems(), animated: true)
+        if userData.role == .pilot {
+            setToolbarItems(getPilotToolbarItems(), animated: true)
         } else {
             setToolbarItems(getTechnicianToolbarItems(), animated: true)
         }
     }
     
-    private func getAnalystToolbarItems() -> [UIBarButtonItem] {
+    private func getPilotToolbarItems() -> [UIBarButtonItem] {
         if defect!.resolved {
             return getSpacedButtonItems(with: [archiveButton])
         } else {

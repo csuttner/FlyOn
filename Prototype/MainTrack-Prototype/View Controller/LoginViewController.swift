@@ -18,14 +18,9 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
         navigationController?.isToolbarHidden = true
-        setTextWithUserData()
-    }
-    
-    private func setTextWithUserData() {
-        if let userData = userData {
-            emailText.text = userData.email
-            passwordText.text = userData.password
-            emailText.textColor = .black
+        
+        if let emailString = UserDefaults().value(forKey: "email") as? String {
+            emailText.text = emailString
         }
     }
     
@@ -44,6 +39,7 @@ class LoginViewController: UIViewController {
                     self.loadingView.remove()
                     self.presentBasicAlert(title: "Login failed", message: error.localizedDescription)
                 } else {
+                    UserDefaults().setValue(email, forKey: "email")
                     self.apiClient.getUserData(from: email) { data in
                         userData = data
                         self.loadingView.remove()

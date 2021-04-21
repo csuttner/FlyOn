@@ -10,7 +10,6 @@ import FirebaseAuth
 
 class FeedViewController: UITableViewController {
     let repository = Repository.shared
-//    let controller = DefectController.shared
     
     lazy var newDefectButton = ActionButton(title: "New Defect", color: .systemGreen, target: self, action: #selector(onNewDefectButtonTapped))
 
@@ -25,7 +24,7 @@ class FeedViewController: UITableViewController {
     }
     
     private func loadDefectsForRole() {
-        if userData.role == .analyst {
+        if userData.role == .pilot {
             repository.loadAllDefects { self.tableView.reloadData() }
         } else {
             repository.loadDefects(for: userData.email) { self.tableView.reloadData() }
@@ -34,10 +33,9 @@ class FeedViewController: UITableViewController {
     
     private func configureNavigationController() {
         navigationItem.hidesBackButton = true
-        navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.isHidden = false
         
-        if userData.role == .analyst {
+        if userData.role == .pilot {
             navigationController?.isToolbarHidden = true
         } else {
             navigationController?.isToolbarHidden = false

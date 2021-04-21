@@ -22,20 +22,19 @@ class ActionButton: UIButton {
     convenience init(title: String, color: UIColor, target: Any?, action: Selector) {
         self.init(title: title, color: color)
         addTarget(target, action: action, for: .touchUpInside)
+        titleLabel?.font = .preferredFont(forTextStyle: .title2)
+        setTitle("   \(title)   ", for: .normal)
+        tintColor = .white
+        layer.cornerRadius = .cornerRadius
     }
     
     convenience init(title: String, color: UIColor) {
         self.init()
-        setTitle("   \(title)   ", for: .normal)
-        backgroundColor = color
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
         titleLabel?.font = .preferredFont(forTextStyle: .title2)
         tintColor = .white
         layer.cornerRadius = .cornerRadius
+        setTitle("   \(title)   ", for: .normal)
+        backgroundColor = color
     }
     
 }

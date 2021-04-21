@@ -11,7 +11,7 @@ var userData: UserData!
 
 enum Role: String, Codable, CaseIterable {
     case technician
-    case analyst
+    case pilot
 }
 
 struct UserData: Codable {
