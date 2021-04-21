@@ -434,23 +434,6 @@
             <point key="canvasLocation" x="2721.739130434783" y="2.6785714285714284"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="2FN-Ar-qzn">
-            <size key="intrinsicContentSize" width="53" height="39"/>
-        </designable>
-        <designable name="HKH-oL-frK">
-            <size key="intrinsicContentSize" width="121" height="39"/>
-        </designable>
-        <designable name="Ydd-XN-Ah2">
-            <size key="intrinsicContentSize" width="68" height="39"/>
-        </designable>
-        <designable name="dNG-BK-XyJ">
-            <size key="intrinsicContentSize" width="67" height="39"/>
-        </designable>
-        <designable name="zpA-ld-PVg">
-            <size key="intrinsicContentSize" width="76" height="39"/>
-        </designable>
-    </designables>
     <resources>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">

@@ -8,9 +8,6 @@
 import UIKit
 
 class LoadingView: UIView {
-
-    let indicator = UIActivityIndicatorView(style: .large)
-    
     func show(in view: UIView) {
         frame = view.frame
         backgroundColor = UIColor.systemGray6.withAlphaComponent(0.5)
@@ -18,15 +15,16 @@ class LoadingView: UIView {
         view.addSubview(self)
     }
     
-    func remove() {
-        removeFromSuperview()
-    }
-    
     func setUpIndicator() {
-        indicator.color = UIColor.systemFill
+        let indicator = UIActivityIndicatorView(style: .large)
+        
         addSubview(indicator)
+        indicator.color = UIColor.systemFill
         indicator.frame = frame
         indicator.startAnimating()
     }
-
+    
+    func remove() {
+        removeFromSuperview()
+    }
 }

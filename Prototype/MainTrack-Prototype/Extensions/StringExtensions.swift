@@ -13,24 +13,6 @@ extension String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
         return dateFormatter.date(from: self)
-//        if let date =  {
-//            return date
-//        }
-        
-//        else {
-//            df.dateFormat = "MM-dd-yyyy"
-//            if let date = df.date(from: self) {
-//                return date
-//            } else {
-//                df.dateFormat = "MM-dd"
-//                if let date = df.date(from: self) {
-//                    return date
-//                } else {
-//                    df.dateFormat = "yyyy-MM-dd"
-//                    return df.date(from: self)!
-//                }
-//            }
-//        }
     }
     
 }
