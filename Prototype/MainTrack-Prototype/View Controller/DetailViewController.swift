@@ -47,8 +47,6 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addGestureRecognizers()
-        addObservers()
         onChangeMode()
     }
     
@@ -63,17 +61,6 @@ class DetailViewController: UIViewController {
         } else {
             title = "New Defect"
         }
-    }
-    
-    private func addGestureRecognizers() {
-        let navBarTap = UITapGestureRecognizer(target: self, action: #selector(onTap))
-        let viewTap = UITapGestureRecognizer(target: self, action: #selector(onTap))
-        navigationController?.navigationBar.addGestureRecognizer(navBarTap)
-        view.addGestureRecognizer(viewTap)
-    }
-    
-    private func addObservers() {
-        addObserver(action: #selector(onChangeMode), name: .changeMode)
     }
     
     private func setupForMode() {
@@ -95,10 +82,6 @@ extension DetailViewController {
         configureTitle()
         configureToolbarItems()
         setupForMode()
-    }
-    
-    @objc func onTap() {
-        NotificationCenter.default.post(name: .dismissKeyboard, object: nil)
     }
     
     @objc func onEditButtonTapped() {
