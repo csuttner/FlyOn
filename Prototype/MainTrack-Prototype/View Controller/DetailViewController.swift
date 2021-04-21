@@ -21,8 +21,12 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var subchapterSearch: UISearchBar!
     @IBOutlet weak var descriptionText: PlaceholderTextView!
     
-    @IBOutlet var readViews: [UIView]!
-    @IBOutlet var editViews: [UIView]!
+    @IBOutlet weak var stationAnchor: UIView!
+    @IBOutlet weak var aircraftAnchor: UIView!
+    @IBOutlet weak var subchapterAnchor: UIView!
+    
+    @IBOutlet weak var readView: UIView!
+    @IBOutlet weak var editView: UIView!
     
     private let repository = Repository.shared
     private let apiClient = ApiClient.shared
@@ -74,19 +78,11 @@ class DetailViewController: UIViewController {
     
     private func setupForMode() {
         if mode == .edit {
-            toggleViews(viewsToHide: readViews, viewsToShow: editViews)
+            readView.isHidden = true
+            editView.isHidden = false
         } else {
-            toggleViews(viewsToHide: editViews, viewsToShow: readViews)
-        }
-    }
-    
-    private func toggleViews(viewsToHide: [UIView], viewsToShow: [UIView]) {
-        for view in viewsToHide {
-            view.isHidden = true
-        }
-        
-        for view in viewsToShow {
-            view.isHidden = false
+            readView.isHidden = false
+            editView.isHidden = true
         }
     }
 }
@@ -107,10 +103,12 @@ extension DetailViewController {
     
     @objc func onEditButtonTapped() {
         mode = .edit
+        onChangeMode()
     }
     
     @objc func onCancelButtonTapped() {
         mode = .read
+        onChangeMode()
     }
     
     @objc func onResolveButtonTapped() {

@@ -95,7 +95,7 @@ class FeedViewController: UITableViewController {
             let defect = repository.sections[indexPath.section].defects[indexPath.row]
             let detailViewController = segue.destination as! DetailViewController
             detailViewController.defect = defect
-            detailViewController.mode = .edit
+            detailViewController.mode = .read
         }
     }
 }
