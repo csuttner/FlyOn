@@ -119,8 +119,12 @@ extension DetailViewController {
     }
     
     @objc func onCancelButtonTapped() {
-        mode = .read
-        onChangeMode()
+        if defect == nil {
+            navigationController?.popViewController(animated: true)
+        } else {
+            mode = .read
+            onChangeMode()
+        }
     }
     
     @objc func onResolveButtonTapped() {

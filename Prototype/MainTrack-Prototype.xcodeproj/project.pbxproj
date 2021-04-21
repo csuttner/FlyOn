@@ -149,7 +149,6 @@
 		F34A75D525F94B1E000F2DF8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F3EC40EC25FC7D92004A9A5D /* RoundedView.swift */,
 				F3663F242623F1B800386237 /* DefectCell.swift */,
 				F3663F252623F1B800386237 /* DefectCell.xib */,
 				F3663F2A2623F77D00386237 /* SectionHeader.swift */,
@@ -163,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				F34A75E625F95100000F2DF8 /* ActionButton.swift */,
+				F3EC40EC25FC7D92004A9A5D /* RoundedView.swift */,
 				F3EC40F825FC8CB1004A9A5D /* DescriptionTextView.swift */,
 				F34E51C226058893000B4E36 /* LoadingView.swift */,
 			);

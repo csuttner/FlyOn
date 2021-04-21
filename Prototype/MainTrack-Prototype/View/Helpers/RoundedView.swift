@@ -8,10 +8,8 @@
 import UIKit
 
 class RoundedView: UIView {
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = .cornerRadius
     }
-    
 }
