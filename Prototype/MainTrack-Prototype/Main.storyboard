@@ -425,7 +425,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rdf-1d-Y0z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="THE-9l-5rp"/>
+                <tapGestureRecognizer id="THE-9l-5rp">
+                    <connections>
+                        <action selector="onTap:" destination="A0k-GY-cZo" id="rYf-mf-Wd3"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2721.739130434783" y="2.6785714285714284"/>
         </scene>

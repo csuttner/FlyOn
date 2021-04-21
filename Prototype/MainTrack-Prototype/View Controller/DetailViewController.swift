@@ -50,6 +50,34 @@ class DetailViewController: UIViewController {
         onChangeMode()
     }
     
+    private func configureForDefect() {
+        if let defect = defect {
+            openCloseLabel.text = defect.resolved ? "Closed" : "Open"
+            stationLabel.text = defect.sta
+            aircraftLabel.text = defect.ac
+            subchapterLabel.text = defect.ata4
+            descriptionLabel.text = defect.description
+            
+            stationSearch.text = defect.sta
+            aircraftSearch.text = defect.ac
+            subchapterSearch.text = defect.ata4
+            descriptionText.text = defect.description
+        } else {
+            openCloseLabel.text = "Unopened"
+            stationLabel.text = ""
+            aircraftLabel.text = ""
+            subchapterLabel.text = ""
+            descriptionLabel.text = ""
+        }
+    }
+    
+    @IBAction func onTap(_ sender: Any) {
+        stationSearch.resignFirstResponder()
+        aircraftSearch.resignFirstResponder()
+        subchapterSearch.resignFirstResponder()
+        descriptionText.resignFirstResponder()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -63,7 +91,7 @@ class DetailViewController: UIViewController {
         }
     }
     
-    private func setupForMode() {
+    private func configureModeViews() {
         if mode == .edit {
             readView.isHidden = true
             editView.isHidden = false
@@ -79,9 +107,10 @@ class DetailViewController: UIViewController {
 extension DetailViewController {
     
     @objc func onChangeMode() {
+        configureForDefect()
         configureTitle()
         configureToolbarItems()
-        setupForMode()
+        configureModeViews()
     }
     
     @objc func onEditButtonTapped() {
@@ -149,6 +178,7 @@ extension DetailViewController {
             repository.addDefectToSections(defect!)
             presentBasicAlert(title: "Defect \(defect!.id) created")
             mode = .read
+            onChangeMode()
         } catch {
             presentBasicAlert(title: "Error creating defect")
         }
@@ -160,6 +190,7 @@ extension DetailViewController {
             apiClient.put(defect!)
             presentBasicAlert(title: "Defect \(defect!.id) updated")
             mode = .read
+            onChangeMode()
         } catch {
             presentBasicAlert(title: "Error updating defect")
         }
