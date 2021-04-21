@@ -25,8 +25,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var aircraftAnchor: UIView!
     @IBOutlet weak var subchapterAnchor: UIView!
     
-    @IBOutlet weak var readView: UIView!
-    @IBOutlet weak var editView: UIView!
+    @IBOutlet var readViews: [UIView]!
+    @IBOutlet var editViews: [UIView]!
     
     private let repository = Repository.shared
     private let apiClient = ApiClient.shared
@@ -92,14 +92,25 @@ class DetailViewController: UIViewController {
     }
     
     private func configureModeViews() {
-        if mode == .edit {
-            readView.isHidden = true
-            editView.isHidden = false
-        } else {
-            readView.isHidden = false
-            editView.isHidden = true
+        UIView.transition(with: view, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            if self.mode == .edit {
+                self.toggleViews(viewsToHide: self.readViews, viewsToShow: self.editViews)
+            } else {
+                self.toggleViews(viewsToHide: self.editViews, viewsToShow: self.readViews)
+            }
+        })
+    }
+    
+    private func toggleViews(viewsToHide: [UIView], viewsToShow: [UIView]) {
+        for view in viewsToHide {
+            view.isHidden = true
+        }
+        
+        for view in viewsToShow {
+            view.isHidden = false
         }
     }
+    
 }
 
 

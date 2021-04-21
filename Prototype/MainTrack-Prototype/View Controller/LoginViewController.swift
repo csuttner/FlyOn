@@ -19,8 +19,10 @@ class LoginViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         navigationController?.isToolbarHidden = true
         
-        if let emailString = UserDefaults().value(forKey: "email") as? String {
+        if let emailString = UserDefaults().value(forKey: "email") as? String,
+           let passwordString = UserDefaults().value(forKey: "password") as? String{
             emailText.text = emailString
+            passwordText.text = passwordString
         }
     }
     
@@ -40,6 +42,7 @@ class LoginViewController: UIViewController {
                     self.presentBasicAlert(title: "Login failed", message: error.localizedDescription)
                 } else {
                     UserDefaults().setValue(email, forKey: "email")
+                    UserDefaults().setValue(password, forKey: "password")
                     self.apiClient.getUserData(from: email) { data in
                         userData = data
                         self.loadingView.remove()
