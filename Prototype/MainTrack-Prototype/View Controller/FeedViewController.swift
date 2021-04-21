@@ -46,8 +46,7 @@ class FeedViewController: UITableViewController {
     }
     
     @objc func onNewDefectButtonTapped() {
-        let detailViewController = DetailViewController(defect: nil, mode: .edit)
-        navigationController?.pushViewController(detailViewController, animated: true)
+
     }
     
     @IBAction func onProfileButtonTapped(_ sender: Any) {

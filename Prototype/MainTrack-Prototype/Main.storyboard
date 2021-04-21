@@ -219,6 +219,14 @@
                         <outlet property="stationSearch" destination="kLK-nN-qiJ" id="lRA-JL-1s3"/>
                         <outlet property="subchapterLabel" destination="esj-1h-oms" id="dDz-gS-GWl"/>
                         <outlet property="subchapterSearch" destination="BU5-FN-mRH" id="aeD-st-9OG"/>
+                        <outletCollection property="readViews" destination="zvv-HC-S8d" collectionClass="NSMutableArray" id="sbd-gK-gO9"/>
+                        <outletCollection property="readViews" destination="U8H-vD-saF" collectionClass="NSMutableArray" id="kzH-OF-Gmh"/>
+                        <outletCollection property="readViews" destination="esj-1h-oms" collectionClass="NSMutableArray" id="q72-4V-Wq8"/>
+                        <outletCollection property="readViews" destination="CgI-Om-YC8" collectionClass="NSMutableArray" id="zQq-nl-2Cn"/>
+                        <outletCollection property="editViews" destination="kLK-nN-qiJ" collectionClass="NSMutableArray" id="gbb-Fh-XSx"/>
+                        <outletCollection property="editViews" destination="fAC-j1-evQ" collectionClass="NSMutableArray" id="MPU-u4-Xug"/>
+                        <outletCollection property="editViews" destination="BU5-FN-mRH" collectionClass="NSMutableArray" id="d78-fF-GEO"/>
+                        <outletCollection property="editViews" destination="ej1-et-EL9" collectionClass="NSMutableArray" id="8lL-Gm-bjo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rdf-1d-Y0z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

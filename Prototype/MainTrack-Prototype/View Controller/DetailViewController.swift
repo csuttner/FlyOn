@@ -21,19 +21,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var subchapterSearch: UISearchBar!
     @IBOutlet weak var descriptionText: PlaceholderTextView!
     
-    private lazy var readViews: [UIView] = [
-        stationLabel,
-        aircraftLabel,
-        subchapterLabel,
-        descriptionLabel
-    ]
-    
-    private lazy var editViews: [UIView] = [
-        stationSearch,
-        aircraftSearch,
-        subchapterSearch,
-        descriptionText
-    ]
+    @IBOutlet var readViews: [UIView]!
+    @IBOutlet var editViews: [UIView]!
     
     private let repository = Repository.shared
     private let apiClient = ApiClient.shared
@@ -55,7 +44,6 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray6
-        configureTableView()
         addGestureRecognizers()
         addObservers()
         onChangeMode()
@@ -84,7 +72,6 @@ class DetailViewController: UIViewController {
     
     private func addObservers() {
         addObserver(action: #selector(onChangeMode), name: .changeMode)
-        addObserver(action: #selector(onUpdateTable), name: .updateTable)
     }
     
     private func setupForMode() {
@@ -139,7 +126,6 @@ extension DetailViewController {
     }
     
     @objc func onSubmitButtonTapped() {
-        scrollTo(indexPath: IndexPath(row: 0, section: 0))
         if defect == nil {
             createDefect()
         } else {
