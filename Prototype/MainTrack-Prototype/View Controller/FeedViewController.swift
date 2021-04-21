@@ -44,7 +44,7 @@ class FeedViewController: UITableViewController {
     }
     
     @objc func onNewDefectButtonTapped() {
-
+        performSegue(withIdentifier: "ShowDetailSegue", sender: self)
     }
     
     @IBAction func onProfileButtonTapped(_ sender: Any) {
@@ -91,11 +91,15 @@ class FeedViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetailSegue" {
-            let indexPath = tableView.indexPathForSelectedRow!
-            let defect = repository.sections[indexPath.section].defects[indexPath.row]
             let detailViewController = segue.destination as! DetailViewController
-            detailViewController.defect = defect
-            detailViewController.mode = .read
+            
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let defect = repository.sections[indexPath.section].defects[indexPath.row]
+                detailViewController.defect = defect
+                detailViewController.mode = .read
+            } else {
+                detailViewController.mode = .edit
+            }
         }
     }
 }
