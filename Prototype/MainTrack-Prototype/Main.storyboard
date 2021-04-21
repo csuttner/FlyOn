@@ -373,6 +373,9 @@
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Description"/>
+                                                </userDefinedRuntimeAttributes>
                                             </textView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -446,6 +449,9 @@
         </designable>
         <designable name="dNG-BK-XyJ">
             <size key="intrinsicContentSize" width="67" height="39"/>
+        </designable>
+        <designable name="ej1-et-EL9">
+            <size key="intrinsicContentSize" width="10" height="33"/>
         </designable>
         <designable name="zpA-ld-PVg">
             <size key="intrinsicContentSize" width="76" height="39"/>

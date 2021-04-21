@@ -7,6 +7,7 @@
 
 import UIKit
 
+@IBDesignable
 class PlaceholderTextView: UITextView, UITextViewDelegate {
     
     @objc var placeholder: String!
@@ -18,6 +19,16 @@ class PlaceholderTextView: UITextView, UITextViewDelegate {
         format()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = .cornerRadius
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.systemGray6.cgColor
+        font = UIFont.preferredFont(forTextStyle: .body)
+        autocapitalizationType = .none
+        autocorrectionType = .no
+    }
+    
     private func configure() {
         text = placeholder
         delegate = self
@@ -26,12 +37,6 @@ class PlaceholderTextView: UITextView, UITextViewDelegate {
     
     private func format() {
         textColor = .lightGray
-        layer.cornerRadius = .cornerRadius
-        layer.borderWidth = 1
-        layer.borderColor = UIColor.systemGray6.cgColor
-        font = UIFont.preferredFont(forTextStyle: .body)
-        autocapitalizationType = .none
-        autocorrectionType = .no
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
