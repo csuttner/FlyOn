@@ -48,6 +48,11 @@ class DetailViewController: UIViewController {
         onChangeMode()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    }
+    
     private func configureTitle() {
         if let defect = defect {
             title = mode == .edit ? "Edit \(defect.id)" : "Defect \(defect.id)"
