@@ -6,8 +6,20 @@
 //
 
 import UIKit
+import DropDown
 
 class DetailViewController: UITableViewController {
+    private let repository = Repository.shared
+    private let apiClient = ApiClient.shared
+    
+    var defect: Defect?
+    var mode: Mode!
+    
+    public enum Mode {
+        case edit
+        case read
+    }
+    
     @IBOutlet weak var stationLabel: UILabel!
     @IBOutlet weak var aircraftLabel: UILabel!
     @IBOutlet weak var subchapterLabel: UILabel!
@@ -24,11 +36,13 @@ class DetailViewController: UITableViewController {
     @IBOutlet var editViews: [UIView]!
     @IBOutlet var editConstraints: [NSLayoutConstraint]!
     
-    private let repository = Repository.shared
-    private let apiClient = ApiClient.shared
+    @IBOutlet weak var stationAnchor: UIView!
+    @IBOutlet weak var aircraftAnchor: UIView!
+    @IBOutlet weak var subchapterAnchor: UIView!
     
-    var defect: Defect?
-    var mode: Mode!
+    private lazy var stationDropDown = DropDown(anchorView: stationAnchor)
+    private lazy var aircraftDropDown = DropDown(anchorView: aircraftAnchor)
+    private lazy var subchapterDropDown = DropDown(anchorView: subchapterAnchor)
     
     lazy var editButton = ActionButton(title: "Edit", color: .systemBlue, target: self, action: #selector(onEditButtonTapped))
     lazy var cancelButton = ActionButton(title: "Cancel", color: .systemGray, target: self, action: #selector(onCancelButtonTapped))
@@ -36,14 +50,36 @@ class DetailViewController: UITableViewController {
     lazy var resolveButton = ActionButton(title: "Close", color: .systemGreen, target: self, action: #selector(onResolveButtonTapped))
     lazy var archiveButton = ActionButton(title: "Archive", color: .systemGray, target: self, action: #selector(onArchiveButtonTapped))
     
-    public enum Mode {
-        case edit
-        case read
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupDropDowns()
         onChangeMode()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    }
+    
+    private func setupDropDowns() {
+        stationDropDown.selectionAction = { [weak self] in self?.stationSearch.text = $1 }
+        aircraftDropDown.selectionAction = { [weak self] in self?.aircraftSearch.text = $1 }
+        subchapterDropDown.selectionAction = { [weak self] in self?.subchapterSearch.text = $1 }
+    }
+    
+    private func onChangeMode() {
+        configureForDefect()
+        configureTitle()
+        configureToolbarItems()
+        configureModeViews()
+    }
+    
+    private func configureTitle() {
+        if let defect = defect {
+            title = mode == .edit ? "Edit \(defect.id)" : "Defect \(defect.id)"
+        } else {
+            title = "New Defect"
+        }
     }
     
     private func configureForDefect() {
@@ -65,23 +101,11 @@ class DetailViewController: UITableViewController {
         }
     }
     
-    @IBAction func onTap(_ sender: Any) {
-        stationSearch.resignFirstResponder()
-        aircraftSearch.resignFirstResponder()
-        subchapterSearch.resignFirstResponder()
-        descriptionText.resignFirstResponder()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-    }
-    
-    private func configureTitle() {
-        if let defect = defect {
-            title = mode == .edit ? "Edit \(defect.id)" : "Defect \(defect.id)"
+    private func configureToolbarItems() {
+        if userData.role == .pilot {
+            setToolbarItems(getPilotToolbarItems(), animated: true)
         } else {
-            title = "New Defect"
+            setToolbarItems(getTechnicianToolbarItems(), animated: true)
         }
     }
     
@@ -103,6 +127,14 @@ class DetailViewController: UITableViewController {
         tableView.beginUpdates()
         tableView.endUpdates()
     }
+    
+    @IBAction func onTap(_ sender: Any) {
+        stationSearch.resignFirstResponder()
+        aircraftSearch.resignFirstResponder()
+        subchapterSearch.resignFirstResponder()
+        descriptionText.resignFirstResponder()
+    }
+
 }
 
 // MARK: - TableView Delegate / Datasource
@@ -118,13 +150,6 @@ extension DetailViewController {
 
 // MARK: - Selectors
 extension DetailViewController {
-    
-    @objc func onChangeMode() {
-        configureForDefect()
-        configureTitle()
-        configureToolbarItems()
-        configureModeViews()
-    }
     
     @objc func onEditButtonTapped() {
         mode = .edit
@@ -223,14 +248,6 @@ extension DetailViewController {
 // MARK: Toolbar Configuration
 extension DetailViewController {
     
-    private func configureToolbarItems() {
-        if userData.role == .pilot {
-            setToolbarItems(getPilotToolbarItems(), animated: true)
-        } else {
-            setToolbarItems(getTechnicianToolbarItems(), animated: true)
-        }
-    }
-    
     private func getPilotToolbarItems() -> [UIBarButtonItem] {
         if defect!.resolved {
             return getSpacedButtonItems(with: [archiveButton])
@@ -253,5 +270,24 @@ extension DetailViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         tableView.beginUpdates()
         tableView.endUpdates()
+    }
+}
+
+extension DetailViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar == stationSearch {
+            stationDropDown.dataSource = repository.matches(for: .sta, searchText)
+            stationDropDown.show()
+        }
+        
+        if searchBar == aircraftSearch {
+            aircraftDropDown.dataSource = repository.matches(for: .ac, searchText)
+            aircraftDropDown.show()
+        }
+        
+        if searchBar == subchapterSearch {
+            subchapterDropDown.dataSource = repository.matches(for: .ata4, searchText)
+            subchapterDropDown.show()
+        }
     }
 }
