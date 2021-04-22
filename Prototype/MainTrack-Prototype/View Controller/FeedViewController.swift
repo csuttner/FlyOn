@@ -91,7 +91,7 @@ class FeedViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetailSegue" {
-            let detailViewController = segue.destination as! DetailTableViewController
+            let detailViewController = segue.destination as! DetailViewController
             
             if let indexPath = tableView.indexPathForSelectedRow {
                 let defect = repository.sections[indexPath.section].defects[indexPath.row]

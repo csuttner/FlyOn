@@ -217,7 +217,7 @@
         <scene sceneID="4Bz-9I-d9C">
             <objects>
                 <tableViewController title="Defects" id="0Ku-nh-NJN" userLabel="Feed View Controller" customClass="FeedViewController" customModule="MainTrack_Prototype" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" id="yr8-vj-Ltr">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" id="yr8-vj-Ltr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -245,34 +245,35 @@
             </objects>
             <point key="canvasLocation" x="1844.9275362318842" y="2.6785714285714284"/>
         </scene>
-        <!--Detail Table View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="Qbm-Ly-zXX">
             <objects>
-                <tableViewController id="GsQ-cd-y2R" customClass="DetailTableViewController" customModule="MainTrack_Prototype" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="np2-DA-qYP">
+                <tableViewController id="GsQ-cd-y2R" customClass="DetailViewController" customModule="MainTrack_Prototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" id="np2-DA-qYP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <sections>
                             <tableViewSection headerTitle="Section-1" id="V6u-UY-539">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Knk-a5-BaX">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="Knk-a5-BaX">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Knk-a5-BaX" id="YVy-TE-em1">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Knk-a5-BaX" id="YVy-TE-em1">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBd-pN-H7h">
+                                                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Station" translatesAutoresizingMaskIntoConstraints="NO" id="4KK-uO-PfG">
+                                                    <rect key="frame" x="8" y="0.0" width="398" height="44"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </searchBar>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBd-pN-H7h">
                                                     <rect key="frame" x="16" y="8" width="382" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Station" translatesAutoresizingMaskIntoConstraints="NO" id="4KK-uO-PfG">
-                                                    <rect key="frame" x="8" y="0.0" width="398" height="44"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </searchBar>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="4KK-uO-PfG" secondAttribute="trailing" constant="8" id="6Mv-qw-sdI"/>
@@ -286,23 +287,23 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="yoq-f7-QAr">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="yoq-f7-QAr">
                                         <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yoq-f7-QAr" id="fhP-GU-TOl">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yoq-f7-QAr" id="fhP-GU-TOl">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCH-ok-wap">
+                                                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Aircraft" translatesAutoresizingMaskIntoConstraints="NO" id="Y7S-ee-m4A">
+                                                    <rect key="frame" x="8" y="0.0" width="398" height="44"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </searchBar>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCH-ok-wap">
                                                     <rect key="frame" x="16" y="8" width="382" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Aircraft" translatesAutoresizingMaskIntoConstraints="NO" id="Y7S-ee-m4A">
-                                                    <rect key="frame" x="8" y="0.0" width="398" height="44"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </searchBar>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="LCH-ok-wap" secondAttribute="trailing" constant="16" id="BNv-On-zP5"/>
@@ -316,23 +317,23 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="8Gu-Me-gcj">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="8Gu-Me-gcj">
                                         <rect key="frame" x="0.0" y="115" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Gu-Me-gcj" id="DOR-1A-mLj">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Gu-Me-gcj" id="DOR-1A-mLj">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKg-Gf-CBt">
+                                                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="ATA Subchapter" translatesAutoresizingMaskIntoConstraints="NO" id="XeC-Jd-wkW">
+                                                    <rect key="frame" x="8" y="0.0" width="398" height="44"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </searchBar>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKg-Gf-CBt">
                                                     <rect key="frame" x="16" y="8" width="382" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="ATA Subchapter" translatesAutoresizingMaskIntoConstraints="NO" id="XeC-Jd-wkW">
-                                                    <rect key="frame" x="8" y="0.0" width="398" height="44"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </searchBar>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="XeC-Jd-wkW" secondAttribute="trailing" constant="8" id="3DU-m7-9Tc"/>
@@ -350,36 +351,39 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Section-2" id="mNF-hK-T0j">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OYb-Ab-r5I">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="OYb-Ab-r5I">
                                         <rect key="frame" x="0.0" y="214.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OYb-Ab-r5I" id="yfX-dM-Eu8">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwJ-a7-Q1j">
-                                                    <rect key="frame" x="16" y="8" width="382" height="28"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="q4v-Jt-7qp" customClass="DescriptionTextView" customModule="MainTrack_Prototype" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="8" width="382" height="28"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <color key="textColor" systemColor="labelColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="GsQ-cd-y2R" id="x1w-nf-GSF"/>
+                                                    </connections>
                                                 </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4u-du-aXi">
+                                                    <rect key="frame" x="16" y="8" width="382" height="28"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="iwJ-a7-Q1j" firstAttribute="top" secondItem="yfX-dM-Eu8" secondAttribute="top" constant="8" id="03p-PP-YkV"/>
-                                                <constraint firstAttribute="bottom" secondItem="iwJ-a7-Q1j" secondAttribute="bottom" constant="8" id="3Ad-Rg-CgI"/>
                                                 <constraint firstItem="q4v-Jt-7qp" firstAttribute="top" secondItem="yfX-dM-Eu8" secondAttribute="top" constant="8" id="AEe-9h-jem"/>
-                                                <constraint firstAttribute="trailing" secondItem="iwJ-a7-Q1j" secondAttribute="trailing" constant="16" id="F35-x9-134"/>
                                                 <constraint firstItem="q4v-Jt-7qp" firstAttribute="leading" secondItem="yfX-dM-Eu8" secondAttribute="leading" constant="16" id="FCY-Bd-Vfc"/>
-                                                <constraint firstItem="iwJ-a7-Q1j" firstAttribute="leading" secondItem="yfX-dM-Eu8" secondAttribute="leading" constant="16" id="eoX-Qj-zvc"/>
                                                 <constraint firstAttribute="trailing" secondItem="q4v-Jt-7qp" secondAttribute="trailing" constant="16" id="fSY-uG-rWF"/>
                                                 <constraint firstAttribute="bottom" secondItem="q4v-Jt-7qp" secondAttribute="bottom" constant="8" id="fd5-2K-PK9"/>
+                                                <constraint firstAttribute="bottom" secondItem="h4u-du-aXi" secondAttribute="bottom" constant="8" id="gp6-N6-13l"/>
+                                                <constraint firstItem="h4u-du-aXi" firstAttribute="top" secondItem="yfX-dM-Eu8" secondAttribute="top" constant="8" id="iMH-6U-HbV"/>
+                                                <constraint firstAttribute="trailing" secondItem="h4u-du-aXi" secondAttribute="trailing" constant="16" id="jKN-TJ-EXt"/>
+                                                <constraint firstItem="h4u-du-aXi" firstAttribute="leading" secondItem="yfX-dM-Eu8" secondAttribute="leading" constant="16" id="xb3-NS-tW5"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -389,13 +393,14 @@
                         <connections>
                             <outlet property="dataSource" destination="GsQ-cd-y2R" id="cqN-M4-Iws"/>
                             <outlet property="delegate" destination="GsQ-cd-y2R" id="AFS-VH-fa7"/>
+                            <outletCollection property="gestureRecognizers" destination="sze-Pc-V0A" appends="YES" id="FlV-uU-Jcu"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Sw4-n9-zM4"/>
                     <connections>
                         <outlet property="aircraftLabel" destination="LCH-ok-wap" id="OV8-Pg-2zA"/>
                         <outlet property="aircraftSearch" destination="Y7S-ee-m4A" id="cw3-ev-AhG"/>
-                        <outlet property="descriptionLabel" destination="iwJ-a7-Q1j" id="7L9-Gn-GMl"/>
+                        <outlet property="descriptionLabel" destination="h4u-du-aXi" id="C04-th-hHe"/>
                         <outlet property="descriptionText" destination="q4v-Jt-7qp" id="BFn-nK-A77"/>
                         <outlet property="stationLabel" destination="EBd-pN-H7h" id="HYI-qE-bWO"/>
                         <outlet property="stationSearch" destination="4KK-uO-PfG" id="TjR-L4-ipT"/>
@@ -404,46 +409,35 @@
                         <outletCollection property="readViews" destination="EBd-pN-H7h" collectionClass="NSMutableArray" id="8zw-sB-IBt"/>
                         <outletCollection property="readViews" destination="LCH-ok-wap" collectionClass="NSMutableArray" id="6bM-JF-yU6"/>
                         <outletCollection property="readViews" destination="UKg-Gf-CBt" collectionClass="NSMutableArray" id="OBW-6i-fDN"/>
-                        <outletCollection property="readViews" destination="iwJ-a7-Q1j" collectionClass="NSMutableArray" id="q5T-OG-sg9"/>
                         <outletCollection property="readConstraints" destination="BhH-uE-C4n" collectionClass="NSMutableArray" id="Rjz-T9-CHC"/>
                         <outletCollection property="readConstraints" destination="OzO-mA-Y1A" collectionClass="NSMutableArray" id="ATf-7W-4VP"/>
-                        <outletCollection property="readConstraints" destination="Szu-z1-dXg" collectionClass="NSMutableArray" id="S1M-Vl-GxT"/>
-                        <outletCollection property="readConstraints" destination="lix-8G-FRi" collectionClass="NSMutableArray" id="Jpe-6B-Y3m"/>
-                        <outletCollection property="readConstraints" destination="BNv-On-zP5" collectionClass="NSMutableArray" id="PXo-UB-RT3"/>
                         <outletCollection property="readConstraints" destination="GuH-9U-lfn" collectionClass="NSMutableArray" id="Gcd-zX-v2E"/>
-                        <outletCollection property="readConstraints" destination="cLc-k8-oeg" collectionClass="NSMutableArray" id="gCB-WE-bJ6"/>
                         <outletCollection property="readConstraints" destination="lmU-Wz-Ilu" collectionClass="NSMutableArray" id="f3U-GY-55B"/>
-                        <outletCollection property="readConstraints" destination="Ggl-II-H7C" collectionClass="NSMutableArray" id="DpB-Hx-NCk"/>
-                        <outletCollection property="readConstraints" destination="hUW-Oz-wqs" collectionClass="NSMutableArray" id="Lyf-LA-d7U"/>
                         <outletCollection property="readConstraints" destination="i5u-Sl-h9l" collectionClass="NSMutableArray" id="QHM-ZQ-5tG"/>
                         <outletCollection property="readConstraints" destination="ido-T1-MSQ" collectionClass="NSMutableArray" id="H7U-Mc-Cwx"/>
-                        <outletCollection property="readConstraints" destination="03p-PP-YkV" collectionClass="NSMutableArray" id="Qy1-d8-ce1"/>
-                        <outletCollection property="readConstraints" destination="3Ad-Rg-CgI" collectionClass="NSMutableArray" id="Ate-Zl-slW"/>
-                        <outletCollection property="readConstraints" destination="F35-x9-134" collectionClass="NSMutableArray" id="Ebp-wa-adI"/>
-                        <outletCollection property="readConstraints" destination="eoX-Qj-zvc" collectionClass="NSMutableArray" id="bRa-qA-kcj"/>
                         <outletCollection property="editViews" destination="4KK-uO-PfG" collectionClass="NSMutableArray" id="HdL-wa-ksO"/>
-                        <outletCollection property="editConstraints" destination="6Mv-qw-sdI" collectionClass="NSMutableArray" id="d0k-Q0-oPk"/>
                         <outletCollection property="editConstraints" destination="RCv-eM-0xU" collectionClass="NSMutableArray" id="cac-hP-DbB"/>
                         <outletCollection property="editConstraints" destination="e9d-jl-w5D" collectionClass="NSMutableArray" id="ahK-om-USQ"/>
-                        <outletCollection property="editConstraints" destination="kkG-Ia-4GJ" collectionClass="NSMutableArray" id="1Bn-77-eO0"/>
                         <outletCollection property="editViews" destination="Y7S-ee-m4A" collectionClass="NSMutableArray" id="WyH-7K-pQu"/>
-                        <outletCollection property="editConstraints" destination="K2Z-NN-zdI" collectionClass="NSMutableArray" id="2cZ-Yg-UzU"/>
                         <outletCollection property="editConstraints" destination="pVd-BF-dJu" collectionClass="NSMutableArray" id="WfT-fO-61X"/>
                         <outletCollection property="editConstraints" destination="r76-3l-Nit" collectionClass="NSMutableArray" id="4p8-0Z-Mnp"/>
-                        <outletCollection property="editConstraints" destination="vOT-LE-F9y" collectionClass="NSMutableArray" id="zQx-X1-4hq"/>
                         <outletCollection property="editViews" destination="XeC-Jd-wkW" collectionClass="NSMutableArray" id="fRW-Td-TyI"/>
-                        <outletCollection property="editConstraints" destination="3DU-m7-9Tc" collectionClass="NSMutableArray" id="4Wz-9t-Oxu"/>
                         <outletCollection property="editConstraints" destination="K9T-xe-fzY" collectionClass="NSMutableArray" id="kWH-ih-1NR"/>
-                        <outletCollection property="editConstraints" destination="ngO-GB-gKl" collectionClass="NSMutableArray" id="5a1-3m-ADL"/>
                         <outletCollection property="editConstraints" destination="y9T-Z2-0td" collectionClass="NSMutableArray" id="cVw-e0-bdf"/>
                         <outletCollection property="editViews" destination="q4v-Jt-7qp" collectionClass="NSMutableArray" id="E5A-UH-faH"/>
                         <outletCollection property="editConstraints" destination="AEe-9h-jem" collectionClass="NSMutableArray" id="DEI-zm-Wyw"/>
-                        <outletCollection property="editConstraints" destination="FCY-Bd-Vfc" collectionClass="NSMutableArray" id="RKv-CZ-I4a"/>
-                        <outletCollection property="editConstraints" destination="fSY-uG-rWF" collectionClass="NSMutableArray" id="4p3-nS-V7W"/>
                         <outletCollection property="editConstraints" destination="fd5-2K-PK9" collectionClass="NSMutableArray" id="ruj-mM-1ZT"/>
+                        <outletCollection property="readViews" destination="h4u-du-aXi" collectionClass="NSMutableArray" id="WVS-Ih-5B4"/>
+                        <outletCollection property="readConstraints" destination="iMH-6U-HbV" collectionClass="NSMutableArray" id="KHM-0r-Dyh"/>
+                        <outletCollection property="readConstraints" destination="gp6-N6-13l" collectionClass="NSMutableArray" id="YNL-Dn-g76"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="trA-4U-IMn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="sze-Pc-V0A">
+                    <connections>
+                        <action selector="onTap:" destination="GsQ-cd-y2R" id="yud-E6-7Zz"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2701" y="3"/>
         </scene>

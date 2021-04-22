@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailTableViewController: UITableViewController {
+class DetailViewController: UITableViewController {
     @IBOutlet weak var stationLabel: UILabel!
     @IBOutlet weak var aircraftLabel: UILabel!
     @IBOutlet weak var subchapterLabel: UILabel!
@@ -90,8 +90,8 @@ class DetailTableViewController: UITableViewController {
             for view in readViews { view.isHidden = true }
             for view in editViews { view.isHidden = false }
             
-            NSLayoutConstraint.deactivate(self.readConstraints)
-            NSLayoutConstraint.activate(self.editConstraints)
+            NSLayoutConstraint.deactivate(readConstraints)
+            NSLayoutConstraint.activate(editConstraints)
         } else {
             for view in editViews { view.isHidden = true }
             for view in readViews { view.isHidden = false }
@@ -105,16 +105,19 @@ class DetailTableViewController: UITableViewController {
     }
 }
 
-// MARK: - Delegate / Datasource Methods
-extension DetailTableViewController {
+// MARK: - TableView Delegate / Datasource
+extension DetailViewController {
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
     }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return .leastNormalMagnitude
+    }
 }
 
-
 // MARK: - Selectors
-extension DetailTableViewController {
+extension DetailViewController {
     
     @objc func onChangeMode() {
         configureForDefect()
@@ -158,7 +161,7 @@ extension DetailTableViewController {
 }
 
 // MARK: Record Modification
-extension DetailTableViewController {
+extension DetailViewController {
     
     public func getNewDefectFromInput() throws -> Defect {
         guard let sta = stationSearch.text, !sta.isEmpty,
@@ -218,7 +221,7 @@ extension DetailTableViewController {
 }
 
 // MARK: Toolbar Configuration
-extension DetailTableViewController {
+extension DetailViewController {
     
     private func configureToolbarItems() {
         if userData.role == .pilot {
@@ -244,4 +247,11 @@ extension DetailTableViewController {
         }
     }
     
+}
+
+extension DetailViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
 }
