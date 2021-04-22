@@ -54,6 +54,7 @@ class DetailViewController: UITableViewController {
         super.viewDidLoad()
         setupDropDowns()
         onChangeMode()
+        tableView.register(SectionHeader.nib, forHeaderFooterViewReuseIdentifier: SectionHeader.reuseIdentifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -139,12 +140,11 @@ class DetailViewController: UITableViewController {
 
 // MARK: - TableView Delegate / Datasource
 extension DetailViewController {
-    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UIView()
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return .leastNormalMagnitude
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeader.reuseIdentifier)
+        let titleString = section == 0 ? "Details" : "Description"
+        header?.textLabel?.text = titleString
+        return header
     }
 }
 
