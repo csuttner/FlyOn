@@ -7,26 +7,22 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
-    @IBOutlet weak var openCloseLabel: UILabel!
-    @IBOutlet weak var dateTimeLabel: UILabel!
-
+class DetailTableViewController: UITableViewController {
     @IBOutlet weak var stationLabel: UILabel!
     @IBOutlet weak var aircraftLabel: UILabel!
     @IBOutlet weak var subchapterLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBOutlet var readViews: [UIView]!
+    @IBOutlet var readConstraints: [NSLayoutConstraint]!
     
     @IBOutlet weak var stationSearch: UISearchBar!
     @IBOutlet weak var aircraftSearch: UISearchBar!
     @IBOutlet weak var subchapterSearch: UISearchBar!
     @IBOutlet weak var descriptionText: DescriptionTextView!
     
-    @IBOutlet weak var stationAnchor: UIView!
-    @IBOutlet weak var aircraftAnchor: UIView!
-    @IBOutlet weak var subchapterAnchor: UIView!
-    
-    @IBOutlet var readViews: [UIView]!
     @IBOutlet var editViews: [UIView]!
+    @IBOutlet var editConstraints: [NSLayoutConstraint]!
     
     private let repository = Repository.shared
     private let apiClient = ApiClient.shared
@@ -52,7 +48,6 @@ class DetailViewController: UIViewController {
     
     private func configureForDefect() {
         if let defect = defect {
-            openCloseLabel.text = defect.resolved ? "Closed" : "Open"
             stationLabel.text = defect.sta
             aircraftLabel.text = defect.ac
             subchapterLabel.text = defect.ata4
@@ -63,7 +58,6 @@ class DetailViewController: UIViewController {
             subchapterSearch.text = defect.ata4
             descriptionText.text = defect.description
         } else {
-            openCloseLabel.text = "Unopened"
             stationLabel.text = ""
             aircraftLabel.text = ""
             subchapterLabel.text = ""
@@ -92,30 +86,35 @@ class DetailViewController: UIViewController {
     }
     
     private func configureModeViews() {
-        UIView.transition(with: view, duration: 0.5, options: .transitionCrossDissolve, animations: {
-            if self.mode == .edit {
-                self.toggleViews(viewsToHide: self.readViews, viewsToShow: self.editViews)
-            } else {
-                self.toggleViews(viewsToHide: self.editViews, viewsToShow: self.readViews)
-            }
-        })
-    }
-    
-    private func toggleViews(viewsToHide: [UIView], viewsToShow: [UIView]) {
-        for view in viewsToHide {
-            view.isHidden = true
+        if mode == .edit {
+            for view in readViews { view.isHidden = true }
+            for view in editViews { view.isHidden = false }
+            
+            NSLayoutConstraint.deactivate(self.readConstraints)
+            NSLayoutConstraint.activate(self.editConstraints)
+        } else {
+            for view in editViews { view.isHidden = true }
+            for view in readViews { view.isHidden = false }
+            
+            NSLayoutConstraint.deactivate(editConstraints)
+            NSLayoutConstraint.activate(readConstraints)
         }
         
-        for view in viewsToShow {
-            view.isHidden = false
-        }
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
-    
+}
+
+// MARK: - Delegate / Datasource Methods
+extension DetailTableViewController {
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
 }
 
 
 // MARK: - Selectors
-extension DetailViewController {
+extension DetailTableViewController {
     
     @objc func onChangeMode() {
         configureForDefect()
@@ -159,7 +158,7 @@ extension DetailViewController {
 }
 
 // MARK: Record Modification
-extension DetailViewController {
+extension DetailTableViewController {
     
     public func getNewDefectFromInput() throws -> Defect {
         guard let sta = stationSearch.text, !sta.isEmpty,
@@ -219,7 +218,7 @@ extension DetailViewController {
 }
 
 // MARK: Toolbar Configuration
-extension DetailViewController {
+extension DetailTableViewController {
     
     private func configureToolbarItems() {
         if userData.role == .pilot {

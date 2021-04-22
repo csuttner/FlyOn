@@ -60,7 +60,7 @@ class FeedViewController: UITableViewController {
     // MARK: - Table View
     
     private func configureTableView() {
-        tableView.register(DefectCell.self)
+        tableView.register(FeedCell.self)
         tableView.register(SectionHeader.nib, forHeaderFooterViewReuseIdentifier: SectionHeader.reuseIdentifier)
         tableView.tableFooterView = UIView(frame: .zero)
     }
@@ -74,7 +74,7 @@ class FeedViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(DefectCell.self)!
+        let cell = tableView.dequeueReusableCell(FeedCell.self)!
         cell.defect = repository.sections[indexPath.section].defects[indexPath.row]
         return cell
     }
@@ -91,7 +91,7 @@ class FeedViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetailSegue" {
-            let detailViewController = segue.destination as! DetailViewController
+            let detailViewController = segue.destination as! DetailTableViewController
             
             if let indexPath = tableView.indexPathForSelectedRow {
                 let defect = repository.sections[indexPath.section].defects[indexPath.row]

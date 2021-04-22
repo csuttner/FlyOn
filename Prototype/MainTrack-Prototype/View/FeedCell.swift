@@ -1,5 +1,5 @@
 //
-//  DefectCell.swift
+//  FeedCell.swift
 //  MainTrack-Prototype
 //
 //  Created by Clay Suttner on 4/11/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DefectCell: UITableViewCell {
+class FeedCell: UITableViewCell {
     @IBOutlet weak var completedIndicator: UIImageView!
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
