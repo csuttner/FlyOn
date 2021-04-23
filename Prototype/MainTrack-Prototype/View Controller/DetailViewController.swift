@@ -112,16 +112,26 @@ class DetailViewController: UITableViewController {
         } else {
             titleLabel.text = "New Defect"
             
-            dateLabel.text = ""
+            dateLabel.text = Date().getString()
             
             stationLabel.text = ""
             aircraftLabel.text = ""
             subchapterLabel.text = ""
             descriptionLabel.text = ""
+            
+            statusContainer.backgroundColor = .systemGray6
+            
+            statusIndicator.image = UIImage(systemName: "ellipsis.circle")!
+            statusIndicator.tintColor = UIColor.systemGray
+            
+            statusLabel.text = "Unopened"
+            statusLabel.textColor = UIColor.systemGray
         }
     }
     
     private func configureToolbarItems() {
+        navigationController?.isToolbarHidden = false
+        
         if userData.role == .pilot {
             setToolbarItems(getPilotToolbarItems(), animated: true)
         } else {
@@ -163,6 +173,10 @@ extension DetailViewController {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeader.identifier) as! SectionHeader
         header.textLabel?.text = section == 0 ? "" : "Defect Description"
         return header
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return .leastNormalMagnitude
     }
 }
 
