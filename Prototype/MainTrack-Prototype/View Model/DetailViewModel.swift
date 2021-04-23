@@ -8,6 +8,8 @@
 import UIKit
 
 class DetailViewModel {
+    private var defect: Defect?
+    
     let title: String
     let dateString: String
     let station: String
@@ -19,7 +21,12 @@ class DetailViewModel {
     let statusTintColor: UIColor
     let status: String
     
+    let apiClient = ApiClient.shared
+    let repository = Repository.shared
+    
     init(defect: Defect? = nil) {
+        self.defect = defect
+        
         if let defect = defect {
             title = "Defect \(defect.id)"
             
@@ -58,6 +65,62 @@ class DetailViewModel {
             statusTintColor = UIColor.systemGray
             
             status = "Unopened"
+        }
+    }
+    
+    func getDefect() -> Defect? {
+        return defect
+    }
+    
+    func getDefectId() -> String? {
+        return defect?.id
+    }
+    
+    func getDefectResolved() -> Bool? {
+        return defect?.resolved
+    }
+    
+    func validateInput() throws {
+        guard !station.isEmpty,
+              !aircraft.isEmpty,
+              !subchapter.isEmpty,
+              !description.isEmpty
+        else {
+            throw ValidationError.missingData
+        }
+    }
+    
+    func getNewDefectFromInput() throws -> Defect {
+        try validateInput()
+        return Defect(station, aircraft, subchapter, description)
+    }
+    
+    func updateDefectFromInput(_ defect: Defect) throws {
+        try validateInput()
+        defect.sta = station
+        defect.ac = aircraft
+        defect.ata4 = subchapter
+        defect.description = description
+    }
+    
+    func createDefect() throws {
+        defect = try getNewDefectFromInput()
+        apiClient.post(defect!)
+        repository.addDefectToSections(defect!)
+    }
+    
+    func updateDefect() throws {
+        try updateDefectFromInput(defect!)
+        apiClient.put(defect!)
+    }
+    
+    func resolveDefect() {
+        defect?.resolved = true
+    }
+    
+    func archiveDefect() {
+        if let defect = defect {
+            apiClient.archive(defect)
         }
     }
 }

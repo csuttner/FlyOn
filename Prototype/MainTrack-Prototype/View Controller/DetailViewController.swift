@@ -10,9 +10,9 @@ import DropDown
 
 class DetailViewController: UITableViewController {
     private let repository = Repository.shared
-    private let apiClient = ApiClient.shared
+//    private let apiClient = ApiClient.shared
     
-    var defect: Defect?
+//    var defect: Defect?
     var viewModel: DetailViewModel!
     var mode: Mode!
     
@@ -77,7 +77,21 @@ class DetailViewController: UITableViewController {
     }
     
     private func configureForDefect() {
-        
+        titleLabel.text = viewModel.title
+        statusContainer.backgroundColor = viewModel.statusContainerColor
+        statusIndicator.image = viewModel.statusImage
+        statusIndicator.tintColor = viewModel.statusTintColor
+        statusLabel.text = viewModel.status
+        statusLabel.textColor = viewModel.statusTintColor
+        dateLabel.text = viewModel.dateString
+        stationLabel.text = viewModel.station
+        stationSearch.text = viewModel.station
+        aircraftLabel.text = viewModel.aircraft
+        aircraftSearch.text = viewModel.aircraft
+        subchapterLabel.text = viewModel.subchapter
+        subchapterSearch.text = viewModel.subchapter
+        descriptionLabel.text = viewModel.description
+        descriptionText.text = viewModel.description
     }
     
     private func configureToolbarItems() {
@@ -140,7 +154,7 @@ extension DetailViewController {
     }
     
     @objc func onCancelButtonTapped() {
-        if defect == nil {
+        if viewModel.getDefect() == nil {
             navigationController?.popViewController(animated: true)
         } else {
             mode = .read
@@ -149,17 +163,18 @@ extension DetailViewController {
     }
     
     @objc func onResolveButtonTapped() {
-        defect?.resolved = true
+        viewModel.resolveDefect()
         updateDefect()
         configureToolbarItems()
     }
     
     @objc func onArchiveButtonTapped() {
-        archiveDefect()
+        viewModel.archiveDefect()
+        presentReturningAlert(title: "Defect \(viewModel.getDefectId()!) archived")
     }
     
     @objc func onSubmitButtonTapped() {
-        if defect == nil {
+        if viewModel.getDefect() == nil {
             createDefect()
         } else {
             updateDefect()
@@ -171,37 +186,10 @@ extension DetailViewController {
 // MARK: Record Modification
 extension DetailViewController {
     
-    public func getNewDefectFromInput() throws -> Defect {
-        guard let sta = stationSearch.text, !sta.isEmpty,
-              let ac = aircraftSearch.text, !ac.isEmpty,
-              let ata4 = subchapterSearch.text, !ata4.isEmpty,
-              let description = descriptionText.text, !description.isEmpty
-        else {
-            throw ValidationError.missingData
-        }
-        return Defect(sta, ac, ata4, description)
-    }
-    
-    public func updateDefectFromInput(_ defect: Defect) throws {
-        guard let sta = stationSearch.text, !sta.isEmpty,
-              let ac = aircraftSearch.text, !ac.isEmpty,
-              let ata4 = subchapterSearch.text, !ata4.isEmpty,
-              let description = descriptionText.text, !description.isEmpty
-        else {
-            throw ValidationError.missingData
-        }
-        defect.sta = sta
-        defect.ac = ac
-        defect.ata4 = ata4
-        defect.description = description
-    }
-    
     private func createDefect() {
         do {
-            defect = try getNewDefectFromInput()
-            apiClient.post(defect!)
-            repository.addDefectToSections(defect!)
-            presentBasicAlert(title: "Defect \(defect!.id) created")
+            try viewModel.createDefect()
+            presentBasicAlert(title: "Defect \(viewModel.getDefectId()!) created")
             mode = .read
             onChangeMode()
         } catch {
@@ -211,28 +199,21 @@ extension DetailViewController {
     
     private func updateDefect() {
         do {
-            try updateDefectFromInput(defect!)
-            apiClient.put(defect!)
-            presentBasicAlert(title: "Defect \(defect!.id) updated")
+            try viewModel.updateDefect()
+            presentBasicAlert(title: "Defect \(viewModel.getDefectId()!) updated")
             mode = .read
             onChangeMode()
         } catch {
             presentBasicAlert(title: "Error updating defect")
         }
     }
-    
-    private func archiveDefect() {
-        apiClient.archive(defect!)
-        presentReturningAlert(title: "Defect \(defect!.id) archived")
-    }
-    
 }
 
 // MARK: Toolbar Configuration
 extension DetailViewController {
     
     private func getPilotToolbarItems() -> [UIBarButtonItem] {
-        if defect!.resolved {
+        if viewModel.getDefectResolved()! {
             return getSpacedButtonItems(with: [archiveButton])
         } else {
             return getSpacedButtonItems(with: [resolveButton])
