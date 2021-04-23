@@ -49,9 +49,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="completedIndicator" destination="BtL-DU-hmo" id="SA6-Df-rm4"/>
                 <outlet property="descriptionLabel" destination="UBb-ov-5ZB" id="9ih-UK-RJI"/>
                 <outlet property="headingLabel" destination="osC-AQ-G6Z" id="8Gf-YG-KQD"/>
+                <outlet property="statusIndicator" destination="BtL-DU-hmo" id="roV-ys-uKa"/>
             </connections>
             <point key="canvasLocation" x="-755.07246376811599" y="150.66964285714286"/>
         </tableViewCell>

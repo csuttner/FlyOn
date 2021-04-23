@@ -8,30 +8,14 @@
 import UIKit
 
 class FeedCell: UITableViewCell {
-    @IBOutlet weak var completedIndicator: UIImageView!
+    @IBOutlet weak var statusIndicator: UIImageView!
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var defect: Defect! {
-        didSet{
-            configureViews()
-        }
+    func configure(with viewModel: FeedCellViewModel) {
+        statusIndicator.image = viewModel.image
+        statusIndicator.tintColor = viewModel.tintColor
+        headingLabel.text = viewModel.heading
+        descriptionLabel.text = viewModel.description
     }
-    
-    func configureViews() {
-        headingLabel.text = "\(defect.sta) - \(defect.ac) - \(defect.ata4.prefix(4)) - \(defect.id)"
-        descriptionLabel.text = defect.description
-        setCompletedIndicator()
-    }
-    
-    func setCompletedIndicator() {
-        if defect.resolved {
-            completedIndicator.image = UIImage(systemName: "checkmark.circle")!
-            completedIndicator.tintColor = UIColor.systemGray2.withGreenHue(saturation: 1)
-        } else {
-            completedIndicator.image = UIImage(systemName: "xmark.circle")!
-            completedIndicator.tintColor = UIColor.systemGray4.withRedHue(saturation: 1)
-        }
-    }
-    
 }
