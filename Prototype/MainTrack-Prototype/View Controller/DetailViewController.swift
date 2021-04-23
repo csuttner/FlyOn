@@ -137,7 +137,7 @@ class DetailViewController: UITableViewController {
 extension DetailViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeader.identifier)
-        let titleString = section == 0 ? "Details" : "Description"
+        let titleString = section == 0 ? "Details" : "Defect"
         header?.textLabel?.text = titleString
         return header
     }
