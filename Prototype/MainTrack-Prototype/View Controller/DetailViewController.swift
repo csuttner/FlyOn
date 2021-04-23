@@ -24,6 +24,7 @@ class DetailViewController: UITableViewController {
     @IBOutlet weak var statusContainer: RoundedView!
     @IBOutlet weak var statusIndicator: UIImageView!
     @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var stationLabel: UILabel!
     @IBOutlet weak var aircraftLabel: UILabel!
@@ -70,21 +71,16 @@ class DetailViewController: UITableViewController {
     
     private func onChangeMode() {
         configureForDefect()
-        configureTitle()
         configureToolbarItems()
         configureModeViews()
     }
     
-    private func configureTitle() {
-        if let defect = defect {
-            titleLabel.text = defect.id
-        } else {
-            titleLabel.text = "New Defect"
-        }
-    }
-    
     private func configureForDefect() {
         if let defect = defect {
+            titleLabel.text = "Defect \(defect.id)"
+            
+            dateLabel.text = defect.defectDate
+            
             stationLabel.text = defect.sta
             aircraftLabel.text = defect.ac
             subchapterLabel.text = defect.ata4
@@ -114,6 +110,10 @@ class DetailViewController: UITableViewController {
             }
             
         } else {
+            titleLabel.text = "New Defect"
+            
+            dateLabel.text = ""
+            
             stationLabel.text = ""
             aircraftLabel.text = ""
             subchapterLabel.text = ""

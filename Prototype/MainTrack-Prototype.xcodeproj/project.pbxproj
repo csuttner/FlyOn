@@ -152,10 +152,10 @@
 		F34A75D525F94B1E000F2DF8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F3663F242623F1B800386237 /* FeedCell.swift */,
 				F3663F252623F1B800386237 /* FeedCell.xib */,
-				F3663F2A2623F77D00386237 /* SectionHeader.swift */,
+				F3663F242623F1B800386237 /* FeedCell.swift */,
 				F3663F2D2623F7BC00386237 /* SectionHeader.xib */,
+				F3663F2A2623F77D00386237 /* SectionHeader.swift */,
 				F34A75E225F94F6F000F2DF8 /* Helpers */,
 			);
 			path = View;
