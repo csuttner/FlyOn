@@ -13,6 +13,7 @@ class DetailViewController: UITableViewController {
     private let apiClient = ApiClient.shared
     
     var defect: Defect?
+    var viewModel: DetailViewModel!
     var mode: Mode!
     
     public enum Mode {
@@ -76,57 +77,7 @@ class DetailViewController: UITableViewController {
     }
     
     private func configureForDefect() {
-        if let defect = defect {
-            titleLabel.text = "Defect \(defect.id)"
-            
-            dateLabel.text = defect.defectDate
-            
-            stationLabel.text = defect.sta
-            aircraftLabel.text = defect.ac
-            subchapterLabel.text = defect.ata4
-            descriptionLabel.text = defect.description
-            
-            stationSearch.text = defect.sta
-            aircraftSearch.text = defect.ac
-            subchapterSearch.text = defect.ata4
-            descriptionText.text = defect.description
-            
-            if defect.resolved {
-                statusContainer.backgroundColor = UIColor.white.withGreenHue(saturation: 0.1)
-                
-                statusIndicator.image = UIImage(systemName: "checkmark.circle")!
-                statusIndicator.tintColor = UIColor.systemGray.withGreenHue(saturation: 1)
-                
-                statusLabel.text = "Closed"
-                statusLabel.textColor = UIColor.systemGray.withGreenHue(saturation: 1)
-            } else {
-                statusContainer.backgroundColor = UIColor.white.withRedHue(saturation: 0.1)
-                
-                statusIndicator.image = UIImage(systemName: "xmark.circle")!
-                statusIndicator.tintColor = UIColor.systemGray3.withRedHue(saturation: 1)
-                
-                statusLabel.text = "Open"
-                statusLabel.textColor = UIColor.systemGray3.withRedHue(saturation: 1)
-            }
-            
-        } else {
-            titleLabel.text = "New Defect"
-            
-            dateLabel.text = Date().getString()
-            
-            stationLabel.text = ""
-            aircraftLabel.text = ""
-            subchapterLabel.text = ""
-            descriptionLabel.text = ""
-            
-            statusContainer.backgroundColor = .systemGray6
-            
-            statusIndicator.image = UIImage(systemName: "ellipsis.circle")!
-            statusIndicator.tintColor = UIColor.systemGray
-            
-            statusLabel.text = "Unopened"
-            statusLabel.textColor = UIColor.systemGray
-        }
+        
     }
     
     private func configureToolbarItems() {
