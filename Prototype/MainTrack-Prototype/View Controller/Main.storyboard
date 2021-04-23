@@ -254,11 +254,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g2O-38-jRp">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erY-qJ-vl3">
+                                    <rect key="frame" x="16" y="8" width="48" height="24"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qbn-Ph-0KA">
+                                    <rect key="frame" x="72" y="7" width="26" height="26"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="26" id="1jc-gT-xcz"/>
+                                        <constraint firstAttribute="width" constant="26" id="ssG-su-0P3"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <constraints>
+                                <constraint firstItem="Qbn-Ph-0KA" firstAttribute="centerY" secondItem="g2O-38-jRp" secondAttribute="centerY" id="0h8-Sx-CJ6"/>
+                                <constraint firstItem="erY-qJ-vl3" firstAttribute="top" secondItem="g2O-38-jRp" secondAttribute="top" constant="8" id="Nz0-yP-MPY"/>
+                                <constraint firstItem="erY-qJ-vl3" firstAttribute="centerY" secondItem="g2O-38-jRp" secondAttribute="centerY" id="Sxc-kq-GkV"/>
+                                <constraint firstItem="Qbn-Ph-0KA" firstAttribute="leading" secondItem="erY-qJ-vl3" secondAttribute="trailing" constant="8" id="Vec-iA-6kp"/>
+                                <constraint firstAttribute="bottom" secondItem="erY-qJ-vl3" secondAttribute="bottom" constant="8" id="d2f-Sf-04F"/>
+                                <constraint firstItem="erY-qJ-vl3" firstAttribute="leading" secondItem="g2O-38-jRp" secondAttribute="leading" constant="16" id="iui-EO-liF"/>
+                            </constraints>
+                        </view>
                         <sections>
                             <tableViewSection id="V6u-UY-539">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="Knk-a5-BaX" userLabel="Station Cell">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="68" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Knk-a5-BaX" id="YVy-TE-em1">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -301,7 +328,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="yoq-f7-QAr" userLabel="Aircraft Cell">
-                                        <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="111.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yoq-f7-QAr" id="fhP-GU-TOl">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -344,7 +371,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="8Gu-Me-gcj" userLabel="Subchapter Cell">
-                                        <rect key="frame" x="0.0" y="115" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="155" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Gu-Me-gcj" id="DOR-1A-mLj">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -391,7 +418,7 @@
                             <tableViewSection id="mNF-hK-T0j">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="OYb-Ab-r5I" userLabel="Description Cell">
-                                        <rect key="frame" x="0.0" y="214.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="254.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OYb-Ab-r5I" id="yfX-dM-Eu8">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -445,6 +472,8 @@
                         <outlet property="stationAnchor" destination="qDU-fA-uVz" id="XLc-II-lsn"/>
                         <outlet property="stationLabel" destination="EBd-pN-H7h" id="HYI-qE-bWO"/>
                         <outlet property="stationSearch" destination="4KK-uO-PfG" id="TjR-L4-ipT"/>
+                        <outlet property="statusIndicator" destination="Qbn-Ph-0KA" id="DE9-uC-NYV"/>
+                        <outlet property="statusLabel" destination="erY-qJ-vl3" id="oMh-g8-8Ia"/>
                         <outlet property="subchapterAnchor" destination="BSj-hn-kne" id="Lh3-SX-EAF"/>
                         <outlet property="subchapterLabel" destination="UKg-Gf-CBt" id="MYW-Uw-0Zt"/>
                         <outlet property="subchapterSearch" destination="XeC-Jd-wkW" id="Fsg-Ed-Dgk"/>
@@ -481,7 +510,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2701" y="3"/>
+            <point key="canvasLocation" x="2700" y="2.6785714285714284"/>
         </scene>
     </scenes>
     <resources>

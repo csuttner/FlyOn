@@ -20,6 +20,9 @@ class DetailViewController: UITableViewController {
         case read
     }
     
+    @IBOutlet weak var statusIndicator: UIImageView!
+    @IBOutlet weak var statusLabel: UILabel!
+    
     @IBOutlet weak var stationLabel: UILabel!
     @IBOutlet weak var aircraftLabel: UILabel!
     @IBOutlet weak var subchapterLabel: UILabel!
@@ -89,6 +92,21 @@ class DetailViewController: UITableViewController {
             aircraftSearch.text = defect.ac
             subchapterSearch.text = defect.ata4
             descriptionText.text = defect.description
+            
+            if defect.resolved {
+                statusIndicator.image = UIImage(systemName: "checkmark.circle")!
+                statusIndicator.tintColor = .systemGreen
+                
+                statusLabel.text = "Closed"
+                statusLabel.textColor = .systemGreen
+            } else {
+                statusIndicator.image = UIImage(systemName: "xmark.circle")!
+                statusIndicator.tintColor = .systemRed
+                
+                statusLabel.text = "Open"
+                statusLabel.textColor = .systemRed
+            }
+            
         } else {
             stationLabel.text = ""
             aircraftLabel.text = ""
@@ -136,10 +154,23 @@ class DetailViewController: UITableViewController {
 // MARK: - TableView Delegate / Datasource
 extension DetailViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeader.identifier)
-        let titleString = section == 0 ? "Details" : "Defect"
-        header?.textLabel?.text = titleString
-        return header
+        if section == 0 {
+            let view = UIView(frame: .zero)
+            view.backgroundColor = .black
+            return view
+        } else {
+            let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeader.identifier) as! SectionHeader
+            header.textLabel?.text = "Defect Description"
+            return header
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return .leastNormalMagnitude
+        } else {
+            return tableView.sectionHeaderHeight
+        }
     }
 }
 
