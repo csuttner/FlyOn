@@ -255,10 +255,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <view key="tableHeaderView" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g2O-38-jRp" userLabel="Table Header">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="72.5"/>
                             <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJR-f2-fx2">
+                                    <rect key="frame" x="16" y="8" width="43.5" height="20.5"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJw-0L-WE9" customClass="RoundedView" customModule="MainTrack_Prototype" customModuleProvider="target">
-                                    <rect key="frame" x="16" y="8" width="79.5" height="28"/>
+                                    <rect key="frame" x="16" y="36.5" width="79.5" height="28"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="GEp-j5-teF" userLabel="Status Stack View">
                                             <rect key="frame" x="8" y="4" width="63.5" height="20"/>
@@ -288,10 +294,12 @@
                                     </constraints>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstItem="rJw-0L-WE9" firstAttribute="top" secondItem="UJR-f2-fx2" secondAttribute="bottom" constant="8" id="4eX-xg-CdK"/>
+                                <constraint firstItem="UJR-f2-fx2" firstAttribute="leading" secondItem="g2O-38-jRp" secondAttribute="leading" constant="16" id="PdM-d0-P2F"/>
                                 <constraint firstAttribute="bottom" secondItem="rJw-0L-WE9" secondAttribute="bottom" constant="8" id="TAo-tH-Ja0"/>
-                                <constraint firstItem="rJw-0L-WE9" firstAttribute="top" secondItem="g2O-38-jRp" secondAttribute="top" constant="8" id="ZMx-BR-hMh"/>
+                                <constraint firstItem="UJR-f2-fx2" firstAttribute="top" secondItem="g2O-38-jRp" secondAttribute="top" constant="8" id="gap-ZT-Jyo"/>
                                 <constraint firstItem="rJw-0L-WE9" firstAttribute="leading" secondItem="g2O-38-jRp" secondAttribute="leading" constant="16" id="i4Y-OJ-LvS"/>
                             </constraints>
                         </view>
@@ -299,7 +307,7 @@
                             <tableViewSection id="V6u-UY-539">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="Knk-a5-BaX" userLabel="Station Cell">
-                                        <rect key="frame" x="0.0" y="76" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="93" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Knk-a5-BaX" id="YVy-TE-em1">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -342,7 +350,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="yoq-f7-QAr" userLabel="Aircraft Cell">
-                                        <rect key="frame" x="0.0" y="119.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="136.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yoq-f7-QAr" id="fhP-GU-TOl">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -385,7 +393,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="8Gu-Me-gcj" userLabel="Subchapter Cell">
-                                        <rect key="frame" x="0.0" y="163" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="180" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Gu-Me-gcj" id="DOR-1A-mLj">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -432,7 +440,7 @@
                             <tableViewSection id="mNF-hK-T0j">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="OYb-Ab-r5I" userLabel="Description Cell">
-                                        <rect key="frame" x="0.0" y="262.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="279.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OYb-Ab-r5I" id="yfX-dM-Eu8">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -492,6 +500,7 @@
                         <outlet property="subchapterAnchor" destination="BSj-hn-kne" id="Lh3-SX-EAF"/>
                         <outlet property="subchapterLabel" destination="UKg-Gf-CBt" id="MYW-Uw-0Zt"/>
                         <outlet property="subchapterSearch" destination="XeC-Jd-wkW" id="Fsg-Ed-Dgk"/>
+                        <outlet property="titleLabel" destination="UJR-f2-fx2" id="Z5u-aq-Lp2"/>
                         <outletCollection property="readViews" destination="EBd-pN-H7h" collectionClass="NSMutableArray" id="8zw-sB-IBt"/>
                         <outletCollection property="readViews" destination="LCH-ok-wap" collectionClass="NSMutableArray" id="6bM-JF-yU6"/>
                         <outletCollection property="readViews" destination="UKg-Gf-CBt" collectionClass="NSMutableArray" id="OBW-6i-fDN"/>

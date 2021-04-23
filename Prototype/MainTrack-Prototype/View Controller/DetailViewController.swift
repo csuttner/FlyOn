@@ -20,6 +20,7 @@ class DetailViewController: UITableViewController {
         case read
     }
 
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var statusContainer: RoundedView!
     @IBOutlet weak var statusIndicator: UIImageView!
     @IBOutlet weak var statusLabel: UILabel!
@@ -76,9 +77,9 @@ class DetailViewController: UITableViewController {
     
     private func configureTitle() {
         if let defect = defect {
-            title = mode == .edit ? "Edit \(defect.id)" : "Defect \(defect.id)"
+            titleLabel.text = defect.id
         } else {
-            title = "New Defect"
+            titleLabel.text = "New Defect"
         }
     }
     
@@ -95,7 +96,7 @@ class DetailViewController: UITableViewController {
             descriptionText.text = defect.description
             
             if defect.resolved {
-                statusContainer.backgroundColor = UIColor.systemGray6.withGreenHue(saturation: 0.1)
+                statusContainer.backgroundColor = UIColor.white.withGreenHue(saturation: 0.1)
                 
                 statusIndicator.image = UIImage(systemName: "checkmark.circle")!
                 statusIndicator.tintColor = UIColor.systemGray.withGreenHue(saturation: 1)
@@ -103,13 +104,13 @@ class DetailViewController: UITableViewController {
                 statusLabel.text = "Closed"
                 statusLabel.textColor = UIColor.systemGray.withGreenHue(saturation: 1)
             } else {
-                statusContainer.backgroundColor = UIColor.systemGray6.withRedHue(saturation: 0.1)
+                statusContainer.backgroundColor = UIColor.white.withRedHue(saturation: 0.1)
                 
                 statusIndicator.image = UIImage(systemName: "xmark.circle")!
-                statusIndicator.tintColor = UIColor.systemGray.withRedHue(saturation: 1)
+                statusIndicator.tintColor = UIColor.systemGray3.withRedHue(saturation: 1)
                 
                 statusLabel.text = "Open"
-                statusLabel.textColor = UIColor.systemGray.withRedHue(saturation: 1)
+                statusLabel.textColor = UIColor.systemGray3.withRedHue(saturation: 1)
             }
             
         } else {
@@ -159,23 +160,9 @@ class DetailViewController: UITableViewController {
 // MARK: - TableView Delegate / Datasource
 extension DetailViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0 {
-            let view = UIView(frame: .zero)
-            view.backgroundColor = .black
-            return view
-        } else {
-            let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeader.identifier) as! SectionHeader
-            header.textLabel?.text = "Defect Description"
-            return header
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return .leastNormalMagnitude
-        } else {
-            return tableView.sectionHeaderHeight
-        }
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeader.identifier) as! SectionHeader
+        header.textLabel?.text = section == 0 ? "" : "Defect Description"
+        return header
     }
 }
 

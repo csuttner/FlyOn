@@ -27,10 +27,10 @@ class FeedCell: UITableViewCell {
     func setCompletedIndicator() {
         if defect.resolved {
             completedIndicator.image = UIImage(systemName: "checkmark.circle")!
-            completedIndicator.tintColor = .systemGreen
+            completedIndicator.tintColor = UIColor.systemGray2.withGreenHue(saturation: 1)
         } else {
             completedIndicator.image = UIImage(systemName: "xmark.circle")!
-            completedIndicator.tintColor = .systemRed
+            completedIndicator.tintColor = UIColor.systemGray4.withRedHue(saturation: 1)
         }
     }
     
