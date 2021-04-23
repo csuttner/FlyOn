@@ -19,7 +19,8 @@ class DetailViewController: UITableViewController {
         case edit
         case read
     }
-    
+
+    @IBOutlet weak var statusContainer: RoundedView!
     @IBOutlet weak var statusIndicator: UIImageView!
     @IBOutlet weak var statusLabel: UILabel!
     
@@ -94,17 +95,21 @@ class DetailViewController: UITableViewController {
             descriptionText.text = defect.description
             
             if defect.resolved {
+                statusContainer.backgroundColor = UIColor.systemGray6.withGreenHue(saturation: 0.1)
+                
                 statusIndicator.image = UIImage(systemName: "checkmark.circle")!
-                statusIndicator.tintColor = .systemGreen
+                statusIndicator.tintColor = UIColor.systemGray.withGreenHue(saturation: 1)
                 
                 statusLabel.text = "Closed"
-                statusLabel.textColor = .systemGreen
+                statusLabel.textColor = UIColor.systemGray.withGreenHue(saturation: 1)
             } else {
+                statusContainer.backgroundColor = UIColor.systemGray6.withRedHue(saturation: 0.1)
+                
                 statusIndicator.image = UIImage(systemName: "xmark.circle")!
-                statusIndicator.tintColor = .systemRed
+                statusIndicator.tintColor = UIColor.systemGray.withRedHue(saturation: 1)
                 
                 statusLabel.text = "Open"
-                statusLabel.textColor = .systemRed
+                statusLabel.textColor = UIColor.systemGray.withRedHue(saturation: 1)
             }
             
         } else {
