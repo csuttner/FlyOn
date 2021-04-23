@@ -217,6 +217,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KLM-0L-FNt"/>
+                    <connections>
+                        <outlet property="anchorView" destination="bOV-yx-pxJ" id="ePp-IQ-iYl"/>
+                        <outlet property="emailText" destination="QO4-ix-Zi6" id="Oqr-zp-V1P"/>
+                        <outlet property="passwordText" destination="Q4P-oY-Mow" id="psg-Pd-t7l"/>
+                        <outlet property="reEnterPasswordText" destination="1Pg-xM-HOL" id="XoV-lJ-atG"/>
+                        <outlet property="roleButton" destination="HKH-oL-frK" id="cut-hN-ECR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NEm-i0-m44" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="HqA-Lh-mFr">
