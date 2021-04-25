@@ -7,12 +7,11 @@
 
 import UIKit
 import DropDown
+import Combine
 
 class DetailViewController: UITableViewController {
     private let repository = Repository.shared
-//    private let apiClient = ApiClient.shared
-    
-//    var defect: Defect?
+
     var viewModel: DetailViewModel!
     var mode: Mode!
     
@@ -57,8 +56,12 @@ class DetailViewController: UITableViewController {
     lazy var resolveButton = ActionButton(title: "Close", color: .systemGreen, target: self, action: #selector(onResolveButtonTapped))
     lazy var archiveButton = ActionButton(title: "Archive", color: .systemGray, target: self, action: #selector(onArchiveButtonTapped))
     
+    var cancellables = [AnyCancellable]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupBinding()
         setupDropDowns()
         onChangeMode()
         tableView.register(SectionHeader.nib, forHeaderFooterViewReuseIdentifier: SectionHeader.identifier)
@@ -71,27 +74,29 @@ class DetailViewController: UITableViewController {
     }
     
     private func onChangeMode() {
-        configureForDefect()
+        
         configureToolbarItems()
         configureModeViews()
     }
     
-    private func configureForDefect() {
-        titleLabel.text = viewModel.title
-        statusContainer.backgroundColor = viewModel.statusContainerColor
-        statusIndicator.image = viewModel.statusImage
-        statusIndicator.tintColor = viewModel.statusTintColor
-        statusLabel.text = viewModel.status
-        statusLabel.textColor = viewModel.statusTintColor
-        dateLabel.text = viewModel.dateString
-        stationLabel.text = viewModel.station
-        stationSearch.text = viewModel.station
-        aircraftLabel.text = viewModel.aircraft
-        aircraftSearch.text = viewModel.aircraft
-        subchapterLabel.text = viewModel.subchapter
-        subchapterSearch.text = viewModel.subchapter
-        descriptionLabel.text = viewModel.description
-        descriptionText.text = viewModel.description
+    private func setupBinding() {
+        cancellables = [
+            viewModel.title.assign(to: \.text, on: titleLabel),
+            viewModel.statusContainerColor.assign(to: \.backgroundColor, on: statusContainer),
+            viewModel.statusImage.assign(to: \.image, on: statusIndicator),
+            viewModel.statusTintColor.assign(to: \.tintColor, on: statusIndicator),
+            viewModel.status.assign(to: \.text, on: statusLabel),
+            viewModel.statusTintColor.assign(to: \.textColor, on: statusLabel),
+            viewModel.dateString.assign(to: \.text, on: dateLabel),
+            viewModel.station.assign(to: \.text, on: stationLabel),
+            viewModel.station.assign(to: \.text, on: stationSearch),
+            viewModel.aircraft.assign(to: \.text, on: aircraftLabel),
+            viewModel.aircraft.assign(to: \.text, on: aircraftSearch),
+            viewModel.subchapter.assign(to: \.text, on: subchapterLabel),
+            viewModel.subchapter.assign(to: \.text, on: subchapterSearch),
+            viewModel.description.assign(to: \.text, on: descriptionLabel),
+            viewModel.description.assign(to: \.text, on: descriptionText),
+        ]
     }
     
     private func configureToolbarItems() {

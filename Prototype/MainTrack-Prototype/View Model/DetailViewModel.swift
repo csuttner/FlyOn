@@ -6,20 +6,21 @@
 //
 
 import UIKit
+import Combine
 
 class DetailViewModel {
     private var defect: Defect?
     
-    let title: String
-    let dateString: String
-    let station: String
-    let aircraft: String
-    let subchapter: String
-    let description: String
-    let statusContainerColor: UIColor
-    let statusImage: UIImage
-    let statusTintColor: UIColor
-    let status: String
+    let title = CurrentValueSubject<String?, Never>(nil)
+    let dateString = CurrentValueSubject<String?, Never>(nil)
+    let station = CurrentValueSubject<String?, Never>(nil)
+    let aircraft = CurrentValueSubject<String?, Never>(nil)
+    let subchapter = CurrentValueSubject<String?, Never>(nil)
+    let description = CurrentValueSubject<String?, Never>(nil)
+    let statusContainerColor = CurrentValueSubject<UIColor?, Never>(nil)
+    let statusImage = CurrentValueSubject<UIImage?, Never>(nil)
+    let statusTintColor = CurrentValueSubject<UIColor?, Never>(nil)
+    let status = CurrentValueSubject<String?, Never>(nil)
     
     let apiClient = ApiClient.shared
     let repository = Repository.shared
@@ -28,43 +29,43 @@ class DetailViewModel {
         self.defect = defect
         
         if let defect = defect {
-            title = "Defect \(defect.id)"
+            title.value = "Defect \(defect.id)"
             
-            dateString = defect.defectDate
+            dateString.value = defect.defectDate
             
-            station = defect.sta
-            aircraft = defect.ac
-            subchapter = defect.ata4
-            description = defect.description
+            station.value = defect.sta
+            aircraft.value = defect.ac
+            subchapter.value = defect.ata4
+            description.value = defect.description
             
             if defect.resolved {
-                statusContainerColor = UIColor.white.withGreenHue(saturation: 0.1)
-                statusImage = UIImage(systemName: "checkmark.circle")!
-                statusTintColor = UIColor.systemGray.withGreenHue(saturation: 1)
-                status = "Closed"
+                statusContainerColor.value = UIColor.white.withGreenHue(saturation: 0.1)
+                statusImage.value = UIImage(systemName: "checkmark.circle")!
+                statusTintColor.value = UIColor.systemGray.withGreenHue(saturation: 1)
+                status.value = "Closed"
             } else {
-                statusContainerColor = UIColor.white.withRedHue(saturation: 0.1)
-                statusImage = UIImage(systemName: "xmark.circle")!
-                statusTintColor = UIColor.systemGray3.withRedHue(saturation: 1)
-                status = "Open"
+                statusContainerColor.value = UIColor.white.withRedHue(saturation: 0.1)
+                statusImage.value = UIImage(systemName: "xmark.circle")!
+                statusTintColor.value = UIColor.systemGray3.withRedHue(saturation: 1)
+                status.value = "Open"
             }
             
         } else {
-            title = "New Defect"
+            title.value = "New Defect"
             
-            dateString = Date().getString()
+            dateString.value = Date().getString()
             
-            station = ""
-            aircraft = ""
-            subchapter = ""
-            description = ""
+            station.value = ""
+            aircraft.value = ""
+            subchapter.value = ""
+            description.value = ""
             
-            statusContainerColor = .systemGray6
+            statusContainerColor.value = .systemGray6
             
-            statusImage = UIImage(systemName: "ellipsis.circle")!
-            statusTintColor = UIColor.systemGray
+            statusImage.value = UIImage(systemName: "ellipsis.circle")!
+            statusTintColor.value = UIColor.systemGray
             
-            status = "Unopened"
+            status.value = "Unopened"
         }
     }
     
@@ -81,10 +82,10 @@ class DetailViewModel {
     }
     
     func validateInput() throws {
-        guard !station.isEmpty,
-              !aircraft.isEmpty,
-              !subchapter.isEmpty,
-              !description.isEmpty
+        guard let station = station.value, !station.isEmpty,
+              let aircraft = aircraft.value, !aircraft.isEmpty,
+              let subchapter = subchapter.value, !subchapter.isEmpty,
+              let description = description.value, !description.isEmpty
         else {
             throw ValidationError.missingData
         }
@@ -92,15 +93,20 @@ class DetailViewModel {
     
     func getNewDefectFromInput() throws -> Defect {
         try validateInput()
-        return Defect(station, aircraft, subchapter, description)
+        return Defect(
+            station.value!,
+            aircraft.value!,
+            subchapter.value!,
+            description.value!
+        )
     }
     
     func updateDefectFromInput(_ defect: Defect) throws {
         try validateInput()
-        defect.sta = station
-        defect.ac = aircraft
-        defect.ata4 = subchapter
-        defect.description = description
+        defect.sta = station.value!
+        defect.ac = aircraft.value!
+        defect.ata4 = subchapter.value!
+        defect.description = description.value!
     }
     
     func createDefect() throws {
