@@ -239,6 +239,8 @@ extension DetailViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         tableView.beginUpdates()
         tableView.endUpdates()
+    
+        viewModel.description.send(textView.text)
     }
 }
 
@@ -257,6 +259,20 @@ extension DetailViewController: UISearchBarDelegate {
         if searchBar == subchapterSearch {
             subchapterDropDown.dataSource = repository.matches(for: .ata4, searchText)
             subchapterDropDown.show()
+        }
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if searchBar == stationSearch {
+            viewModel.station.send(searchBar.text)
+        }
+        
+        if searchBar == aircraftSearch {
+            viewModel.aircraft.send(searchBar.text)
+        }
+        
+        if searchBar == subchapterSearch {
+            viewModel.subchapter.send(searchBar.text)
         }
     }
 }
