@@ -74,7 +74,6 @@ class DetailViewController: UITableViewController {
     }
     
     private func onChangeMode() {
-        
         configureToolbarItems()
         configureModeViews()
     }
@@ -168,7 +167,7 @@ extension DetailViewController {
     }
     
     @objc func onResolveButtonTapped() {
-        viewModel.resolveDefect()
+        viewModel.resolved.send(true)
         updateDefect()
         configureToolbarItems()
     }

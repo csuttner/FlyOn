@@ -22,22 +22,47 @@ class DetailViewModel {
     let statusTintColor = CurrentValueSubject<UIColor?, Never>(nil)
     let status = CurrentValueSubject<String?, Never>(nil)
     
+    let resolved = PassthroughSubject<Bool, Never>()
+    
+    var subscribers = Set<AnyCancellable>()
+    
     let apiClient = ApiClient.shared
     let repository = Repository.shared
     
     init(defect: Defect? = nil) {
         self.defect = defect
-        
+        setupSubscribers()
+        configureForDefect()
+        configureForStatus()
+    }
+    
+    func setupSubscribers() {
+        resolved.sink { [weak self] bool in
+            self?.defect?.resolved = bool
+            self?.configureForStatus()
+        }.store(in: &subscribers)
+    }
+    
+    func configureForDefect() {
         if let defect = defect {
             title.value = "Defect \(defect.id)"
-            
             dateString.value = defect.defectDate
-            
             station.value = defect.sta
             aircraft.value = defect.ac
             subchapter.value = defect.ata4
             description.value = defect.description
-            
+        } else {
+            title.value = "New Defect"
+            dateString.value = Date().getString()
+            station.value = ""
+            aircraft.value = ""
+            subchapter.value = ""
+            description.value = ""
+        }
+    }
+    
+    func configureForStatus() {
+        if let defect = defect {
             if defect.resolved {
                 statusContainerColor.value = UIColor.white.withGreenHue(saturation: 0.1)
                 statusImage.value = UIImage(systemName: "checkmark.circle")!
@@ -49,22 +74,10 @@ class DetailViewModel {
                 statusTintColor.value = UIColor.systemGray3.withRedHue(saturation: 1)
                 status.value = "Open"
             }
-            
         } else {
-            title.value = "New Defect"
-            
-            dateString.value = Date().getString()
-            
-            station.value = ""
-            aircraft.value = ""
-            subchapter.value = ""
-            description.value = ""
-            
             statusContainerColor.value = .systemGray6
-            
             statusImage.value = UIImage(systemName: "ellipsis.circle")!
             statusTintColor.value = UIColor.systemGray
-            
             status.value = "Unopened"
         }
     }
