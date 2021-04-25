@@ -126,6 +126,7 @@ class DetailViewModel {
         defect = try getNewDefectFromInput()
         apiClient.post(defect!)
         repository.addDefectToSections(defect!)
+        resolved.send(false)
     }
     
     func updateDefect() throws {
