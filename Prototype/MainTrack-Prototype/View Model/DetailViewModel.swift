@@ -131,13 +131,16 @@ class DetailViewModel {
         apiClient.put(defect!)
     }
     
-    func resolveDefect() {
-        defect?.resolved = true
-    }
-    
     func archiveDefect() {
         if let defect = defect {
             apiClient.archive(defect)
+        }
+    }
+    
+    func matches(for attribute: Repository.DefectAttribute, _ searchText: String) -> [String] {
+        let strings = repository.stringRepresentations(for: attribute)
+        return strings.compactMap {
+            $0.lowercased().contains(searchText.lowercased()) ? $0 : nil
         }
     }
 }

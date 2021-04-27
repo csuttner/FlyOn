@@ -10,8 +10,6 @@ import DropDown
 import Combine
 
 class DetailViewController: UITableViewController {
-    private let repository = Repository.shared
-
     var viewModel: DetailViewModel!
     var readOnly: Bool!
 
@@ -171,6 +169,7 @@ extension DetailViewController {
     @objc func onCancelButtonTapped() {
         if viewModel.defectExists {
             setupFor(readOnly: true)
+            viewModel.configureForDefect()
         } else {
             navigationController?.popViewController(animated: true)
         }
@@ -233,17 +232,17 @@ extension DetailViewController: UITextViewDelegate {
 extension DetailViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar == stationSearch {
-            stationDropDown.dataSource = repository.matches(for: .sta, searchText)
+            stationDropDown.dataSource = viewModel.matches(for: .sta, searchText)
             stationDropDown.show()
         }
         
         if searchBar == aircraftSearch {
-            aircraftDropDown.dataSource = repository.matches(for: .ac, searchText)
+            aircraftDropDown.dataSource = viewModel.matches(for: .ac, searchText)
             aircraftDropDown.show()
         }
         
         if searchBar == subchapterSearch {
-            subchapterDropDown.dataSource = repository.matches(for: .ata4, searchText)
+            subchapterDropDown.dataSource = viewModel.matches(for: .ata4, searchText)
             subchapterDropDown.show()
         }
     }

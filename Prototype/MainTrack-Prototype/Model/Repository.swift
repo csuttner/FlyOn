@@ -96,14 +96,7 @@ class Repository {
         sections = []
     }
     
-    public func matches(for attribute: DefectAttribute, _ searchText: String) -> [String] {
-        let strings = stringRepresentations(for: attribute)
-        return strings.compactMap {
-            $0.lowercased().contains(searchText.lowercased()) ? $0 : nil
-        }
-    }
-    
-    private func stringRepresentations(for attribute: DefectAttribute) -> [String] {
+    func stringRepresentations(for attribute: DefectAttribute) -> [String] {
         let strings: [String]
         switch attribute {
         case .sta:
