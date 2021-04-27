@@ -11,6 +11,18 @@ import Combine
 class DetailViewModel {
     private var defect: Defect?
     
+    var defectExists: Bool {
+        return defect != nil
+    }
+    
+    var defectResolved: Bool {
+        if let defect = defect {
+            return defect.resolved
+        }
+        
+        return false
+    }
+    
     let title = CurrentValueSubject<String?, Never>(nil)
     let dateString = CurrentValueSubject<String?, Never>(nil)
     let station = CurrentValueSubject<String?, Never>(nil)
@@ -82,17 +94,17 @@ class DetailViewModel {
         }
     }
     
-    func getDefect() -> Defect? {
-        return defect
-    }
-    
-    func getDefectId() -> String? {
-        return defect?.id
-    }
-    
-    func getDefectResolved() -> Bool? {
-        return defect?.resolved
-    }
+//    func getDefect() -> Defect? {
+//        return defect
+//    }
+//
+//    func getDefectId() -> String? {
+//        return defect?.id
+//    }
+//
+//    func getDefectResolved() -> Bool? {
+//        return defect?.resolved
+//    }
     
     func validateInput() throws {
         guard let station = station.value, !station.isEmpty,

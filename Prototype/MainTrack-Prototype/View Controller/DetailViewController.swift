@@ -158,7 +158,7 @@ extension DetailViewController {
     }
     
     @objc func onCancelButtonTapped() {
-        if viewModel.getDefect() == nil {
+        if viewModel.defectExists {
             navigationController?.popViewController(animated: true)
         } else {
             mode = .read
@@ -178,7 +178,7 @@ extension DetailViewController {
     }
     
     @objc func onSubmitButtonTapped() {
-        if viewModel.getDefect() == nil {
+        if viewModel.defectExists {
             createDefect()
         } else {
             updateDefect()
@@ -217,7 +217,7 @@ extension DetailViewController {
 extension DetailViewController {
     
     private func getPilotToolbarItems() -> [UIBarButtonItem] {
-        if viewModel.getDefectResolved()! {
+        if viewModel.defectResolved {
             return getSpacedButtonItems(with: [archiveButton])
         } else {
             return getSpacedButtonItems(with: [resolveButton])
