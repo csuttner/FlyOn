@@ -92,6 +92,15 @@ class DetailViewModel {
         }
     }
     
+    func resolveDefect() throws {
+        guard let resolution = resolutionDescription.value, !resolution.isEmpty else {
+            throw ValidationError.missingData
+        }
+        
+        try validateInput()
+        resolved.send(true)
+    }
+    
     func validateInput() throws {
         guard let station = station.value, !station.isEmpty,
               let aircraft = aircraft.value, !aircraft.isEmpty,

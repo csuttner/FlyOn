@@ -50,7 +50,7 @@ class DetailViewController: UITableViewController {
     lazy var editButton = ActionButton(title: "Edit", color: .systemBlue, target: self, action: #selector(onEditButtonTapped))
     lazy var cancelButton = ActionButton(title: "Cancel", color: .systemGray, target: self, action: #selector(onCancelButtonTapped))
     lazy var submitButton = ActionButton(title: "Submit", color: .systemGreen, target: self, action: #selector(onSubmitButtonTapped))
-    lazy var resolveButton = ActionButton(title: "Close", color: .systemGreen, target: self, action: #selector(onResolveButtonTapped))
+    lazy var resolveButton = ActionButton(title: "Close", color: .systemGreen, target: self, action: #selector(onCloseButtonTapped))
     lazy var archiveButton = ActionButton(title: "Archive", color: .systemGray, target: self, action: #selector(onArchiveButtonTapped))
     
     var bindings = [AnyCancellable]()
@@ -192,10 +192,14 @@ extension DetailViewController {
         }
     }
     
-    @objc func onResolveButtonTapped() {
-        viewModel.resolved.send(true)
-        updateDefect()
-        configureToolbarItems()
+    @objc func onCloseButtonTapped() {
+        do {
+            try viewModel.resolveDefect()
+            updateDefect()
+            configureToolbarItems()
+        } catch {
+            presentBasicAlert(title: "A resolution description is required to close")
+        }
     }
     
     @objc func onArchiveButtonTapped() {
