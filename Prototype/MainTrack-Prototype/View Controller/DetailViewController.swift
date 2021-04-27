@@ -174,7 +174,7 @@ extension DetailViewController {
     
     @objc func onArchiveButtonTapped() {
         viewModel.archiveDefect()
-        presentReturningAlert(title: "Defect \(viewModel.getDefectId()!) archived")
+        presentReturningAlert(title: "Defect archived")
     }
     
     @objc func onSubmitButtonTapped() {
@@ -193,7 +193,7 @@ extension DetailViewController {
     private func createDefect() {
         do {
             try viewModel.createDefect()
-            presentBasicAlert(title: "Defect \(viewModel.getDefectId()!) created")
+            presentBasicAlert(title: "Defect created")
             mode = .read
             onChangeMode()
         } catch {
@@ -204,7 +204,7 @@ extension DetailViewController {
     private func updateDefect() {
         do {
             try viewModel.updateDefect()
-            presentBasicAlert(title: "Defect \(viewModel.getDefectId()!) updated")
+            presentBasicAlert(title: "Defect updated")
             mode = .read
             onChangeMode()
         } catch {
