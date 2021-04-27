@@ -22,7 +22,7 @@ class FeedCellViewModel {
             tintColor = UIColor.systemGray4.withRedHue(saturation: 1)
         }
         
-        heading = "\(defect.sta) - \(defect.ac) - \(defect.ata4.prefix(4)) - \(defect.id)"
+        heading = "\(defect.creatorName) / \(defect.sta) - \(defect.ac) - \(defect.id)"
         description = defect.defectDescription
     }
 }

@@ -59,7 +59,7 @@ class DetailViewModel {
     func configureForDefect() {
         if let defect = defect {
             title.value = "Defect \(defect.id)"
-            dateString.value = defect.defectDate
+            dateString.value = defect.createdDate
             station.value = defect.sta
             aircraft.value = defect.ac
             subchapter.value = defect.ata4

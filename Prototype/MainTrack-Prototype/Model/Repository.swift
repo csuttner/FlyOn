@@ -83,11 +83,11 @@ class Repository {
     }
     
     public func addDefectToSections(_ defect: Defect) {
-        if let index = sections.firstIndex(where: { $0.title == defect.defectDate.getDate()!.headerStyle() }) {
+        if let index = sections.firstIndex(where: { $0.title == defect.createdDate.getDate()!.headerStyle() }) {
             sections[index].defects.append(defect)
-            sections[index].defects.sort { $0.defectDate.getDate()! >= $1.defectDate.getDate()! }
+            sections[index].defects.sort { $0.createdDate.getDate()! >= $1.createdDate.getDate()! }
         } else {
-            sections.append(DefectSection(date: defect.defectDate.getDate()!, defects: [defect]))
+            sections.append(DefectSection(date: defect.createdDate.getDate()!, defects: [defect]))
         }
         sections.sort { $0.date.getDate()! >= $1.date.getDate()! }
     }

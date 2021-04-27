@@ -22,8 +22,8 @@ class DefectSection: Codable {
 
 class Defect: Codable {
     let id: String
-    let email: String
-    let defectDate: String
+    let creatorEmail: String
+    let createdDate: String
     var resolvedDate: String?
     var isResolved: Bool
     var defectDescription: String
@@ -32,10 +32,18 @@ class Defect: Codable {
     var sta: String
     var ata4: String
     
+    var creatorName: String {
+        if let atIndex = creatorEmail.firstIndex(of: "@") {
+            return String(creatorEmail.prefix(upTo: atIndex))
+        }
+        
+        return ""
+    }
+    
     init(_ sta: String, _ ac: String, _ ata4: String, _ defectDescription: String) {
         self.id = UUID.shortString()
-        self.email = userData!.email
-        self.defectDate = Date().getString()
+        self.creatorEmail = userData!.email
+        self.createdDate = Date().getString()
         self.resolvedDate = nil
         self.isResolved = false
         self.defectDescription = defectDescription
