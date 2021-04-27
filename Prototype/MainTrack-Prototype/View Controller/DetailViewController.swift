@@ -13,12 +13,7 @@ class DetailViewController: UITableViewController {
     private let repository = Repository.shared
 
     var viewModel: DetailViewModel!
-    var mode: Mode!
-    
-    public enum Mode {
-        case edit
-        case read
-    }
+    var readOnly: Bool!
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var statusContainer: RoundedView!
@@ -60,22 +55,17 @@ class DetailViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(SectionHeader.nib, forHeaderFooterViewReuseIdentifier: SectionHeader.identifier)
         
         setupBinding()
         setupDropDowns()
-        onChangeMode()
-        tableView.register(SectionHeader.nib, forHeaderFooterViewReuseIdentifier: SectionHeader.identifier)
+        setupFor(readOnly: readOnly)
     }
     
     private func setupDropDowns() {
         stationDropDown.selectionAction = { [weak self] in self?.stationSearch.text = $1 }
         aircraftDropDown.selectionAction = { [weak self] in self?.aircraftSearch.text = $1 }
         subchapterDropDown.selectionAction = { [weak self] in self?.subchapterSearch.text = $1 }
-    }
-    
-    private func onChangeMode() {
-        configureToolbarItems()
-        configureModeViews()
     }
     
     private func setupBinding() {
@@ -98,6 +88,12 @@ class DetailViewController: UITableViewController {
         ]
     }
     
+    private func setupFor(readOnly: Bool) {
+        self.readOnly = readOnly
+        configureToolbarItems()
+        configureModeViews()
+    }
+    
     private func configureToolbarItems() {
         navigationController?.isToolbarHidden = false
         
@@ -108,19 +104,35 @@ class DetailViewController: UITableViewController {
         }
     }
     
-    private func configureModeViews() {
-        if mode == .edit {
-            for view in readViews { view.isHidden = true }
-            for view in editViews { view.isHidden = false }
-            
-            NSLayoutConstraint.deactivate(readConstraints)
-            NSLayoutConstraint.activate(editConstraints)
+    private func getPilotToolbarItems() -> [UIBarButtonItem] {
+        if viewModel.defectResolved {
+            return getSpacedButtonItems(with: [archiveButton])
         } else {
+            return getSpacedButtonItems(with: [resolveButton])
+        }
+    }
+    
+    private func getTechnicianToolbarItems() -> [UIBarButtonItem] {
+        if readOnly {
+            return getSpacedButtonItems(with: [editButton])
+        } else {
+            return getSpacedButtonItems(with: [cancelButton, submitButton])
+        }
+    }
+    
+    private func configureModeViews() {
+        if readOnly {
             for view in editViews { view.isHidden = true }
             for view in readViews { view.isHidden = false }
             
             NSLayoutConstraint.deactivate(editConstraints)
             NSLayoutConstraint.activate(readConstraints)
+        } else {
+            for view in readViews { view.isHidden = true }
+            for view in editViews { view.isHidden = false }
+            
+            NSLayoutConstraint.deactivate(readConstraints)
+            NSLayoutConstraint.activate(editConstraints)
         }
         
         tableView.beginUpdates()
@@ -153,16 +165,14 @@ extension DetailViewController {
 extension DetailViewController {
     
     @objc func onEditButtonTapped() {
-        mode = .edit
-        onChangeMode()
+        setupFor(readOnly: false)
     }
     
     @objc func onCancelButtonTapped() {
         if viewModel.defectExists {
-            navigationController?.popViewController(animated: true)
+            setupFor(readOnly: true)
         } else {
-            mode = .read
-            onChangeMode()
+            navigationController?.popViewController(animated: true)
         }
     }
     
@@ -179,9 +189,9 @@ extension DetailViewController {
     
     @objc func onSubmitButtonTapped() {
         if viewModel.defectExists {
-            createDefect()
-        } else {
             updateDefect()
+        } else {
+            createDefect()
         }
     }
     
@@ -194,8 +204,7 @@ extension DetailViewController {
         do {
             try viewModel.createDefect()
             presentBasicAlert(title: "Defect created")
-            mode = .read
-            onChangeMode()
+            setupFor(readOnly: true)
         } catch {
             presentBasicAlert(title: "Error creating defect")
         }
@@ -205,33 +214,11 @@ extension DetailViewController {
         do {
             try viewModel.updateDefect()
             presentBasicAlert(title: "Defect updated")
-            mode = .read
-            onChangeMode()
+            setupFor(readOnly: true)
         } catch {
             presentBasicAlert(title: "Error updating defect")
         }
     }
-}
-
-// MARK: Toolbar Configuration
-extension DetailViewController {
-    
-    private func getPilotToolbarItems() -> [UIBarButtonItem] {
-        if viewModel.defectResolved {
-            return getSpacedButtonItems(with: [archiveButton])
-        } else {
-            return getSpacedButtonItems(with: [resolveButton])
-        }
-    }
-    
-    private func getTechnicianToolbarItems() -> [UIBarButtonItem] {
-        if mode == .edit {
-            return getSpacedButtonItems(with: [cancelButton, submitButton])
-        } else {
-            return getSpacedButtonItems(with: [editButton])
-        }
-    }
-    
 }
 
 extension DetailViewController: UITextViewDelegate {

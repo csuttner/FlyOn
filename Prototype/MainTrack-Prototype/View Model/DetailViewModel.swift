@@ -22,7 +22,7 @@ class DetailViewModel {
         
         return false
     }
-    
+
     let title = CurrentValueSubject<String?, Never>(nil)
     let dateString = CurrentValueSubject<String?, Never>(nil)
     let station = CurrentValueSubject<String?, Never>(nil)
@@ -49,8 +49,8 @@ class DetailViewModel {
     }
     
     func setupSubscribers() {
-        resolved.sink { [weak self] bool in
-            self?.defect?.resolved = bool
+        resolved.sink { [weak self] resolved in
+            self?.defect?.resolved = resolved
             self?.configureForStatus()
         }.store(in: &subscribers)
     }
@@ -93,18 +93,6 @@ class DetailViewModel {
             status.value = "Unopened"
         }
     }
-    
-//    func getDefect() -> Defect? {
-//        return defect
-//    }
-//
-//    func getDefectId() -> String? {
-//        return defect?.id
-//    }
-//
-//    func getDefectResolved() -> Bool? {
-//        return defect?.resolved
-//    }
     
     func validateInput() throws {
         guard let station = station.value, !station.isEmpty,

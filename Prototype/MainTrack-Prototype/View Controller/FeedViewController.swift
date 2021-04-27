@@ -99,10 +99,10 @@ class FeedViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let defect = repository.sections[indexPath.section].defects[indexPath.row]
                 detailViewController.viewModel = DetailViewModel(defect: defect)
-                detailViewController.mode = .read
+                detailViewController.readOnly = true
             } else {
                 detailViewController.viewModel = DetailViewModel(defect: nil)
-                detailViewController.mode = .edit
+                detailViewController.readOnly = false
             }
         }
     }
