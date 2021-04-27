@@ -22,7 +22,8 @@ class DetailViewController: UITableViewController {
     @IBOutlet weak var stationLabel: UILabel!
     @IBOutlet weak var aircraftLabel: UILabel!
     @IBOutlet weak var subchapterLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var defectDescriptionLabel: UILabel!
+    @IBOutlet weak var resolutionDescriptionLabel: UILabel!
     
     @IBOutlet var readViews: [UIView]!
     @IBOutlet var readConstraints: [NSLayoutConstraint]!
@@ -30,7 +31,8 @@ class DetailViewController: UITableViewController {
     @IBOutlet weak var stationSearch: UISearchBar!
     @IBOutlet weak var aircraftSearch: UISearchBar!
     @IBOutlet weak var subchapterSearch: UISearchBar!
-    @IBOutlet weak var descriptionText: DescriptionTextView!
+    @IBOutlet weak var defectDescriptionText: DescriptionTextView!
+    @IBOutlet weak var resolutionDescriptionText: DescriptionTextView!
     
     @IBOutlet var editViews: [UIView]!
     @IBOutlet var editConstraints: [NSLayoutConstraint]!
@@ -42,6 +44,8 @@ class DetailViewController: UITableViewController {
     private lazy var stationDropDown = DropDown(anchorView: stationAnchor)
     private lazy var aircraftDropDown = DropDown(anchorView: aircraftAnchor)
     private lazy var subchapterDropDown = DropDown(anchorView: subchapterAnchor)
+    
+    let headerTitles = ["", "Defect Description", "Resolution Description"]
     
     lazy var editButton = ActionButton(title: "Edit", color: .systemBlue, target: self, action: #selector(onEditButtonTapped))
     lazy var cancelButton = ActionButton(title: "Cancel", color: .systemGray, target: self, action: #selector(onCancelButtonTapped))
@@ -75,8 +79,10 @@ class DetailViewController: UITableViewController {
             viewModel.aircraft.assign(to: \.text, on: aircraftSearch),
             viewModel.subchapter.assign(to: \.text, on: subchapterLabel),
             viewModel.subchapter.assign(to: \.text, on: subchapterSearch),
-            viewModel.defectDescription.assign(to: \.text, on: descriptionLabel),
-            viewModel.defectDescription.assign(to: \.text, on: descriptionText),
+            viewModel.defectDescription.assign(to: \.text, on: defectDescriptionLabel),
+            viewModel.defectDescription.assign(to: \.text, on: defectDescriptionText),
+            viewModel.resolutionDescription.assign(to: \.text, on: resolutionDescriptionLabel),
+            viewModel.resolutionDescription.assign(to: \.text, on: resolutionDescriptionText)
         ]
     }
     
@@ -152,7 +158,7 @@ class DetailViewController: UITableViewController {
         stationSearch.resignFirstResponder()
         aircraftSearch.resignFirstResponder()
         subchapterSearch.resignFirstResponder()
-        descriptionText.resignFirstResponder()
+        defectDescriptionText.resignFirstResponder()
     }
 
 }
@@ -161,7 +167,7 @@ class DetailViewController: UITableViewController {
 extension DetailViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeader.identifier) as! SectionHeader
-        header.textLabel?.text = section == 0 ? "" : "Defect Description"
+        header.textLabel?.text = headerTitles[section]
         return header
     }
     
@@ -236,7 +242,13 @@ extension DetailViewController: UITextViewDelegate {
         tableView.beginUpdates()
         tableView.endUpdates()
         
-        viewModel.defectDescription.send(textView.text)
+        if textView == defectDescriptionText {
+            viewModel.defectDescription.send(textView.text)
+        }
+        
+        if textView == resolutionDescriptionText {
+            viewModel.resolutionDescription.send(textView.text)
+        }
     }
 }
 

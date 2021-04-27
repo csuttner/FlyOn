@@ -29,6 +29,7 @@ class DetailViewModel {
     let aircraft = CurrentValueSubject<String?, Never>(nil)
     let subchapter = CurrentValueSubject<String?, Never>(nil)
     let defectDescription = CurrentValueSubject<String?, Never>(nil)
+    let resolutionDescription = CurrentValueSubject<String?, Never>(nil)
     let statusContainerColor = CurrentValueSubject<UIColor?, Never>(nil)
     let statusImage = CurrentValueSubject<UIImage?, Never>(nil)
     let statusTintColor = CurrentValueSubject<UIColor?, Never>(nil)
@@ -63,6 +64,7 @@ class DetailViewModel {
             aircraft.value = defect.ac
             subchapter.value = defect.ata4
             defectDescription.value = defect.defectDescription
+            resolutionDescription.value = defect.resolutionDescription
         } else {
             title.value = "New Defect"
             dateString.value = Date().getString()
@@ -116,6 +118,7 @@ class DetailViewModel {
         defect?.ac = aircraft.value!
         defect?.ata4 = subchapter.value!
         defect?.defectDescription = defectDescription.value!
+        defect?.resolutionDescription = resolutionDescription.value
     }
     
     func createDefect() throws {

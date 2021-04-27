@@ -471,7 +471,7 @@
                             </tableViewSection>
                             <tableViewSection id="mNF-hK-T0j">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="OYb-Ab-r5I" userLabel="Description Cell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="OYb-Ab-r5I" userLabel="Defect Description Cell">
                                         <rect key="frame" x="0.0" y="277.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OYb-Ab-r5I" id="yfX-dM-Eu8">
@@ -509,6 +509,46 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="YBD-q8-sJE">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="JHy-jE-hlr" userLabel="Description Cell">
+                                        <rect key="frame" x="0.0" y="357" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JHy-jE-hlr" id="O8e-Ke-dSh">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qew-VC-nnO" userLabel="Resolution Description Text View" customClass="DescriptionTextView" customModule="MainTrack_Prototype" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="8" width="382" height="28"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="textColor" systemColor="labelColor"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="GsQ-cd-y2R" id="90J-Yc-gGe"/>
+                                                    </connections>
+                                                </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOn-hA-Cg1">
+                                                    <rect key="frame" x="16" y="8" width="382" height="28"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Qew-VC-nnO" firstAttribute="top" secondItem="O8e-Ke-dSh" secondAttribute="top" constant="8" id="D1E-O2-d8I"/>
+                                                <constraint firstAttribute="trailing" secondItem="Qew-VC-nnO" secondAttribute="trailing" constant="16" id="HAl-Zg-biF"/>
+                                                <constraint firstAttribute="trailing" secondItem="hOn-hA-Cg1" secondAttribute="trailing" constant="16" id="PKL-h6-F7P"/>
+                                                <constraint firstAttribute="bottom" secondItem="hOn-hA-Cg1" secondAttribute="bottom" constant="8" id="TXK-WD-nt8"/>
+                                                <constraint firstItem="Qew-VC-nnO" firstAttribute="leading" secondItem="O8e-Ke-dSh" secondAttribute="leading" constant="16" id="W4w-R5-5w2"/>
+                                                <constraint firstAttribute="bottom" secondItem="Qew-VC-nnO" secondAttribute="bottom" constant="8" id="Ws5-Z0-5ty"/>
+                                                <constraint firstItem="hOn-hA-Cg1" firstAttribute="leading" secondItem="O8e-Ke-dSh" secondAttribute="leading" constant="16" id="nh8-6D-2sh"/>
+                                                <constraint firstItem="hOn-hA-Cg1" firstAttribute="top" secondItem="O8e-Ke-dSh" secondAttribute="top" constant="8" id="wxV-Xh-OgI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="GsQ-cd-y2R" id="cqN-M4-Iws"/>
@@ -522,8 +562,10 @@
                         <outlet property="aircraftLabel" destination="LCH-ok-wap" id="OV8-Pg-2zA"/>
                         <outlet property="aircraftSearch" destination="Y7S-ee-m4A" id="cw3-ev-AhG"/>
                         <outlet property="dateLabel" destination="k70-Ei-4q2" id="JoH-Bv-WeS"/>
-                        <outlet property="descriptionLabel" destination="h4u-du-aXi" id="C04-th-hHe"/>
-                        <outlet property="descriptionText" destination="q4v-Jt-7qp" id="BFn-nK-A77"/>
+                        <outlet property="defectDescriptionLabel" destination="h4u-du-aXi" id="C04-th-hHe"/>
+                        <outlet property="defectDescriptionText" destination="q4v-Jt-7qp" id="BFn-nK-A77"/>
+                        <outlet property="resolutionDescriptionLabel" destination="hOn-hA-Cg1" id="wa6-QB-twd"/>
+                        <outlet property="resolutionDescriptionText" destination="Qew-VC-nnO" id="jHF-op-UN9"/>
                         <outlet property="stationAnchor" destination="qDU-fA-uVz" id="XLc-II-lsn"/>
                         <outlet property="stationLabel" destination="EBd-pN-H7h" id="HYI-qE-bWO"/>
                         <outlet property="stationSearch" destination="4KK-uO-PfG" id="TjR-L4-ipT"/>
@@ -558,6 +600,12 @@
                         <outletCollection property="readViews" destination="h4u-du-aXi" collectionClass="NSMutableArray" id="WVS-Ih-5B4"/>
                         <outletCollection property="readConstraints" destination="iMH-6U-HbV" collectionClass="NSMutableArray" id="KHM-0r-Dyh"/>
                         <outletCollection property="readConstraints" destination="gp6-N6-13l" collectionClass="NSMutableArray" id="YNL-Dn-g76"/>
+                        <outletCollection property="readViews" destination="hOn-hA-Cg1" collectionClass="NSMutableArray" id="ZcL-vx-2ln"/>
+                        <outletCollection property="editViews" destination="Qew-VC-nnO" collectionClass="NSMutableArray" id="Twn-f0-icf"/>
+                        <outletCollection property="readConstraints" destination="TXK-WD-nt8" collectionClass="NSMutableArray" id="RHs-90-L6I"/>
+                        <outletCollection property="readConstraints" destination="wxV-Xh-OgI" collectionClass="NSMutableArray" id="Z76-PD-hsL"/>
+                        <outletCollection property="editConstraints" destination="D1E-O2-d8I" collectionClass="NSMutableArray" id="XHV-YJ-PPM"/>
+                        <outletCollection property="editConstraints" destination="Ws5-Z0-5ty" collectionClass="NSMutableArray" id="LLu-6I-7Nx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="trA-4U-IMn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
