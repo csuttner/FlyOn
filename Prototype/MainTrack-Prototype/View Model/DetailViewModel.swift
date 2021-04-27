@@ -66,10 +66,6 @@ class DetailViewModel {
         } else {
             title.value = "New Defect"
             dateString.value = Date().getString()
-            station.value = ""
-            aircraft.value = ""
-            subchapter.value = ""
-            description.value = ""
         }
     }
     
