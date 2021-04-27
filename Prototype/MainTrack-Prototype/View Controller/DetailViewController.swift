@@ -61,9 +61,20 @@ class DetailViewController: UITableViewController {
     }
     
     private func setupDropDowns() {
-        stationDropDown.selectionAction = { [weak self] in self?.stationSearch.text = $1 }
-        aircraftDropDown.selectionAction = { [weak self] in self?.aircraftSearch.text = $1 }
-        subchapterDropDown.selectionAction = { [weak self] in self?.subchapterSearch.text = $1 }
+        stationDropDown.selectionAction = { [weak self] in
+            self?.stationSearch.text = $1
+            self?.viewModel.station.send($1)
+        }
+        
+        aircraftDropDown.selectionAction = { [weak self] in
+            self?.aircraftSearch.text = $1
+            self?.viewModel.aircraft.send($1)
+        }
+        
+        subchapterDropDown.selectionAction = { [weak self] in
+            self?.subchapterSearch.text = $1
+            self?.viewModel.subchapter.send($1)
+        }
     }
     
     private func setupBinding() {
@@ -234,29 +245,21 @@ extension DetailViewController: UISearchBarDelegate {
         if searchBar == stationSearch {
             stationDropDown.dataSource = viewModel.matches(for: .sta, searchText)
             stationDropDown.show()
+            
+            viewModel.station.send(searchBar.text)
         }
         
         if searchBar == aircraftSearch {
             aircraftDropDown.dataSource = viewModel.matches(for: .ac, searchText)
             aircraftDropDown.show()
+            
+            viewModel.aircraft.send(searchBar.text)
         }
         
         if searchBar == subchapterSearch {
             subchapterDropDown.dataSource = viewModel.matches(for: .ata4, searchText)
             subchapterDropDown.show()
-        }
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        if searchBar == stationSearch {
-            viewModel.station.send(searchBar.text)
-        }
-        
-        if searchBar == aircraftSearch {
-            viewModel.aircraft.send(searchBar.text)
-        }
-        
-        if searchBar == subchapterSearch {
+            
             viewModel.subchapter.send(searchBar.text)
         }
     }

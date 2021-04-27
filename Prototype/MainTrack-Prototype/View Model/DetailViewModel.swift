@@ -110,12 +110,12 @@ class DetailViewModel {
         )
     }
     
-    func updateDefectFromInput(_ defect: Defect) throws {
+    func updateDefectFromInput() throws {
         try validateInput()
-        defect.sta = station.value!
-        defect.ac = aircraft.value!
-        defect.ata4 = subchapter.value!
-        defect.description = description.value!
+        defect?.sta = station.value!
+        defect?.ac = aircraft.value!
+        defect?.ata4 = subchapter.value!
+        defect?.description = description.value!
     }
     
     func createDefect() throws {
@@ -127,7 +127,7 @@ class DetailViewModel {
     }
     
     func updateDefect() throws {
-        try updateDefectFromInput(defect!)
+        try updateDefectFromInput()
         apiClient.put(defect!)
     }
     
