@@ -15,9 +15,9 @@ class DetailViewModel {
         return defect != nil
     }
     
-    var defectResolved: Bool {
+    var defectIsResolved: Bool {
         if let defect = defect {
-            return defect.resolved
+            return defect.isResolved
         }
         
         return false
@@ -28,7 +28,7 @@ class DetailViewModel {
     let station = CurrentValueSubject<String?, Never>(nil)
     let aircraft = CurrentValueSubject<String?, Never>(nil)
     let subchapter = CurrentValueSubject<String?, Never>(nil)
-    let description = CurrentValueSubject<String?, Never>(nil)
+    let defectDescription = CurrentValueSubject<String?, Never>(nil)
     let statusContainerColor = CurrentValueSubject<UIColor?, Never>(nil)
     let statusImage = CurrentValueSubject<UIImage?, Never>(nil)
     let statusTintColor = CurrentValueSubject<UIColor?, Never>(nil)
@@ -50,7 +50,7 @@ class DetailViewModel {
     
     func setupSubscribers() {
         resolved.sink { [weak self] resolved in
-            self?.defect?.resolved = resolved
+            self?.defect?.isResolved = resolved
             self?.configureForStatus()
         }.store(in: &subscribers)
     }
@@ -62,7 +62,7 @@ class DetailViewModel {
             station.value = defect.sta
             aircraft.value = defect.ac
             subchapter.value = defect.ata4
-            description.value = defect.description
+            defectDescription.value = defect.defectDescription
         } else {
             title.value = "New Defect"
             dateString.value = Date().getString()
@@ -71,7 +71,7 @@ class DetailViewModel {
     
     func configureForStatus() {
         if let defect = defect {
-            if defect.resolved {
+            if defect.isResolved {
                 statusContainerColor.value = UIColor.white.withGreenHue(saturation: 0.1)
                 statusImage.value = UIImage(systemName: "checkmark.circle")!
                 statusTintColor.value = UIColor.systemGray.withGreenHue(saturation: 1)
@@ -94,7 +94,7 @@ class DetailViewModel {
         guard let station = station.value, !station.isEmpty,
               let aircraft = aircraft.value, !aircraft.isEmpty,
               let subchapter = subchapter.value, !subchapter.isEmpty,
-              let description = description.value, !description.isEmpty
+              let description = defectDescription.value, !description.isEmpty
         else {
             throw ValidationError.missingData
         }
@@ -106,7 +106,7 @@ class DetailViewModel {
             station.value!,
             aircraft.value!,
             subchapter.value!,
-            description.value!
+            defectDescription.value!
         )
     }
     
@@ -115,7 +115,7 @@ class DetailViewModel {
         defect?.sta = station.value!
         defect?.ac = aircraft.value!
         defect?.ata4 = subchapter.value!
-        defect?.description = description.value!
+        defect?.defectDescription = defectDescription.value!
     }
     
     func createDefect() throws {

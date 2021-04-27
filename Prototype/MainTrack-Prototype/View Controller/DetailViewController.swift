@@ -60,23 +60,6 @@ class DetailViewController: UITableViewController {
         setupFor(readOnly: readOnly)
     }
     
-    private func setupDropDowns() {
-        stationDropDown.selectionAction = { [weak self] in
-            self?.stationSearch.text = $1
-            self?.viewModel.station.send($1)
-        }
-        
-        aircraftDropDown.selectionAction = { [weak self] in
-            self?.aircraftSearch.text = $1
-            self?.viewModel.aircraft.send($1)
-        }
-        
-        subchapterDropDown.selectionAction = { [weak self] in
-            self?.subchapterSearch.text = $1
-            self?.viewModel.subchapter.send($1)
-        }
-    }
-    
     private func setupBinding() {
         bindings = [
             viewModel.title.assign(to: \.text, on: titleLabel),
@@ -92,9 +75,26 @@ class DetailViewController: UITableViewController {
             viewModel.aircraft.assign(to: \.text, on: aircraftSearch),
             viewModel.subchapter.assign(to: \.text, on: subchapterLabel),
             viewModel.subchapter.assign(to: \.text, on: subchapterSearch),
-            viewModel.description.assign(to: \.text, on: descriptionLabel),
-            viewModel.description.assign(to: \.text, on: descriptionText),
+            viewModel.defectDescription.assign(to: \.text, on: descriptionLabel),
+            viewModel.defectDescription.assign(to: \.text, on: descriptionText),
         ]
+    }
+    
+    private func setupDropDowns() {
+        stationDropDown.selectionAction = { [weak self] in
+            self?.stationSearch.text = $1
+            self?.viewModel.station.send($1)
+        }
+        
+        aircraftDropDown.selectionAction = { [weak self] in
+            self?.aircraftSearch.text = $1
+            self?.viewModel.aircraft.send($1)
+        }
+        
+        subchapterDropDown.selectionAction = { [weak self] in
+            self?.subchapterSearch.text = $1
+            self?.viewModel.subchapter.send($1)
+        }
     }
     
     private func setupFor(readOnly: Bool) {
@@ -114,7 +114,7 @@ class DetailViewController: UITableViewController {
     }
     
     private func getPilotToolbarItems() -> [UIBarButtonItem] {
-        if viewModel.defectResolved {
+        if viewModel.defectIsResolved {
             return getSpacedButtonItems(with: [archiveButton])
         } else {
             return getSpacedButtonItems(with: [resolveButton])
@@ -236,7 +236,7 @@ extension DetailViewController: UITextViewDelegate {
         tableView.beginUpdates()
         tableView.endUpdates()
         
-        viewModel.description.send(textView.text)
+        viewModel.defectDescription.send(textView.text)
     }
 }
 

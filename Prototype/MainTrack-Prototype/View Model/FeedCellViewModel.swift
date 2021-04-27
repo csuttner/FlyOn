@@ -14,7 +14,7 @@ class FeedCellViewModel {
     let description: String
     
     init(defect: Defect) {
-        if defect.resolved {
+        if defect.isResolved {
             image = UIImage(systemName: "checkmark.circle")!
             tintColor = UIColor.systemGray2.withGreenHue(saturation: 1)
         } else {
@@ -23,6 +23,6 @@ class FeedCellViewModel {
         }
         
         heading = "\(defect.sta) - \(defect.ac) - \(defect.ata4.prefix(4)) - \(defect.id)"
-        description = defect.description
+        description = defect.defectDescription
     }
 }
