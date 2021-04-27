@@ -31,9 +31,9 @@ class DetailViewModel {
     
     init(defect: Defect? = nil) {
         self.defect = defect
-        setupSubscribers()
         configureForDefect()
         configureForStatus()
+        setupSubscribers()
     }
     
     func setupSubscribers() {
@@ -126,7 +126,8 @@ class DetailViewModel {
         defect = try getNewDefectFromInput()
         apiClient.post(defect!)
         repository.addDefectToSections(defect!)
-        resolved.send(false)
+        configureForDefect()
+        configureForStatus()
     }
     
     func updateDefect() throws {

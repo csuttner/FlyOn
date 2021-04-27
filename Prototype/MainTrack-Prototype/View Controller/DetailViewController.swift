@@ -56,7 +56,7 @@ class DetailViewController: UITableViewController {
     lazy var resolveButton = ActionButton(title: "Close", color: .systemGreen, target: self, action: #selector(onResolveButtonTapped))
     lazy var archiveButton = ActionButton(title: "Archive", color: .systemGray, target: self, action: #selector(onArchiveButtonTapped))
     
-    var cancellables = [AnyCancellable]()
+    var bindings = [AnyCancellable]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +79,7 @@ class DetailViewController: UITableViewController {
     }
     
     private func setupBinding() {
-        cancellables = [
+        bindings = [
             viewModel.title.assign(to: \.text, on: titleLabel),
             viewModel.statusContainerColor.assign(to: \.backgroundColor, on: statusContainer),
             viewModel.statusImage.assign(to: \.image, on: statusIndicator),
@@ -238,7 +238,7 @@ extension DetailViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         tableView.beginUpdates()
         tableView.endUpdates()
-    
+        
         viewModel.description.send(textView.text)
     }
 }
