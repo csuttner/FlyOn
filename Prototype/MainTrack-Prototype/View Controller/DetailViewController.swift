@@ -120,18 +120,22 @@ class DetailViewController: UITableViewController {
     }
     
     private func getPilotToolbarItems() -> [UIBarButtonItem] {
-        if viewModel.defectIsResolved {
-            return getSpacedButtonItems(with: [archiveButton])
-        } else {
-            return getSpacedButtonItems(with: [resolveButton])
-        }
-    }
-    
-    private func getTechnicianToolbarItems() -> [UIBarButtonItem] {
         if readOnly {
             return getSpacedButtonItems(with: [editButton])
         } else {
             return getSpacedButtonItems(with: [cancelButton, submitButton])
+        }
+    }
+    
+    private func getTechnicianToolbarItems() -> [UIBarButtonItem] {
+        if viewModel.defectIsResolved {
+            return getSpacedButtonItems(with: [archiveButton])
+        } else {
+            if readOnly {
+                return getSpacedButtonItems(with: [editButton, resolveButton])
+            } else {
+                return getSpacedButtonItems(with: [cancelButton, submitButton])
+            }
         }
     }
     

@@ -34,13 +34,7 @@ class FeedViewController: UITableViewController {
     private func configureNavigationController() {
         navigationItem.hidesBackButton = true
         navigationController?.navigationBar.isHidden = false
-        
-        if userData.role == .pilot {
-            navigationController?.isToolbarHidden = true
-        } else {
-            navigationController?.isToolbarHidden = false
-            setToolbarItems(getSpacedButtonItems(with: [newDefectButton]), animated: true)
-        }
+        setToolbarItems(getSpacedButtonItems(with: [newDefectButton]), animated: true)
     }
     
     @objc func onNewDefectButtonTapped() {
