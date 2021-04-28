@@ -147,11 +147,12 @@ class DetailViewController: UITableViewController {
         tableView.endUpdates()
     }
     
-    @IBAction func onTap(_ sender: Any) {
+    @IBAction func onTapGesture(_ sender: Any) {
         stationSearch.resignFirstResponder()
         aircraftSearch.resignFirstResponder()
         subchapterSearch.resignFirstResponder()
         defectDescriptionText.resignFirstResponder()
+        resolutionDescriptionText.resignFirstResponder()
     }
 
 }

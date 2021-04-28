@@ -612,7 +612,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="trA-4U-IMn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="sze-Pc-V0A">
                     <connections>
-                        <action selector="onTap:" destination="GsQ-cd-y2R" id="yud-E6-7Zz"/>
+                        <action selector="onTapGesture:" destination="GsQ-cd-y2R" id="yud-E6-7Zz"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
