@@ -24,11 +24,7 @@ class FeedViewController: UITableViewController {
     }
     
     private func loadDefectsForRole() {
-        if userData.role == .pilot {
-            repository.loadAllDefects { self.tableView.reloadData() }
-        } else {
-            repository.loadDefects(for: userData.email) { self.tableView.reloadData() }
-        }
+        repository.loadAllDefects { self.tableView.reloadData() }
     }
     
     private func configureNavigationController() {

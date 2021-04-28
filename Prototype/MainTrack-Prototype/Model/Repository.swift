@@ -67,15 +67,6 @@ class Repository {
         }
     }
     
-    public func loadDefects(for email: String, completion: @escaping() -> Void) {
-        apiClient.getDefects(for: email) { (defects) in
-            self.sections = []
-            self.defects = defects
-            self.organizeDefectsToSections()
-            completion()
-        }
-    }
-    
     private func organizeDefectsToSections() {
         for defect in defects {
             addDefectToSections(defect)

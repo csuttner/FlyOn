@@ -36,7 +36,7 @@ class ApiClient {
 
     public func getDefects(for email: String, completion: @escaping([Defect]) -> Void) {
         print("fetching defects for \(email) from Firebase...")
-        firestoreDefects.whereField("email", isEqualTo: email).getDocuments { (snapshot, error) in
+        firestoreDefects.whereField("creatorEmail", isEqualTo: email).getDocuments { (snapshot, error) in
             if let error = error {
                 print("Error fetching defects: \(error)")
             } else {
