@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F3136A4C2640A31A009C7FA8 /* DefectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3136A4B2640A31A009C7FA8 /* DefectItem.swift */; };
 		F3DACF31263E405D00277C3E /* FlyOnFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3DACF27263E405D00277C3E /* FlyOnFeed.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +22,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F3136A4B2640A31A009C7FA8 /* DefectItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectItem.swift; sourceTree = "<group>"; };
 		F3DACF27263E405D00277C3E /* FlyOnFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlyOnFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DACF2B263E405D00277C3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3DACF30263E405D00277C3E /* FlyOnFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlyOnFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				F3DACF2B263E405D00277C3E /* Info.plist */,
+				F3136A4B2640A31A009C7FA8 /* DefectItem.swift */,
 			);
 			path = FlyOnFeed;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 				TargetAttributes = {
 					F3DACF26263E405D00277C3E = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 					F3DACF2F263E405D00277C3E = {
 						CreatedOnToolsVersion = 12.4;
@@ -187,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3136A4C2640A31A009C7FA8 /* DefectItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +337,7 @@
 		F3DACF3C263E405D00277C3E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -349,6 +355,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = skite.FlyOnFeed;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -356,6 +363,7 @@
 		F3DACF3D263E405D00277C3E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -380,6 +388,7 @@
 		F3DACF3F263E405D00277C3E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = DFVB576FM8;
@@ -398,6 +407,7 @@
 		F3DACF40263E405D00277C3E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = DFVB576FM8;
