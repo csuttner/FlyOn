@@ -50,6 +50,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F3136A6B2640A814009C7FA8 /* Feed Feature */ = {
+			isa = PBXGroup;
+			children = (
+				F3136A4B2640A31A009C7FA8 /* DefectItem.swift */,
+				F3136A672640A730009C7FA8 /* FeedLoader.swift */,
+			);
+			path = "Feed Feature";
+			sourceTree = "<group>";
+		};
 		F3DACF1D263E405D00277C3E = {
 			isa = PBXGroup;
 			children = (
@@ -72,8 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				F3DACF2B263E405D00277C3E /* Info.plist */,
-				F3136A4B2640A31A009C7FA8 /* DefectItem.swift */,
-				F3136A672640A730009C7FA8 /* FeedLoader.swift */,
+				F3136A6B2640A814009C7FA8 /* Feed Feature */,
 			);
 			path = FlyOnFeed;
 			sourceTree = "<group>";
