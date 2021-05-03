@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F3136A4C2640A31A009C7FA8 /* DefectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3136A4B2640A31A009C7FA8 /* DefectItem.swift */; };
+		F3136A682640A730009C7FA8 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3136A672640A730009C7FA8 /* FeedLoader.swift */; };
 		F3DACF31263E405D00277C3E /* FlyOnFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3DACF27263E405D00277C3E /* FlyOnFeed.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		F3136A4B2640A31A009C7FA8 /* DefectItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectItem.swift; sourceTree = "<group>"; };
+		F3136A672640A730009C7FA8 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 		F3DACF27263E405D00277C3E /* FlyOnFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlyOnFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DACF2B263E405D00277C3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3DACF30263E405D00277C3E /* FlyOnFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlyOnFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +73,7 @@
 			children = (
 				F3DACF2B263E405D00277C3E /* Info.plist */,
 				F3136A4B2640A31A009C7FA8 /* DefectItem.swift */,
+				F3136A672640A730009C7FA8 /* FeedLoader.swift */,
 			);
 			path = FlyOnFeed;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3136A682640A730009C7FA8 /* FeedLoader.swift in Sources */,
 				F3136A4C2640A31A009C7FA8 /* DefectItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
