@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DefectItem {
+public struct DefectItem: Equatable {
     let id: UUID
     let creator: User
     var assignees: [User]?
@@ -18,6 +18,10 @@ struct DefectItem {
     var defectDescription: String
     var resolvedDate: Date?
     var resolutionDescription: String?
+    
+    public static func == (lhs: DefectItem, rhs: DefectItem) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
 
 struct User {
