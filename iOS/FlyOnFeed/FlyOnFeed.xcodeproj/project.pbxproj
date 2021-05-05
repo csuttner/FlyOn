@@ -11,6 +11,7 @@
 		F3136A682640A730009C7FA8 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3136A672640A730009C7FA8 /* FeedLoader.swift */; };
 		F3136A6F2640A870009C7FA8 /* RemoteFeedLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3136A6E2640A870009C7FA8 /* RemoteFeedLoaderTests.swift */; };
 		F3136A752640B5AA009C7FA8 /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3136A742640B5AA009C7FA8 /* RemoteFeedLoader.swift */; };
+		F3136A7D2641069A009C7FA8 /* Date+StringValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3136A7C2641069A009C7FA8 /* Date+StringValue.swift */; };
 		F3DACF31263E405D00277C3E /* FlyOnFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3DACF27263E405D00277C3E /* FlyOnFeed.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		F3136A672640A730009C7FA8 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 		F3136A6E2640A870009C7FA8 /* RemoteFeedLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoaderTests.swift; sourceTree = "<group>"; };
 		F3136A742640B5AA009C7FA8 /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
+		F3136A7C2641069A009C7FA8 /* Date+StringValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+StringValue.swift"; sourceTree = "<group>"; };
 		F3DACF27263E405D00277C3E /* FlyOnFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlyOnFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DACF2B263E405D00277C3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3DACF30263E405D00277C3E /* FlyOnFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlyOnFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +73,14 @@
 			path = "Feed API";
 			sourceTree = "<group>";
 		};
+		F3136A7B2641067E009C7FA8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F3136A7C2641069A009C7FA8 /* Date+StringValue.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		F3DACF1D263E405D00277C3E = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +105,7 @@
 				F3DACF2B263E405D00277C3E /* Info.plist */,
 				F3136A782640B5BA009C7FA8 /* Feed API */,
 				F3136A6B2640A814009C7FA8 /* Feed Feature */,
+				F3136A7B2641067E009C7FA8 /* Helpers */,
 			);
 			path = FlyOnFeed;
 			sourceTree = "<group>";
@@ -219,6 +230,7 @@
 			files = (
 				F3136A682640A730009C7FA8 /* FeedLoader.swift in Sources */,
 				F3136A752640B5AA009C7FA8 /* RemoteFeedLoader.swift in Sources */,
+				F3136A7D2641069A009C7FA8 /* Date+StringValue.swift in Sources */,
 				F3136A4C2640A31A009C7FA8 /* DefectItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
