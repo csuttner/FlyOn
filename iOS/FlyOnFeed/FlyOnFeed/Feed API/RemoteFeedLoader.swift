@@ -76,7 +76,7 @@ private class FeedItemsMapper {
             throw RemoteFeedLoader.Error.invalidData
         }
         let root = try JSONDecoder().decode(Root.self, from: data)
-        return try root.items.map { $0.item }
+        return root.items.map { $0.item }
     }
 }
 
