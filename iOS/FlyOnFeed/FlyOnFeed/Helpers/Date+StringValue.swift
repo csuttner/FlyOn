@@ -14,4 +14,10 @@ public extension Date {
         let stringDate = formatter.string(from: self)
         return stringDate
     }
+    
+    init(string: String) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
+        self = formatter.date(from: string)!
+    }
 }

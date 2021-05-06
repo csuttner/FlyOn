@@ -80,43 +80,21 @@ class RemoteFeedLoaderTests: XCTestCase {
         let item1 = makeItem(
             defectId: UUID(),
             creatorId: UUID(),
-            creatorEmail: "anyemail@gmail.com",
-            creatorPassword: "password",
-            creatorFirstName: "any",
-            creatorLastName: "user",
-            creatorRole: .technician,
-            stationSymbol: "SFO",
-            stationName: "San Francisco International",
-            aircraftTailNumber: "282VA",
-            aircraftManufacturer: "Airbus",
-            aircraftModel: "A320",
-            ataCodeValue: 2011,
-            ataCodeDescription: "AIR FILTERS",
-            ataChapterValue: 20,
-            ataChapterDescription: "AIR CONDITIONING",
-            defectCreatedDate: Date().stringValue,
+            stationId: UUID(),
+            aircraftId: UUID(),
+            ataCodeId: UUID(),
+            createdDate: Date(),
             defectDescription: "Description of defect"
         )
         
         let item2 = makeItem(
             defectId: UUID(),
             creatorId: UUID(),
-            creatorEmail: "anypilotemail@gmail.com",
-            creatorPassword: "pilotpassword",
-            creatorFirstName: "any",
-            creatorLastName: "pilot",
-            creatorRole: .pilot,
-            stationSymbol: "SFO",
-            stationName: "San Francisco International",
-            aircraftTailNumber: "282VA",
-            aircraftManufacturer: "Airbus",
-            aircraftModel: "A320",
-            ataCodeValue: 2011,
-            ataCodeDescription: "AIR FILTERS",
-            ataChapterValue: 20,
-            ataChapterDescription: "AIR CONDITIONING",
-            defectCreatedDate: Date().stringValue,
-            defectDescription: "Different Description of defect"
+            stationId: UUID(),
+            aircraftId: UUID(),
+            ataCodeId: UUID(),
+            createdDate: Date(),
+            defectDescription: "Different description of defect"
         )
         
         let items = [item1.model, item2.model]
@@ -135,67 +113,16 @@ class RemoteFeedLoaderTests: XCTestCase {
         return (sut, client)
     }
     
-    private func makeItem(
-        defectId: UUID,
-        creatorId: UUID,
-        creatorEmail: String,
-        creatorPassword: String,
-        creatorFirstName: String,
-        creatorLastName: String,
-        creatorRole: Role,
-        stationSymbol: String,
-        stationName: String,
-        aircraftTailNumber: String,
-        aircraftManufacturer: String,
-        aircraftModel: String,
-        ataCodeValue: Int,
-        ataCodeDescription: String,
-        ataChapterValue: Int,
-        ataChapterDescription: String,
-        defectCreatedDate: String,
-        defectDescription: String
-    ) -> (model: DefectItem, json: [String: Any]) {
-        
-        let creator = User(id: creatorId, email: creatorEmail, password: creatorPassword, firstName: creatorFirstName, lastName: creatorLastName, role: creatorRole)
-        
-        let station = Station(symbol: stationSymbol, name: stationName)
-        
-        let aircraft = Aircraft(tailNumber: aircraftTailNumber, manufacturer: aircraftManufacturer, model: aircraftModel)
-        
-        let ataChapter = ATAChapter(value: ataChapterValue, description: ataChapterDescription)
-        
-        let ataCode = ATACode(value: ataCodeValue, description: ataCodeDescription, chapter: ataChapter)
-        
-        let item = DefectItem(id: defectId, creator: creator, station: station, aircraft: aircraft, ataCode: ataCode, createdDate: defectCreatedDate, defectDescription: defectDescription)
+    private func makeItem(defectId: UUID, creatorId: UUID, stationId: UUID, aircraftId: UUID, ataCodeId: UUID, createdDate: Date, defectDescription: String) -> (model: DefectItem, json: [String: Any]) {
+        let item = DefectItem(id: defectId, creatorId: creatorId, stationId: stationId, aircraftId: aircraftId, ataCodeId: ataCodeId, createdDate: createdDate, defectDescription: defectDescription)
         
         let json: [String: Any] = [
             "id": defectId.uuidString,
-            "creator": [
-                "id": creatorId.uuidString,
-                "email": creatorEmail,
-                "password": creatorPassword,
-                "firstName": creatorFirstName,
-                "lastName": creatorLastName,
-                "role": creatorRole.rawValue
-            ],
-            "station": [
-                "symbol": stationSymbol,
-                "name": stationName
-            ],
-            "aircraft": [
-                "tailNumber": aircraftTailNumber,
-                "manufacturer": aircraftManufacturer,
-                "model": aircraftModel
-            ],
-            "ataCode": [
-                "value": ataCodeValue,
-                "description": ataCodeDescription,
-                "chapter": [
-                    "value": ataChapterValue,
-                    "description": ataChapterDescription
-                ]
-            ],
-            "createdDate": defectCreatedDate,
+            "creatorId": creatorId.uuidString,
+            "stationId": stationId.uuidString,
+            "aircraftId": aircraftId.uuidString,
+            "ataCodeId": ataCodeId.uuidString,
+            "createdDate": createdDate.stringValue,
             "defectDescription": defectDescription
         ]
         

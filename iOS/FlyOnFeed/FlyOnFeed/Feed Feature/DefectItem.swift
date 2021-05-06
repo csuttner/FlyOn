@@ -7,24 +7,24 @@
 
 import Foundation
 
-public struct DefectItem: Equatable, Codable {
+public struct DefectItem: Equatable {
     public let id: UUID
-    public let creator: User
-    public var assignees: [User]?
-    public let station: Station
-    public let aircraft: Aircraft
-    public let ataCode: ATACode
-    public let createdDate: String
+    public let creatorId: UUID
+    public var assigneeIds: [UUID]?
+    public let stationId: UUID
+    public let aircraftId: UUID
+    public let ataCodeId: UUID
+    public let createdDate: Date
     public var defectDescription: String
-    public var resolvedDate: String?
+    public var resolvedDate: Date?
     public var resolutionDescription: String?
     
-    public init(id: UUID, creator: User, station: Station, aircraft: Aircraft, ataCode: ATACode, createdDate: String, defectDescription: String) {
+    public init(id: UUID, creatorId: UUID, stationId: UUID, aircraftId: UUID, ataCodeId: UUID, createdDate: Date, defectDescription: String) {
         self.id = id
-        self.creator = creator
-        self.station = station
-        self.aircraft = aircraft
-        self.ataCode = ataCode
+        self.creatorId = creatorId
+        self.stationId = stationId
+        self.aircraftId = aircraftId
+        self.ataCodeId = ataCodeId
         self.createdDate = createdDate
         self.defectDescription = defectDescription
     }
@@ -34,7 +34,7 @@ public struct DefectItem: Equatable, Codable {
     }
 }
 
-public struct User: Codable {
+public struct User {
     public let id: UUID
     public let email: String
     public let password: String
@@ -53,13 +53,13 @@ public struct User: Codable {
     }
 }
 
-public enum Role: String, Codable {
+public enum Role: String {
     case technician
     case pilot
     case analyst
 }
 
-public struct Station: Codable {
+public struct Station {
     public let symbol: String
     public let name: String
     
@@ -69,7 +69,7 @@ public struct Station: Codable {
     }
 }
 
-public struct Aircraft: Codable {
+public struct Aircraft {
     public let tailNumber: String
     public let manufacturer: String?
     public let model: String?
@@ -81,7 +81,7 @@ public struct Aircraft: Codable {
     }
 }
 
-public struct ATACode: Codable {
+public struct ATACode {
     public let value: Int
     public let description: String
     public let chapter: ATAChapter
@@ -93,7 +93,7 @@ public struct ATACode: Codable {
     }
 }
 
-public struct ATAChapter: Codable {
+public struct ATAChapter {
     public let value: Int
     public let description: String
     
