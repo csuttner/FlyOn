@@ -6,209 +6,206 @@
 //
 
 import UIKit
+import DropDown
+import Combine
 
 class DetailViewController: UITableViewController {
+    var viewModel: DetailViewModel!
+    var readOnly: Bool!
+
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var statusContainer: RoundedView!
+    @IBOutlet weak var statusIndicator: UIImageView!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    
     @IBOutlet weak var stationLabel: UILabel!
     @IBOutlet weak var aircraftLabel: UILabel!
     @IBOutlet weak var subchapterLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var defectDescriptionLabel: UILabel!
+    @IBOutlet weak var resolutionDescriptionLabel: UILabel!
+    
+    @IBOutlet var readViews: [UIView]!
+    @IBOutlet var readConstraints: [NSLayoutConstraint]!
     
     @IBOutlet weak var stationSearch: UISearchBar!
     @IBOutlet weak var aircraftSearch: UISearchBar!
     @IBOutlet weak var subchapterSearch: UISearchBar!
-    @IBOutlet weak var descriptionText: PlaceholderTextView!
+    @IBOutlet weak var defectDescriptionText: DescriptionTextView!
+    @IBOutlet weak var resolutionDescriptionText: DescriptionTextView!
     
-    @IBOutlet weak var spacerCell: SpacerCell!
+    @IBOutlet var editViews: [UIView]!
+    @IBOutlet var editConstraints: [NSLayoutConstraint]!
     
-    private lazy var readViews: [UIView] = [
-        stationLabel,
-        aircraftLabel,
-        subchapterLabel,
-        descriptionLabel
-    ]
+    @IBOutlet weak var stationAnchor: UIView!
+    @IBOutlet weak var aircraftAnchor: UIView!
+    @IBOutlet weak var subchapterAnchor: UIView!
     
-    private lazy var editViews: [UIView] = [
-        stationSearch,
-        aircraftSearch,
-        subchapterSearch,
-        descriptionText
-    ]
-
-    private let headers = ["Details", "Description", ""]
+    private lazy var stationDropDown = DropDown(anchorView: stationAnchor)
+    private lazy var aircraftDropDown = DropDown(anchorView: aircraftAnchor)
+    private lazy var subchapterDropDown = DropDown(anchorView: subchapterAnchor)
     
-    private let repository = Repository.shared
-//    private let controller = DefectController.shared
-    private let apiClient = ApiClient.shared
-    
-    var defect: Defect?
-    var mode: Mode!
-    
-//    let detailViews = DetailViews()
+    let headerTitles = ["", "Defect Description", "Resolution Description"]
     
     lazy var editButton = ActionButton(title: "Edit", color: .systemBlue, target: self, action: #selector(onEditButtonTapped))
     lazy var cancelButton = ActionButton(title: "Cancel", color: .systemGray, target: self, action: #selector(onCancelButtonTapped))
     lazy var submitButton = ActionButton(title: "Submit", color: .systemGreen, target: self, action: #selector(onSubmitButtonTapped))
-    lazy var resolveButton = ActionButton(title: "Close", color: .systemGreen, target: self, action: #selector(onResolveButtonTapped))
+    lazy var resolveButton = ActionButton(title: "Close", color: .systemGreen, target: self, action: #selector(onCloseButtonTapped))
     lazy var archiveButton = ActionButton(title: "Archive", color: .systemGray, target: self, action: #selector(onArchiveButtonTapped))
     
-    public enum Mode {
-        case edit
-        case read
-    }
-    
-    convenience init(defect: Defect?, mode: DetailViewController.Mode) {
-        self.init(style: .grouped)
-        self.defect = defect
-        self.mode = mode
-        
-        
-    }
+    var bindings = [AnyCancellable]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray6
-        configureTableView()
-        addGestureRecognizers()
-        addObservers()
-        onChangeMode()
+        tableView.register(SectionHeader.nib, forHeaderFooterViewReuseIdentifier: SectionHeader.identifier)
+        
+        setupBinding()
+        setupDropDowns()
+        setupFor(readOnly: readOnly)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationItem.largeTitleDisplayMode = .never
+    private func setupBinding() {
+        bindings = [
+            viewModel.title.assign(to: \.text, on: titleLabel),
+            viewModel.statusContainerColor.assign(to: \.backgroundColor, on: statusContainer),
+            viewModel.statusImage.assign(to: \.image, on: statusIndicator),
+            viewModel.statusTintColor.assign(to: \.tintColor, on: statusIndicator),
+            viewModel.status.assign(to: \.text, on: statusLabel),
+            viewModel.statusTintColor.assign(to: \.textColor, on: statusLabel),
+            viewModel.dateString.assign(to: \.text, on: dateLabel),
+            viewModel.station.assign(to: \.text, on: stationLabel),
+            viewModel.station.assign(to: \.text, on: stationSearch),
+            viewModel.aircraft.assign(to: \.text, on: aircraftLabel),
+            viewModel.aircraft.assign(to: \.text, on: aircraftSearch),
+            viewModel.subchapter.assign(to: \.text, on: subchapterLabel),
+            viewModel.subchapter.assign(to: \.text, on: subchapterSearch),
+            viewModel.defectDescription.assign(to: \.text, on: defectDescriptionLabel),
+            viewModel.defectDescription.assign(to: \.text, on: defectDescriptionText),
+            viewModel.resolutionDescription.assign(to: \.text, on: resolutionDescriptionLabel),
+            viewModel.resolutionDescription.assign(to: \.text, on: resolutionDescriptionText)
+        ]
+    }
+    
+    private func setupDropDowns() {
+        stationDropDown.selectionAction = { [weak self] in self?.viewModel.station.send($1) }
+        aircraftDropDown.selectionAction = { [weak self] in self?.viewModel.aircraft.send($1) }
+        subchapterDropDown.selectionAction = { [weak self] in self?.viewModel.subchapter.send($1) }
+    }
+    
+    private func setupFor(readOnly: Bool) {
+        self.readOnly = readOnly
+        configureToolbarItems()
+        configureModeViews()
+    }
+    
+    private func configureToolbarItems() {
         navigationController?.isToolbarHidden = false
-    }
-    
-    
-    private func configureTitle() {
-        if let defect = defect {
-            title = mode == .edit ? "Edit \(defect.id)" : "Defect \(defect.id)"
+        
+        if userData.role == .pilot {
+            setToolbarItems(getPilotToolbarItems(), animated: true)
         } else {
-            title = "New Defect"
+            setToolbarItems(getTechnicianToolbarItems(), animated: true)
         }
     }
     
-    private func addGestureRecognizers() {
-        let navBarTap = UITapGestureRecognizer(target: self, action: #selector(onTap))
-        let viewTap = UITapGestureRecognizer(target: self, action: #selector(onTap))
-        navigationController?.navigationBar.addGestureRecognizer(navBarTap)
-        view.addGestureRecognizer(viewTap)
-    }
-    
-    private func addObservers() {
-        addObserver(action: #selector(onChangeMode), name: .changeMode)
-        addObserver(action: #selector(onUpdateTable), name: .updateTable)
-    }
-    
-    private func setupForMode() {
-        if mode == .edit {
-            toggleViews(viewsToHide: readViews, viewsToShow: editViews)
+    private func getPilotToolbarItems() -> [UIBarButtonItem] {
+        if readOnly {
+            return getSpacedButtonItems(with: [editButton])
         } else {
-            toggleViews(viewsToHide: editViews, viewsToShow: readViews)
+            return getSpacedButtonItems(with: [cancelButton, submitButton])
         }
     }
     
-    private func toggleViews(viewsToHide: [UIView], viewsToShow: [UIView]) {
-        for view in viewsToHide {
-            view.isHidden = true
+    private func getTechnicianToolbarItems() -> [UIBarButtonItem] {
+        if viewModel.defectIsResolved {
+            return getSpacedButtonItems(with: [archiveButton])
+        } else {
+            if readOnly {
+                return getSpacedButtonItems(with: [editButton, resolveButton])
+            } else {
+                return getSpacedButtonItems(with: [cancelButton, submitButton])
+            }
+        }
+    }
+    
+    private func configureModeViews() {
+        if readOnly {
+            for view in editViews { view.isHidden = true }
+            for view in readViews { view.isHidden = false }
+            
+            NSLayoutConstraint.deactivate(editConstraints)
+            NSLayoutConstraint.activate(readConstraints)
+        } else {
+            for view in readViews { view.isHidden = true }
+            for view in editViews { view.isHidden = false }
+            
+            NSLayoutConstraint.deactivate(readConstraints)
+            NSLayoutConstraint.activate(editConstraints)
         }
         
-        for view in viewsToShow {
-            view.isHidden = false
-        }
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
+    
+    @IBAction func onTapGesture(_ sender: Any) {
+        stationSearch.resignFirstResponder()
+        aircraftSearch.resignFirstResponder()
+        subchapterSearch.resignFirstResponder()
+        defectDescriptionText.resignFirstResponder()
+        resolutionDescriptionText.resignFirstResponder()
+    }
+
 }
 
-// MARK: - Table View
+// MARK: - TableView Delegate / Datasource
 extension DetailViewController {
-    
-    private func configureTableView() {
-//        tableView.dataSource = self
-//        tableView.delegate = self
-//        tableView.allowsSelection = false
-//        tableView.separatorStyle = .none
-        tableView.register(SectionHeader.nib, forCellReuseIdentifier: SectionHeader.reuseIdentifier)
-    }
-    
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        return detailViews.sections.count
-//    }
-    
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return detailViews.sections[section].cells.count
-//    }
-    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeader.reuseIdentifier) as? SectionHeader
-        header?.textLabel?.text = headers[section]
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeader.identifier) as! SectionHeader
+        header.textLabel?.text = headerTitles[section]
         return header
     }
     
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = detailViews.sections[indexPath.section].cells[indexPath.row]
-//        cell.scrollDelegate = self
-//        return cell
-//    }
-    
-}
-
-// MARK: Scrolling Behavior
-extension DetailViewController: CellScrollDelegate {
-    
-    func scrollTo(indexPath: IndexPath) {
-        DispatchQueue.main.async {
-            self.spacerCell.addSpace()
-            self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-        }
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return .leastNormalMagnitude
     }
-    
-    func removeSpace() {
-        spacerCell.removeSpace()
-    }
-    
 }
 
 // MARK: - Selectors
 extension DetailViewController {
     
-    @objc func onUpdateTable() {
-        self.tableView.beginUpdates()
-        self.tableView.endUpdates()
-    }
-    
-    @objc func onChangeMode() {
-        configureTitle()
-        configureToolbarItems()
-        setupForMode()
-    }
-    
-    @objc func onTap() {
-        NotificationCenter.default.post(name: .dismissKeyboard, object: nil)
-    }
-    
     @objc func onEditButtonTapped() {
-        mode = .edit
+        setupFor(readOnly: false)
     }
     
     @objc func onCancelButtonTapped() {
-        mode = .read
+        if viewModel.defectExists {
+            setupFor(readOnly: true)
+            viewModel.configureForDefect()
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
     
-    @objc func onResolveButtonTapped() {
-        defect?.resolved = true
-        updateDefect()
-        configureToolbarItems()
+    @objc func onCloseButtonTapped() {
+        do {
+            try viewModel.resolveDefect()
+            updateDefect()
+            configureToolbarItems()
+        } catch {
+            presentBasicAlert(title: "A resolution description is required to close")
+        }
     }
     
     @objc func onArchiveButtonTapped() {
-        archiveDefect()
+        viewModel.archiveDefect()
+        presentReturningAlert(title: "Defect archived")
     }
     
     @objc func onSubmitButtonTapped() {
-        scrollTo(indexPath: IndexPath(row: 0, section: 0))
-        if defect == nil {
-            createDefect()
-        } else {
+        if viewModel.defectExists {
             updateDefect()
+        } else {
+            createDefect()
         }
     }
     
@@ -217,38 +214,11 @@ extension DetailViewController {
 // MARK: Record Modification
 extension DetailViewController {
     
-    public func getNewDefectFromInput() throws -> Defect {
-        guard let sta = stationSearch.text, !sta.isEmpty,
-              let ac = aircraftSearch.text, !ac.isEmpty,
-              let ata4 = subchapterSearch.text, !ata4.isEmpty,
-              let description = descriptionText.text, !description.isEmpty
-        else {
-            throw ValidationError.missingData
-        }
-        return Defect(sta, ac, ata4, description)
-    }
-    
-    public func updateDefectFromInput(_ defect: Defect) throws {
-        guard let sta = stationSearch.text, !sta.isEmpty,
-              let ac = aircraftSearch.text, !ac.isEmpty,
-              let ata4 = subchapterSearch.text, !ata4.isEmpty,
-              let description = descriptionText.text, !description.isEmpty
-        else {
-            throw ValidationError.missingData
-        }
-        defect.sta = sta
-        defect.ac = ac
-        defect.ata4 = ata4
-        defect.description = description
-    }
-    
     private func createDefect() {
         do {
-            defect = try getNewDefectFromInput()
-            apiClient.post(defect!)
-            repository.addDefectToSections(defect!)
-            presentBasicAlert(title: "Defect \(defect!.id) created")
-            mode = .read
+            try viewModel.createDefect()
+            presentBasicAlert(title: "Defect created")
+            setupFor(readOnly: true)
         } catch {
             presentBasicAlert(title: "Error creating defect")
         }
@@ -256,47 +226,51 @@ extension DetailViewController {
     
     private func updateDefect() {
         do {
-            try updateDefectFromInput(defect!)
-            apiClient.put(defect!)
-            presentBasicAlert(title: "Defect \(defect!.id) updated")
-            mode = .read
+            try viewModel.updateDefect()
+            presentBasicAlert(title: "Defect updated")
+            setupFor(readOnly: true)
         } catch {
             presentBasicAlert(title: "Error updating defect")
         }
     }
-    
-    private func archiveDefect() {
-        apiClient.archive(defect!)
-        presentReturningAlert(title: "Defect \(defect!.id) archived")
-    }
-    
 }
 
-// MARK: Toolbar Configuration
-extension DetailViewController {
-    
-    private func configureToolbarItems() {
-        if userData.role == .analyst {
-            setToolbarItems(getAnalystToolbarItems(), animated: true)
-        } else {
-            setToolbarItems(getTechnicianToolbarItems(), animated: true)
+extension DetailViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        
+        if textView == defectDescriptionText {
+            viewModel.defectDescription.send(textView.text)
+        }
+        
+        if textView == resolutionDescriptionText {
+            viewModel.resolutionDescription.send(textView.text)
         }
     }
-    
-    private func getAnalystToolbarItems() -> [UIBarButtonItem] {
-        if defect!.resolved {
-            return getSpacedButtonItems(with: [archiveButton])
-        } else {
-            return getSpacedButtonItems(with: [resolveButton])
+}
+
+extension DetailViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar == stationSearch {
+            stationDropDown.dataSource = viewModel.matches(for: .sta, searchText)
+            stationDropDown.show()
+            
+            viewModel.station.send(searchBar.text)
+        }
+        
+        if searchBar == aircraftSearch {
+            aircraftDropDown.dataSource = viewModel.matches(for: .ac, searchText)
+            aircraftDropDown.show()
+            
+            viewModel.aircraft.send(searchBar.text)
+        }
+        
+        if searchBar == subchapterSearch {
+            subchapterDropDown.dataSource = viewModel.matches(for: .ata4, searchText)
+            subchapterDropDown.show()
+            
+            viewModel.subchapter.send(searchBar.text)
         }
     }
-    
-    private func getTechnicianToolbarItems() -> [UIBarButtonItem] {
-        if mode == .edit {
-            return getSpacedButtonItems(with: [cancelButton, submitButton])
-        } else {
-            return getSpacedButtonItems(with: [editButton])
-        }
-    }
-    
 }

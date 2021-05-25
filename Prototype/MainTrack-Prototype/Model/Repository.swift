@@ -19,6 +19,12 @@ class Repository {
     
     private let apiClient = ApiClient.shared
     
+    public enum DefectAttribute {
+        case sta
+        case ac
+        case ata4
+    }
+    
     public lazy var attributeDataDict: [DefectAttribute : [Any]] = [
         .sta : stations,
         .ac : aircraft,
@@ -61,15 +67,6 @@ class Repository {
         }
     }
     
-    public func loadDefects(for email: String, completion: @escaping() -> Void) {
-        apiClient.getDefects(for: email) { (defects) in
-            self.sections = []
-            self.defects = defects
-            self.organizeDefectsToSections()
-            completion()
-        }
-    }
-    
     private func organizeDefectsToSections() {
         for defect in defects {
             addDefectToSections(defect)
@@ -77,11 +74,11 @@ class Repository {
     }
     
     public func addDefectToSections(_ defect: Defect) {
-        if let index = sections.firstIndex(where: { $0.title == defect.defectDate.getDate()!.headerStyle() }) {
+        if let index = sections.firstIndex(where: { $0.title == defect.createdDate.getDate()!.headerStyle() }) {
             sections[index].defects.append(defect)
-            sections[index].defects.sort { $0.defectDate.getDate()! >= $1.defectDate.getDate()! }
+            sections[index].defects.sort { $0.createdDate.getDate()! >= $1.createdDate.getDate()! }
         } else {
-            sections.append(DefectSection(date: defect.defectDate.getDate()!, defects: [defect]))
+            sections.append(DefectSection(date: defect.createdDate.getDate()!, defects: [defect]))
         }
         sections.sort { $0.date.getDate()! >= $1.date.getDate()! }
     }
@@ -90,14 +87,7 @@ class Repository {
         sections = []
     }
     
-    public func matches(for attribute: DefectAttribute, _ searchText: String) -> [String] {
-        let strings = stringRepresentations(for: attribute)
-        return strings.compactMap {
-            $0.lowercased().contains(searchText.lowercased()) ? $0 : nil
-        }
-    }
-    
-    private func stringRepresentations(for attribute: DefectAttribute) -> [String] {
+    func stringRepresentations(for attribute: DefectAttribute) -> [String] {
         let strings: [String]
         switch attribute {
         case .sta:

@@ -19,5 +19,5 @@ class SectionHeader: UITableViewHeaderFooterView {
         return UINib(nibName: String(describing: self), bundle: nil)
     }
     
-    static let reuseIdentifier = String(describing: self)
+    static let identifier = String(describing: self)
 }
