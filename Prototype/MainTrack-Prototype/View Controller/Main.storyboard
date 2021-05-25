@@ -110,7 +110,7 @@
                     <connections>
                         <outlet property="emailText" destination="YDT-bu-Zr9" id="taj-Uz-NBd"/>
                         <outlet property="passwordText" destination="Wkv-ZY-trc" id="At0-Uy-CAV"/>
-                        <segue destination="0Ku-nh-NJN" kind="show" identifier="LoginSegue" id="7Y6-c5-yuU"/>
+                        <segue destination="I1l-qF-1zP" kind="show" identifier="LoginSegue" id="NAJ-ay-uV4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YSu-CW-C4a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -234,6 +234,22 @@
             </objects>
             <point key="canvasLocation" x="945" y="726"/>
         </scene>
+        <!--Home-->
+        <scene sceneID="FGG-Nd-ebx">
+            <objects>
+                <viewController id="I1l-qF-1zP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JfF-bV-Fxb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="XIa-A4-Bp3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Home" id="Mdg-0M-eDj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rxa-1H-kDZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1739" y="3"/>
+        </scene>
         <!--Feed View Controller-->
         <scene sceneID="4Bz-9I-d9C">
             <objects>
@@ -266,7 +282,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kzw-ny-S6C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1844.9275362318842" y="2.6785714285714284"/>
+            <point key="canvasLocation" x="2533" y="3"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Qbm-Ly-zXX">
@@ -616,7 +632,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2698.5507246376815" y="2.6785714285714284"/>
+            <point key="canvasLocation" x="3387" y="3"/>
         </scene>
     </scenes>
     <resources>
