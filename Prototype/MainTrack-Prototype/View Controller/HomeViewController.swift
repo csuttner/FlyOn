@@ -11,6 +11,8 @@ class HomeViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(SectionHeader.nib, forHeaderFooterViewReuseIdentifier: SectionHeader.identifier)
+        tableView.tableFooterView = UIView(frame: .zero)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -22,10 +24,13 @@ class HomeViewController: UITableViewController {
         navigationController?.navigationBar.isHidden = false
     }
     
-    // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
 
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeader.identifier) as! SectionHeader
+        header.textLabel?.text = "My Work"
+        return header
+    }
 }

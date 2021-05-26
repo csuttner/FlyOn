@@ -13,3 +13,10 @@ class RoundedView: UIView {
         layer.cornerRadius = .cornerRadius
     }
 }
+
+class RoundedDetailView: UIView {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = 6
+    }
+}
