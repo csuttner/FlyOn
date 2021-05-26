@@ -236,7 +236,7 @@
         <!--Home-->
         <scene sceneID="gxa-Sv-dCG">
             <objects>
-                <tableViewController id="hqK-Ol-TbJ" sceneMemberID="viewController">
+                <tableViewController id="hqK-Ol-TbJ" customClass="HomeViewController" customModule="MainTrack_Prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="40" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" id="dYT-ta-DvC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
