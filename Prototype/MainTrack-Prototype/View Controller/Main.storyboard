@@ -424,21 +424,6 @@
             </objects>
             <point key="canvasLocation" x="1744.9275362318842" y="2.6785714285714284"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="4wB-rk-Ki8">
-            <objects>
-                <viewController id="5Jj-F1-0ON" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xHo-Ps-qRJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="plK-5d-O1O"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LtF-4Y-1p4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1745" y="661"/>
-        </scene>
         <!--Feed View Controller-->
         <scene sceneID="4Bz-9I-d9C">
             <objects>
