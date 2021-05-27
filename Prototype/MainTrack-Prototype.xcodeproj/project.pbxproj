@@ -44,6 +44,8 @@
 		F39D3A2126335BF10081B977 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39D3A2026335BF10081B977 /* DetailViewModel.swift */; };
 		F3B0F35926201768005E4BDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3B0F35826201768005E4BDA /* Main.storyboard */; };
 		F3BD8D102630EFB300408CC2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BD8D0F2630EFB300408CC2 /* DetailViewController.swift */; };
+		F3E5A8E0265FF6B400C39B88 /* SearchHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E5A8DF265FF6B400C39B88 /* SearchHeader.swift */; };
+		F3E5A8E3265FF6E800C39B88 /* SearchHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3E5A8E2265FF6E800C39B88 /* SearchHeader.xib */; };
 		F3E8A4E5265D74480024FD4F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E8A4E4265D74480024FD4F /* HomeViewController.swift */; };
 		F3EC40ED25FC7D92004A9A5D /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40EC25FC7D92004A9A5D /* RoundedView.swift */; };
 		F3EC40F925FC8CB1004A9A5D /* DescriptionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F825FC8CB1004A9A5D /* DescriptionTextView.swift */; };
@@ -91,6 +93,8 @@
 		F39D3A2026335BF10081B977 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		F3B0F35826201768005E4BDA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F3BD8D0F2630EFB300408CC2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F3E5A8DF265FF6B400C39B88 /* SearchHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeader.swift; sourceTree = "<group>"; };
+		F3E5A8E2265FF6E800C39B88 /* SearchHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHeader.xib; sourceTree = "<group>"; };
 		F3E8A4E4265D74480024FD4F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F3EC40EC25FC7D92004A9A5D /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		F3EC40F825FC8CB1004A9A5D /* DescriptionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTextView.swift; sourceTree = "<group>"; };
@@ -162,6 +166,8 @@
 				F3663F242623F1B800386237 /* FeedCell.swift */,
 				F3663F2D2623F7BC00386237 /* SectionHeader.xib */,
 				F3663F2A2623F77D00386237 /* SectionHeader.swift */,
+				F3E5A8E2265FF6E800C39B88 /* SearchHeader.xib */,
+				F3E5A8DF265FF6B400C39B88 /* SearchHeader.swift */,
 				F34A75E225F94F6F000F2DF8 /* Helpers */,
 			);
 			path = View;
@@ -327,6 +333,7 @@
 				F3B0F35926201768005E4BDA /* Main.storyboard in Resources */,
 				F398681825FD9DE200DF52FD /* sta.json in Resources */,
 				F3663F2E2623F7BC00386237 /* SectionHeader.xib in Resources */,
+				F3E5A8E3265FF6E800C39B88 /* SearchHeader.xib in Resources */,
 				F398681E25FD9E0200DF52FD /* ata.json in Resources */,
 				F398681B25FD9DF300DF52FD /* ac.json in Resources */,
 				F34586CD26054C2D00845A56 /* GoogleService-Info.plist in Resources */,
@@ -399,6 +406,7 @@
 				F3EC40F925FC8CB1004A9A5D /* DescriptionTextView.swift in Sources */,
 				F3BD8D102630EFB300408CC2 /* DetailViewController.swift in Sources */,
 				F398682425FDA18E00DF52FD /* AircraftModel.swift in Sources */,
+				F3E5A8E0265FF6B400C39B88 /* SearchHeader.swift in Sources */,
 				F378DB4625F68157002042D1 /* AppDelegate.swift in Sources */,
 				F398682125FDA13D00DF52FD /* AtaModel.swift in Sources */,
 				F3663F262623F1B800386237 /* FeedCell.swift in Sources */,
