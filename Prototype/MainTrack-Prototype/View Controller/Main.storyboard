@@ -236,7 +236,6 @@
         <!--Home-->
         <scene sceneID="gxa-Sv-dCG">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yNI-9I-lCk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="hqK-Ol-TbJ" customClass="HomeViewController" customModule="MainTrack_Prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="30" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="dYT-ta-DvC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -285,6 +284,9 @@
                                                 <constraint firstItem="cZe-Gj-S45" firstAttribute="leading" secondItem="Jci-Mx-eJE" secondAttribute="leading" constant="16" id="ulP-hK-HSj"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="0Ku-nh-NJN" kind="show" id="E9B-wT-ABC"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="56" id="Wrg-OW-QvZ">
                                         <rect key="frame" x="20" y="86" width="374" height="56"/>
@@ -418,6 +420,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus.circle" catalog="system" id="xpk-13-dKQ"/>
                     </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yNI-9I-lCk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1744.9275362318842" y="2.6785714285714284"/>
         </scene>
@@ -455,11 +458,6 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Defects" id="CrV-pN-Geq">
                         <barButtonItem key="backBarButtonItem" title=" " id="JRB-ni-3VW"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="person.circle" catalog="system" id="hyn-Je-Zdc">
-                            <connections>
-                                <action selector="onProfileButtonTapped:" destination="0Ku-nh-NJN" id="lA8-dV-pFH"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -826,7 +824,6 @@
         <image name="building.2.crop.circle" catalog="system" width="128" height="121"/>
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <image name="exclamationmark.circle" catalog="system" width="128" height="121"/>
-        <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

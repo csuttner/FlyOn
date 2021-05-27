@@ -28,7 +28,6 @@ class FeedViewController: UITableViewController {
     }
     
     private func configureNavigationController() {
-        navigationItem.hidesBackButton = true
         navigationController?.navigationBar.isHidden = false
         navigationController?.isToolbarHidden = false
         setToolbarItems(getSpacedButtonItems(with: [newDefectButton]), animated: true)
@@ -36,16 +35,6 @@ class FeedViewController: UITableViewController {
     
     @objc func onNewDefectButtonTapped() {
         performSegue(withIdentifier: "ShowDetailSegue", sender: self)
-    }
-    
-    @IBAction func onProfileButtonTapped(_ sender: Any) {
-        do {
-            try Auth.auth().signOut()
-            navigationController?.popViewController(animated: true)
-            repository.clearDefects()
-        } catch let error {
-            presentBasicAlert(title: "Error signing out", message: error.localizedDescription)
-        }
     }
 
     // MARK: - Table View
