@@ -44,17 +44,13 @@ class FeedViewController: UITableViewController {
         tableView.tableFooterView = UIView(frame: .zero)
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return repository.sections.count
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repository.sections[section].defects.count
+        return repository.defects.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(FeedCell.self)!
-        let defect = repository.sections[indexPath.section].defects[indexPath.row]
+        let defect = repository.defects[indexPath.row]
         
         cell.configure(with: FeedCellViewModel(defect: defect))
         
@@ -70,7 +66,7 @@ class FeedViewController: UITableViewController {
             let detailViewController = segue.destination as! DetailViewController
             
             if let indexPath = tableView.indexPathForSelectedRow {
-                let defect = repository.sections[indexPath.section].defects[indexPath.row]
+                let defect = repository.defects[indexPath.row]
                 detailViewController.viewModel = DetailViewModel(defect: defect)
                 detailViewController.readOnly = true
             } else {

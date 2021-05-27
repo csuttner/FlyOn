@@ -8,12 +8,10 @@
 import Foundation
 
 class Repository {
-    
-    var defects: [Defect]!
+    var defects = [Defect]()
     var stations: [Station]!
     var aircraft: [Aircraft]!
     var chapters: [Chapter]!
-    var sections = [DefectSection]()
     
     public static let shared = Repository()
     
@@ -60,31 +58,13 @@ class Repository {
     
     public func loadAllDefects(completion: @escaping() -> Void) {
         apiClient.getAllDefects { (defects) in
-            self.sections = []
-            self.defects = defects
-            self.organizeDefectsToSections()
+            self.defects = defects.sorted { $0.createdDate.getDate()! > $1.createdDate.getDate()! }
             completion()
         }
     }
-    
-    private func organizeDefectsToSections() {
-        for defect in defects {
-            addDefectToSections(defect)
-        }
-    }
-    
-    public func addDefectToSections(_ defect: Defect) {
-        if let index = sections.firstIndex(where: { $0.title == defect.createdDate.getDate()!.headerStyle() }) {
-            sections[index].defects.append(defect)
-            sections[index].defects.sort { $0.createdDate.getDate()! >= $1.createdDate.getDate()! }
-        } else {
-            sections.append(DefectSection(date: defect.createdDate.getDate()!, defects: [defect]))
-        }
-        sections.sort { $0.date.getDate()! >= $1.date.getDate()! }
-    }
 
     public func clearDefects() {
-        sections = []
+        defects = []
     }
     
     func stringRepresentations(for attribute: DefectAttribute) -> [String] {
