@@ -17,11 +17,11 @@ extension Date {
         let day = hour * 24
         
         if duration < hour {
-            return "\(duration / minute)m"
+            return "\(Int(duration / minute))m"
         } else if duration < day {
-            return "\(duration / hour)h"
+            return "\(Int(duration / hour))h"
         } else {
-            return "\(duration / day)d"
+            return "\(Int(duration / day))d"
         }
     }
     
