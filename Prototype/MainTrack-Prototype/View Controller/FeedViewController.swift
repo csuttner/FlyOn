@@ -41,7 +41,6 @@ class FeedViewController: UITableViewController {
     
     private func configureTableView() {
         tableView.register(FeedCell.self)
-        tableView.register(SectionHeader.nib, forHeaderFooterViewReuseIdentifier: SectionHeader.identifier)
         tableView.tableFooterView = UIView(frame: .zero)
     }
     
@@ -60,12 +59,6 @@ class FeedViewController: UITableViewController {
         cell.configure(with: FeedCellViewModel(defect: defect))
         
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeader.identifier) as! SectionHeader
-        header.textLabel?.text = repository.sections[section].title
-        return header
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
