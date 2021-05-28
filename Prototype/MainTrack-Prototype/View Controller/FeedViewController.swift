@@ -10,6 +10,7 @@ import FirebaseAuth
 
 class FeedViewController: UITableViewController {
     let repository = Repository.shared
+    let searchController = UISearchController()
     
     lazy var newDefectButton = ActionButton(title: "New Defect", color: .systemGreen, target: self, action: #selector(onNewDefectButtonTapped))
 
@@ -30,6 +31,11 @@ class FeedViewController: UITableViewController {
     private func configureNavigationController() {
         navigationController?.navigationBar.isHidden = false
         navigationController?.isToolbarHidden = false
+        
+        searchController.searchBar.searchBarStyle = .minimal
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        
         setToolbarItems(getSpacedButtonItems(with: [newDefectButton]), animated: true)
     }
     

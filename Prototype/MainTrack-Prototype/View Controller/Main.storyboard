@@ -441,9 +441,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Defects" id="CrV-pN-Geq">
-                        <barButtonItem key="backBarButtonItem" title=" " id="JRB-ni-3VW"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Defects" id="CrV-pN-Geq"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="GsQ-cd-y2R" kind="show" identifier="ShowDetailSegue" id="OQ1-LW-DrE"/>
