@@ -8,20 +8,24 @@
 import UIKit
 
 class HomeViewController: UITableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.register(SectionHeader.nib, forHeaderFooterViewReuseIdentifier: SectionHeader.identifier)
-        tableView.tableFooterView = UIView(frame: .zero)
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationController()
+        configureTableView()
     }
 
     private func configureNavigationController() {
         navigationItem.hidesBackButton = true
         navigationController?.navigationBar.isHidden = false
+    }
+    
+    private func configureTableView() {
+        tableView.register(SectionHeader.nib, forHeaderFooterViewReuseIdentifier: SectionHeader.identifier)
+        tableView.tableFooterView = UIView(frame: .zero)
+        
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selectedIndexPath, animated: true)
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
