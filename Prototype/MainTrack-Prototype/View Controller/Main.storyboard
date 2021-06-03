@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xkM-Mk-gzq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xkM-Mk-gzq">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -44,23 +44,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WOj-rn-jCv" customClass="RoundedView" customModule="MainTrack_Prototype" customModuleProvider="target">
-                                <rect key="frame" x="87" y="330" width="240" height="236"/>
+                                <rect key="frame" x="87" y="338" width="240" height="220"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="A3a-im-03L">
-                                        <rect key="frame" x="16" y="16" width="208" height="204"/>
+                                        <rect key="frame" x="16" y="16" width="208" height="188"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YDT-bu-Zr9">
-                                                <rect key="frame" x="0.0" y="0.0" width="208" height="39"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="208" height="35"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wkv-ZY-trc">
-                                                <rect key="frame" x="0.0" y="55" width="208" height="39"/>
+                                                <rect key="frame" x="0.0" y="51" width="208" height="35"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FN-Ar-qzn" customClass="RoundedButton" customModule="MainTrack_Prototype" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="110" width="208" height="39"/>
+                                                <rect key="frame" x="0.0" y="102" width="208" height="35"/>
                                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <state key="normal" title="Login">
@@ -71,7 +71,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpA-ld-PVg" customClass="RoundedButton" customModule="MainTrack_Prototype" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="165" width="208" height="39"/>
+                                                <rect key="frame" x="0.0" y="153" width="208" height="35"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <state key="normal" title="Sign Up">
@@ -130,31 +130,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r4F-rh-f9W" customClass="RoundedView" customModule="MainTrack_Prototype" customModuleProvider="target">
-                                <rect key="frame" x="87" y="275" width="240" height="346"/>
+                                <rect key="frame" x="87" y="287" width="240" height="322"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="din-mA-hN9">
-                                        <rect key="frame" x="16" y="16" width="208" height="314"/>
+                                        <rect key="frame" x="16" y="16" width="208" height="290"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QO4-ix-Zi6">
-                                                <rect key="frame" x="0.0" y="0.0" width="208" height="39"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="208" height="35"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q4P-oY-Mow">
-                                                <rect key="frame" x="0.0" y="55" width="208" height="39"/>
+                                                <rect key="frame" x="0.0" y="51" width="208" height="35"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Pg-xM-HOL">
-                                                <rect key="frame" x="0.0" y="110" width="208" height="39"/>
+                                                <rect key="frame" x="0.0" y="102" width="208" height="35"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ztX-O5-uCw">
-                                                <rect key="frame" x="0.0" y="165" width="208" height="39"/>
+                                                <rect key="frame" x="0.0" y="153" width="208" height="35"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKH-oL-frK" customClass="RoundedButton" customModule="MainTrack_Prototype" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="208" height="39"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="208" height="35"/>
                                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                         <state key="normal" title="Choose Role">
@@ -165,7 +165,7 @@
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOV-yx-pxJ" userLabel="Anchor View">
-                                                        <rect key="frame" x="0.0" y="39" width="208" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="35" width="208" height="0.0"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" id="yGS-Bw-4Th"/>
@@ -174,7 +174,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ydd-XN-Ah2" customClass="RoundedButton" customModule="MainTrack_Prototype" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="220" width="208" height="39"/>
+                                                <rect key="frame" x="0.0" y="204" width="208" height="35"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <state key="normal" title="Submit">
@@ -185,7 +185,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNG-BK-XyJ" customClass="RoundedButton" customModule="MainTrack_Prototype" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="275" width="208" height="39"/>
+                                                <rect key="frame" x="0.0" y="255" width="208" height="35"/>
                                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <state key="normal" title="Cancel">
@@ -249,7 +249,7 @@
                                         <rect key="frame" x="20" y="30" width="374" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="44I-KP-pfu" id="Jci-Mx-eJE">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="56"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="344.5" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZe-Gj-S45" customClass="RoundedDetailView" customModule="MainTrack_Prototype" customModuleProvider="target">
@@ -292,7 +292,7 @@
                                         <rect key="frame" x="20" y="86" width="374" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wrg-OW-QvZ" id="urq-oT-E7m">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="56"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="344.5" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kwm-qa-NHt" customClass="RoundedDetailView" customModule="MainTrack_Prototype" customModuleProvider="target">
@@ -332,7 +332,7 @@
                                         <rect key="frame" x="20" y="142" width="374" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tad-eA-8A4" id="Zve-ER-dqL">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="56"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="344.5" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bg4-zu-XHR" customClass="RoundedDetailView" customModule="MainTrack_Prototype" customModuleProvider="target">
@@ -372,7 +372,7 @@
                                         <rect key="frame" x="20" y="198" width="374" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nTb-wc-Qpo" id="VKK-Nq-jxw">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="56"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="344.5" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hCs-0B-sgb" customClass="RoundedDetailView" customModule="MainTrack_Prototype" customModuleProvider="target">
@@ -451,6 +451,21 @@
             </objects>
             <point key="canvasLocation" x="2533" y="3"/>
         </scene>
+        <!--New Defect View Controller-->
+        <scene sceneID="AMm-yp-EXj">
+            <objects>
+                <viewController id="Mrz-s9-358" customClass="NewDefectViewController" customModule="MainTrack_Prototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qAP-CX-fdj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="G6N-1F-mlT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W8x-mE-U17" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1745" y="726"/>
+        </scene>
         <!--Detail View Controller-->
         <scene sceneID="Qbm-Ly-zXX">
             <objects>
@@ -461,25 +476,25 @@
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <gestureRecognizers/>
                         <view key="tableHeaderView" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g2O-38-jRp" userLabel="Table Header">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zyU-Uj-YVl">
-                                    <rect key="frame" x="16" y="8" width="79.5" height="77"/>
+                                    <rect key="frame" x="16" y="8" width="79.5" height="73.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJR-f2-fx2">
-                                            <rect key="frame" x="0.0" y="0.0" width="43.5" height="20.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="37" height="17"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k70-Ei-4q2">
-                                            <rect key="frame" x="0.0" y="24.5" width="41.5" height="20.5"/>
+                                            <rect key="frame" x="0.0" y="21" width="41.5" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" systemColor="systemGrayColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJw-0L-WE9" customClass="RoundedView" customModule="MainTrack_Prototype" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="49" width="79.5" height="28"/>
+                                            <rect key="frame" x="0.0" y="45.5" width="79.5" height="28"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="GEp-j5-teF" userLabel="Status Stack View">
                                                     <rect key="frame" x="8" y="4" width="63.5" height="20"/>
@@ -523,7 +538,7 @@
                             <tableViewSection id="V6u-UY-539">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="Knk-a5-BaX" userLabel="Station Cell">
-                                        <rect key="frame" x="0.0" y="111" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="107.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Knk-a5-BaX" id="YVy-TE-em1">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -566,7 +581,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="yoq-f7-QAr" userLabel="Aircraft Cell">
-                                        <rect key="frame" x="0.0" y="154.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="151" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yoq-f7-QAr" id="fhP-GU-TOl">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -609,7 +624,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="8Gu-Me-gcj" userLabel="Subchapter Cell">
-                                        <rect key="frame" x="0.0" y="198" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="194.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Gu-Me-gcj" id="DOR-1A-mLj">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -656,7 +671,7 @@
                             <tableViewSection id="mNF-hK-T0j">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="OYb-Ab-r5I" userLabel="Defect Description Cell">
-                                        <rect key="frame" x="0.0" y="277.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="274" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OYb-Ab-r5I" id="yfX-dM-Eu8">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -696,7 +711,7 @@
                             <tableViewSection id="YBD-q8-sJE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="JHy-jE-hlr" userLabel="Description Cell">
-                                        <rect key="frame" x="0.0" y="357" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="353.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JHy-jE-hlr" id="O8e-Ke-dSh">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
