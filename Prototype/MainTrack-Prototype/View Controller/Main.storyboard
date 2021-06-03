@@ -256,7 +256,7 @@
                             <outlet property="delegate" destination="6ib-NO-0Ag" id="Lmb-Tf-aw4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="KLZ-xm-K5C"/>
+                    <navigationItem key="navigationItem" title="Create a new defect" prompt="Choose an aircraft" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="KLZ-xm-K5C"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bnp-d6-Ml5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -482,7 +482,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kzw-ny-S6C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2533" y="3"/>
+            <point key="canvasLocation" x="2655" y="3"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Qbm-Ly-zXX">
@@ -832,7 +832,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3387" y="3"/>
+            <point key="canvasLocation" x="3510" y="3"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EMr-rD-uyO">
