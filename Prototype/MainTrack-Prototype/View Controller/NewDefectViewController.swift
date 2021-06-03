@@ -7,6 +7,6 @@
 
 import UIKit
 
-class NewDefectViewController: UIViewController {
+class NewDefectViewController: UITableViewController {
     
 }

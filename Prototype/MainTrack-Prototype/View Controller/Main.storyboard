@@ -233,6 +233,34 @@
             </objects>
             <point key="canvasLocation" x="945" y="726"/>
         </scene>
+        <!--New Defect View Controller-->
+        <scene sceneID="Y99-XH-CLZ">
+            <objects>
+                <tableViewController id="6ib-NO-0Ag" customClass="NewDefectViewController" customModule="MainTrack_Prototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bzA-al-8WO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="wMi-8V-WzR">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wMi-8V-WzR" id="RSn-vs-Ct8">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6ib-NO-0Ag" id="fYS-qH-8zE"/>
+                            <outlet property="delegate" destination="6ib-NO-0Ag" id="Lmb-Tf-aw4"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bnp-d6-Ml5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1745" y="726"/>
+        </scene>
         <!--Home-->
         <scene sceneID="gxa-Sv-dCG">
             <objects>
@@ -417,7 +445,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Home" id="7fK-jH-co0">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus.circle" catalog="system" id="xpk-13-dKQ"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus.circle" catalog="system" id="xpk-13-dKQ">
+                            <connections>
+                                <segue destination="6ib-NO-0Ag" kind="presentation" id="yKc-eh-ePy"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yNI-9I-lCk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -450,21 +482,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kzw-ny-S6C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2533" y="3"/>
-        </scene>
-        <!--New Defect View Controller-->
-        <scene sceneID="AMm-yp-EXj">
-            <objects>
-                <viewController id="Mrz-s9-358" customClass="NewDefectViewController" customModule="MainTrack_Prototype" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qAP-CX-fdj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="G6N-1F-mlT"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W8x-mE-U17" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1745" y="726"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Qbm-Ly-zXX">
