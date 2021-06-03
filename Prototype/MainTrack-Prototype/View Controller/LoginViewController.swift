@@ -17,7 +17,6 @@ class LoginViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
-        navigationController?.isToolbarHidden = true
         
         if let emailString = UserDefaults().value(forKey: "email") as? String,
            let passwordString = UserDefaults().value(forKey: "password") as? String{

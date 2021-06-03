@@ -94,38 +94,7 @@ class DetailViewController: UITableViewController {
     
     private func setupFor(readOnly: Bool) {
         self.readOnly = readOnly
-        configureToolbarItems()
         configureModeViews()
-    }
-    
-    private func configureToolbarItems() {
-        navigationController?.isToolbarHidden = false
-        
-        if userData.role == .pilot {
-            setToolbarItems(getPilotToolbarItems(), animated: true)
-        } else {
-            setToolbarItems(getTechnicianToolbarItems(), animated: true)
-        }
-    }
-    
-    private func getPilotToolbarItems() -> [UIBarButtonItem] {
-        if readOnly {
-            return getSpacedButtonItems(with: [editButton])
-        } else {
-            return getSpacedButtonItems(with: [cancelButton, submitButton])
-        }
-    }
-    
-    private func getTechnicianToolbarItems() -> [UIBarButtonItem] {
-        if viewModel.defectIsResolved {
-            return getSpacedButtonItems(with: [archiveButton])
-        } else {
-            if readOnly {
-                return getSpacedButtonItems(with: [editButton, resolveButton])
-            } else {
-                return getSpacedButtonItems(with: [cancelButton, submitButton])
-            }
-        }
     }
     
     private func configureModeViews() {
@@ -190,7 +159,6 @@ extension DetailViewController {
         do {
             try viewModel.resolveDefect()
             updateDefect()
-            configureToolbarItems()
         } catch {
             presentBasicAlert(title: "A resolution description is required to close")
         }
