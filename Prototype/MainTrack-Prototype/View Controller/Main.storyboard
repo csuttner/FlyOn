@@ -233,10 +233,10 @@
             </objects>
             <point key="canvasLocation" x="945" y="726"/>
         </scene>
-        <!--New Defect View Controller-->
+        <!--Create a new defect-->
         <scene sceneID="Y99-XH-CLZ">
             <objects>
-                <tableViewController id="6ib-NO-0Ag" customClass="NewDefectViewController" customModule="MainTrack_Prototype" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Create a new defect" id="6ib-NO-0Ag" customClass="NewDefectViewController" customModule="MainTrack_Prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bzA-al-8WO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
