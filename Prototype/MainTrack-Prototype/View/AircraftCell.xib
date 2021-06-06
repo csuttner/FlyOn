@@ -54,7 +54,7 @@
                 <outlet property="aircraftLabel" destination="K9g-p6-RKo" id="pCb-ro-joa"/>
                 <outlet property="stationLabel" destination="IkD-EY-zVH" id="y3c-kv-lAn"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="140.29017857142856"/>
+            <point key="canvasLocation" x="137.68115942028987" y="139.62053571428569"/>
         </tableViewCell>
     </objects>
 </document>

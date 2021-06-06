@@ -242,7 +242,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="wMi-8V-WzR">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AircraftCell" id="wMi-8V-WzR">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wMi-8V-WzR" id="RSn-vs-Ct8">
@@ -356,6 +356,9 @@
                                                 <constraint firstItem="Zdb-SJ-X3d" firstAttribute="leading" secondItem="Kwm-qa-NHt" secondAttribute="trailing" constant="12" id="r7y-yE-fVb"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Oh6-wb-RSx" kind="show" id="0a7-Q5-tp0"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="56" id="tad-eA-8A4">
                                         <rect key="frame" x="20" y="142" width="374" height="56"/>
@@ -396,6 +399,9 @@
                                                 <constraint firstAttribute="bottom" secondItem="Bg4-zu-XHR" secondAttribute="bottom" constant="12" id="ngK-Sb-of7"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="yqa-cS-FY0" kind="show" id="br3-Rf-gAA"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="56" id="nTb-wc-Qpo">
                                         <rect key="frame" x="20" y="198" width="374" height="56"/>
@@ -436,6 +442,9 @@
                                                 <constraint firstItem="5fF-eK-Saj" firstAttribute="centerY" secondItem="hCs-0B-sgb" secondAttribute="centerY" id="nZu-VL-s02"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="JNB-wH-sEl" kind="show" id="dCA-p2-TRQ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -456,6 +465,92 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yNI-9I-lCk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1744.9275362318842" y="2.6785714285714284"/>
+        </scene>
+        <!--Stations-->
+        <scene sceneID="eD4-uP-Hai">
+            <objects>
+                <tableViewController id="JNB-wH-sEl" customClass="StationTableViewController" customModule="MainTrack_Prototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="do1-03-GQy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="HKl-dp-7LB">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HKl-dp-7LB" id="4aR-ap-LlA">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="JNB-wH-sEl" id="Y53-48-Vap"/>
+                            <outlet property="delegate" destination="JNB-wH-sEl" id="UkC-T8-KTj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Stations" id="rSd-2N-BSk"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6yo-SJ-jQy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2655" y="3"/>
+        </scene>
+        <!--Maintenance Sign-Off-->
+        <scene sceneID="5CV-Cb-GCl">
+            <objects>
+                <viewController id="Oh6-wb-RSx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s2F-gF-2Pp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming Soon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Rd-iK-myY">
+                                <rect key="frame" x="155.5" y="437.5" width="103" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Uoy-fU-syn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Rd-iK-myY" firstAttribute="centerY" secondItem="s2F-gF-2Pp" secondAttribute="centerY" id="9hR-H3-cpH"/>
+                            <constraint firstItem="6Rd-iK-myY" firstAttribute="centerX" secondItem="s2F-gF-2Pp" secondAttribute="centerX" id="mwK-5y-6jM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Maintenance Sign-Off" id="9XO-d0-LmV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1th-Jy-oZY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2655" y="-1386"/>
+        </scene>
+        <!--Aircraft-->
+        <scene sceneID="2dS-Ax-Hbk">
+            <objects>
+                <tableViewController title="Aircraft" id="yqa-cS-FY0" customClass="AircraftTableViewController" customModule="MainTrack_Prototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aV7-NY-sAR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="rtu-Zx-KbO">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rtu-Zx-KbO" id="XC3-7C-n6s">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yqa-cS-FY0" id="XPR-va-Syv"/>
+                            <outlet property="delegate" destination="yqa-cS-FY0" id="fus-GC-lC7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Aircraft" id="Y6g-DY-XuC"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D3X-Vf-hR5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2655" y="-703"/>
         </scene>
         <!--Feed View Controller-->
         <scene sceneID="4Bz-9I-d9C">
@@ -482,7 +577,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kzw-ny-S6C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2655" y="3"/>
+            <point key="canvasLocation" x="2655" y="-2072"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Qbm-Ly-zXX">
@@ -832,7 +927,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3510" y="3"/>
+            <point key="canvasLocation" x="3510" y="-2072"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EMr-rD-uyO">
