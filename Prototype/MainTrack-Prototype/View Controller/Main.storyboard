@@ -236,7 +236,7 @@
         <!--Create a new defect-->
         <scene sceneID="Y99-XH-CLZ">
             <objects>
-                <tableViewController title="Create a new defect" id="6ib-NO-0Ag" customClass="NewDefectViewController" customModule="MainTrack_Prototype" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Create a new defect" id="6ib-NO-0Ag" customClass="ChooseAnAircraftViewController" customModule="MainTrack_Prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bzA-al-8WO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -256,7 +256,16 @@
                             <outlet property="delegate" destination="6ib-NO-0Ag" id="Lmb-Tf-aw4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Create a new defect" prompt="Choose an aircraft" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="KLZ-xm-K5C"/>
+                    <navigationItem key="navigationItem" title="Create a new defect" prompt="Choose an aircraft" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="KLZ-xm-K5C">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="4kD-vd-Pjk">
+                            <connections>
+                                <action selector="cancelTapped:" destination="6ib-NO-0Ag" id="VEY-I0-GKg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="xuv-sl-CB6" kind="presentation" id="3FQ-z1-LS2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bnp-d6-Ml5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -946,6 +955,99 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZPe-DE-8qU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1744.9275362318842" y="725.89285714285711"/>
+        </scene>
+        <!--Create a new defect-->
+        <scene sceneID="j5p-i4-gmN">
+            <objects>
+                <viewController id="Qkc-Di-Qgk" customClass="EnterDefectDetailsViewController" customModule="MainTrack_Prototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qA7-ed-2e3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mxT-k2-Zlf">
+                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2K8-cn-Pt4">
+                                        <rect key="frame" x="16" y="100" width="382" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XXL-hb-mya">
+                                        <rect key="frame" x="16" y="144" width="382" height="598"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Station" translatesAutoresizingMaskIntoConstraints="NO" id="2gQ-yJ-VVv">
+                                        <rect key="frame" x="8" y="2" width="398" height="51"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="ATA Code" translatesAutoresizingMaskIntoConstraints="NO" id="NAz-SF-ytl">
+                                        <rect key="frame" x="8" y="47" width="398" height="51"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="2gQ-yJ-VVv" firstAttribute="leading" secondItem="ZqW-Dw-Txv" secondAttribute="leading" constant="8" id="2TP-hx-dwy"/>
+                                    <constraint firstItem="NAz-SF-ytl" firstAttribute="trailing" secondItem="ZqW-Dw-Txv" secondAttribute="trailing" constant="-8" id="5zL-V4-ahD"/>
+                                    <constraint firstItem="2gQ-yJ-VVv" firstAttribute="top" secondItem="ZqW-Dw-Txv" secondAttribute="top" constant="2" id="JEC-vN-TAW"/>
+                                    <constraint firstItem="NAz-SF-ytl" firstAttribute="top" secondItem="2gQ-yJ-VVv" secondAttribute="bottom" constant="-6" id="ROm-nV-lwh"/>
+                                    <constraint firstItem="ZqW-Dw-Txv" firstAttribute="bottom" secondItem="XXL-hb-mya" secondAttribute="bottom" constant="10" id="XX5-EL-ndO"/>
+                                    <constraint firstItem="ZqW-Dw-Txv" firstAttribute="trailing" secondItem="2K8-cn-Pt4" secondAttribute="trailing" constant="16" id="ZBR-G2-itp"/>
+                                    <constraint firstItem="XXL-hb-mya" firstAttribute="top" secondItem="2K8-cn-Pt4" secondAttribute="bottom" constant="10" id="dZB-Yg-xwb"/>
+                                    <constraint firstItem="XXL-hb-mya" firstAttribute="leading" secondItem="ZqW-Dw-Txv" secondAttribute="leading" constant="16" id="eBC-pC-GCC"/>
+                                    <constraint firstItem="2K8-cn-Pt4" firstAttribute="top" secondItem="NAz-SF-ytl" secondAttribute="bottom" constant="2" id="hhx-gu-Wxt"/>
+                                    <constraint firstItem="2gQ-yJ-VVv" firstAttribute="trailing" secondItem="ZqW-Dw-Txv" secondAttribute="trailing" constant="-8" id="iwo-9d-l2u"/>
+                                    <constraint firstItem="2K8-cn-Pt4" firstAttribute="leading" secondItem="ZqW-Dw-Txv" secondAttribute="leading" constant="16" id="prG-TJ-kzj"/>
+                                    <constraint firstItem="ZqW-Dw-Txv" firstAttribute="trailing" secondItem="XXL-hb-mya" secondAttribute="trailing" constant="16" id="rCB-ax-LJd"/>
+                                    <constraint firstItem="NAz-SF-ytl" firstAttribute="leading" secondItem="ZqW-Dw-Txv" secondAttribute="leading" constant="8" id="sbe-Uk-tlo"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="hVV-MX-ECV"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="ZqW-Dw-Txv"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kXB-42-6Bd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kXB-42-6Bd" firstAttribute="bottom" secondItem="mxT-k2-Zlf" secondAttribute="bottom" id="2Es-zj-SLr"/>
+                            <constraint firstItem="mxT-k2-Zlf" firstAttribute="top" secondItem="kXB-42-6Bd" secondAttribute="top" id="IGp-yh-cvG"/>
+                            <constraint firstItem="kXB-42-6Bd" firstAttribute="trailing" secondItem="mxT-k2-Zlf" secondAttribute="trailing" id="dgY-JC-GNR"/>
+                            <constraint firstItem="mxT-k2-Zlf" firstAttribute="leading" secondItem="kXB-42-6Bd" secondAttribute="leading" id="tAl-h9-teQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create a new defect" id="XpF-LT-r6y">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="14v-uY-Sgs"/>
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="3ih-aL-acv"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ataCodeSearchbar" destination="NAz-SF-ytl" id="E0N-ci-fud"/>
+                        <outlet property="descriptionTextView" destination="XXL-hb-mya" id="4Mo-xI-elh"/>
+                        <outlet property="stationSearchbar" destination="2gQ-yJ-VVv" id="IqC-Nb-j9y"/>
+                        <outlet property="titleTextField" destination="2K8-cn-Pt4" id="Jli-yc-R2O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZYh-35-DGz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4418.840579710145" y="725.89285714285711"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="p35-X6-mGu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xuv-sl-CB6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z45-Iu-bbt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Qkc-Di-Qgk" kind="relationship" relationship="rootViewController" id="rV3-du-169"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b12-oU-IK3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3508.6956521739135" y="725.89285714285711"/>
         </scene>
     </scenes>
     <resources>

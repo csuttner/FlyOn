@@ -1,5 +1,5 @@
 //
-//  NewDefectViewController.swift
+//  ChooseAnAircraftViewController.swift
 //  MainTrack-Prototype
 //
 //  Created by Clay Suttner on 6/3/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewDefectViewController: UITableViewController {
+class ChooseAnAircraftViewController: UITableViewController {
     let repository = Repository.shared
     let searchController = UISearchController()
     
@@ -16,6 +16,10 @@ class NewDefectViewController: UITableViewController {
 
         configureNavigationController()
         configureTableView()
+    }
+    
+    @IBAction func cancelTapped(_ sender: Any) {
+        dismiss(animated: true)
     }
     
     private func configureNavigationController() {
