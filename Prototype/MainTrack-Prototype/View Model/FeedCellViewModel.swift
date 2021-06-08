@@ -12,6 +12,7 @@ class FeedCellViewModel {
     let tintColor: UIColor
     let heading: String
     let description: String
+    var timeSymbol: String = ""
     
     init(defect: Defect) {
         if defect.isResolved {
@@ -24,5 +25,9 @@ class FeedCellViewModel {
         
         heading = "\(defect.creatorName) / \(defect.sta) - \(defect.ac) - \(defect.id)"
         description = defect.defectDescription
+        
+        if let createdDate = defect.createdDate.getDate() {
+            timeSymbol = createdDate.timeSymbol
+        }
     }
 }

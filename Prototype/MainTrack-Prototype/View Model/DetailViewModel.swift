@@ -133,7 +133,7 @@ class DetailViewModel {
     func createDefect() throws {
         defect = try getNewDefectFromInput()
         apiClient.post(defect!)
-        repository.addDefectToSections(defect!)
+        repository.defects.append(defect!)
         configureForDefect()
         configureForStatus()
     }

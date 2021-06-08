@@ -24,10 +24,17 @@
 		F3663F272623F1B800386237 /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3663F252623F1B800386237 /* FeedCell.xib */; };
 		F3663F2B2623F77D00386237 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3663F2A2623F77D00386237 /* SectionHeader.swift */; };
 		F3663F2E2623F7BC00386237 /* SectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3663F2D2623F7BC00386237 /* SectionHeader.xib */; };
+		F3706FA1266D44280087B1BB /* AircraftTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3706FA0266D44280087B1BB /* AircraftTableViewController.swift */; };
+		F3706FA4266D59320087B1BB /* StationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3706FA2266D59320087B1BB /* StationCell.swift */; };
+		F3706FA5266D59320087B1BB /* StationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3706FA3266D59320087B1BB /* StationCell.xib */; };
+		F3706FA7266D60E00087B1BB /* StationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3706FA6266D60E00087B1BB /* StationCellViewModel.swift */; };
+		F3706FA9266D62CD0087B1BB /* StationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3706FA8266D62CD0087B1BB /* StationTableViewController.swift */; };
 		F378DB4625F68157002042D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F378DB4525F68157002042D1 /* AppDelegate.swift */; };
 		F378DB4F25F6815A002042D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F378DB4E25F6815A002042D1 /* Assets.xcassets */; };
 		F378DB5225F6815A002042D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F378DB5025F6815A002042D1 /* LaunchScreen.storyboard */; };
 		F380276625FC91CE00B5FFD2 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380276525FC91CE00B5FFD2 /* UserModel.swift */; };
+		F389175B266EB8D900BAEEAD /* EnterDefectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389175A266EB8D900BAEEAD /* EnterDefectDetailsViewController.swift */; };
+		F389175D266F2A2400BAEEAD /* EnterDefectDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389175C266F2A2400BAEEAD /* EnterDefectDetailsViewModel.swift */; };
 		F389721325F8071700F66ADC /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389721225F8071700F66ADC /* DateExtensions.swift */; };
 		F398680725FD803300DF52FD /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398680625FD803300DF52FD /* ApiClient.swift */; };
 		F398680A25FD8A0600DF52FD /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398680925FD8A0600DF52FD /* Errors.swift */; };
@@ -44,6 +51,11 @@
 		F39D3A2126335BF10081B977 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39D3A2026335BF10081B977 /* DetailViewModel.swift */; };
 		F3B0F35926201768005E4BDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3B0F35826201768005E4BDA /* Main.storyboard */; };
 		F3BD8D102630EFB300408CC2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BD8D0F2630EFB300408CC2 /* DetailViewController.swift */; };
+		F3DB0D0E26691AEA00BE3B29 /* ChooseAnAircraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DB0D0D26691AEA00BE3B29 /* ChooseAnAircraftViewController.swift */; };
+		F3DB0D11266923A500BE3B29 /* AircraftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DB0D0F266923A500BE3B29 /* AircraftCell.swift */; };
+		F3DB0D12266923A500BE3B29 /* AircraftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3DB0D10266923A500BE3B29 /* AircraftCell.xib */; };
+		F3DB0D142669372500BE3B29 /* AircraftCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DB0D132669372500BE3B29 /* AircraftCellViewModel.swift */; };
+		F3E8A4E5265D74480024FD4F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E8A4E4265D74480024FD4F /* HomeViewController.swift */; };
 		F3EC40ED25FC7D92004A9A5D /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40EC25FC7D92004A9A5D /* RoundedView.swift */; };
 		F3EC40F925FC8CB1004A9A5D /* DescriptionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EC40F825FC8CB1004A9A5D /* DescriptionTextView.swift */; };
 /* End PBXBuildFile section */
@@ -68,12 +80,19 @@
 		F3663F252623F1B800386237 /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
 		F3663F2A2623F77D00386237 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		F3663F2D2623F7BC00386237 /* SectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeader.xib; sourceTree = "<group>"; };
+		F3706FA0266D44280087B1BB /* AircraftTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftTableViewController.swift; sourceTree = "<group>"; };
+		F3706FA2266D59320087B1BB /* StationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCell.swift; sourceTree = "<group>"; };
+		F3706FA3266D59320087B1BB /* StationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StationCell.xib; sourceTree = "<group>"; };
+		F3706FA6266D60E00087B1BB /* StationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCellViewModel.swift; sourceTree = "<group>"; };
+		F3706FA8266D62CD0087B1BB /* StationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTableViewController.swift; sourceTree = "<group>"; };
 		F378DB4225F68157002042D1 /* MainTrack-Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MainTrack-Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F378DB4525F68157002042D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F378DB4E25F6815A002042D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F378DB5125F6815A002042D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F378DB5325F6815A002042D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F380276525FC91CE00B5FFD2 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		F389175A266EB8D900BAEEAD /* EnterDefectDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterDefectDetailsViewController.swift; sourceTree = "<group>"; };
+		F389175C266F2A2400BAEEAD /* EnterDefectDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterDefectDetailsViewModel.swift; sourceTree = "<group>"; };
 		F389721225F8071700F66ADC /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		F398680625FD803300DF52FD /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		F398680925FD8A0600DF52FD /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
@@ -90,6 +109,11 @@
 		F39D3A2026335BF10081B977 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		F3B0F35826201768005E4BDA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F3BD8D0F2630EFB300408CC2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F3DB0D0D26691AEA00BE3B29 /* ChooseAnAircraftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAnAircraftViewController.swift; sourceTree = "<group>"; };
+		F3DB0D0F266923A500BE3B29 /* AircraftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftCell.swift; sourceTree = "<group>"; };
+		F3DB0D10266923A500BE3B29 /* AircraftCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AircraftCell.xib; sourceTree = "<group>"; };
+		F3DB0D132669372500BE3B29 /* AircraftCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftCellViewModel.swift; sourceTree = "<group>"; };
+		F3E8A4E4265D74480024FD4F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F3EC40EC25FC7D92004A9A5D /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		F3EC40F825FC8CB1004A9A5D /* DescriptionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +182,10 @@
 			children = (
 				F3663F252623F1B800386237 /* FeedCell.xib */,
 				F3663F242623F1B800386237 /* FeedCell.swift */,
+				F3DB0D10266923A500BE3B29 /* AircraftCell.xib */,
+				F3DB0D0F266923A500BE3B29 /* AircraftCell.swift */,
+				F3706FA3266D59320087B1BB /* StationCell.xib */,
+				F3706FA2266D59320087B1BB /* StationCell.swift */,
 				F3663F2D2623F7BC00386237 /* SectionHeader.xib */,
 				F3663F2A2623F77D00386237 /* SectionHeader.swift */,
 				F34A75E225F94F6F000F2DF8 /* Helpers */,
@@ -242,6 +270,9 @@
 			isa = PBXGroup;
 			children = (
 				F39D3A1D26335BE10081B977 /* FeedCellViewModel.swift */,
+				F3DB0D132669372500BE3B29 /* AircraftCellViewModel.swift */,
+				F3706FA6266D60E00087B1BB /* StationCellViewModel.swift */,
+				F389175C266F2A2400BAEEAD /* EnterDefectDetailsViewModel.swift */,
 				F39D3A2026335BF10081B977 /* DetailViewModel.swift */,
 			);
 			path = "View Model";
@@ -253,6 +284,11 @@
 				F3B0F35826201768005E4BDA /* Main.storyboard */,
 				F34A75D925F94B4E000F2DF8 /* LoginViewController.swift */,
 				F30F0DA325F9AD1F00A4E664 /* SignupViewController.swift */,
+				F3E8A4E4265D74480024FD4F /* HomeViewController.swift */,
+				F3DB0D0D26691AEA00BE3B29 /* ChooseAnAircraftViewController.swift */,
+				F389175A266EB8D900BAEEAD /* EnterDefectDetailsViewController.swift */,
+				F3706FA0266D44280087B1BB /* AircraftTableViewController.swift */,
+				F3706FA8266D62CD0087B1BB /* StationTableViewController.swift */,
 				F34A75CE25F93D59000F2DF8 /* FeedViewController.swift */,
 				F3BD8D0F2630EFB300408CC2 /* DetailViewController.swift */,
 			);
@@ -320,11 +356,13 @@
 			files = (
 				F378DB5225F6815A002042D1 /* LaunchScreen.storyboard in Resources */,
 				F378DB4F25F6815A002042D1 /* Assets.xcassets in Resources */,
+				F3706FA5266D59320087B1BB /* StationCell.xib in Resources */,
 				F3663F272623F1B800386237 /* FeedCell.xib in Resources */,
 				F3B0F35926201768005E4BDA /* Main.storyboard in Resources */,
 				F398681825FD9DE200DF52FD /* sta.json in Resources */,
 				F3663F2E2623F7BC00386237 /* SectionHeader.xib in Resources */,
 				F398681E25FD9E0200DF52FD /* ata.json in Resources */,
+				F3DB0D12266923A500BE3B29 /* AircraftCell.xib in Resources */,
 				F398681B25FD9DF300DF52FD /* ac.json in Resources */,
 				F34586CD26054C2D00845A56 /* GoogleService-Info.plist in Resources */,
 			);
@@ -384,12 +422,16 @@
 				F39D3A2126335BF10081B977 /* DetailViewModel.swift in Sources */,
 				F39D3A1E26335BE10081B977 /* FeedCellViewModel.swift in Sources */,
 				F34A75CF25F93D59000F2DF8 /* FeedViewController.swift in Sources */,
+				F3E8A4E5265D74480024FD4F /* HomeViewController.swift in Sources */,
 				F350B1C325FEE90A0041C09E /* UUIDExtensions.swift in Sources */,
 				F30F0DA425F9AD1F00A4E664 /* SignupViewController.swift in Sources */,
+				F389175D266F2A2400BAEEAD /* EnterDefectDetailsViewModel.swift in Sources */,
 				F398680A25FD8A0600DF52FD /* Errors.swift in Sources */,
 				F3EC40ED25FC7D92004A9A5D /* RoundedView.swift in Sources */,
 				F398680725FD803300DF52FD /* ApiClient.swift in Sources */,
+				F3706FA7266D60E00087B1BB /* StationCellViewModel.swift in Sources */,
 				F398683525FDB8FE00DF52FD /* NotificationExtensions.swift in Sources */,
+				F389175B266EB8D900BAEEAD /* EnterDefectDetailsViewController.swift in Sources */,
 				F3663F2B2623F77D00386237 /* SectionHeader.swift in Sources */,
 				F34A75E725F95100000F2DF8 /* ActionButton.swift in Sources */,
 				F3EC40F925FC8CB1004A9A5D /* DescriptionTextView.swift in Sources */,
@@ -399,15 +441,21 @@
 				F398682125FDA13D00DF52FD /* AtaModel.swift in Sources */,
 				F3663F262623F1B800386237 /* FeedCell.swift in Sources */,
 				F380276625FC91CE00B5FFD2 /* UserModel.swift in Sources */,
+				F3DB0D142669372500BE3B29 /* AircraftCellViewModel.swift in Sources */,
 				F346655425F73438004340B7 /* DefectModel.swift in Sources */,
 				F389721325F8071700F66ADC /* DateExtensions.swift in Sources */,
 				F3063CD725F86A4A00278A02 /* GGFloatExtensions.swift in Sources */,
+				F3706FA1266D44280087B1BB /* AircraftTableViewController.swift in Sources */,
 				F3663F212623F0DA00386237 /* TableViewExtensions.swift in Sources */,
+				F3DB0D11266923A500BE3B29 /* AircraftCell.swift in Sources */,
 				F32C30B526012AE6008E4DC4 /* StringExtensions.swift in Sources */,
 				F34E51C326058893000B4E36 /* LoadingView.swift in Sources */,
+				F3706FA4266D59320087B1BB /* StationCell.swift in Sources */,
 				F34A75DA25F94B4E000F2DF8 /* LoginViewController.swift in Sources */,
+				F3DB0D0E26691AEA00BE3B29 /* ChooseAnAircraftViewController.swift in Sources */,
 				F398681325FD8F2A00DF52FD /* ViewControllerExtensions.swift in Sources */,
 				F346656025F73990004340B7 /* Repository.swift in Sources */,
+				F3706FA9266D62CD0087B1BB /* StationTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

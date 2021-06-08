@@ -10,8 +10,7 @@ import FirebaseAuth
 
 class FeedViewController: UITableViewController {
     let repository = Repository.shared
-    
-    lazy var newDefectButton = ActionButton(title: "New Defect", color: .systemGreen, target: self, action: #selector(onNewDefectButtonTapped))
+    let searchController = UISearchController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,55 +27,31 @@ class FeedViewController: UITableViewController {
     }
     
     private func configureNavigationController() {
-        navigationItem.hidesBackButton = true
         navigationController?.navigationBar.isHidden = false
-        navigationController?.isToolbarHidden = false
-        setToolbarItems(getSpacedButtonItems(with: [newDefectButton]), animated: true)
-    }
-    
-    @objc func onNewDefectButtonTapped() {
-        performSegue(withIdentifier: "ShowDetailSegue", sender: self)
-    }
-    
-    @IBAction func onProfileButtonTapped(_ sender: Any) {
-        do {
-            try Auth.auth().signOut()
-            navigationController?.popViewController(animated: true)
-            repository.clearDefects()
-        } catch let error {
-            presentBasicAlert(title: "Error signing out", message: error.localizedDescription)
-        }
+        
+        searchController.searchBar.searchBarStyle = .minimal
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
 
     // MARK: - Table View
     
     private func configureTableView() {
         tableView.register(FeedCell.self)
-        tableView.register(SectionHeader.nib, forHeaderFooterViewReuseIdentifier: SectionHeader.identifier)
         tableView.tableFooterView = UIView(frame: .zero)
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return repository.sections.count
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repository.sections[section].defects.count
+        return repository.defects.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(FeedCell.self)!
-        let defect = repository.sections[indexPath.section].defects[indexPath.row]
+        let defect = repository.defects[indexPath.row]
         
         cell.configure(with: FeedCellViewModel(defect: defect))
         
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeader.identifier) as! SectionHeader
-        header.textLabel?.text = repository.sections[section].title
-        return header
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -88,7 +63,7 @@ class FeedViewController: UITableViewController {
             let detailViewController = segue.destination as! DetailViewController
             
             if let indexPath = tableView.indexPathForSelectedRow {
-                let defect = repository.sections[indexPath.section].defects[indexPath.row]
+                let defect = repository.defects[indexPath.row]
                 detailViewController.viewModel = DetailViewModel(defect: defect)
                 detailViewController.readOnly = true
             } else {

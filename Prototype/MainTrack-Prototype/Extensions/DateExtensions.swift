@@ -8,6 +8,23 @@
 import Foundation
 
 extension Date {
+    var timeSymbol: String {
+        let interval = DateInterval(start: self, end: Date())
+        let duration = interval.duration
+        
+        let minute: Double = 60
+        let hour = minute * 60
+        let day = hour * 24
+        
+        if duration < hour {
+            return "\(Int(duration / minute))m"
+        } else if duration < day {
+            return "\(Int(duration / hour))h"
+        } else {
+            return "\(Int(duration / day))d"
+        }
+    }
+    
     func headerStyle() -> String {
         let formatter = DateFormatter()
         formatter.timeStyle = .none
