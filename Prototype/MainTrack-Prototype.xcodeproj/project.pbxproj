@@ -34,6 +34,7 @@
 		F378DB5225F6815A002042D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F378DB5025F6815A002042D1 /* LaunchScreen.storyboard */; };
 		F380276625FC91CE00B5FFD2 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380276525FC91CE00B5FFD2 /* UserModel.swift */; };
 		F389175B266EB8D900BAEEAD /* EnterDefectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389175A266EB8D900BAEEAD /* EnterDefectDetailsViewController.swift */; };
+		F389175D266F2A2400BAEEAD /* EnterDefectDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389175C266F2A2400BAEEAD /* EnterDefectDetailsViewModel.swift */; };
 		F389721325F8071700F66ADC /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389721225F8071700F66ADC /* DateExtensions.swift */; };
 		F398680725FD803300DF52FD /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398680625FD803300DF52FD /* ApiClient.swift */; };
 		F398680A25FD8A0600DF52FD /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398680925FD8A0600DF52FD /* Errors.swift */; };
@@ -91,6 +92,7 @@
 		F378DB5325F6815A002042D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F380276525FC91CE00B5FFD2 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		F389175A266EB8D900BAEEAD /* EnterDefectDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterDefectDetailsViewController.swift; sourceTree = "<group>"; };
+		F389175C266F2A2400BAEEAD /* EnterDefectDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterDefectDetailsViewModel.swift; sourceTree = "<group>"; };
 		F389721225F8071700F66ADC /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		F398680625FD803300DF52FD /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		F398680925FD8A0600DF52FD /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				F39D3A1D26335BE10081B977 /* FeedCellViewModel.swift */,
 				F3DB0D132669372500BE3B29 /* AircraftCellViewModel.swift */,
 				F3706FA6266D60E00087B1BB /* StationCellViewModel.swift */,
+				F389175C266F2A2400BAEEAD /* EnterDefectDetailsViewModel.swift */,
 				F39D3A2026335BF10081B977 /* DetailViewModel.swift */,
 			);
 			path = "View Model";
@@ -422,6 +425,7 @@
 				F3E8A4E5265D74480024FD4F /* HomeViewController.swift in Sources */,
 				F350B1C325FEE90A0041C09E /* UUIDExtensions.swift in Sources */,
 				F30F0DA425F9AD1F00A4E664 /* SignupViewController.swift in Sources */,
+				F389175D266F2A2400BAEEAD /* EnterDefectDetailsViewModel.swift in Sources */,
 				F398680A25FD8A0600DF52FD /* Errors.swift in Sources */,
 				F3EC40ED25FC7D92004A9A5D /* RoundedView.swift in Sources */,
 				F398680725FD803300DF52FD /* ApiClient.swift in Sources */,

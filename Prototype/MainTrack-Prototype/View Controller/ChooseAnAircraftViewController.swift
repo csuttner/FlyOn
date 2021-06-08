@@ -42,4 +42,20 @@ class ChooseAnAircraftViewController: UITableViewController {
         cell.configure(with: AircraftCellViewModel(aircraft: aircraft))
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "EnterDefectDetailsSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EnterDefectDetailsSegue" {
+            let navigationController = segue.destination as! UINavigationController
+            let enterDefectDetailsViewController = navigationController.viewControllers.first! as! EnterDefectDetailsViewController
+            
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let aircraft = repository.aircraft[indexPath.row]
+                enterDefectDetailsViewController.viewModel = EnterDefectDetailsViewModel(aircraft: aircraft)
+            }
+        }
+    }
 }

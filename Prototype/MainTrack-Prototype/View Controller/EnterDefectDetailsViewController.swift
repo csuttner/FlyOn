@@ -13,4 +13,11 @@ class EnterDefectDetailsViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     
+    var viewModel: EnterDefectDetailsViewModel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationItem.prompt = viewModel.aircraftString
+    }
 }

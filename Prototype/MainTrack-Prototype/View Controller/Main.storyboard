@@ -264,7 +264,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="xuv-sl-CB6" kind="presentation" id="3FQ-z1-LS2"/>
+                        <segue destination="xuv-sl-CB6" kind="presentation" identifier="EnterDefectDetailsSegue" id="3FQ-z1-LS2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bnp-d6-Ml5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -967,16 +967,16 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mxT-k2-Zlf">
                                 <rect key="frame" x="0.0" y="56" width="414" height="752"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2K8-cn-Pt4">
-                                        <rect key="frame" x="16" y="100" width="382" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2K8-cn-Pt4">
+                                        <rect key="frame" x="16" y="100" width="382" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XXL-hb-mya">
-                                        <rect key="frame" x="16" y="144" width="382" height="598"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="scrollableAxes" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XXL-hb-mya">
+                                        <rect key="frame" x="11" y="135.5" width="392" height="606.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Station" translatesAutoresizingMaskIntoConstraints="NO" id="2gQ-yJ-VVv">
@@ -988,6 +988,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                 </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="2gQ-yJ-VVv" firstAttribute="leading" secondItem="ZqW-Dw-Txv" secondAttribute="leading" constant="8" id="2TP-hx-dwy"/>
                                     <constraint firstItem="NAz-SF-ytl" firstAttribute="trailing" secondItem="ZqW-Dw-Txv" secondAttribute="trailing" constant="-8" id="5zL-V4-ahD"/>
@@ -996,11 +997,11 @@
                                     <constraint firstItem="ZqW-Dw-Txv" firstAttribute="bottom" secondItem="XXL-hb-mya" secondAttribute="bottom" constant="10" id="XX5-EL-ndO"/>
                                     <constraint firstItem="ZqW-Dw-Txv" firstAttribute="trailing" secondItem="2K8-cn-Pt4" secondAttribute="trailing" constant="16" id="ZBR-G2-itp"/>
                                     <constraint firstItem="XXL-hb-mya" firstAttribute="top" secondItem="2K8-cn-Pt4" secondAttribute="bottom" constant="10" id="dZB-Yg-xwb"/>
-                                    <constraint firstItem="XXL-hb-mya" firstAttribute="leading" secondItem="ZqW-Dw-Txv" secondAttribute="leading" constant="16" id="eBC-pC-GCC"/>
+                                    <constraint firstItem="XXL-hb-mya" firstAttribute="leading" secondItem="ZqW-Dw-Txv" secondAttribute="leading" constant="11" id="eBC-pC-GCC"/>
                                     <constraint firstItem="2K8-cn-Pt4" firstAttribute="top" secondItem="NAz-SF-ytl" secondAttribute="bottom" constant="2" id="hhx-gu-Wxt"/>
                                     <constraint firstItem="2gQ-yJ-VVv" firstAttribute="trailing" secondItem="ZqW-Dw-Txv" secondAttribute="trailing" constant="-8" id="iwo-9d-l2u"/>
                                     <constraint firstItem="2K8-cn-Pt4" firstAttribute="leading" secondItem="ZqW-Dw-Txv" secondAttribute="leading" constant="16" id="prG-TJ-kzj"/>
-                                    <constraint firstItem="ZqW-Dw-Txv" firstAttribute="trailing" secondItem="XXL-hb-mya" secondAttribute="trailing" constant="16" id="rCB-ax-LJd"/>
+                                    <constraint firstItem="ZqW-Dw-Txv" firstAttribute="trailing" secondItem="XXL-hb-mya" secondAttribute="trailing" constant="11" id="rCB-ax-LJd"/>
                                     <constraint firstItem="NAz-SF-ytl" firstAttribute="leading" secondItem="ZqW-Dw-Txv" secondAttribute="leading" constant="8" id="sbe-Uk-tlo"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="hVV-MX-ECV"/>
